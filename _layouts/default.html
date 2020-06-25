@@ -44,13 +44,14 @@
         {% if site.github.is_project_page %}
           <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
         {% endif %}
-        <center class="site-footer-credits" onload="this.innerText=(new Date()).getFullYear();"></center>
+        <center class="site-footer-credits js-footer-year"></center>
       </footer>
     </main>
     <script type="text/javascript">
       user = "artyom.yagovdik";
       domain = "gmail.com";
       document.querySelector('header').innerHTML+='<a class="btn" target="_blank" href=\"mailto:' + user + '@' + domain + '\">Email</a>';
+      document.querySelector('.js-footer-year').innerText = (new Date()).getFullYear();
     </script>
   </body>
 </html>
