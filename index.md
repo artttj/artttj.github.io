@@ -61,11 +61,13 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Led and mentored back-end developers.
 
 ### Back-End Developer on job seekers' platform startup.
+---
 #### Solution stack: Laravel, MySQL, Redis, AWS. 3rd party APIs: Stripe, Sendgrid, Twilio. Developed sign up, job seeker search using skills matrix; Email sending, SMS-notifications. 
 
 ### Back-End Developer on ads posting platform startup (craigslist clone). 
+---
 #### Solution stack: Laravel, MySQL, Redis, LEMP on VPS. 3rd party APIs: SecurionPay, Sendgrid, Twilio, Google Maps, Cloudflare. Worked on geolocation detection feature; Payment integration with SecurionPay; Ads posting and navigation.
-
+---
 #### Other: Developed CI/CD for the Laravel Spark project using Gitlab CI, Helm, and Kubernetes in Google Cloud; Maintained few Magento CE 1.9 stores; Worked with SuiteCRM: developed module for API integration with ZenDesk; Worked on server migration from AWS to Azure and database migration from MySQL 5.7 to MS SQL for Laravel project; Spoke at [local events](https://vk.com/wall-61592613_1249). 
 
 ## Web-Developer at [A2 Design](https://www.a2design.biz/), Early 2015 -- Late 2016
