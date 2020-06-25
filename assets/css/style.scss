@@ -44,6 +44,6 @@ summary::-webkit-details-marker {
     display: none
 }
 
-summary:after {
+summary:before {
     content: "-> "
 }
