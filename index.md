@@ -80,7 +80,9 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Developed Node.js service using Twitter Streaming API, that parses replies to the posts on Twitter in real-time. This feature had no analogs in the market.
 
 -   Worked on new algorithms of advertising tiles appearing.
+
 </details>
+
 ###  Full-Stack developer on Analytics service for social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio). 
 #### Solution stack: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
 
