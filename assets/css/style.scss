@@ -47,3 +47,7 @@ summary::-webkit-details-marker {
 summary:before {
     content: "-> "
 }
+
+.main-content ul li {
+    list-style: none;
+}
