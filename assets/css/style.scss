@@ -22,9 +22,9 @@ body {
     color: #000;
 }
 
-.main-content h3:before {
+/*.main-content h3:before {
     content: "-> ";
-}
+}*/
 
 .main-content h3::first-letter {
     font-weight: 700;
