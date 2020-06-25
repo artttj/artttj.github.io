@@ -43,6 +43,8 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 <details>
     <summary>Achievements</summary>
 
+---
+
 -   Maintained service with more than 10K active Stripe customers.
 
 -   Developed automated tickets reporting which reduced the manual work of employees.
@@ -58,6 +60,8 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 #### Framework: Magento Enterprise Edition 1.14.x (Zend Framework based e-commerce system, PHP, MySQL). 3rd party APIs: PayPal, Moneris, Descartes Shipping Carrier, Mandrill, FDA and more.
 <details>
     <summary>Achievements</summary>
+
+---
 
 -   Worked on a new subscription box that made a profit for the company.
 
@@ -84,6 +88,8 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 <details>
     <summary>Achievements</summary>
 
+---
+
 -   Fully maintained SPA on Backbone.js and developed a bunch of features.
 
 -   Developed a mobile version of the social widget, that increased product sales.
@@ -97,6 +103,8 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 #### Solution stack: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
 <details>
     <summary>Achievements</summary>
+
+---
 
 -   Worked on the REST API to collect and show aggregated analytics data.
 
@@ -112,6 +120,8 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 <details>
     <summary>Achievements</summary>
 
+---
+
 -   Developed REST API to collect and show coordinates and metrics from shipping containers.
 
 -   Developed SPA to manage and display telemetry data in real-time.
@@ -123,6 +133,8 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 #### Solution stack: CakePHP 3.x, MySQL, Angular JS. 3rd-party APIs: Stripe, LinkedIn, Twitter, Facebook, Mandrill, Litmus. 
 <details>
     <summary>Achievements</summary>
+
+---
 
 -   Developed drag and drop builder for landing pages and email templates (Angular JS SPA). 
 
