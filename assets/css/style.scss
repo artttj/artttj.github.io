@@ -39,3 +39,11 @@ summary {
     cursor: pointer;
     outline: none;
 }
+
+summary::-webkit-details-marker {
+    display: none
+}
+
+summary:after {
+    content: "-> "
+}
