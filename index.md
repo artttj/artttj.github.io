@@ -12,7 +12,7 @@ PHP, Laravel, Magento 2, SQL, NoSQL, Redis, OOP, SOLID, SOA, REST API, LEMP, Kub
 Experience
 ==========
 
-### Lead Web-Developer at [A2 Design](https://www.a2design.biz/), Late 2016 -- Late 2019.
+## Lead Web-Developer at [A2 Design](https://www.a2design.biz/), Late 2016 -- Late 2019.
 
 Web Application Development Company, a [partner](https://laravel.com/partner/a2-design) of Laravel, ~50 employees.
 
@@ -65,7 +65,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 
 #### Other: Developed CI/CD for the Laravel Spark project using Gitlab CI, Helm, and Kubernetes in Google Cloud; Maintained few Magento CE 1.9 stores; Worked with SuiteCRM: developed module for API integration with ZenDesk; Worked on server migration from AWS to Azure and database migration from MySQL 5.7 to MS SQL for Laravel project; Spoke at [local events](https://vk.com/wall-61592613_1249). 
 
-### Web-Developer at [A2 Design](https://www.a2design.biz/), Early 2015 -- Late 2016
+## Web-Developer at [A2 Design](https://www.a2design.biz/), Early 2015 -- Late 2016
 
 Web Application Development Company, a [partner](https://laravel.com/partner/a2-design) of Laravel, ~50 employees.
 
