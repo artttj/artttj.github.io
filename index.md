@@ -35,6 +35,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   The team coped with this task in 6 months.
 
 ### Tech Lead on New York theater tickets booking website.
+---
 #### 2 back-end developers, 2 QAs. Solution stack: Ruby On Rails 2.x, PostgreSQL, Redis, NGINX, Docker, Ext.js, Amazon AWS. 3rd party APIs: Stripe, Mandrill, Sentry, Cloudflare.
 
 -   Maintained service with more than 10K active Stripe customers.
@@ -48,6 +49,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Implemented zero-downtime deployment.
 
 ###  Back-End Developer on huge Canadian e-commerce stores. Case Study: [ShirtPunch](https://www.thinkforwardmedia.com/portfolio/shirtpunch/), [Nerd Block](https://www.thinkforwardmedia.com/portfolio/nerdblock/).
+---
 #### Framework: Magento Enterprise Edition 1.14.x (Zend Framework based e-commerce system, PHP, MySQL). 3rd party APIs: PayPal, Moneris, Descartes Shipping Carrier, Mandrill, FDA and more.
 
 -   Worked on a new subscription box that made a profit for the company.
@@ -71,6 +73,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 Web Application Development Company, a [partner](https://laravel.com/partner/a2-design) of Laravel, ~50 employees.
 
 ###  Full-Stack developer on social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio).
+---
 #### Solution stack: CakePHP 2.x, MySQL, Docker, Redis, JSONP, Require.js, Backbone.js, Vanilla JS. Integrated APIs: Instagram, Twitter, G+, Youtube, Yammer. 3rd-party APIs: Google CloudVision, Geocoding API.
 
 -   Fully maintained SPA on Backbone.js and developed a bunch of features.
@@ -82,6 +85,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Worked on new algorithms of advertising tiles appearing.
 
 ###  Full-Stack developer on Analytics service for social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio). 
+---
 #### Solution stack: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
 
 -   Worked on the REST API to collect and show aggregated analytics data.
@@ -93,6 +97,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Analytics feature made the product more competitive and it has attracted new customers.
 
 ###  Full-Stack developer on Real-time cargo tracking and monitoring web dashboard.
+---
 #### Solution stack: Lumen PHP Framework, MongoDB, Docker, Node.js Pub/Sub, Redis, Socket.IO, Angular JS. 3rd-party APIs: Geocoding services chain.
 
 -   Developed REST API to collect and show coordinates and metrics from shipping containers.
@@ -102,6 +107,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Developed a real-time map that shows containers' location.
 
 ### Full-Stack developer on marketing campaigns startup [CampaignConnex](https://www.campaignconnex.com/).
+---
 #### Solution stack: CakePHP 3.x, MySQL, Angular JS. 3rd-party APIs: Stripe, LinkedIn, Twitter, Facebook, Mandrill, Litmus. 
 
 -   Developed drag and drop builder for landing pages and email templates (Angular JS SPA). 
