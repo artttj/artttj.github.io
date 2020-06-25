@@ -14,7 +14,7 @@ Experience
 
 ## Lead Web-Developer at [A2 Design](https://www.a2design.biz/), Late 2016 -- Late 2019.
 
-Web Application Development Company, a [partner](https://laravel.com/partner/a2-design) of Laravel, ~50 employees.
+Web Application Development Company, a [partner](https://laravel.com/partners) of Laravel, ~50 employees.
 
 ###   Team Lead on New York tours booking startup. Case Study: [Sightsy](https://www.a2design.biz/portfolio/sightsy).
 #### 4 back-end developers, 1 front-end developer, 1 QA. Solution stack: Laravel, MySQL, NGINX, Redis, JQuery, Webpack, Amazon AWS. 3rd party APIs: Authorize.NET, Google Maps, Sentry, Sendgrid. 
@@ -77,7 +77,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 
 ## Web-Developer at [A2 Design](https://www.a2design.biz/), Early 2015 -- Late 2016
 
-Web Application Development Company, a [partner](https://laravel.com/partner/a2-design) of Laravel, ~50 employees.
+Web Application Development Company, a [partner](https://laravel.com/partners) of Laravel, ~50 employees.
 
 ###  Full-Stack developer on social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio).
 #### Solution stack: CakePHP 2.x, MySQL, Docker, Redis, JSONP, Require.js, Backbone.js, Vanilla JS. Integrated APIs: Instagram, Twitter, G+, Youtube, Yammer. 3rd-party APIs: Google CloudVision, Geocoding API.
