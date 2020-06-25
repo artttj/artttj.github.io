@@ -35,8 +35,11 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 
 -   The team coped with this task in 6 months.
 </details>
+
 ### Tech Lead on New York theater tickets booking website.
 #### 2 back-end developers, 2 QAs. Solution stack: Ruby On Rails 2.x, PostgreSQL, Redis, NGINX, Docker, Ext.js, Amazon AWS. 3rd party APIs: Stripe, Mandrill, Sentry, Cloudflare.
+<details>
+    <summary>Achievements</summary>
 
 -   Maintained service with more than 10K active Stripe customers.
 
@@ -47,9 +50,12 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Developed new promo logic for subscriptions that increased income.
 
 -   Implemented zero-downtime deployment.
+</details>
 
 ###  Back-End Developer on huge Canadian e-commerce stores. Case Study: [ShirtPunch](https://www.thinkforwardmedia.com/portfolio/shirtpunch/), [Nerd Block](https://www.thinkforwardmedia.com/portfolio/nerdblock/).
 #### Framework: Magento Enterprise Edition 1.14.x (Zend Framework based e-commerce system, PHP, MySQL). 3rd party APIs: PayPal, Moneris, Descartes Shipping Carrier, Mandrill, FDA and more.
+<details>
+    <summary>Achievements</summary>
 
 -   Worked on a new subscription box that made a profit for the company.
 
@@ -58,6 +64,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Worked on a huge store redesign that has been approved by customers and increased conversion rate.
 
 -   Led and mentored back-end developers.
+</details>
 
 ### Back-End Developer on job seekers' platform startup.
 #### Solution stack: Laravel, MySQL, Redis, AWS. 3rd party APIs: Stripe, Sendgrid, Twilio. Developed sign up, job seeker search using skills matrix; Email sending, SMS-notifications. 
@@ -72,6 +79,8 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 
 ###  Full-Stack developer on social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio).
 #### Solution stack: CakePHP 2.x, MySQL, Docker, Redis, JSONP, Require.js, Backbone.js, Vanilla JS. Integrated APIs: Instagram, Twitter, G+, Youtube, Yammer. 3rd-party APIs: Google CloudVision, Geocoding API.
+<details>
+    <summary>Achievements</summary>
 
 -   Fully maintained SPA on Backbone.js and developed a bunch of features.
 
@@ -80,9 +89,12 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Developed Node.js service using Twitter Streaming API, that parses replies to the posts on Twitter in real-time. This feature had no analogs in the market.
 
 -   Worked on new algorithms of advertising tiles appearing.
+</details>
 
 ###  Full-Stack developer on Analytics service for social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio). 
 #### Solution stack: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
+<details>
+    <summary>Achievements</summary>
 
 -   Worked on the REST API to collect and show aggregated analytics data.
 
@@ -91,22 +103,29 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 -   Developed an analytics script similar to GA.
 
 -   Analytics feature made the product more competitive and it has attracted new customers.
+</details>
 
 ###  Full-Stack developer on Real-time cargo tracking and monitoring web dashboard.
 #### Solution stack: Lumen PHP Framework, MongoDB, Docker, Node.js Pub/Sub, Redis, Socket.IO, Angular JS. 3rd-party APIs: Geocoding services chain.
+<details>
+    <summary>Achievements</summary>
 
 -   Developed REST API to collect and show coordinates and metrics from shipping containers.
 
 -   Developed SPA to manage and display telemetry data in real-time.
 
 -   Developed a real-time map that shows containers' location.
+</details>
 
 ### Full-Stack developer on marketing campaigns startup [CampaignConnex](https://www.campaignconnex.com/).
 #### Solution stack: CakePHP 3.x, MySQL, Angular JS. 3rd-party APIs: Stripe, LinkedIn, Twitter, Facebook, Mandrill, Litmus. 
+<details>
+    <summary>Achievements</summary>
 
 -   Developed drag and drop builder for landing pages and email templates (Angular JS SPA). 
 
 -   Worked on automatic posting to social networks like LinkedIn, Twitter, Facebook.
+</details>
 
 Education
 =========
