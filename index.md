@@ -17,6 +17,7 @@ Experience
 Web Application Development Company, a [partner](https://laravel.com/partner/a2-design) of Laravel, ~50 employees.
 
 ###   Team Lead on New York tours booking startup. Case Study: [Sightsy](https://www.a2design.biz/portfolio/sightsy).
+---
 #### 4 back-end developers, 1 front-end developer, 1 QA. Solution stack: Laravel, MySQL, NGINX, Redis, JQuery, Webpack, Amazon AWS. 3rd party APIs: Authorize.NET, Google Maps, Sentry, Sendgrid. 
 
 -   Participated in requirements analysis, continuous planning, and resource management.
