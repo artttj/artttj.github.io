@@ -26,10 +26,10 @@
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       {% if site.github_url %}
-        <a href="{{ github_url }}" class="btn">GitHub</a>
+        <a href="{{ site.github_url }}" target="_blank" class="btn">GitHub</a>
       {% endif %}
       {% if site.linkedin_url %}
-        <a href="{{ site.github.zip_url }}" class="btn">LinkedIn</a>
+        <a href="{{ site.linkedin_url }}" target="_blank" class="btn">LinkedIn</a>
       {% endif %}
       {% if site.download_url %}
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
