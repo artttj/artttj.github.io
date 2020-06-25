@@ -4,6 +4,4 @@ description: "Senior Full-Stack Developer"
 google_analytics: "UA-170843825-1"
 linkedin_url: "https://www.linkedin.com/in/artyom-yagovdik/"
 github_url: "https://github.com/artttj"
-markdown: kramdown
-kramdown:
-  parse_block_html: true
+markdown: CommonMarkGhPages
