@@ -83,7 +83,7 @@ Solution stack: Laravel, MySQL, Redis, AWS. 3rd party APIs: Stripe, Sendgrid, Tw
 
 Solution stack: Laravel, MySQL, Redis, LEMP on VPS. 3rd party APIs: SecurionPay, Sendgrid, Twilio, Google Maps, Cloudflare. Worked on geolocation detection feature; Payment integration with SecurionPay; Ads posting and navigation.
 
-Other: Developed CI/CD for the Laravel Spark project using Gitlab CI, Helm, and Kubernetes in Google Cloud; Maintained few Magento CE 1.9 stores; Worked with SuiteCRM: developed module for API integration with ZenDesk; Worked on server migration from AWS to Azure and database migration from MySQL 5.7 to MS SQL for Laravel project; Spoke at [local events](https://vk.com/wall-61592613_1249). 
+#### Other: Developed CI/CD for the Laravel Spark project using Gitlab CI, Helm, and Kubernetes in Google Cloud; Maintained few Magento CE 1.9 stores; Worked with SuiteCRM: developed module for API integration with ZenDesk; Worked on server migration from AWS to Azure and database migration from MySQL 5.7 to MS SQL for Laravel project; Spoke at [local events](https://vk.com/wall-61592613_1249). 
 
 ## Web-Developer at [A2 Design](https://www.a2design.biz/), Early 2015 -- Late 2016
 
