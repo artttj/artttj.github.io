@@ -138,7 +138,7 @@ Solution stack: Lumen PHP Framework, MongoDB, Docker, Node.js Pub/Sub, Redis, So
 -   Developed a real-time map that shows containers' location.
 </details>
 
-### Full-Stack developer on marketing campaigns startup [CampaignConnex](https://www.campaignconnex.com/).
+### Full-Stack developer on marketing campaigns startup.
 
 Solution stack: CakePHP 3.x, MySQL, Angular JS. 3rd-party APIs: Stripe, LinkedIn, Twitter, Facebook, Mandrill, Litmus. 
 <details>
