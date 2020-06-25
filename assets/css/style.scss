@@ -25,3 +25,8 @@ body {
 .main-content h3:before {
     content: "* ";
 }
+
+img.avatar {
+    width: 200px;
+    border-radius: 50%;
+}
