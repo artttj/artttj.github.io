@@ -55,3 +55,9 @@ summary:before {
 .main-content ul li p:before {
     content: "∙ ";
 }
+
+@media screen and (min-width: 64em) {
+    .main-content {
+        font-size: 1rem;
+    }
+}
