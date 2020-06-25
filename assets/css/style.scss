@@ -51,3 +51,7 @@ summary:before {
 .main-content ul li {
     list-style: none;
 }
+
+.main-content ul li p:before {
+    content: "∙ ";
+}
