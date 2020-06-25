@@ -80,6 +80,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
      * With some
      * Sub bullets
 </details>
+
 <details>
   <summary>Achievements</summary>
 
