@@ -74,6 +74,7 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 <details>
   <summary>Achievements</summary>
 
+    #####
     *   Fully maintained SPA on Backbone.js and developed a bunch of features.
 
     *   Developed a mobile version of the social widget, that increased product sales.
