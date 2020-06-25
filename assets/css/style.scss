@@ -26,6 +26,10 @@ body {
     content: "-> ";
 }
 
+.main-content h3::first-letter {
+    font-weight: 700;
+}
+
 img.avatar {
     width: 200px;
     border-radius: 50%;
