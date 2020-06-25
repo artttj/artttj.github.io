@@ -20,7 +20,9 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 #### 4 back-end developers, 1 front-end developer, 1 QA. Solution stack: Laravel, MySQL, NGINX, Redis, JQuery, Webpack, Amazon AWS. 3rd party APIs: Authorize.NET, Google Maps, Sentry, Sendgrid. 
 <details>
     <summary>Achievements</summary>
+
 ---
+
 -   Participated in requirements analysis, continuous planning, and resource management.
 
 -   Designed architecture for a booking system that aggregates data from 8 different APIs. There are no such solutions on the NY tours market.
