@@ -70,29 +70,14 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 
 ###  Full-Stack developer on social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio).
 #### Solution stack: CakePHP 2.x, MySQL, Docker, Redis, JSONP, Require.js, Backbone.js, Vanilla JS. Integrated APIs: Instagram, Twitter, G+, Youtube, Yammer. 3rd-party APIs: Google CloudVision, Geocoding API.
-# A collapsible section containing markdown
-<details>
-  <summary>Click to expand!</summary>
 
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</details>
+-   Fully maintained SPA on Backbone.js and developed a bunch of features.
 
-<details>
-  <summary>Achievements</summary>
+-   Developed a mobile version of the social widget, that increased product sales.
 
-    #####
-    *   Fully maintained SPA on Backbone.js and developed a bunch of features.
+-   Developed Node.js service using Twitter Streaming API, that parses replies to the posts on Twitter in real-time. This feature had no analogs in the market.
 
-    *   Developed a mobile version of the social widget, that increased product sales.
-
-    *   Developed Node.js service using Twitter Streaming API, that parses replies to the posts on Twitter in real-time. This feature had no analogs in the market.
-
-    *  Worked on new algorithms of advertising tiles appearing.
-</details>
+-   Worked on new algorithms of advertising tiles appearing.
 
 ###  Full-Stack developer on Analytics service for social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio). 
 #### Solution stack: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
