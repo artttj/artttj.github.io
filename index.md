@@ -73,14 +73,13 @@ Web Application Development Company, a [partner](https://laravel.com/partner/a2-
 <details>
   <summary>Achievements</summary>
 
--   Fully maintained SPA on Backbone.js and developed a bunch of features.
+*   Fully maintained SPA on Backbone.js and developed a bunch of features.
 
--   Developed a mobile version of the social widget, that increased product sales.
+*   Developed a mobile version of the social widget, that increased product sales.
 
--   Developed Node.js service using Twitter Streaming API, that parses replies to the posts on Twitter in real-time. This feature had no analogs in the market.
+*   Developed Node.js service using Twitter Streaming API, that parses replies to the posts on Twitter in real-time. This feature had no analogs in the market.
 
--   Worked on new algorithms of advertising tiles appearing.
-
+*  Worked on new algorithms of advertising tiles appearing.
 </details>
 
 ###  Full-Stack developer on Analytics service for social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio). 
