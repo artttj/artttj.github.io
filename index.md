@@ -18,7 +18,8 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 
 ###   Team Lead on New York tours booking startup. Case Study: [Sightsy](https://www.a2design.biz/portfolio/sightsy).
 
-4 back-end developers, 1 front-end developer, 1 QA. Solution stack: Laravel, MySQL, NGINX, Redis, JQuery, Webpack, Amazon AWS. 3rd party APIs: Authorize.NET, Google Maps, Sentry, Sendgrid. 
+4 back-end developers, 1 front-end developer, 1 QA.
+<ins>Solution stack</ins>: Laravel, MySQL, NGINX, Redis, JQuery, Webpack, Amazon AWS. 3rd party APIs: Authorize.NET, Google Maps, Sentry, Sendgrid. 
 <details>
     <summary>Achievements</summary>
 
