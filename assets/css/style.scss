@@ -45,6 +45,10 @@ a.btn:hover {
 
 .main-content h3 {
     background-color: yellow;
+    background: url(/assets/img/yellow-2.png) no-repeat;
+    background-size: 100% 100%;
+    padding: 8px 0;
+    background-position-x: -15px;
 }
 
 /*.main-content h3:before {
