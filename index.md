@@ -160,7 +160,7 @@ Education
 
 -   [Omsk State Technical University](https://omgtu.ru/english/), 2013 -- 2015. Master's degree, Fundamental Computer Science and Information Technologies, Computer Science and Engineering.
 
--   [Pavlodar State University](http://psu.kz/index.php?lang=eng), 2009 -- 2013. Bachelor's degree, The Faculty of Physics, Mathematics and Information Technology, Computer Engineering and Programming in computer science.
+-   [Pavlodar State University](https://tou.edu.kz/en/), 2009 -- 2013. Bachelor's degree, The Faculty of Physics, Mathematics and Information Technology, Computer Engineering and Programming in computer science.
 
 Languages
 =========
