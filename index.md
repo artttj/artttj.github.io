@@ -22,7 +22,7 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 
 Solution stack: Laravel, MySQL, NGINX, Redis, JQuery, Webpack, Amazon AWS. 3rd party APIs: Authorize.NET, Google Maps, Sentry, Sendgrid. 
 <details>
-    <summary>Achievements</summary>
+    <summary><div class="achievements">Achievements</div></summary>
 
 ---
 
