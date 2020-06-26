@@ -22,7 +22,7 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 
 Solution stack: Laravel, MySQL, NGINX, Redis, JQuery, Webpack, Amazon AWS. 3rd party APIs: Authorize.NET, Google Maps, Sentry, Sendgrid. 
 <details>
-    <summary><div class="achievements">Achievements</div></summary>
+    <summary><span class="achievements">Achievements</span></summary>
 
 ---
 
@@ -47,7 +47,7 @@ Solution stack: Laravel, MySQL, NGINX, Redis, JQuery, Webpack, Amazon AWS. 3rd p
 
 Solution stack: Ruby On Rails 2.x, PostgreSQL, Redis, NGINX, Docker, Ext.js, Amazon AWS. 3rd party APIs: Stripe, Mandrill, Sentry, Cloudflare.
 <details>
-    <summary>Achievements</summary>
+    <summary><span class="achievements"><span class="achievements">Achievements</span></summary>
 
 ---
 
@@ -66,7 +66,7 @@ Solution stack: Ruby On Rails 2.x, PostgreSQL, Redis, NGINX, Docker, Ext.js, Ama
 
 Framework: Magento Enterprise Edition 1.14.x (Zend Framework based e-commerce system, PHP, MySQL). 3rd party APIs: PayPal, Moneris, Descartes Shipping Carrier, Mandrill, FDA and more.
 <details>
-    <summary>Achievements</summary>
+    <summary><span class="achievements"><span class="achievements">Achievements</span></summary>
 
 ---
 
@@ -97,7 +97,7 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 
 Solution stack: CakePHP 2.x, MySQL, Docker, Redis, JSONP, Require.js, Backbone.js, Vanilla JS. Integrated APIs: Instagram, Twitter, G+, Youtube, Yammer. 3rd-party APIs: Google CloudVision, Geocoding API.
 <details>
-    <summary>Achievements</summary>
+    <summary><span class="achievements"><span class="achievements">Achievements</span></summary>
 
 ---
 
@@ -114,7 +114,7 @@ Solution stack: CakePHP 2.x, MySQL, Docker, Redis, JSONP, Require.js, Backbone.j
 
 Solution stack: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
 <details>
-    <summary>Achievements</summary>
+    <summary><span class="achievements"><span class="achievements">Achievements</span></summary>
 
 ---
 
@@ -131,7 +131,7 @@ Solution stack: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
 
 Solution stack: Lumen PHP Framework, MongoDB, Docker, Node.js Pub/Sub, Redis, Socket.IO, Angular JS. 3rd-party APIs: Geocoding services chain.
 <details>
-    <summary>Achievements</summary>
+    <summary><span class="achievements"><span class="achievements">Achievements</span></summary>
 
 ---
 
@@ -146,7 +146,7 @@ Solution stack: Lumen PHP Framework, MongoDB, Docker, Node.js Pub/Sub, Redis, So
 
 Solution stack: CakePHP 3.x, MySQL, Angular JS. 3rd-party APIs: Stripe, LinkedIn, Twitter, Facebook, Mandrill, Litmus. 
 <details>
-    <summary>Achievements</summary>
+    <summary><span class="achievements">Achievements</span></summary>
 
 ---
 
