@@ -28,7 +28,7 @@ a.btn {
     text-decoration: none;
     background: url(/assets/img/yellow-3.png) no-repeat;
     background-size: 100% 100%;
-    transition: background 0.2s;
+    transition: none;
 }
 
 a.btn:hover {
@@ -36,7 +36,7 @@ a.btn:hover {
     border: none;
     background: url(/assets/img/yellow.png) no-repeat;
     background-size: 100% 100%;
-    transition: background 0.2s;
+    transition: none;
 }
 
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
