@@ -19,6 +19,7 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 ###   Team Lead on New York tours booking startup. Case Study: [Sightsy](https://www.a2design.biz/portfolio/sightsy).
 
 4 back-end developers, 1 front-end developer, 1 QA.
+
 <ins>Solution stack</ins>: Laravel, MySQL, NGINX, Redis, JQuery, Webpack, Amazon AWS. 3rd party APIs: Authorize.NET, Google Maps, Sentry, Sendgrid. 
 <details>
     <summary>Achievements</summary>
@@ -42,7 +43,9 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 
 ### Tech Lead on New York theater tickets booking website.
 
-2 back-end developers, 2 QAs. Solution stack: Ruby On Rails 2.x, PostgreSQL, Redis, NGINX, Docker, Ext.js, Amazon AWS. 3rd party APIs: Stripe, Mandrill, Sentry, Cloudflare.
+2 back-end developers, 2 QAs.
+
+<ins>Solution stack</ins>: Ruby On Rails 2.x, PostgreSQL, Redis, NGINX, Docker, Ext.js, Amazon AWS. 3rd party APIs: Stripe, Mandrill, Sentry, Cloudflare.
 <details>
     <summary>Achievements</summary>
 
@@ -61,7 +64,7 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 
 ###  Back-End Developer on huge Canadian e-commerce stores. Case Study: [ShirtPunch](https://www.thinkforwardmedia.com/portfolio/shirtpunch/), [Nerd Block](https://www.thinkforwardmedia.com/portfolio/nerdblock/).
 
-Framework: Magento Enterprise Edition 1.14.x (Zend Framework based e-commerce system, PHP, MySQL). 3rd party APIs: PayPal, Moneris, Descartes Shipping Carrier, Mandrill, FDA and more.
+<ins>Framework</ins>: Magento Enterprise Edition 1.14.x (Zend Framework based e-commerce system, PHP, MySQL). 3rd party APIs: PayPal, Moneris, Descartes Shipping Carrier, Mandrill, FDA and more.
 <details>
     <summary>Achievements</summary>
 
@@ -78,11 +81,11 @@ Framework: Magento Enterprise Edition 1.14.x (Zend Framework based e-commerce sy
 
 ### Back-End Developer on job seekers' platform startup.
 
-Solution stack: Laravel, MySQL, Redis, AWS. 3rd party APIs: Stripe, Sendgrid, Twilio. Developed sign up, job seeker search using skills matrix; Email sending, SMS-notifications. 
+<ins>Solution stack</ins>: Laravel, MySQL, Redis, AWS. 3rd party APIs: Stripe, Sendgrid, Twilio. Developed sign up, job seeker search using skills matrix; Email sending, SMS-notifications. 
 
 ### Back-End Developer on ads posting platform startup (craigslist clone). 
 
-Solution stack: Laravel, MySQL, Redis, LEMP on VPS. 3rd party APIs: SecurionPay, Sendgrid, Twilio, Google Maps, Cloudflare. Worked on geolocation detection feature; Payment integration with SecurionPay; Ads posting and navigation.
+<ins>Solution stack</ins>: Laravel, MySQL, Redis, LEMP on VPS. 3rd party APIs: SecurionPay, Sendgrid, Twilio, Google Maps, Cloudflare. Worked on geolocation detection feature; Payment integration with SecurionPay; Ads posting and navigation.
 
 #### Other: Developed CI/CD for the Laravel Spark project using Gitlab CI, Helm, and Kubernetes in Google Cloud; Maintained few Magento CE 1.9 stores; Worked with SuiteCRM: developed module for API integration with ZenDesk; Worked on server migration from AWS to Azure and database migration from MySQL 5.7 to MS SQL for Laravel project; Spoke at [local events](https://vk.com/wall-61592613_1249). 
 
@@ -92,7 +95,7 @@ Web Application Development Company, a [partner](https://laravel.com/partners) o
 
 ###  Full-Stack developer on social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio).
 
-Solution stack: CakePHP 2.x, MySQL, Docker, Redis, JSONP, Require.js, Backbone.js, Vanilla JS. Integrated APIs: Instagram, Twitter, G+, Youtube, Yammer. 3rd-party APIs: Google CloudVision, Geocoding API.
+<ins>Solution stack</ins>: CakePHP 2.x, MySQL, Docker, Redis, JSONP, Require.js, Backbone.js, Vanilla JS. Integrated APIs: Instagram, Twitter, G+, Youtube, Yammer. 3rd-party APIs: Google CloudVision, Geocoding API.
 <details>
     <summary>Achievements</summary>
 
@@ -109,7 +112,7 @@ Solution stack: CakePHP 2.x, MySQL, Docker, Redis, JSONP, Require.js, Backbone.j
 
 ###  Full-Stack developer on Analytics service for social media aggregation platform. Case Study: [Hashtagio](https://www.a2design.biz/portfolio/hashtagio). 
 
-Solution stack: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
+<ins>Solution stack</ins>: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
 <details>
     <summary>Achievements</summary>
 
@@ -126,7 +129,7 @@ Solution stack: Lumen PHP Framework, MongoDB, Docker, Backbone.js, Vanilla JS.
 
 ###  Full-Stack developer on Real-time cargo tracking and monitoring web dashboard.
 
-Solution stack: Lumen PHP Framework, MongoDB, Docker, Node.js Pub/Sub, Redis, Socket.IO, Angular JS. 3rd-party APIs: Geocoding services chain.
+<ins>Solution stack</ins>: Lumen PHP Framework, MongoDB, Docker, Node.js Pub/Sub, Redis, Socket.IO, Angular JS. 3rd-party APIs: Geocoding services chain.
 <details>
     <summary>Achievements</summary>
 
@@ -141,7 +144,7 @@ Solution stack: Lumen PHP Framework, MongoDB, Docker, Node.js Pub/Sub, Redis, So
 
 ### Full-Stack developer on marketing campaigns startup.
 
-Solution stack: CakePHP 3.x, MySQL, Angular JS. 3rd-party APIs: Stripe, LinkedIn, Twitter, Facebook, Mandrill, Litmus. 
+<ins>Solution stack</ins>: CakePHP 3.x, MySQL, Angular JS. 3rd-party APIs: Stripe, LinkedIn, Twitter, Facebook, Mandrill, Litmus. 
 <details>
     <summary>Achievements</summary>
 
