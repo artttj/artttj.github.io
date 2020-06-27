@@ -105,9 +105,18 @@ summary:before {
 
 @media screen and (min-width: 64em) {
     .main-content {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        max-width: 56em;
     }
 }
+
+@media screen and (max-width: 64em) and (min-width: 42em) {
+    .main-content {
+        padding: 2rem 4rem;
+        font-size: 0.95rem;
+    }
+}
+
 @media screen and (max-width: 42em) {
     a.btn {
         margin: 0 auto;
