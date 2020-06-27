@@ -1,6 +1,7 @@
 theme: jekyll-theme-cayman
 title: "Artyom Yagovdik"
-headline: "Artyom Yagovdik's homepage"
+seo_tag:
+  title: false
 description: "Senior Full-Stack Developer"
 google_analytics: "UA-170843825-1"
 linkedin_url: "https://www.linkedin.com/in/artyom-yagovdik/"
