@@ -108,3 +108,15 @@ summary:before {
         font-size: 1rem;
     }
 }
+@media screen and (max-width: 42em) {
+    .btn {
+        margin: 0 auto;
+        display: block;
+        width: 50%;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    .btn + .btn {
+        margin: 0 auto;
+    }
+}
