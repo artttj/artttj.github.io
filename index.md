@@ -165,11 +165,11 @@ Education
 Languages
 =========
 
--   Russian, native.
+Russian, native.
 
--   English, fluent.
+English, fluent.
 
 Referees
 ========
 
--   Available on request.
+Available on request.
