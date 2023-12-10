@@ -1,17 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>artttj - GitHub</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="wrapper">
-        <div class="container">
-            <h1>Your Name</h1>
-            <p class="tagline">Coding <span class="blink">...</span></p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>artttj - GitHub</title>
+        <style type="text/css">
+            body {
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background: linear-gradient(135deg, #3494e6, #ec6ead);
+                overflow: hidden;
+            }
+            .wrapper {
+                position: relative;
+            }
+            .container {
+                text-align: center;
+                color: #fff;
+            }
+            h1 {
+                font-size: 3em;
+                margin-bottom: 20px;
+            }
+            .tagline {
+                font-size: 1.5em;
+            }
+            .blink {
+                animation: blink 1s infinite;
+            }
+            @keyframes blink {
+                0%, 100% {
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="container">
+                <p class="tagline">Coding <span class="blink">...</span></p>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
