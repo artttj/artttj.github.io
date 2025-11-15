@@ -15,274 +15,60 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --bg: #f4f4f4;
-      --frame: #ffffff;
-      --ink: #151515;
-      --ink-muted: #6c6c6c;
-      --ink-soft: #a0a0a0;
-      --font-display: "Syne", system-ui, sans-serif;
-      --font-sans: "Space Grotesk", system-ui, sans-serif;
-      --font-mono: "IBM Plex Mono", monospace;
-      --radius: 0;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--font-sans);
-      -webkit-font-smoothing: antialiased;
-      height: 100%;
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2.4rem 1.4rem;
-    }
-
-    .frame {
-      max-width: 1200px;
-      width: 100%;
-      background: var(--frame);
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .left,
-    .right {
-      position: relative;
-      padding: 2.8rem 2.4rem 2.4rem;
-    }
-
-    .left { display: flex; flex-direction: column; gap: 2.6rem; }
-
-    .right { display: flex; flex-direction: column; justify-content: center; gap: 2.4rem; }
-
-    .topline {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
-    .topline-left { display: flex; align-items: center; gap: 0.6rem; text-transform: lowercase; }
-
-    .online-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 0;
-      border: 1px solid var(--ink-soft);
-      background: rgba(0, 0, 0, 0.03);
-    }
-
-    .topline-right { display: flex; gap: 0.6rem; opacity: 0.9; text-transform: lowercase; }
-
-    .identity {
-      margin-top: 1.8rem;
-      display: grid;
-      row-gap: 1.4rem;
-    }
-
-    .identity-label {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 0.5rem;
-    }
-
-    h1 {
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: clamp(3.1rem, 6.4vw, 3.9rem);
-      letter-spacing: -0.08em;
-      line-height: 0.95;
-      text-transform: lowercase;
-    }
-
-    .role {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-top: 1.1rem;
-    }
-
-    .bio {
-      margin-top: 2rem;
-      max-width: 34rem;
-      font-size: 0.96rem;
-      line-height: 1.8;
-      color: var(--ink-muted);
-    }
-
-    .bio p + p { margin-top: 0.9rem; }
-
-    .bio strong { color: var(--ink); }
-
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 0.9rem;
-    }
-
-    .links { display: flex; flex-direction: column; gap: 0.3rem; }
-
-    .link-item {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.9rem 0;
-      text-decoration: none;
-      color: var(--ink);
-      position: relative;
-    }
-
-    .link-item::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      transform: scaleY(0);
-      transform-origin: bottom;
-      background: rgba(0, 0, 0, 0.035);
-      transition: transform 0.16s ease-out;
-      z-index: -1;
-    }
-
-    .link-item:hover::before { transform: scaleY(1); }
-
-    .link-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 2px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #ffffff;
-    }
-
-    .link-icon--github { background: #000; }
-    .link-icon--linkedin { background: #0a66c2; }
-    .link-icon--telegram { background: #229ed9; }
-    .link-icon--instagram { background: linear-gradient(135deg,#f58529,#dd2a7b,#8134af); }
-    .link-icon--hevy { background: #111; }
-    .link-icon--fragrantica { background: #333; }
-
-    .link-main { display: flex; flex-direction: column; gap: 0.08rem; min-width: 0; }
-
-    .link-index {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
-    .link-label {
-      font-family: var(--font-display);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      font-size: 1.02rem;
-    }
-
-    .link-meta {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .link-arrow {
-      font-size: 1rem;
-      font-family: var(--font-mono);
-      color: var(--ink-soft);
-      margin-left: 0.2rem;
-      transition: transform 0.16s ease, color 0.16s ease;
-    }
-
-    .link-item:hover .link-arrow {
-      transform: translateX(4px);
-      color: var(--ink);
-    }
-
-    @media (max-width: 960px) {
-      .frame { grid-template-columns: 1fr; }
-      .right { padding-top: 1rem; }
-    }
-
-    @media (max-width: 720px) {
-      .page { padding: 1.1rem 0.9rem; }
-      .left,
-      .right { padding: 2.1rem 1.6rem 1.7rem; }
-      .topline { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
-    }
-
-    a:focus-visible { outline: 1px solid #000; outline-offset: 2px; }
+    :root{--bg:#f4f4f4;--frame:#ffffff;--ink:#151515;--ink-muted:#6c6c6c;--ink-soft:#a0a0a0;--font-display:"Syne",system-ui,sans-serif;--font-sans:"Space Grotesk",system-ui,sans-serif;--font-mono:"IBM Plex Mono",monospace;--radius:0}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%}
+    .page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2.4rem 1.4rem}
+    .frame{max-width:1200px;width:100%;background:var(--frame);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);position:relative;overflow:hidden}
+    .left,.right{position:relative;padding:2.8rem 2.4rem 2.4rem}
+    .left{display:flex;flex-direction:column;gap:2.6rem;justify-content:center}
+    .right{display:flex;flex-direction:column;justify-content:center;gap:2.4rem}
+    .identity{display:grid;row-gap:1.4rem}
+    .identity-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.5rem}
+    h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.1rem,6.4vw,3.9rem);letter-spacing:.12em;line-height:.95;text-transform:uppercase}
+    .role{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-muted);margin-top:1.1rem}
+    .bio{margin-top:2rem;max-width:34rem;font-size:.96rem;line-height:1.8;color:var(--ink-muted)}
+    .bio strong{color:var(--ink)}
+    .section-label{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.9rem}
+    .links{display:flex;flex-direction:column;gap:.3rem}
+    .link-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:1rem;padding:.9rem 0;text-decoration:none;color:var(--ink);position:relative}
+    .link-item::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;background:rgba(0,0,0,.035);transition:transform .16s ease-out;z-index:-1}
+    .link-item:hover::before{transform:scaleY(1)}
+    .link-icon{width:30px;height:30px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+    .link-icon--github{background:#000}
+    .link-icon--linkedin{background:#0a66c2}
+    .link-icon--telegram{background:#229ed9}
+    .link-icon--instagram{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)}
+    .link-icon--hevy{background:#111}
+    .link-icon--fragrantica{background:#333}
+    .link-main{display:flex;flex-direction:column;gap:.08rem;min-width:0}
+    .link-label{font-family:var(--font-display);font-weight:600;letter-spacing:-.02em;font-size:1.02rem}
+    .link-meta{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .link-arrow{font-size:1rem;font-family:var(--font-mono);color:var(--ink-soft);margin-left:.2rem;transition:transform .16s ease,color .16s ease}
+    .link-item:hover .link-arrow{transform:translateX(4px);color:var(--ink)}
+    @media(max-width:960px){.frame{grid-template-columns:1fr}.right{padding-top:1rem}}
+    @media(max-width:720px){.page{padding:1.1rem .9rem}.left,.right{padding:2.1rem 1.6rem 1.7rem}}
+    a:focus-visible{outline:1px solid #000;outline-offset:2px}
   </style>
 </head>
 <body>
   <main class="page">
     <section class="frame">
       <div class="left">
-        <header class="topline">
-          <div class="topline-left">
-            <span class="online-dot"></span>
-            <span>signal: present</span>
-          </div>
-          <div class="topline-right">
-            <span>artyom yagovdik</span>
-          </div>
-        </header>
-
         <section class="identity">
           <div>
             <div class="identity-label">profile</div>
-            <h1>artyom yagovdik</h1>
-            <p class="role">senior software engineer · team lead</p>
+            <h1>ARTYOM YAGOVDIK</h1>
+            <p class="role">team lead · senior software engineer</p>
           </div>
         </section>
 
         <section class="bio">
           <p>
-            Team Lead and Senior Software Engineer with <strong>10+ years of experience</strong> building commerce and product platforms in Europe. I combine hands-on coding with leadership, resource planning and direct customer communication.
-          </p>
-          <p>
-            Experienced in <strong>PHP (Magento 2, Laravel, Symfony)</strong>, <strong>JavaScript / TypeScript</strong>, <strong>Node.js, React, WebSockets</strong>, SQL/NoSQL, CI/CD and infrastructure. Skilled in Jira, cross-team coordination and solving complex platform problems.
-          </p>
-          <p>
-            I actively integrate <strong>AI technologies</strong> into workflows to improve delivery, reduce friction and help teams operate complex systems with clarity.
+            Frankfurt-based Team Lead and Senior Software Engineer with <strong>10+ years of experience</strong> building commerce and product platforms in Europe; I lead and mentor teams, communicate directly with customers and plan resources while still shipping code in <strong>PHP (Magento&nbsp;2, Laravel, Symfony)</strong>, <strong>JavaScript/TypeScript, Node.js, React, WebSockets</strong> and modern CI/CD, using <strong>AI technologies</strong> wherever they make complex systems more reliable and easier to operate.
           </p>
         </section>
       </div>
@@ -291,71 +77,62 @@
         <div>
           <div class="section-label">elsewhere</div>
           <nav class="links">
-
-            <a href="https://github.com/artttj" class="link-item" target="_blank">
-              <span class="link-icon link-icon--github">gh</span>
+            <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener">
+              <span class="link-icon link-icon--github">GH</span>
               <div class="link-main">
-                <span class="link-index">01</span>
                 <span class="link-label">github</span>
                 <span class="link-meta">repos, experiments, utilities</span>
               </div>
               <span class="link-arrow">↗</span>
             </a>
 
-            <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank">
-              <span class="link-icon link-icon--linkedin">in</span>
+            <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener">
+              <span class="link-icon link-icon--linkedin">IN</span>
               <div class="link-main">
-                <span class="link-index">02</span>
                 <span class="link-label">linkedin</span>
                 <span class="link-meta">roles, timeline, public cv</span>
               </div>
               <span class="link-arrow">↗</span>
             </a>
 
-            <a href="https://t.me/voidmechanics" class="link-item" target="_blank">
-              <span class="link-icon link-icon--telegram">tg</span>
+            <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener">
+              <span class="link-icon link-icon--telegram">TG</span>
               <div class="link-main">
-                <span class="link-index">03</span>
                 <span class="link-label">void mechanics</span>
-                <span class="link-meta">telegram · notes, tests, fragments</span>
+                <span class="link-meta">telegram · notes and fragments</span>
               </div>
               <span class="link-arrow">↗</span>
             </a>
 
-            <a href="https://instagram.com/artjom.jj" class="link-item" target="_blank">
-              <span class="link-icon link-icon--instagram">ig</span>
+            <a href="https://instagram.com/artjom.jj" class="link-item" target="_blank" rel="noopener">
+              <span class="link-icon link-icon--instagram">IG</span>
               <div class="link-main">
-                <span class="link-index">04</span>
                 <span class="link-label">instagram</span>
                 <span class="link-meta">lo-fi visuals, context</span>
               </div>
               <span class="link-arrow">↗</span>
             </a>
 
-            <a href="https://hevy.com/user/artttj" class="link-item" target="_blank">
-              <span class="link-icon link-icon--hevy">hv</span>
+            <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener">
+              <span class="link-icon link-icon--hevy">HV</span>
               <div class="link-main">
-                <span class="link-index">05</span>
                 <span class="link-label">hevy</span>
                 <span class="link-meta">training log</span>
               </div>
               <span class="link-arrow">↗</span>
             </a>
 
-            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank">
-              <span class="link-icon link-icon--fragrantica">fg</span>
+            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" rel="noopener">
+              <span class="link-icon link-icon--fragrantica">FG</span>
               <div class="link-main">
-                <span class="link-index">06</span>
                 <span class="link-label">fragrantica</span>
                 <span class="link-meta">hobby</span>
               </div>
               <span class="link-arrow">↗</span>
             </a>
-
           </nav>
         </div>
       </div>
-
     </section>
   </main>
 </body>
