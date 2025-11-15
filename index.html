@@ -1,55 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Artyom Yagovdik — Personal Site</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      .glass {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(12px) saturate(180%);
-        -webkit-backdrop-filter: blur(12px) saturate(180%);
-        border-radius: 1.5rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      }
-      .magnifier {
-        position: absolute;
-        border-radius: 9999px;
-        overflow: hidden;
-        pointer-events: none;
-        width: 120px;
-        height: 120px;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-        transform: scale(1.5);
-        z-index: 50;
-      }
-    </style>
-  </head>
-  <body class="bg-white text-gray-900 font-sans">
-    <main class="min-h-screen flex items-center justify-center">
-      <div class="glass p-10 max-w-xl text-center">
-        <h1 class="text-3xl font-semibold tracking-tight">Hi, I'm Artyom Yagovdik</h1>
-        <p class="mt-4 text-lg text-gray-700">
-          This is one of my personal spaces online. Expect experiments, fragments,
-          aesthetics, maybe a project or two.
-        </p>
-      </div>
-    </main>
-
-    <div id="magnifier" class="magnifier hidden"></div>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artyom yagovdik</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2R92LFMXD5"></script>
     <script>
-      const magnifier = document.getElementById("magnifier");
-      document.addEventListener("mousemove", (e) => {
-        magnifier.style.left = `${e.pageX - 60}px`;
-        magnifier.style.top = `${e.pageY - 60}px`;
-        magnifier.classList.remove("hidden");
-      });
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-2R92LFMXD5');
     </script>
-  </body>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --glow-color: rgba(0, 122, 255, 0.1);
+            --hover-scale: 1.02;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Animated background orbs */
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+            pointer-events: none;
+        }
+        
+        .orb1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(147, 197, 253, 0.5), transparent);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+        
+        .orb2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(196, 181, 253, 0.5), transparent);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+        }
+        
+        .orb3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(165, 243, 252, 0.4), transparent);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.95); }
+            75% { transform: translate(30px, 50px) scale(1.05); }
+        }
+        
+        /* Glass container */
+        .glass-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+            padding: 60px 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+        
+        .glass-container:hover {
+            box-shadow: 
+                0 25px 70px rgba(0, 0, 0, 0.1),
+                0 0 40px var(--glow-color),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Name and tagline */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #1d1d1f 0%, #494949 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            font-weight: 400;
+            margin-bottom: 48px;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Links container */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        /* Link items */
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .link-item:hover {
+            transform: scale(var(--hover-scale));
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.08),
+                0 0 20px var(--glow-color);
+        }
+        
+        .link-item:hover::before {
+            left: 100%;
+        }
+        
+        .link-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 16px;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .link-item:hover .link-icon {
+            opacity: 1;
+            transform: rotate(5deg);
+        }
+        
+        .link-text {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Magnifier lens */
+        .magnifier {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            backdrop-filter: blur(0px);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+            overflow: hidden;
+            box-shadow: 
+                0 0 30px rgba(0, 0, 0, 0.1),
+                inset 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        .magnifier.active {
+            opacity: 1;
+        }
+        
+        .magnifier::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 30%;
+            height: 30%;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+        
+        /* Mobile optimization */
+        @media (max-width: 640px) {
+            .glass-container {
+                padding: 40px 30px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+                margin-bottom: 36px;
+            }
+            
+            .link-item {
+                padding: 16px 20px;
+            }
+            
+            .orb1, .orb2, .orb3 {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        
+        /* Subtle entrance animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .glass-container {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .link-item {
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        
+        .link-item:nth-child(1) { animation-delay: 0.1s; }
+        .link-item:nth-child(2) { animation-delay: 0.2s; }
+        .link-item:nth-child(3) { animation-delay: 0.3s; }
+        .link-item:nth-child(4) { animation-delay: 0.4s; }
+        .link-item:nth-child(5) { animation-delay: 0.5s; }
+        .link-item:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Animated background orbs -->
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+    <div class="bg-orb orb3"></div>
+    
+    <!-- Magnifier lens -->
+    <div class="magnifier" id="magnifier"></div>
+    
+    <!-- Main content -->
+    <div class="glass-container">
+        <h1>artyom yagovdik</h1>
+        <p class="tagline">crafting digital experiences</p>
+        
+        <div class="links">
+            <a href="https://github.com/artyomyagovdik" class="link-item" target="_blank" rel="noopener noreferrer">
+                <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span class="link-text">GitHub</span>
+            </a>
+            
+            <a href="https://linkedin.com/in/artyomyagovdik" class="link-item" target="_blank" rel="noopener noreferrer">
+                <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span class="link-text">LinkedIn</span>
+            </a>
+            
+            <a href="https://instagram.com/artyomyagovdik" class="link-item" target="_blank" rel="noopener noreferrer">
+                <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12c0-3.403 2.759-6.162 6.162-6.162s6.162 2.759 6.162 6.162-2.759 6.162-6.162 6.162-6.162-2.759-6.162-6.162zm10.162 0c0-2.209-1.79-4-4-4s-4 1.791-4 4 1.79 4 4 4 4-1.791 4-4zm1.524-6.34c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.44-.645 1.44-1.44-.644-1.44-1.44-1.44z"/>
+                </svg>
+                <span class="link-text">Instagram</span>
+            </a>
+            
+            <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener noreferrer">
+                <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                <span class="link-text">void mechanics</span>
+            </a>
+            
+            <a href="https://fragrantica.com/member/artyomyagovdik" class="link-item" target="_blank" rel="noopener noreferrer">
+                <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="link-text">Fragrantica</span>
+            </a>
+            
+            <a href="https://hevy.com/user/artyomyagovdik" class="link-item" target="_blank" rel="noopener noreferrer">
+                <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12h4l3 9 4-17 3 8h4"></path>
+                </svg>
+                <span class="link-text">Hevy</span>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Magnifier lens effect
+        const magnifier = document.getElementById('magnifier');
+        let isMouseDown = false;
+        let magnifierActive = false;
+        
+        // Create magnified background
+        const magnifiedBg = document.createElement('div');
+        magnifiedBg.style.cssText = `
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            transform: scale(1.5);
+            transform-origin: center;
+            background: inherit;
+            filter: blur(0px) contrast(1.1) brightness(1.05);
+        `;
+        magnifier.appendChild(magnifiedBg);
+        
+        document.addEventListener('mousedown', (e) => {
+            if (e.button === 0) { // Left click only
+                isMouseDown = true;
+                magnifierActive = true;
+                magnifier.classList.add('active');
+                updateMagnifier(e);
+            }
+        });
+        
+        document.addEventListener('mouseup', () => {
+            isMouseDown = false;
+            magnifierActive = false;
+            magnifier.classList.remove('active');
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (magnifierActive) {
+                updateMagnifier(e);
+            }
+        });
+        
+        function updateMagnifier(e) {
+            const x = e.clientX - 75; // Center the magnifier
+            const y = e.clientY - 75;
+            
+            magnifier.style.transform = `translate(${x}px, ${y}px)`;
+            
+            // Update magnified background position
+            const bgX = -e.clientX * 0.5;
+            const bgY = -e.clientY * 0.5;
+            magnifiedBg.style.transform = `translate(${bgX}px, ${bgY}px) scale(1.5)`;
+        }
+        
+        // Touch support for mobile
+        document.addEventListener('touchstart', (e) => {
+            magnifierActive = true;
+            magnifier.classList.add('active');
+            const touch = e.touches[0];
+            updateMagnifierTouch(touch);
+        });
+        
+        document.addEventListener('touchend', () => {
+            magnifierActive = false;
+            magnifier.classList.remove('active');
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (magnifierActive) {
+                const touch = e.touches[0];
+                updateMagnifierTouch(touch);
+            }
+        });
+        
+        function updateMagnifierTouch(touch) {
+            const x = touch.clientX - 75;
+            const y = touch.clientY - 75;
+            
+            magnifier.style.transform = `translate(${x}px, ${y}px)`;
+            
+            const bgX = -touch.clientX * 0.5;
+            const bgY = -touch.clientY * 0.5;
+            magnifiedBg.style.transform = `translate(${bgX}px, ${bgY}px) scale(1.5)`;
+        }
+        
+        // Smooth parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (!magnifierActive) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                
+                document.querySelectorAll('.bg-orb').forEach((orb, index) => {
+                    const speed = (index + 1) * 0.5;
+                    orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+                });
+            }
+        });
+    </script>
+</body>
 </html>
