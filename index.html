@@ -18,33 +18,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /*
-      DESIGN:   MINIMAL / GRID / 2025
-      PALETTE:  BLACK / NUDE NEUTRALS
-      VERSION:  2.1 · BERLIN
-    */
-
     :root {
-      --bg: #050505;
-      --frame: #0b0b0b;
-      --ink: #f3f1eb;
-      --ink-muted: #8f8a84;
-      --ink-soft: #6f6a65;
+      --bg: #f4f4f4;
+      --frame: #ffffff;
+      --ink: #151515;
+      --ink-muted: #757575;
+      --ink-soft: #a0a0a0;
 
-      --line-soft: rgba(255, 255, 255, 0.06);
-      --line-strong: rgba(255, 255, 255, 0.14);
+      --line-soft: rgba(0, 0, 0, 0.06);
+      --line-strong: rgba(0, 0, 0, 0.15);
 
-      --chip-bg: rgba(255, 255, 255, 0.02);
-      --chip-border: rgba(255, 255, 255, 0.18);
-
-      --accent: #f2e4cf;
-      --accent-soft: rgba(242, 228, 207, 0.08);
+      --chip-border: rgba(0, 0, 0, 0.14);
 
       --font-display: "Syne", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --font-sans: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 
-      --radius: 0; /* keep hard rectangles */
+      --radius: 0;
     }
 
     *, *::before, *::after {
@@ -59,7 +49,7 @@
     }
 
     body {
-      background: radial-gradient(circle at top left, #141313 0, #050505 52%, #000000 100%);
+      background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
@@ -84,17 +74,16 @@
       overflow: hidden;
     }
 
-    /* very subtle grid overlay for texture */
     .frame::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-image: linear-gradient(to right, rgba(0,0,0,0.015) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.01) 1px, transparent 1px);
       background-size: 24px 24px;
-      opacity: 0.45;
+      opacity: 0.6;
       pointer-events: none;
-      mix-blend-mode: soft-light;
+      mix-blend-mode: multiply;
     }
 
     .left,
@@ -146,8 +135,8 @@
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      border: 1px solid var(--accent);
-      background: var(--accent-soft);
+      border: 1px solid var(--ink-soft);
+      background: rgba(0, 0, 0, 0.03);
     }
 
     .topline-right {
@@ -192,41 +181,7 @@
       margin-top: 0.9rem;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem 0.9rem;
-      margin-top: 1.2rem;
-    }
-
-    .tags span {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.2rem 0.7rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--chip-border);
-      background: var(--chip-bg);
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
-    }
-
-    .tags span::before {
-      content: "·";
-      margin-right: 0.4rem;
-      opacity: 0.5;
-    }
-
-    .tags span:hover {
-      border-color: var(--accent);
-      color: var(--ink);
-      background: rgba(242, 228, 207, 0.06);
-    }
-
-    /* short bio */
+    /* bio */
 
     .bio {
       margin-top: 2.2rem;
@@ -336,7 +291,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(242, 228, 207, 0.09) 50%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.05) 50%, transparent 100%);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.18s ease;
@@ -388,12 +343,12 @@
     }
 
     .link-item:hover .link-index {
-      color: var(--accent);
+      color: var(--ink);
     }
 
     .link-item:hover .link-arrow {
       transform: translateX(4px);
-      color: var(--accent);
+      color: var(--ink);
     }
 
     /* right bottom */
@@ -427,7 +382,7 @@
       padding: 0.15rem 0.6rem;
       border-radius: var(--radius);
       border: 1px solid var(--chip-border);
-      background: var(--chip-bg);
+      background: rgba(0, 0, 0, 0.015);
     }
 
     .pill span {
@@ -478,7 +433,7 @@
     }
 
     a:focus-visible {
-      outline: 1px solid var(--accent);
+      outline: 1px solid #000;
       outline-offset: 2px;
     }
   </style>
@@ -504,24 +459,22 @@
               <div class="identity-label">01 · profile</div>
               <h1>artyom yagovdik</h1>
               <p class="role">senior software engineer · team lead</p>
-
-              <div class="tags">
-                <span>php / rails / js</span>
-                <span>systems &amp; infra</span>
-                <span>commerce platforms</span>
-                <span>ai-assisted dev</span>
-              </div>
             </div>
           </section>
 
           <section class="bio">
             <p>
-              Senior engineer focused on <strong>long-lived web systems</strong>, performance, and developer experience.
-              I work across backends, integrations, and the small details that make platforms stable.
+              Team Lead and Senior Software Engineer with <strong>10+ years of coding experience</strong> across commerce platforms,
+              product teams, and integrations. I work mostly on the boring but important parts: performance, stability, and how
+              teams ship software together.
             </p>
             <p>
-              Mostly in PHP, Ruby on Rails, JS and SQL — with a bias toward <strong>clear architecture, observability, and boring, reliable tech</strong>
-              before hype. I use AI heavily, but only where it actually improves the work.
+              I build and maintain <strong>long-lived web systems</strong> in PHP, Ruby on Rails, JavaScript and SQL — with a focus on clear
+              architecture, observability, and making complex setups understandable for other engineers.
+            </p>
+            <p>
+              I use what I've learned (and keep learning) to improve developer experience, reduce friction in day-to-day work,
+              and help teams move faster without breaking the things that matter.
             </p>
           </section>
 
@@ -536,7 +489,7 @@
             <article class="meta-block">
               <div class="meta-label">domains</div>
               <p class="meta-text">
-                product platforms, e-commerce, integrations, data-heavy backends, “glue” services between tools and teams.
+                product platforms, e-commerce, integrations, data-heavy backends, and glue services between tools and teams.
               </p>
             </article>
 
@@ -550,7 +503,7 @@
             <article class="meta-block">
               <div class="meta-label">also</div>
               <p class="meta-text">
-                lifting with Hevy, perfume rabbit holes, interface aesthetics, and experimenting with AI coding setups.
+                lifting with Hevy, perfume rabbit holes, interface aesthetics, and refining my own dev setups.
               </p>
             </article>
           </section>
@@ -606,7 +559,7 @@
               <span class="link-index">05</span>
               <div class="link-main">
                 <span class="link-label">fragrantica</span>
-                <span class="link-meta">wardrobe · data, not flex</span>
+                <span class="link-meta">hobby</span>
               </div>
               <span class="link-arrow">↗</span>
             </a>
@@ -624,7 +577,7 @@
 
         <footer class="right-bottom">
           <div class="right-bottom-col">
-            <span>v2.1 · personal index</span>
+            <span>v2.2 · personal index</span>
             <span>updated 2025</span>
           </div>
           <div class="right-bottom-col">
@@ -632,7 +585,7 @@
               <span>desktop-first</span>
               <span>· responsive</span>
             </div>
-            <span>grid / monochrome / nude</span>
+            <span>grid / white / neutral</span>
           </div>
         </footer>
       </div>
