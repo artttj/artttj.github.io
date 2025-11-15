@@ -18,678 +18,452 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Satoshi:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap"
     rel="stylesheet"
-  />
-
-  <!-- Locomotive Scroll CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
   />
 
   <style>
+    :root {
+      --bg: #f4eee7;
+      --bg-alt: #f8f3ec;
+      --border: #d7cec1;
+      --border-strong: #b4aa9a;
+      --text: #121212;
+      --muted: #7d7468;
+      --muted-soft: #a39a8f;
+      --accent: #171717;
+      --accent-soft: #33312d;
+
+      --font-sans: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    :root {
-      --glass-white: rgba(255, 255, 255, 0.65);
-      --glass-border: rgba(255, 255, 255, 0.18);
-      --text-primary: #1d1d1f;
-      --text-secondary: #86868b;
-      --hover-scale: 1.015;
-      --spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      --smooth: cubic-bezier(0.37, 0, 0.63, 1);
-      --elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      --liquid-blur: 4px;
-      --liquid-opacity: 0.12;
-      --font-primary: "Satoshi", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: "JetBrains Mono", monospace;
+    html, body {
+      height: 100%;
     }
 
     body {
-      font-family: var(--font-primary);
-      background: #fafafa;
-      min-height: 100vh;
-      padding: 32px 16px;
-      position: relative;
-      overflow: hidden;
-      color: var(--text-primary);
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    [data-scroll-container] {
+    .page {
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
+      padding: 32px 20px;
     }
 
-    .gradient-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
+    .frame {
+      max-width: 1080px;
       width: 100%;
-      height: 100%;
-      z-index: 0;
-      opacity: 0.35;
-      background:
-        radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.15) 0px, transparent 50%),
-        radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.18) 0px, transparent 50%),
-        radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 0.15) 0px, transparent 50%),
-        radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 0.14) 0px, transparent 50%),
-        radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.16) 0px, transparent 50%),
-        radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.16) 0px, transparent 50%),
-        radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.16) 0px, transparent 50%);
-      filter: blur(90px) saturate(150%);
-      animation: gradient-shift 20s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes gradient-shift {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25%      { transform: translate(15px, -20px) scale(1.02); }
-      50%      { transform: translate(-20px, 10px) scale(0.98); }
-      75%      { transform: translate(10px, 20px) scale(1.01); }
-    }
-
-    .liquid-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(40px);
-      opacity: 0.28;
-      mix-blend-mode: overlay;
-      animation: liquid-motion 28s infinite ease-in-out;
-      pointer-events: none;
-    }
-
-    .orb-1 {
-      width: 520px;
-      height: 520px;
-      background: linear-gradient(135deg, rgba(120, 119, 198, 0.4), rgba(255, 119, 168, 0.35));
-      top: -260px;
-      left: -120px;
-    }
-
-    .orb-2 {
-      width: 430px;
-      height: 430px;
-      background: linear-gradient(135deg, rgba(255, 184, 108, 0.35), rgba(255, 119, 168, 0.35));
-      bottom: -180px;
-      right: -150px;
-      animation-delay: -6s;
-    }
-
-    .orb-3 {
-      width: 380px;
-      height: 380px;
-      background: linear-gradient(135deg, rgba(106, 189, 255, 0.35), rgba(144, 255, 206, 0.35));
-      top: 55%;
-      left: 25%;
-      animation-delay: -10s;
-    }
-
-    .orb-4 {
-      width: 320px;
-      height: 320px;
-      background: linear-gradient(135deg, rgba(255, 119, 168, 0.3), rgba(106, 189, 255, 0.3));
-      bottom: 10%;
-      left: 8%;
-      animation-delay: -14s;
-    }
-
-    @keyframes liquid-motion {
-      0%, 100% {
-        transform: translate(0, 0) scale(1);
-        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
-      }
-      25% {
-        transform: translate(40px, -40px) scale(1.03);
-        border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
-      }
-      50% {
-        transform: translate(-35px, 35px) scale(0.97);
-        border-radius: 50% 50% 60% 40% / 50% 50% 40% 60%;
-      }
-      75% {
-        transform: translate(35px, 25px) scale(1.02);
-        border-radius: 40% 60% 50% 50% / 60% 40% 50% 50%;
-      }
-    }
-
-    .shell {
-      position: relative;
-      z-index: 10;
-      max-width: 720px;
-      width: 100%;
-      padding: 16px;
-    }
-
-    .glass-card {
-      position: relative;
-      border-radius: 32px;
-      padding: 40px 40px 32px;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, var(--liquid-opacity)),
-        rgba(255, 255, 255, 0.55)
-      );
-      backdrop-filter: blur(var(--liquid-blur)) saturate(190%);
-      -webkit-backdrop-filter: blur(var(--liquid-blur)) saturate(190%);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow:
-        0 12px 40px rgba(31, 38, 135, 0.08),
-        0 4px 16px rgba(31, 38, 135, 0.05),
-        inset 0 4px 16px rgba(255, 255, 255, 0.6),
-        inset 0 -3px 6px rgba(255, 255, 255, 0.7);
-      overflow: hidden;
-      transition: transform 0.6s var(--spring), box-shadow 0.6s var(--spring);
-    }
-
-    .glass-card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: 32px;
-      padding: 1px;
-      background: conic-gradient(
-        from 160deg,
-        rgba(255, 255, 255, 0.7),
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.8),
-        rgba(255, 255, 255, 0.2)
-      );
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      opacity: 0.85;
-    }
-
-    @media (hover: hover) {
-      .glass-card:hover {
-        transform: translateY(-3px);
-        box-shadow:
-          0 18px 56px rgba(31, 38, 135, 0.12),
-          0 8px 24px rgba(31, 38, 135, 0.06),
-          inset 0 5px 20px rgba(255, 255, 255, 0.7),
-          inset 0 -4px 8px rgba(255, 255, 255, 0.8);
-      }
-    }
-
-    h1 {
-      font-size: clamp(2.1rem, 4vw, 2.8rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin-bottom: 4px;
-      background: linear-gradient(135deg, #1d1d1f 0%, #55575c 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .tagline {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      font-family: var(--font-mono);
-      margin-bottom: 14px;
-    }
-
-    .subcopy {
-      font-size: 0.98rem;
-      color: #33343a;
-      max-width: 36rem;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-
-    .meta {
       display: grid;
-      gap: 20px;
-      text-align: left;
-      margin-bottom: 28px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--bg-alt), var(--bg));
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.35),
+        0 18px 45px rgba(0, 0, 0, 0.09);
+    }
+
+    .frame > div {
+      border-right: 1px solid var(--border);
+    }
+
+    .frame > div:last-child {
+      border-right: none;
+    }
+
+    /* LEFT COLUMN */
+
+    .left {
+      padding: 32px 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .header-block {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .name {
+      font-size: clamp(2rem, 5vw, 2.6rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      text-transform: lowercase;
+    }
+
+    .role {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--muted-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .meta-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1.1fr 1.1fr;
+      gap: 22px 40px;
     }
 
     .meta-block {
-      display: grid;
-      gap: 4px;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
     }
 
     .meta-label {
-      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-secondary);
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 3px;
     }
 
     .meta-text {
-      font-size: 0.9rem;
-      color: var(--text-primary);
-      line-height: 1.6;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--accent-soft);
     }
 
     .meta-text strong {
       font-weight: 600;
     }
 
+    .footnote {
+      margin-top: 36px;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footnote span:nth-child(2) {
+      text-align: right;
+    }
+
+    /* RIGHT COLUMN */
+
+    .right {
+      padding: 32px 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.07),
+        rgba(255, 255, 255, 0.07) 1px,
+        transparent 1px,
+        transparent 21px
+      );
+    }
+
     .section-label {
-      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-secondary);
+      letter-spacing: 0.18em;
+      color: var(--muted);
       margin-bottom: 10px;
     }
 
     .links {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 6px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
     }
 
     .link-item {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
-      padding: 9px 0;
+      gap: 14px;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(215, 206, 193, 0.8);
       text-decoration: none;
-      color: var(--text-primary);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-      transition: color 0.3s var(--smooth), border-color 0.3s var(--smooth), transform 0.3s var(--spring);
+      color: var(--accent);
+      transition:
+        background-color 0.18s ease-out,
+        color 0.18s ease-out,
+        transform 0.18s ease-out;
     }
 
-    .link-left {
-      display: inline-flex;
-      align-items: center;
+    .link-main {
+      display: flex;
+      align-items: baseline;
       gap: 10px;
+      min-width: 0;
+    }
+
+    .link-index {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      flex-shrink: 0;
     }
 
     .link-label {
-      font-size: 0.94rem;
-      font-family: var(--font-mono);
+      font-size: 0.96rem;
+      text-transform: lowercase;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
     }
 
     .link-meta {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-    }
-
-    .link-icon {
-      width: 18px;
-      height: 18px;
-      opacity: 0.7;
-      transition: opacity 0.3s var(--smooth), transform 0.3s var(--spring), filter 0.3s var(--smooth);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--muted-soft);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 210px;
     }
 
     .link-arrow {
-      font-size: 0.85rem;
-      opacity: 0.6;
-      transition: transform 0.3s var(--spring), opacity 0.3s var(--smooth);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: transform 0.18s ease-out, color 0.18s ease-out;
+    }
+
+    .link-item:focus-visible {
+      outline: 1px solid var(--accent);
+      outline-offset: 2px;
     }
 
     @media (hover: hover) {
       .link-item:hover {
-        color: #000;
-        border-color: rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.45);
+        color: var(--accent);
         transform: translateY(-1px);
-      }
-
-      .link-item:hover .link-icon {
-        opacity: 1;
-        transform: translateY(-1px);
-        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
       }
 
       .link-item:hover .link-arrow {
-        opacity: 0.9;
         transform: translateX(3px);
+        color: var(--accent);
       }
     }
 
-    .footer-note {
-      margin-top: 8px;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
+    .right-foot {
+      margin-top: 24px;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
       font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      flex-wrap: wrap;
     }
 
-    .magnifier {
-      position: fixed;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      pointer-events: none;
-      opacity: 0;
-      transform: translate(-80px, -80px) scale(0.9);
-      transition: opacity 0.35s var(--spring), transform 0.35s var(--elastic), box-shadow 0.35s var(--spring), border-color 0.35s var(--spring);
-      z-index: 1000;
-      mix-blend-mode: normal;
-      background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.25), transparent 65%);
-      backdrop-filter: blur(12px) saturate(190%);
-      -webkit-backdrop-filter: blur(12px) saturate(190%);
-      border: 1px solid rgba(255, 255, 255, 0.85);
-      box-shadow:
-        0 14px 34px rgba(0, 0, 0, 0.18),
-        0 0 0 1px rgba(255, 255, 255, 0.7),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+    .right-foot span:nth-child(2) {
+      text-align: right;
     }
 
-    .magnifier::before {
-      content: "";
-      position: absolute;
-      inset: 16% 22%;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), transparent);
-      opacity: 0.7;
-      filter: blur(7px);
-    }
+    /* RESPONSIVE */
 
-    .magnifier.active {
-      opacity: 1;
-      transform: translate(-80px, -80px) scale(1);
-      box-shadow:
-        0 20px 46px rgba(0, 0, 0, 0.22),
-        0 0 0 1px rgba(255, 255, 255, 0.9),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+    @media (max-width: 880px) {
+      .frame {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .frame > div {
+        border-right: none;
+      }
+
+      .left {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 640px) {
-      body {
-        padding: 24px 12px;
+      .page {
+        padding: 16px 12px;
       }
 
-      .glass-card {
-        padding: 30px 22px 24px;
-        border-radius: 26px;
+      .frame {
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.4),
+          0 10px 28px rgba(0, 0, 0, 0.12);
       }
 
-      .meta {
-        gap: 16px;
+      .left,
+      .right {
+        padding: 22px 18px 20px;
       }
 
-      .liquid-orb {
-        filter: blur(50px);
-      }
-
-      .orb-1,
-      .orb-2,
-      .orb-3,
-      .orb-4 {
-        width: 280px;
-        height: 280px;
+      .footnote,
+      .right-foot {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
-<body data-scroll-container>
-  <div class="gradient-canvas"></div>
-  <div class="liquid-orb orb-1"></div>
-  <div class="liquid-orb orb-2"></div>
-  <div class="liquid-orb orb-3"></div>
-  <div class="liquid-orb orb-4"></div>
+<body>
+  <main class="page">
+    <section class="frame">
+      <!-- LEFT SIDE -->
+      <div class="left">
+        <div class="header-block">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span>online / personal index</span>
+          </div>
 
-  <div class="magnifier" id="magnifier"></div>
+          <div>
+            <h1 class="name">artyom&nbsp;yagovdik</h1>
+            <p class="role">developer · ecommerce · infra</p>
+          </div>
 
-  <main class="shell" data-scroll-section>
-    <section class="glass-card" data-scroll data-scroll-speed="0.15">
-      <header>
-        <h1>artyom yagovdik</h1>
-        <p class="tagline">developer & ecommerce engineer</p>
-        <p class="subcopy">
-          I work on Magento 2, Hyvä, infrastructure, and AI-assisted workflows — building and maintaining ecommerce systems,
-          deployment pipelines, and the tools around them.
-        </p>
-      </header>
+          <div class="meta-grid">
+            <div class="meta-block">
+              <div class="meta-label">currently</div>
+              <p class="meta-text">
+                <strong>Team Lead at Y1 Digital</strong><br />
+                working on Magento 2, Hyvä and infrastructure for ecommerce brands.
+              </p>
+            </div>
 
-      <section class="meta">
-        <div class="meta-block">
-          <span class="meta-label">Currently</span>
-          <p class="meta-text">
-            <strong>Team Lead at Y1 Digital</strong>, working on Magento 2 & Hyvä projects, performance, and DevOps.
-          </p>
+            <div class="meta-block">
+              <div class="meta-label">previously</div>
+              <p class="meta-text">
+                stabilising legacy Magento stacks, custom integrations and performance work.
+              </p>
+            </div>
+
+            <div class="meta-block">
+              <div class="meta-label">focus</div>
+              <p class="meta-text">
+                deployment pipelines, observability, AI-assisted workflows and sustainable code.
+              </p>
+            </div>
+
+            <div class="meta-block">
+              <div class="meta-label">offline</div>
+              <p class="meta-text">
+                lifting with Hevy, perfumes, long walks, and overthinking tiny interface details.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="meta-block">
-          <span class="meta-label">Previously</span>
-          <p class="meta-text">
-            Focused on custom ecommerce features, integrations (ERPs, PIMs, logistics), and stabilising legacy Magento stacks.
-          </p>
+        <div class="footnote">
+          <span>based in germany · available mostly in the evenings</span>
+          <span>this page is intentionally quiet · no dark mode, just muted pixels</span>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="right">
+        <div>
+          <div class="section-label">elsewhere</div>
+          <div class="links">
+            <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
+              <div class="link-main">
+                <span class="link-index">01</span>
+                <span class="link-label">github</span>
+              </div>
+              <span class="link-meta">code, experiments, random utilities</span>
+              <span class="link-arrow">↗</span>
+            </a>
+
+            <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener noreferrer">
+              <div class="link-main">
+                <span class="link-index">02</span>
+                <span class="link-label">linkedin</span>
+              </div>
+              <span class="link-meta">roles, history, the corporate layer</span>
+              <span class="link-arrow">↗</span>
+            </a>
+
+            <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener noreferrer">
+              <div class="link-main">
+                <span class="link-index">03</span>
+                <span class="link-label">void mechanics</span>
+              </div>
+              <span class="link-meta">telegram channel · notes / noise</span>
+              <span class="link-arrow">↗</span>
+            </a>
+
+            <a href="https://instagram.com/artjom.jj" class="link-item" target="_blank" rel="noopener noreferrer">
+              <div class="link-main">
+                <span class="link-index">04</span>
+                <span class="link-label">instagram</span>
+              </div>
+              <span class="link-meta">lo-fi visuals, life fragments</span>
+              <span class="link-arrow">↗</span>
+            </a>
+
+            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" rel="noopener noreferrer">
+              <div class="link-main">
+                <span class="link-index">05</span>
+                <span class="link-label">fragrantica</span>
+              </div>
+              <span class="link-meta">perfume wardrobe · data, not flex</span>
+              <span class="link-arrow">↗</span>
+            </a>
+
+            <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
+              <div class="link-main">
+                <span class="link-index">06</span>
+                <span class="link-label">hevy</span>
+              </div>
+              <span class="link-meta">training log · numbers and volume</span>
+              <span class="link-arrow">↗</span>
+            </a>
+          </div>
         </div>
 
-        <div class="meta-block">
-          <span class="meta-label">Also</span>
-          <p class="meta-text">
-            Lifting, tracking with Hevy, collecting and reviewing perfumes, and experimenting with AI tools for development.
-          </p>
+        <div class="right-foot">
+          <span>version 0.1 · html + css only</span>
+          <span>no framework, no cookies · just links</span>
         </div>
-      </section>
-
-      <section>
-        <p class="section-label">Elsewhere</p>
-        <div class="links">
-          <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-            <div class="link-left">
-              <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-                <path d="M12 0C5.37 0 0 5.4 0 12.07c0 5.34 3.44 9.87 8.2 11.48.6.12.82-.27.82-.6v-2.17c-3.34.73-4.05-1.65-4.05-1.65-.55-1.43-1.34-1.8-1.34-1.8-1.1-.77.08-.75.08-.75 1.22.09 1.86 1.28 1.86 1.28 1.08 1.87 2.82 1.33 3.51 1.02.11-.8.42-1.34.77-1.65-2.66-.31-5.45-1.36-5.45-6.04 0-1.34.47-2.44 1.24-3.3-.12-.31-.54-1.57.11-3.28 0 0 1.01-.33 3.32 1.26a11.4 11.4 0 0 1 3.02-.41c1.03 0 2.06.14 3.02.41 2.3-1.59 3.31-1.26 3.31-1.26.66 1.71.24 2.97.12 3.28.77.86 1.23 1.96 1.23 3.3 0 4.7-2.8 5.72-5.47 6.03.43.37.82 1.11.82 2.25v3.34c0 .34.21.73.83.6C20.57 21.93 24 17.4 24 12.07 24 5.4 18.63 0 12 0Z" />
-              </svg>
-              <div>
-                <div class="link-label">GitHub</div>
-                <div class="link-meta">code, experiments, and small tools</div>
-              </div>
-            </div>
-            <span class="link-arrow">↗</span>
-          </a>
-
-          <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener noreferrer">
-            <div class="link-left">
-              <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-                <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.08 1 2.5 1s2.48 1.12 2.48 2.5zM.3 23.5h4.4V7.9H.3v15.6zM8.4 7.9h4.2v2.1h.06c.58-1.1 2-2.25 4.12-2.25 4.4 0 5.2 2.9 5.2 6.7v9.05h-4.4V15.5c0-1.9-.03-4.35-2.65-4.35-2.66 0-3.07 2.07-3.07 4.2v8.15H8.4V7.9z" />
-              </svg>
-              <div>
-                <div class="link-label">LinkedIn</div>
-                <div class="link-meta">work history & roles</div>
-              </div>
-            </div>
-            <span class="link-arrow">↗</span>
-          </a>
-
-          <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener noreferrer">
-            <div class="link-left">
-              <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-                <path d="M11.94 0C5.34 0 0 5.37 0 12c0 6.63 5.34 12 11.94 12C18.6 24 24 18.63 24 12 24 5.37 18.6 0 11.94 0Zm5.06 7.22c.1-.01.32.02.47.14.08.06.17.17.18.33.02.1.04.31.02.47-.18 1.9-.96 6.5-1.36 8.63-.17.9-.5 1.2-.82 1.23-.7.07-1.23-.46-1.9-.9-1.06-.7-1.66-1.13-2.68-1.8-1.19-.78-.42-1.21.25-1.9.18-.18 3.25-2.98 3.31-3.23.01-.04.01-.15-.06-.22-.06-.06-.16-.05-.25-.03-.11.03-1.8 1.14-5.06 3.34-.48.33-.91.49-1.3.48-.43-.01-1.25-.25-1.87-.44-.75-.25-1.35-.37-1.3-.79.03-.22.33-.44.89-.66 3.5-1.53 5.83-2.53 7-3.02 3.33-1.39 4.02-1.63 4.47-1.64Z" />
-              </svg>
-              <div>
-                <div class="link-label">void mechanics</div>
-                <div class="link-meta">Telegram channel</div>
-              </div>
-            </div>
-            <span class="link-arrow">↗</span>
-          </a>
-
-          <a href="https://instagram.com/artjom.jj" class="link-item" target="_blank" rel="noopener noreferrer">
-            <div class="link-left">
-              <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-                <path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.05 1.27.07 1.64.07 4.85 0 3.21-.02 3.58-.07 4.85-.15 3.23-1.67 4.77-4.92 4.92-1.27.05-1.64.07-4.85.07-3.21 0-3.58-.02-4.85-.07-3.24-.15-4.77-1.69-4.92-4.92C2.02 15.58 2 15.21 2 12c0-3.21.02-3.58.07-4.85.15-3.24 1.68-4.77 4.92-4.92 1.27-.06 1.64-.07 4.85-.07m0-2.16C8.7 0 8.29.01 7.01.07 2.65.27.23 2.69.03 7.01 0 8.3 0 8.71 0 12s.01 3.7.03 4.99c.2 4.32 2.62 6.74 6.98 6.94 1.28.06 1.69.07 4.99.07s3.7-.01 4.99-.03c4.32-.2 6.74-2.62 6.94-6.94.02-1.29.03-1.7.03-4.99s-.01-3.7-.03-4.99C23.77 2.69 21.35.27 16.99.07 15.7.01 15.29 0 12 0Z" />
-                <path d="M12 5.84A6.16 6.16 0 1 0 18.16 12 6.17 6.17 0 0 0 12 5.84Zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4Z" />
-                <circle cx="18.4" cy="5.6" r="1.44" />
-              </svg>
-              <div>
-                <div class="link-label">Instagram</div>
-                <div class="link-meta">casual things & photos</div>
-              </div>
-            </div>
-            <span class="link-arrow">↗</span>
-          </a>
-
-          <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" rel="noopener noreferrer">
-            <div class="link-left">
-              <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                <path d="M3 6h18" />
-                <path d="M16 10a4 4 0 0 1-8 0" />
-              </svg>
-              <div>
-                <div class="link-label">Fragrantica</div>
-                <div class="link-meta">perfume wardrobe & reviews</div>
-              </div>
-            </div>
-            <span class="link-arrow">↗</span>
-          </a>
-
-          <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-            <div class="link-left">
-              <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 12h4l3 9 4-17 3 8h4" />
-              </svg>
-              <div>
-                <div class="link-label">Hevy</div>
-                <div class="link-meta">training log</div>
-              </div>
-            </div>
-            <span class="link-arrow">↗</span>
-          </a>
-        </div>
-
-        <p class="footer-note">
-          Based in Germany · this page is intentionally minimal and probably slightly over-engineered.
-        </p>
-      </section>
+      </div>
     </section>
   </main>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
-
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    const scrollContainer = document.querySelector("[data-scroll-container]");
-    const scroll = new LocomotiveScroll({
-      el: scrollContainer,
-      smooth: true,
-      lerp: 0.09,
-      smartphone: { smooth: true },
-      tablet: { smooth: true }
-    });
-
-    scroll.on("scroll", ScrollTrigger.update);
-
-    ScrollTrigger.scrollerProxy(scrollContainer, {
-      scrollTop(value) {
-        return arguments.length
-          ? scroll.scrollTo(value, { duration: 0, disableLerp: true })
-          : scroll.scroll.instance.scroll.y;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight
-        };
-      },
-      pinType: scrollContainer.style.transform ? "transform" : "fixed"
-    });
-
-    ScrollTrigger.addEventListener("refresh", () => scroll.update());
-    ScrollTrigger.refresh();
-
-    gsap.from(".glass-card", {
-      scrollTrigger: {
-        trigger: ".glass-card",
-        scroller: scrollContainer,
-        start: "top 80%",
-        toggleActions: "play none none reverse"
-      },
-      y: 60,
-      opacity: 0,
-      duration: 1.1,
-      ease: "power3.out"
-    });
-
-    gsap.utils.toArray(".link-item").forEach((link, i) => {
-      gsap.from(link, {
-        scrollTrigger: {
-          trigger: link,
-          scroller: scrollContainer,
-          start: "top 95%",
-          toggleActions: "play none none reverse"
-        },
-        y: 22,
-        opacity: 0,
-        duration: 0.7,
-        delay: i * 0.04,
-        ease: "power2.out"
-      });
-    });
-
-    const magnifier = document.getElementById("magnifier");
-    let magnifierActive = false;
-    let mouseX = 0, mouseY = 0;
-    let currentX = 0, currentY = 0;
-
-    function animateMagnifier() {
-      const dx = mouseX - currentX;
-      const dy = mouseY - currentY;
-      currentX += dx * 0.18;
-      currentY += dy * 0.18;
-      magnifier.style.transform = `translate(${currentX - 80}px, ${currentY - 80}px) scale(${magnifierActive ? 1 : 0.9})`;
-      requestAnimationFrame(animateMagnifier);
-    }
-    animateMagnifier();
-
-    document.addEventListener("mousedown", (e) => {
-      if (e.button !== 0) return;
-      magnifierActive = true;
-      magnifier.classList.add("active");
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      currentX = mouseX;
-      currentY = mouseY;
-    });
-
-    document.addEventListener("mouseup", () => {
-      magnifierActive = false;
-      magnifier.classList.remove("active");
-    });
-
-    document.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    let touchActive = false;
-    document.addEventListener("touchstart", (e) => {
-      touchActive = true;
-      magnifierActive = true;
-      magnifier.classList.add("active");
-      const t = e.touches[0];
-      mouseX = t.clientX;
-      mouseY = t.clientY;
-      currentX = mouseX;
-      currentY = mouseY;
-    }, { passive: true });
-
-    document.addEventListener("touchend", () => {
-      touchActive = false;
-      magnifierActive = false;
-      magnifier.classList.remove("active");
-    });
-
-    document.addEventListener("touchmove", (e) => {
-      if (!touchActive) return;
-      const t = e.touches[0];
-      mouseX = t.clientX;
-      mouseY = t.clientY;
-    }, { passive: true });
-  </script>
 </body>
 </html>
