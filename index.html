@@ -1,77 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>artyom yagovdik</title>
-
   <script id="gtag-script"></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
-
   <style>
-    .link-item,.page{align-items:center}.identity-label,.role,h1{text-transform:uppercase}.bio strong,body{color:var(--ink)}
-    .identity-label,.role,.section-label{font-family:var(--font-mono)}
-    :root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;
-      --font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;
-      --font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}
-    *,::after,::before{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%}
-    .page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:2.4rem 1.4rem;gap:2rem}
-    .frame{max-width:1200px;width:100%;background:var(--frame);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
-    .left,.right{display:flex;flex-direction:column;padding:2.8rem 2.4rem 2.4rem}
-    .left{gap:2.6rem;justify-content:center}
-    .right{justify-content:center;gap:2.4rem}
-    .identity{display:grid;row-gap:1.4rem}
-    .identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft)}
-    .bio,.role{color:var(--ink-muted)}
-    h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.6rem,7vw,4.6rem);letter-spacing:.18em;line-height:1}
-    .role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem}
-    .bio{margin-top:1.8rem;max-width:34rem;font-size:.96rem;line-height:1.75}
-    .section-label{font-size:.7rem;letter-spacing:.2em;color:var(--ink-soft);margin-bottom:.9rem}
-    .link-label,.link-meta{font-family:var(--font-ui);text-transform:uppercase}
-    .links{display:flex;flex-direction:column;gap:.3rem}
-    .link-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:1rem;padding:.9rem 0;text-decoration:none;color:var(--ink);position:relative}
-    .link-item::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;background:rgba(0,0,0,.03);transition:transform .16s ease-out;z-index:-1}
-    .link-item:hover::before{transform:scaleY(1)}
-    .link-icon{width:30px;height:30px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;overflow:hidden}
-    .link-icon svg{width:18px;height:18px;fill:currentColor}
-    .link-main{display:flex;flex-direction:column;gap:.05rem}
-    .link-label{font-weight:500;font-size:12px;letter-spacing:.08em}
-    .link-meta{font-size:.68rem;letter-spacing:.12em;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .link-arrow{font-size:1rem;font-family:var(--font-mono);color:var(--ink-soft);transition:transform .16s,color .16s}
-    .link-item:hover .link-arrow{transform:translateX(4px);color:var(--ink)}
-
-    #cookie-consent{
-        position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--bg);
-        padding:1rem 1.4rem;display:flex;justify-content:center;align-items:center;
-        gap:1.5rem;z-index:1000;font-family:var(--font-ui);font-size:.85rem
-    }
-    #cookie-consent p{margin:0;max-width:800px;line-height:1.4}
-    #cookie-consent button{
-        background:var(--bg);color:var(--ink);border:none;padding:.5rem 1rem;
-        cursor:pointer;font-weight:500;font-family:var(--font-ui);
-        font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;
-        transition:background .15s
-    }
-    #cookie-consent button:hover{background:var(--ink-soft);color:var(--bg)}
-
-    @media(max-width:960px){.frame{grid-template-columns:1fr}.right{padding-top:1rem}}
-    @media(max-width:720px){
-        .page{padding:1.1rem .9rem}
-        .left,.right{padding:2.1rem 1.6rem}
-        #cookie-consent{flex-direction:column;align-items:stretch;text-align:center}
-        #cookie-consent p{margin-bottom:.5rem}
-        #cookie-consent .buttons{display:flex;gap:.5rem;justify-content:center}
-    }
+    .link-item,.page{align-items:center}.identity-label,.role,h1{text-transform:uppercase}.bio strong,body{color:var(--ink)}.identity-label,.role,.section-label{font-family:var(--font-mono)}:root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;--font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;--font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}*,::after,::before{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%}.page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:2.4rem 1.4rem;gap:2rem}.frame{max-width:1200px;width:100%;background:var(--frame);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.left,.right{display:flex;flex-direction:column;padding:2.8rem 2.4rem 2.4rem}.left{gap:2.6rem;justify-content:center}.right{justify-content:center;gap:2.4rem}.identity{display:grid;row-gap:1.4rem}.identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft)}.bio,.role{color:var(--ink-muted)}h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.6rem,7vw,4.6rem);letter-spacing:.18em;line-height:1}.role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem}.bio{margin-top:1.8rem;max-width:34rem;font-size:.96rem;line-height:1.75}.section-label{font-size:.7rem;letter-spacing:.2em;color:var(--ink-soft);margin-bottom:.9rem}.link-label,.link-meta{font-family:var(--font-ui);text-transform:uppercase}.links{display:flex;flex-direction:column;gap:.3rem}.link-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:1rem;padding:.9rem 0;text-decoration:none;color:var(--ink);position:relative}.link-item::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;background:rgba(0,0,0,.03);transition:transform .16s ease-out;z-index:-1}.link-item:hover::before{transform:scaleY(1)}.link-icon{width:30px;height:30px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;overflow:hidden}.link-icon svg{width:18px;height:18px}.link-icon img{width:18px;height:18px;display:block}.link-main{display:flex;flex-direction:column;gap:.05rem}.link-label{font-weight:500;font-size:12px;letter-spacing:.08em}.link-meta{font-size:.68rem;letter-spacing:.12em;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.link-arrow{font-size:1rem;font-family:var(--font-mono);color:var(--ink-soft);transition:transform .16s,color .16s}.link-item:hover .link-arrow{transform:translateX(4px);color:var(--ink)}#cookie-consent{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--bg);padding:1rem 1.4rem;display:flex;justify-content:center;align-items:center;gap:1.5rem;z-index:1000;font-family:var(--font-ui);font-size:.85rem}#cookie-consent p{margin:0;max-width:800px;line-height:1.4}#cookie-consent button{background:var(--bg);color:var(--ink);border:none;padding:.5rem 1rem;cursor:pointer;font-weight:500;font-family:var(--font-ui);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;transition:background .15s}#cookie-consent button:hover{background:var(--ink-soft);color:var(--bg)}@media(max-width:960px){.frame{grid-template-columns:1fr}.right{padding-top:1rem}}@media(max-width:720px){.page{padding:1.1rem .9rem}.left,.right{padding:2.1rem 1.6rem}#cookie-consent{flex-direction:column;align-items:stretch;text-align:center}#cookie-consent p{margin-bottom:.5rem}#cookie-consent .buttons{display:flex;gap:.5rem;justify-content:center}}
   </style>
 </head>
 
 <body>
   <main class="page">
-
     <section class="frame">
       <div class="left">
         <section class="identity">
@@ -81,203 +24,95 @@
             <p class="role">team lead · senior software engineer</p>
           </div>
         </section>
-
         <section class="bio">
           <p>
             Team Lead & Senior Software Engineer with <strong>10+ years of experience</strong> across product and commerce stacks. I work with <strong>JavaScript, PHP, Ruby on Rails, some Python, Linux systems, Cloud (AWS/S3/ECS), Docker</strong> and build workflows that make teams faster — using <strong>AI tools</strong> where they actually help.
           </p>
         </section>
       </div>
-
       <div class="right">
         <div>
           <div class="section-label">elsewhere</div>
           <nav class="links">
-
-            <a href="https://github.com/artttj" class="link-item" target="_blank">
-              <span class="link-icon" style="background:#181717; color:#fff">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 19c-4 1-4-2-6-3m12 6v-3.5c0-1 .2-1.5-1-2 
-                           3-.3 6-1.5 6-7a5.4 5.4 0 0 0-1.5-3.8 
-                           4.9 4.9 0 0 0-.1-3.6s-1.1-.3-3.7 1.5a12.3 
-                           12.3 0 0 0-6.6 0C4.7 2.3 3.6 2.6 3.6 2.6a4.9 
-                           4.9 0 0 0-.1 3.6A5.4 5.4 0 0 0 2 9.5c0 5.5 3 
-                           6.7 6 7C7 17 7 17.8 7 18.8V22"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>
-                </svg>
-              </span>
-              <div class="link-main">
-                <span class="link-label">github</span>
-                <span class="link-meta">repos · utilities</span>
-              </div>
-              <span class="link-arrow">↗</span>
+            <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-github.svg" alt="GitHub" loading="lazy"></span>
+              <div class="link-main"><span class="link-label">github</span><span class="link-meta">repos · utilities</span></div><span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank">
-              <span class="link-icon" style="background:#0A66C2; color:#fff">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="8" width="4" height="12"></rect>
-                  <circle cx="5" cy="4" r="2"></circle>
-                  <path d="M11 8h4v2.5c.8-1.4 2-2.7 4.2-2.7 
-                           3.3 0 4.8 2.2 4.8 6V20h-4v-6.1c0-2-.5-3.6-2.4-3.6 
-                           -1.6 0-2.6 1.2-2.6 3.6V20h-4V8z"></path>
-                </svg>
-              </span>
-              <div class="link-main">
-                <span class="link-label">linkedin</span>
-                <span class="link-meta">roles · timeline</span>
-              </div>
-              <span class="link-arrow">↗</span>
+            <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener noreferrer">
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-linkedin.svg" alt="LinkedIn" loading="lazy"></span>
+              <div class="link-main"><span class="link-label">linkedin</span><span class="link-meta">roles · timeline</span></div><span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://t.me/voidmechanics" class="link-item" target="_blank">
-              <span class="link-icon" style="background:#229ED9; color:#fff">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M22 3 2 10.2c-1 .4-1 1.6 0 2L7 14.5l2 6c.3 1 1.6 1 2 .1l3-4.8 
-                           5.5 3c.8.4 1.8 0 1.9-1l2-13c.1-.9-.8-1.7-1.9-1.3z"></path>
-                </svg>
-              </span>
-              <div class="link-main">
-                <span class="link-label">void mechanics</span>
-                <span class="link-meta">notes · fragments</span>
-              </div>
-              <span class="link-arrow">↗</span>
+            <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener noreferrer">
+              <span class="link-icon" style="background:#229ED9;color:#ffffff"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 3 2 10.2c-1 .4-1 1.6 0 2L7 14.5l2 6c.3 1 1.6 1 2 .1l3-4.8 5.5 3c.8.4 1.8 0 1.9-1l2-13c.1-.9-.8-1.7-1.9-1.3z" fill="currentColor"></path></svg></span>
+              <div class="link-main"><span class="link-label">void mechanics</span><span class="link-meta">notes · fragments</span></div><span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://www.instagram.com/artjom.jj/" class="link-item" target="_blank">
-              <span class="link-icon" style="background:#000; color:#fff">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"></rect>
-                  <circle cx="12" cy="12" r="3.2"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"></circle>
-                  <circle cx="16.5" cy="7.5" r="1.2"></circle>
-                </svg>
-              </span>
-              <div class="link-main">
-                <span class="link-label">instagram</span>
-                <span class="link-meta">@artjom.jj</span>
-              </div>
-              <span class="link-arrow">↗</span>
+            <a href="https://www.instagram.com/artjom.jj/" class="link-item" target="_blank" rel="noopener noreferrer">
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-instagram.svg" alt="Instagram" loading="lazy"></span>
+              <div class="link-main"><span class="link-label">instagram</span><span class="link-meta">@artjom.jj</span></div><span class="link-arrow">↗</span>
             </a>
-
-            <a href="mailto:artyom.yagovdik@gmail.com" class="link-item">
-              <span class="link-icon" style="background:#DB4437; color:#fff">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                  <path d="M3 7l9 6 9-6"></path>
-                </svg>
-              </span>
-              <div class="link-main">
-                <span class="link-label">email</span>
-                <span class="link-meta">contact · artyom.yagovdik@gmail.com</span>
-              </div>
-              <span class="link-arrow">↗</span>
+            <a href="#" id="email-link" class="link-item">
+              <span class="link-icon" style="background:#ffffff;"><img src="https://s.magecdn.com/social/tc-mail.svg" alt="Email" loading="lazy"></span>
+              <div class="link-main"><span class="link-label">email</span><span class="link-meta" id="email-meta">contact · </span></div><span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://hevy.com/user/artttj" class="link-item" target="_blank">
-              <span class="link-icon" style="background:#111; color:#fff">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 3v18M3 12h18"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"></path>
-                </svg>
-              </span>
-              <div class="link-main">
-                <span class="link-label">hevy</span>
-                <span class="link-meta">training</span>
-              </div>
-              <span class="link-arrow">↗</span>
+            <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
+              <span class="link-icon" style="background:#111111;color:#ffffff"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></span>
+              <div class="link-main"><span class="link-label">hevy</span><span class="link-meta">training</span></div><span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" style="display: none;">
-              <span class="link-icon" style="background:#666; color:#fff">
-              </span>
-              <div class="link-main">
-                <span class="link-label">fragrantica</span>
-                <span class="link-meta">hobby</span>
-              </div>
-              <span class="link-arrow">↗</span>
-            </a>
-
           </nav>
         </div>
       </div>
-
     </section>
-
     <div class="footer" id="footer-year"></div>
-
   </main>
 
   <div id="cookie-consent" style="display:none;">
-    <p>
-        This site uses Google Analytics for anonymous usage statistics. This requires a cookie.
-        You can accept or decline this non-essential tracking. Essential cookies are not used.
-    </p>
-    <div class="buttons">
-        <button id="consent-accept">Accept Tracking</button>
-        <button id="consent-decline">Decline Tracking</button>
-    </div>
+    <p>This site uses Google Analytics for anonymous usage statistics. This requires a cookie. You can accept or decline this non-essential tracking. Essential cookies are not used.</p>
+    <div class="buttons"><button id="consent-accept">Accept Tracking</button><button id="consent-decline">Decline Tracking</button></div>
   </div>
 
   <script>
-    document.getElementById("footer-year").textContent =
-      new Date().getFullYear() + " · Frankfurt, Germany";
+    document.getElementById("footer-year").textContent = new Date().getFullYear() + " · Frankfurt, Germany";
 
-    const consentBanner = document.getElementById('cookie-consent');
-    const acceptButton = document.getElementById('consent-accept');
-    const declineButton = document.getElementById('consent-decline');
-    const gtagScript = document.getElementById('gtag-script');
-    const consentKey = 'ay_ga_consent';
+    const consentBanner = document.getElementById('cookie-consent'),
+          acceptButton = document.getElementById('consent-accept'),
+          declineButton = document.getElementById('consent-decline'),
+          gtagScript = document.getElementById('gtag-script'),
+          consentKey = 'ay_ga_consent';
 
-    function loadGoogleAnalytics(accepted) {
-        if (accepted) {
-            gtagScript.innerHTML = `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-2R92LFMXD5');
-            `;
-            gtagScript.setAttribute('async', '');
-            gtagScript.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=G-2R92LFMXD5');
-        } else {
-            window['ga-disable-G-2R92LFMXD5'] = true;
-        }
+    function loadGoogleAnalytics(accepted){
+      if(accepted){
+        gtagScript.innerHTML = `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-2R92LFMXD5');
+        `;
+        gtagScript.setAttribute('async','');
+        gtagScript.setAttribute('src','https://www.googletagmanager.com/gtag/js?id=G-2R92LFMXD5');
+      } else {
+        window['ga-disable-G-2R92LFMXD5'] = true;
+      }
     }
 
     const userConsent = localStorage.getItem(consentKey);
-
-    if (userConsent === 'accepted') {
-        loadGoogleAnalytics(true);
-    } else if (userConsent === 'declined') {
-        loadGoogleAnalytics(false);
+    if(userConsent==='accepted'){
+      loadGoogleAnalytics(true);
+    } else if(userConsent==='declined'){
+      loadGoogleAnalytics(false);
     } else {
-        consentBanner.style.display = 'flex';
+      consentBanner.style.display='flex';
     }
 
-    acceptButton.addEventListener('click', () => {
-        localStorage.setItem(consentKey, 'accepted');
-        loadGoogleAnalytics(true);
-        consentBanner.style.display = 'none';
-    });
+    acceptButton.addEventListener('click',()=>{localStorage.setItem(consentKey,'accepted');loadGoogleAnalytics(true);consentBanner.style.display='none';});
+    declineButton.addEventListener('click',()=>{localStorage.setItem(consentKey,'declined');loadGoogleAnalytics(false);consentBanner.style.display='none';});
 
-    declineButton.addEventListener('click', () => {
-        localStorage.setItem(consentKey, 'declined');
-        loadGoogleAnalytics(false);
-        consentBanner.style.display = 'none';
-    });
+    (function(){
+      const user='artyom.yagovdik', domain='gmail.com';
+      const linkEl=document.getElementById('email-link');
+      const metaEl=document.getElementById('email-meta');
+      linkEl.addEventListener('click',function(e){e.preventDefault();window.location.href='mailto:'+user+'@'+domain;});
+      metaEl.textContent += user+'@'+domain;
+    })();
   </script>
-
 </body>
 </html>
