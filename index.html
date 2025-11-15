@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,10 +9,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
   <style>
-    .link-item,.page{align-items:center}.identity-label,.role,h1{text-transform:uppercase}.bio strong,body{color:var(--ink)}.identity-label,.role,.section-label{font-family:var(--font-mono)}:root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;--font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;--font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}*,::after,::before{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%}.page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:2.4rem 1.4rem;gap:2rem}.frame{max-width:1200px;width:100%;background:var(--frame);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.left,.right{display:flex;flex-direction:column;padding:2.8rem 2.4rem 2.4rem}.left{gap:2.6rem;justify-content:center}.right{justify-content:center;gap:2.4rem}.identity{display:grid;row-gap:1.4rem}.identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft)}.bio,.role{color:var(--ink-muted)}h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.6rem,7vw,4.6rem);letter-spacing:.18em;line-height:1}.role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem}.bio{margin-top:1.8rem;max-width:34rem;font-size:.96rem;line-height:1.75}.section-label{font-size:.7rem;letter-spacing:.2em;color:var(--ink-soft);margin-bottom:.9rem}.link-label,.link-meta{font-family:var(--font-ui);text-transform:uppercase}.links{display:flex;flex-direction:column;gap:.3rem}.link-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:1rem;padding:.9rem 0;text-decoration:none;color:var(--ink);position:relative}.link-item::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;background:rgba(0,0,0,.03);transition:transform .16s ease-out;z-index:-1}.link-item:hover::before{transform:scaleY(1)}.link-icon{width:32px;height:32px;border-radius:999px;background:#f5f5f5;display:inline-flex;align-items:center;justify-content:center;overflow:hidden}.link-icon img{width:20px;height:20px;display:block}.link-main{display:flex;flex-direction:column;gap:.05rem}.link-label{font-weight:500;font-size:12px;letter-spacing:.08em}.link-meta{font-size:.68rem;letter-spacing:.12em;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.link-arrow{font-size:1rem;font-family:var(--font-mono);color:var(--ink-soft);transition:transform .16s,color .16s}.link-item:hover .link-arrow{transform:translateX(4px);color:var(--ink)}#cookie-consent{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--bg);padding:1rem 1.4rem;display:flex;justify-content:center;align-items:center;gap:1.5rem;z-index:1000;font-family:var(--font-ui);font-size:.85rem}#cookie-consent p{margin:0;max-width:800px;line-height:1.4}#cookie-consent button{background:var(--bg);color:var(--ink);border:none;padding:.5rem 1rem;cursor:pointer;font-weight:500;font-family:var(--font-ui);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;transition:background .15s}#cookie-consent button:hover{background:var(--ink-soft);color:var(--bg)}@media(max-width:960px){.frame{grid-template-columns:1fr}.right{padding-top:1rem}}@media(max-width:720px){.page{padding:1.1rem .9rem}.left,.right{padding:2.1rem 1.6rem}#cookie-consent{flex-direction:column;align-items:stretch;text-align:center}#cookie-consent p{margin-bottom:.5rem}#cookie-consent .buttons{display:flex;gap:.5rem;justify-content:center}}
+    .link-item,.page{align-items:center}.identity-label,.role,h1{text-transform:uppercase}.bio strong,body{color:var(--ink)}.identity-label,.role,.section-label{font-family:var(--font-mono)}
+    :root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;--icon-bg:#ffffff;--icon-border:rgba(0,0,0,0.08);--font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;--font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}
+    [data-theme="dark"]{--bg:#050509;--frame:#050509;--ink:#f5f5f5;--ink-muted:#a4a4a4;--ink-soft:#6f6f6f;--icon-bg:#111119;--icon-border:rgba(255,255,255,0.12)}
+    *,::after,::before{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%;color:var(--ink)}
+    .page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:2.4rem 1.4rem;gap:2rem;transition:background .2s,color .2s}
+    .frame{max-width:1200px;width:100%;background:var(--frame);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+    .left,.right{display:flex;flex-direction:column;padding:2.8rem 2.4rem 2.4rem}
+    .left{gap:2.6rem;justify-content:center}
+    .right{justify-content:center;gap:2.4rem;position:relative}
+    .identity{display:grid;row-gap:1.4rem}
+    .identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft)}
+    .bio,.role{color:var(--ink-muted)}
+    h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.6rem,7vw,4.6rem);letter-spacing:.18em;line-height:1}
+    .role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem}
+    .bio{margin-top:1.8rem;max-width:34rem;font-size:.96rem;line-height:1.75}
+    .section-label{font-size:.7rem;letter-spacing:.2em;color:var(--ink-soft);margin-bottom:.9rem}
+    .link-label,.link-meta{font-family:var(--font-ui);text-transform:uppercase}
+    .links{display:flex;flex-direction:column;gap:.3rem}
+    .link-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:1rem;padding:.9rem 0;text-decoration:none;color:var(--ink);position:relative;transition:color .16s}
+    .link-item::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;background:rgba(0,0,0,.03);transition:transform .16s ease-out;z-index:-1}
+    [data-theme="dark"] .link-item::before{background:rgba(255,255,255,.06)}
+    .link-item:hover::before{transform:scaleY(1)}
+    .link-icon{width:32px;height:32px;border-radius:999px;background:var(--icon-bg);border:1px solid var(--icon-border);display:inline-flex;align-items:center;justify-content:center;overflow:hidden}
+    .link-icon img{width:20px;height:20px;display:block}
+    .link-main{display:flex;flex-direction:column;gap:.05rem}
+    .link-label{font-weight:500;font-size:12px;letter-spacing:.08em}
+    .link-meta{font-size:.68rem;letter-spacing:.12em;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .link-arrow{font-size:1rem;font-family:var(--font-mono);color:var(--ink-soft);transition:transform .16s,color .16s}
+    .link-item:hover .link-arrow{transform:translateX(4px);color:var(--ink)}
+    #cookie-consent{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--bg);padding:1rem 1.4rem;display:flex;justify-content:center;align-items:center;gap:1.5rem;z-index:1000;font-family:var(--font-ui);font-size:.85rem}
+    #cookie-consent p{margin:0;max-width:800px;line-height:1.4}
+    #cookie-consent button{background:var(--bg);color:var(--ink);border:none;padding:.5rem 1rem;cursor:pointer;font-weight:500;font-family:var(--font-ui);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;transition:background .15s}
+    #cookie-consent button:hover{background:var(--ink-soft);color:var(--bg)}
+    .theme-toggle{position:absolute;top:0;right:0;display:inline-flex;align-items:center;gap:.35rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;user-select:none}
+    .theme-toggle button{border:1px solid var(--icon-border);background:var(--icon-bg);color:var(--ink);border-radius:999px;font-size:.7rem;padding:.18rem .7rem;font-family:var(--font-mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem}
+    .theme-toggle-indicator{width:10px;height:10px;border-radius:999px;background:var(--ink-soft)}
+    [data-theme="dark"] .theme-toggle-indicator{background:#f5f5f5}
+    @media(max-width:960px){.frame{grid-template-columns:1fr}.right{padding-top:1rem}}
+    @media(max-width:720px){.page{padding:1.1rem .9rem}.left,.right{padding:2.1rem 1.6rem}#cookie-consent{flex-direction:column;align-items:stretch;text-align:center}#cookie-consent p{margin-bottom:.5rem}#cookie-consent .buttons{display:flex;gap:.5rem;justify-content:center}.theme-toggle{position:static;justify-content:flex-end;margin-bottom:.5rem}}
   </style>
 </head>
-
 <body>
   <main class="page">
     <section class="frame">
@@ -32,42 +70,49 @@
       </div>
 
       <div class="right">
+        <div class="theme-toggle" id="theme-toggle">
+          <span>mode</span>
+          <button type="button" id="theme-toggle-btn">
+            <span class="theme-toggle-indicator"></span>
+            <span id="theme-toggle-label">light</span>
+          </button>
+        </div>
         <div>
           <div class="section-label">elsewhere</div>
           <nav class="links">
             <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/github?viewbox=auto&size=20" alt="GitHub" loading="lazy"></span>
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/github" alt="GitHub" loading="lazy"></span>
               <div class="link-main"><span class="link-label">github</span><span class="link-meta">repos · utilities</span></div>
               <span class="link-arrow">↗</span>
             </a>
-
             <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/linkedin?viewbox=auto&size=20" alt="LinkedIn" loading="lazy"></span>
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/linkedin" alt="LinkedIn" loading="lazy"></span>
               <div class="link-main"><span class="link-label">linkedin</span><span class="link-meta">roles · timeline</span></div>
               <span class="link-arrow">↗</span>
             </a>
-
             <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/telegram?viewbox=auto&size=20" alt="Telegram" loading="lazy"></span>
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/telegram" alt="Telegram" loading="lazy"></span>
               <div class="link-main"><span class="link-label">void mechanics</span><span class="link-meta">notes · fragments</span></div>
               <span class="link-arrow">↗</span>
             </a>
-
             <a href="https://www.instagram.com/artjom.jj/" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/instagram?viewbox=auto&size=20" alt="Instagram" loading="lazy"></span>
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/instagram" alt="Instagram" loading="lazy"></span>
               <div class="link-main"><span class="link-label">instagram</span><span class="link-meta">@artjom.jj</span></div>
               <span class="link-arrow">↗</span>
             </a>
-
             <a href="#" id="email-link" class="link-item">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/gmail?viewbox=auto&size=20" alt="Email" loading="lazy"></span>
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/gmail" alt="Email" loading="lazy"></span>
               <div class="link-main"><span class="link-label">email</span><span class="link-meta" id="email-meta">contact · </span></div>
               <span class="link-arrow">↗</span>
             </a>
-
             <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/hevy?viewbox=auto&size=20" alt="Hevy" loading="lazy"></span>
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/hevy" alt="Hevy" loading="lazy"></span>
               <div class="link-main"><span class="link-label">hevy</span><span class="link-meta">training</span></div>
+              <span class="link-arrow">↗</span>
+            </a>
+            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" rel="noopener noreferrer" id="fragrantica-link" style="display:none">
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/safari" alt="Fragrantica" loading="lazy"></span>
+              <div class="link-main"><span class="link-label">fragrantica</span><span class="link-meta">hidden hobby</span></div>
               <span class="link-arrow">↗</span>
             </a>
           </nav>
@@ -89,57 +134,60 @@
   <script>
     document.getElementById("footer-year").textContent = new Date().getFullYear() + " · Frankfurt, Germany";
 
-    const consentBanner = document.getElementById('cookie-consent'),
-          acceptButton = document.getElementById('consent-accept'),
-          declineButton = document.getElementById('consent-decline'),
-          gtagScript = document.getElementById('gtag-script'),
-          consentKey = 'ay_ga_consent';
+    const consentBanner=document.getElementById('cookie-consent'),
+          acceptButton=document.getElementById('consent-accept'),
+          declineButton=document.getElementById('consent-decline'),
+          gtagScript=document.getElementById('gtag-script'),
+          consentKey='ay_ga_consent';
 
     function loadGoogleAnalytics(accepted){
       if(accepted){
-        gtagScript.innerHTML = `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-2R92LFMXD5');
-        `;
+        gtagScript.innerHTML=`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2R92LFMXD5');`;
         gtagScript.setAttribute('async','');
         gtagScript.setAttribute('src','https://www.googletagmanager.com/gtag/js?id=G-2R92LFMXD5');
-      } else {
-        window['ga-disable-G-2R92LFMXD5'] = true;
+      }else{
+        window['ga-disable-G-2R92LFMXD5']=true;
       }
     }
 
-    const userConsent = localStorage.getItem(consentKey);
-    if(userConsent === 'accepted'){
-      loadGoogleAnalytics(true);
-    } else if(userConsent === 'declined'){
-      loadGoogleAnalytics(false);
-    } else {
-      consentBanner.style.display = 'flex';
-    }
-
-    acceptButton.addEventListener('click', () => {
-      localStorage.setItem(consentKey,'accepted');
-      loadGoogleAnalytics(true);
-      consentBanner.style.display='none';
-    });
-
-    declineButton.addEventListener('click', () => {
-      localStorage.setItem(consentKey,'declined');
-      loadGoogleAnalytics(false);
-      consentBanner.style.display='none';
-    });
+    const userConsent=localStorage.getItem(consentKey);
+    if(userConsent==='accepted'){loadGoogleAnalytics(true);}else if(userConsent==='declined'){loadGoogleAnalytics(false);}else{consentBanner.style.display='flex';}
+    acceptButton.addEventListener('click',()=>{localStorage.setItem(consentKey,'accepted');loadGoogleAnalytics(true);consentBanner.style.display='none';});
+    declineButton.addEventListener('click',()=>{localStorage.setItem(consentKey,'declined');loadGoogleAnalytics(false);consentBanner.style.display='none';});
 
     (function(){
-      const user='artyom.yagovdik', domain='gmail.com';
+      const user='artyom.yagovdik',domain='gmail.com';
       const linkEl=document.getElementById('email-link');
       const metaEl=document.getElementById('email-meta');
-      linkEl.addEventListener('click',function(e){
-        e.preventDefault();
-        window.location.href='mailto:'+user+'@'+domain;
+      linkEl.addEventListener('click',function(e){e.preventDefault();window.location.href='mailto:'+user+'@'+domain;});
+      metaEl.textContent+=user+'@'+domain;
+    })();
+
+    (function(){
+      const root=document.documentElement;
+      const btn=document.getElementById('theme-toggle-btn');
+      const label=document.getElementById('theme-toggle-label');
+      const storedTheme=localStorage.getItem('ay_theme');
+      if(storedTheme==='dark'){root.setAttribute('data-theme','dark');label.textContent='dark';}
+      btn.addEventListener('click',function(){
+        const current=root.getAttribute('data-theme')||'light';
+        const next=current==='light'?'dark':'light';
+        root.setAttribute('data-theme',next);
+        label.textContent=next;
+        localStorage.setItem('ay_theme',next);
       });
-      metaEl.textContent += user+'@'+domain;
+    })();
+
+    (function(){
+      let clicks=0;
+      const target=document.querySelector('.identity-label');
+      const hiddenLink=document.getElementById('fragrantica-link');
+      if(target&&hiddenLink){
+        target.addEventListener('click',function(){
+          clicks++;
+          if(clicks===3){hiddenLink.style.display='grid';}
+        });
+      }
     })();
   </script>
 </body>
