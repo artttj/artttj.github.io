@@ -10,17 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
   <style>
     .link-item,.page{align-items:center}.identity-label,.role,h1{text-transform:uppercase}.bio strong,body{color:var(--ink)}.identity-label,.role,.section-label{font-family:var(--font-mono)}
-    :root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;--icon-bg:#ffffff;--icon-border:rgba(0,0,0,0.08);--font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;--font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}
-    [data-theme="dark"]{--bg:#050509;--frame:#050509;--ink:#f5f5f5;--ink-muted:#a4a4a4;--ink-soft:#6f6f6f;--icon-bg:#111119;--icon-border:rgba(255,255,255,0.12)}
+    :root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;--icon-bg:#f5f5f5;--icon-border:rgba(0,0,0,0.06);--font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;--font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}
+    [data-theme="dark"]{--bg:#050509;--frame:#050509;--ink:#f5f5f5;--ink-muted:#a4a4a4;--ink-soft:#6f6f6f;--icon-bg:#111119;--icon-border:rgba(255,255,255,0.14)}
     *,::after,::before{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%;color:var(--ink)}
-    .page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:2.4rem 1.4rem;gap:2rem;transition:background .2s,color .2s}
+    body{background:var(--bg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%;color:var(--ink);transition:background .2s,color .2s}
+    .page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:2.4rem 1.4rem;gap:2rem}
     .frame{max-width:1200px;width:100%;background:var(--frame);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
     .left,.right{display:flex;flex-direction:column;padding:2.8rem 2.4rem 2.4rem}
     .left{gap:2.6rem;justify-content:center}
     .right{justify-content:center;gap:2.4rem;position:relative}
     .identity{display:grid;row-gap:1.4rem}
-    .identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft)}
+    .identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft);cursor:pointer}
     .bio,.role{color:var(--ink-muted)}
     h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.6rem,7vw,4.6rem);letter-spacing:.18em;line-height:1}
     .role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem}
@@ -81,12 +81,12 @@
           <div class="section-label">elsewhere</div>
           <nav class="links">
             <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/github" alt="GitHub" loading="lazy"></span>
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-github.svg" alt="GitHub" loading="lazy"></span>
               <div class="link-main"><span class="link-label">github</span><span class="link-meta">repos · utilities</span></div>
               <span class="link-arrow">↗</span>
             </a>
             <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/linkedin" alt="LinkedIn" loading="lazy"></span>
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-linkedin.svg" alt="LinkedIn" loading="lazy"></span>
               <div class="link-main"><span class="link-label">linkedin</span><span class="link-meta">roles · timeline</span></div>
               <span class="link-arrow">↗</span>
             </a>
@@ -96,12 +96,12 @@
               <span class="link-arrow">↗</span>
             </a>
             <a href="https://www.instagram.com/artjom.jj/" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/instagram" alt="Instagram" loading="lazy"></span>
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-instagram.svg" alt="Instagram" loading="lazy"></span>
               <div class="link-main"><span class="link-label">instagram</span><span class="link-meta">@artjom.jj</span></div>
               <span class="link-arrow">↗</span>
             </a>
             <a href="#" id="email-link" class="link-item">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/gmail" alt="Email" loading="lazy"></span>
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-mail.svg" alt="Email" loading="lazy"></span>
               <div class="link-main"><span class="link-label">email</span><span class="link-meta" id="email-meta">contact · </span></div>
               <span class="link-arrow">↗</span>
             </a>
@@ -142,7 +142,7 @@
 
     function loadGoogleAnalytics(accepted){
       if(accepted){
-        gtagScript.innerHTML=`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2R92LFMXD5');`;
+        gtagScript.innerHTML="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2R92LFMXD5');";
         gtagScript.setAttribute('async','');
         gtagScript.setAttribute('src','https://www.googletagmanager.com/gtag/js?id=G-2R92LFMXD5');
       }else{
