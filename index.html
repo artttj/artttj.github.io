@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>artyom yagovdik</title>
-
-  <!-- Google Analytics -->
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2R92LFMXD5"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -13,39 +12,46 @@
     gtag('js', new Date());
     gtag('config', 'G-2R92LFMXD5');
   </script>
-
-  <!-- Fonts -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  
   <style>
+    /*
+      DESIGN:         MINIMAL / STRUCTURAL
+      PALETTE:        MONOCHROME
+      VERSION:        2.0 (BERLIN)
+    */
     :root {
-      --bg: #f4eee7;
-      --bg-alt: #f8f3ec;
-      --border: #d7cec1;
-      --border-strong: #b4aa9a;
-      --text: #121212;
-      --muted: #7d7468;
-      --muted-soft: #a39a8f;
-      --accent: #171717;
-      --accent-soft: #33312d;
+      /* Stripped back to monochrome. */
+      --bg: #000000;
+      --paper: #000000; /* No card. Content lives on the background. */
+      --border: #333333;
+      --border-strong: #666666;
+      --text: #FAFAFA;
+      --muted: #888888;
+      --muted-soft: #777777;
+      
+      /* Accent is now just pure, strong text. */
+      --accent: #FFFFFF;
+      --accent-hover: #FAFAFA;
 
-      --font-sans: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      /* Fonts are good. We keep. */
+      --font-display: "Syne", system-ui, sans-serif;
+      --font-sans: "Space Grotesk", system-ui, sans-serif;
+      --font-mono: "IBM Plex Mono", monospace;
     }
 
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    html, body { 
+      height: 100%; 
+      scroll-behavior: smooth; 
     }
 
     body {
@@ -53,414 +59,425 @@
       color: var(--text);
       font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     .page {
       min-height: 100vh;
       display: flex;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
-      padding: 32px 20px;
+      padding: 2rem 1rem;
     }
+
+    /* NO animated top bar. */
+    .page::before { display: none; }
 
     .frame {
-      max-width: 1080px;
+      max-width: 1160px;
       width: 100%;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, var(--bg-alt), var(--bg));
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.35),
-        0 18px 45px rgba(0, 0, 0, 0.09);
+      grid-template-columns: 1.35fr 1fr;
+      background: var(--paper);
+      border: 1px solid var(--border); /* A simple, structural border. */
+      box-shadow: none; /* NO shadow. */
+      position: relative;
+      overflow: hidden;
     }
 
-    .frame > div {
-      border-right: 1px solid var(--border);
-    }
-
-    .frame > div:last-child {
-      border-right: none;
-    }
-
-    /* LEFT COLUMN */
+    /* NO animated side bar. */
+    .frame::after { display: none; }
 
     .left {
-      padding: 32px 32px 28px;
+      padding: 3rem 2.4rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      background: none;
+      border-right: 1px solid var(--border); /* Structural divider */
     }
 
-    .header-block {
+    /* NO blurred background blobs. */
+    .left::before, .right::before { display: none; }
+
+    .header-block { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 1.8rem; 
+    }
+
+    .topline {
       display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .eyebrow {
+      justify-content: flex-end; /* Just the index. */
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      text-transform: uppercase;
+      font-size: 0.78rem;
       letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    }
+    
+    /* Hiding the "online" status. It's noise. */
+    .topline > div:first-child {
+      display: none;
     }
 
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      border-radius: 999px;
-    }
+    /* NO pulsing dots or ripples. */
+    .status-dot, .status-dot::after { display: none; }
+    @keyframes pulseDot { 0% { opacity: 1; } }
+    @keyframes ripple { 0% { opacity: 1; } }
 
-    .name {
-      font-size: clamp(2rem, 5vw, 2.6rem);
-      line-height: 1;
-      letter-spacing: -0.06em;
-      text-transform: lowercase;
+
+    .identity h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.8rem, 6vw, 3.6rem);
+      line-height: 0.88;
+      letter-spacing: -0.08em;
+      color: var(--text);
     }
 
     .role {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--muted-soft);
+      font-size: 0.86rem;
+      letter-spacing: 0.22em;
+      color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1.1rem;
+      margin-top: 0.9rem;
+    }
+
+    .tags span {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--muted-soft);
+      padding: 0.15rem 0.45rem;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+
+    /* Simple, clean hover. */
+    .tags span:hover {
+      background: none;
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    .bio {
+      margin-top: 2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--border-strong);
+      font-size: 0.98rem;
+      line-height: 1.76;
+      color: var(--text); /* Was a weird blue. Now it's not. */
+    }
+
+    .bio p { margin-bottom: 1rem; }
+
+    .bio strong {
+      font-weight: 600;
+      color: var(--text); /* Strong is just bold white. */
     }
 
     .meta-grid {
-      margin-top: 32px;
       display: grid;
-      grid-template-columns: 1.1fr 1.1fr;
-      gap: 22px 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem 2.2rem;
+      margin-top: 2rem;
     }
 
     .meta-block {
-      border-top: 1px solid var(--border);
-      padding-top: 10px;
+      padding-top: 0.9rem;
+      border-top: 1px dashed var(--border);
     }
 
     .meta-label {
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       color: var(--muted);
-      margin-bottom: 3px;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
     }
 
     .meta-text {
-      font-size: 0.86rem;
-      line-height: 1.5;
-      color: var(--accent-soft);
+      font-size: 0.88rem;
+      line-height: 1.62;
+      color: var(--muted-soft); /* Muted is fine */
     }
-
-    .meta-text strong {
-      font-weight: 600;
+    .meta-text strong { /* But make strong text clear */
+      color: var(--text);
+      font-weight: 500;
     }
 
     .footnote {
-      margin-top: 36px;
+      margin-top: 2.2rem;
+      padding-top: 1rem;
       border-top: 1px solid var(--border);
-      padding-top: 12px;
       font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--muted);
+      font-size: 0.74rem;
+      color: var(--muted-soft);
       display: flex;
       justify-content: space-between;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 0.8rem;
     }
-
-    .footnote span:nth-child(2) {
-      text-align: right;
-    }
-
-    /* RIGHT COLUMN */
 
     .right {
-      padding: 32px 32px 28px;
+      padding: 3rem 2.2rem;
+      background: none;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: repeating-linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.07),
-        rgba(255, 255, 255, 0.07) 1px,
-        transparent 1px,
-        transparent 21px
-      );
+      position: relative;
     }
 
     .section-label {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
       color: var(--muted);
-      margin-bottom: 10px;
+      margin-bottom: 0.9rem;
+      text-transform: uppercase;
     }
 
-    .links {
-      border-top: 1px solid var(--border);
-      margin-top: 8px;
-    }
+    .links { border-top: 1px solid var(--border-strong); }
 
     .link-item {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 11px 0;
-      border-bottom: 1px solid rgba(215, 206, 193, 0.8);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
       text-decoration: none;
-      color: var(--accent);
-      transition:
-        background-color 0.18s ease-out,
-        color 0.18s ease-out,
-        transform 0.18s ease-out;
+      color: var(--text);
+      transition: background 0.25s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .link-main {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      min-width: 0;
-    }
+    /* NO hover gradient effect. */
+    .link-item::before { display: none; }
 
     .link-index {
       font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      flex-shrink: 0;
+      font-size: 0.76rem;
+      color: var(--muted-soft);
+      transition: color 0.25s ease;
+    }
+
+    .link-main { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 0.1rem; 
     }
 
     .link-label {
-      font-size: 0.96rem;
-      text-transform: lowercase;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
+      font-family: var(--font-display);
+      font-size: 1.04rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      transition: color 0.25s ease;
+      color: var(--text);
     }
 
     .link-meta {
       font-family: var(--font-mono);
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       color: var(--muted-soft);
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 210px;
     }
 
     .link-arrow {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 1.1rem;
+      transition: transform 0.25s ease, color 0.25s ease;
+      opacity: 1; /* Was 0.7, why hide it? */
       color: var(--muted);
-      flex-shrink: 0;
-      transition: transform 0.18s ease-out, color 0.18s ease-out;
     }
 
-    .link-item:focus-visible {
-      outline: 1px solid var(--accent);
-      outline-offset: 2px;
+    /* Clean hover state */
+    .link-item:hover {
+      background: rgba(255, 255, 255, 0.03); /* Subtle */
     }
-
-    @media (hover: hover) {
-      .link-item:hover {
-        background: rgba(255, 255, 255, 0.45);
-        color: var(--accent);
-        transform: translateY(-1px);
-      }
-
-      .link-item:hover .link-arrow {
-        transform: translateX(3px);
-        color: var(--accent);
-      }
+    .link-item:hover .link-index { color: var(--text); }
+    .link-item:hover .link-label { color: var(--text); }
+    .link-item:hover .link-arrow {
+      transform: translateX(5px);
+      color: var(--text);
     }
 
     .right-foot {
-      margin-top: 24px;
+      margin-top: 1.6rem;
+      padding-top: 1rem;
       border-top: 1px solid var(--border);
-      padding-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--muted-soft);
       display: flex;
       justify-content: space-between;
-      gap: 10px;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--muted);
       flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
-    .right-foot span:nth-child(2) {
-      text-align: right;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 880px) {
-      .frame {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .frame > div {
+    @media (max-width: 960px) {
+      .frame { grid-template-columns: 1fr; }
+      .left { 
         border-right: none;
-      }
-
-      .left {
-        border-bottom: 1px solid var(--border);
-      }
-
-      .meta-grid {
-        grid-template-columns: 1fr;
+        border-bottom: 1px solid var(--border); /* Use the same border */
       }
     }
 
     @media (max-width: 640px) {
-      .page {
-        padding: 16px 12px;
-      }
-
-      .frame {
-        box-shadow:
-          0 0 0 1px rgba(255, 255, 255, 0.4),
-          0 10px 28px rgba(0, 0, 0, 0.12);
-      }
-
-      .left,
-      .right {
-        padding: 22px 18px 20px;
-      }
-
-      .footnote,
-      .right-foot {
-        flex-direction: column;
-        align-items: flex-start;
+      .page { padding: 0.5rem; } /* Tighter to edge on mobile */
+      .frame { border: none; } /* On smallest screens, the frame is the viewport */
+      .left, .right { padding: 2rem 1.6rem; }
+      .meta-grid { grid-template-columns: 1fr; }
+      .footnote, .right-foot { 
+        flex-direction: column; 
+        align-items: flex-start; 
       }
     }
+
+    a:focus-visible {
+      outline: 2px solid var(--text); /* Use text color for focus */
+      outline-offset: 2px;
+    }
+    
+    /* REMOVED ALL KEYFRAMES. They are not needed. */
   </style>
 </head>
 <body>
   <main class="page">
     <section class="frame">
-      <!-- LEFT SIDE -->
       <div class="left">
         <div class="header-block">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            <span>online / personal index</span>
+          <div class="topline">
+            <div style="display:flex;align-items:center;gap:0.6rem">
+              <div class="status-dot"></div>
+              <span>signal: online</span>
+            </div>
+            <div>artyom yagovdik · index</div>
           </div>
-
-          <div>
-            <h1 class="name">artyom&nbsp;yagovdik</h1>
-            <p class="role">developer · ecommerce · infra</p>
+          <div class="identity">
+            <h1>artyom yagovdik</h1>
+            <p class="role">senior software engineer · team lead</p>
+            <div class="tags">
+              <span>php / rails / js</span>
+              <span>systems & infra</span>
+              <span>ai-assisted dev</span>
+            </div>
           </div>
-
-          <div class="meta-grid">
+          <section class="bio">
+            <p>
+              Hi, I'm Artyom — a <strong>Senior Software Engineer</strong> with experience across startups and product teams in Europe and North America.
+              I work with PHP, Ruby on Rails, Magento 2, Laravel, JavaScript, SQL/NoSQL, APIs, and CI/CD.
+            </p>
+            <p>
+              I care about building <strong>scalable, high-performance web systems</strong> that solve real problems —
+              combining proven architectures with modern tooling, including AI where it actually adds value.
+            </p>
+            <p>
+              I enjoy mentoring and leading teams, but I stay close to the code. Whether it's growing a new product or improving an existing platform,
+              I bring both technical depth and a product mindset.
+            </p>
+          </section>
+          <section class="meta-grid">
             <div class="meta-block">
               <div class="meta-label">currently</div>
               <p class="meta-text">
-                <strong>Team Lead at Y1 Digital</strong><br />
-                working on Magento 2, Hyvä and infrastructure for ecommerce brands.
+                <strong>Team Lead / Senior Engineer</strong>, working on complex web stacks, performance, and developer experience.
               </p>
             </div>
-
             <div class="meta-block">
-              <div class="meta-label">previously</div>
+              <div class="meta-label">domains</div>
               <p class="meta-text">
-                stabilising legacy Magento stacks, custom integrations and performance work.
+                product platforms, commerce, integrations, data-heavy backends, and “glue” systems.
               </p>
             </div>
-
             <div class="meta-block">
-              <div class="meta-label">focus</div>
+              <div class="meta-label">tech</div>
               <p class="meta-text">
-                deployment pipelines, observability, AI-assisted workflows and sustainable code.
+                PHP, Ruby, JavaScript, TypeScript (light), SQL / NoSQL, message queues, CI/CD, observability, cloud hosting.
               </p>
             </div>
-
             <div class="meta-block">
-              <div class="meta-label">offline</div>
+              <div class="meta-label">also</div>
               <p class="meta-text">
-                lifting with Hevy, perfumes, long walks, and overthinking tiny interface details.
-              </p>
+                lifting with Hevy, perfumes, interface design, and experimenting with AI coding tools.
+              </T>
             </div>
-          </div>
+          </section>
         </div>
-
         <div class="footnote">
-          <span>based in germany · available mostly in the evenings</span>
-          <span>this page is intentionally quiet · no dark mode, just muted pixels</span>
+          <span>based in germany · open to remote / hybrid</span>
+          <span>html & css · no js</span>
         </div>
       </div>
 
-      <!-- RIGHT SIDE -->
       <div class="right">
         <div>
           <div class="section-label">elsewhere</div>
           <div class="links">
-            <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener">
+              <span class="link-index">01</span>
               <div class="link-main">
-                <span class="link-index">01</span>
                 <span class="link-label">github</span>
+                <span class="link-meta">code, experiments, small utilities</span>
               </div>
-              <span class="link-meta">code, experiments, random utilities</span>
               <span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener">
+              <span class="link-index">02</span>
               <div class="link-main">
-                <span class="link-index">02</span>
                 <span class="link-label">linkedin</span>
+                <span class="link-meta">roles, timeline, “official” side</span>
               </div>
-              <span class="link-meta">roles, history, the corporate layer</span>
               <span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener noreferrer">
+            <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener">
+              <span class="link-index">03</span>
               <div class="link-main">
-                <span class="link-index">03</span>
                 <span class="link-label">void mechanics</span>
+                <span class="link-meta">telegram · notes, noise, and fragments</span>
               </div>
-              <span class="link-meta">telegram channel · notes / noise</span>
               <span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://instagram.com/artjom.jj" class="link-item" target="_blank" rel="noopener noreferrer">
+            <a href="https://instagram.com/artjom.jj" class="link-item" target="_blank" rel="noopener">
+              <span class="link-index">04</span>
               <div class="link-main">
-                <span class="link-index">04</span>
                 <span class="link-label">instagram</span>
+                <span class="link-meta">lo-fi visuals, daily context</span>
               </div>
-              <span class="link-meta">lo-fi visuals, life fragments</span>
               <span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" rel="noopener">
+              <span class="link-index">05</span>
               <div class="link-main">
-                <span class="link-index">05</span>
                 <span class="link-label">fragrantica</span>
+                <span class="link-meta">perfume wardrobe · data, not flex</span>
               </div>
-              <span class="link-meta">perfume wardrobe · data, not flex</span>
               <span class="link-arrow">↗</span>
             </a>
-
-            <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
+            <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener">
+              <span class="link-index">06</span>
               <div class="link-main">
-                <span class="link-index">06</span>
                 <span class="link-label">hevy</span>
+                <span class="link-meta">training log · tonnage and trends</span>
               </div>
-              <span class="link-meta">training log · numbers and volume</span>
               <span class="link-arrow">↗</span>
             </a>
           </div>
         </div>
-
         <div class="right-foot">
-          <span>version 0.1 · html + css only</span>
-          <span>no framework, no cookies · just links</span>
+          <span>version 2.0</span>
+          <span>desktop first · responsive</span>
         </div>
       </div>
     </section>
