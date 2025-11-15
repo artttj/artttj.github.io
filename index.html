@@ -1,3 +1,6 @@
+Here is the requested code with all HTML and CSS comments removed.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>artyom yagovdik</title>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2R92LFMXD5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-2R92LFMXD5');
-  </script>
+  <script id="gtag-script"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
 
   <style>
     .link-item,.page{align-items:center}.identity-label,.role,h1{text-transform:uppercase}.bio strong,body{color:var(--ink)}
@@ -43,15 +40,35 @@
     .link-item::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;background:rgba(0,0,0,.03);transition:transform .16s ease-out;z-index:-1}
     .link-item:hover::before{transform:scaleY(1)}
     .link-icon{width:30px;height:30px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;overflow:hidden}
-    .link-icon svg{width:18px;height:18px}
+    .link-icon svg{width:18px;height:18px;fill:currentColor}
     .link-main{display:flex;flex-direction:column;gap:.05rem}
     .link-label{font-weight:500;font-size:12px;letter-spacing:.08em}
     .link-meta{font-size:.68rem;letter-spacing:.12em;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .link-arrow{font-size:1rem;font-family:var(--font-mono);color:var(--ink-soft);transition:transform .16s,color .16s}
     .link-item:hover .link-arrow{transform:translateX(4px);color:var(--ink)}
-    .footer{font-family:var(--font-ui);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);text-align:center;margin-top:.4rem}
+
+    #cookie-consent{
+        position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--bg);
+        padding:1rem 1.4rem;display:flex;justify-content:center;align-items:center;
+        gap:1.5rem;z-index:1000;font-family:var(--font-ui);font-size:.85rem
+    }
+    #cookie-consent p{margin:0;max-width:800px;line-height:1.4}
+    #cookie-consent button{
+        background:var(--bg);color:var(--ink);border:none;padding:.5rem 1rem;
+        cursor:pointer;font-weight:500;font-family:var(--font-ui);
+        font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;
+        transition:background .15s
+    }
+    #cookie-consent button:hover{background:var(--ink-soft);color:var(--bg)}
+
     @media(max-width:960px){.frame{grid-template-columns:1fr}.right{padding-top:1rem}}
-    @media(max-width:720px){.page{padding:1.1rem .9rem}.left,.right{padding:2.1rem 1.6rem}}
+    @media(max-width:720px){
+        .page{padding:1.1rem .9rem}
+        .left,.right{padding:2.1rem 1.6rem}
+        #cookie-consent{flex-direction:column;align-items:stretch;text-align:center}
+        #cookie-consent p{margin-bottom:.5rem}
+        #cookie-consent .buttons{display:flex;gap:.5rem;justify-content:center}
+    }
   </style>
 </head>
 
@@ -81,8 +98,8 @@
           <nav class="links">
 
             <a href="https://github.com/artttj" class="link-item" target="_blank">
-              <span class="link-icon">
-                <svg viewBox="0 0 24 24"><path fill="#000" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.38 7.86 10.9.58.11.79-.25.79-.56 0-.28-.01-1.03-.02-2.02-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.06-.73.08-.72.08-.72 1.17.08 1.78 1.21 1.78 1.21 1.04 1.79 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.55-.29-5.23-1.27-5.23-5.64 0-1.25.45-2.27 1.2-3.07-.12-.29-.52-1.45.11-3.02 0 0 .98-.31 3.2 1.17a11.1 11.1 0 0 1 5.82 0c2.22-1.48 3.2-1.17 3.2-1.17.63 1.57.23 2.73.11 3.02.75.8 1.2 1.82 1.2 3.07 0 4.39-2.69 5.35-5.25 5.63.42.36.8 1.09.8 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              <span class="link-icon" style="background:#181717; color:#fff">
+                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.57 0-.28-.01-1.03-.01-2.02-3.136.68-3.792-1.259-3.792-1.259-.51-.384-1.127-.965-1.127-.965-.927-.63.073-.618.073-.618 1.02.072 1.55 1.05 1.55 1.05.908 1.543 2.381 1.096 2.95.84.092-.65.357-1.096.64-1.352-2.276-.258-4.665-1.138-4.665-5.045 0-1.114.4-2.022 1.05-2.73-.104-.258-.455-1.294.097-2.69 0 0 .848-.27 2.782 1.05.807-.222 1.666-.333 2.518-.337.853.004 1.713.115 2.52.337 1.933-1.32 2.78-1.05 2.78-1.05.553 1.396.202 2.432.1 2.69.65.708 1.05 1.616 1.05 2.73 0 3.918-2.39 4.783-4.675 5.037.36.31.68.92.68 1.861 0 1.347-.01 2.433-.01 2.766 0 .315.21.68.82.57C20.565 21.796 24 17.306 24 12 24 5.373 18.627 0 12 0Z"/></svg>
               </span>
               <div class="link-main">
                 <span class="link-label">github</span>
@@ -92,8 +109,8 @@
             </a>
 
             <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank">
-              <span class="link-icon">
-                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3" fill="#0A66C2"/><path fill="#FFF" d="M7.2 17.5H5V9.4h2.2v8.1ZM6.1 8.3c-.7 0-1.2-.5-1.2-1.2 0-.7.5-1.2 1.3-1.2.7 0 1.2.5 1.2 1.2 0 .7-.5 1.2-1.3 1.2ZM19 17.5h-2.2v-4.3c0-1.1-.4-1.8-1.3-1.8-.7 0-1.1.5-1.3 1-.1.2-.1.5-.1.8v4.3H11V9.4h2.1v1.1c.3-.4 1-1.3 2.4-1.3 1.8 0 3.5 1.1 3.5 3.9v4.4Z"/></svg>
+              <span class="link-icon" style="background:#0A66C2; color:#fff">
+                <svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-.88 2.5-2.22 2.5S.5 4.881.5 3.5C.5 2.119 1.62 1 2.98 1s2.02 1.119 2.02 2.5zM5.5 8h-4v14h4V8zm7.5 0h-4v14h4v-7.8c0-2.34 1.62-3.4 3.4-3.4 2.22 0 3.1 1.74 3.1 4.14V22h4v-8.2c0-4.6-2.58-6.8-6.32-6.8-2.53 0-4.18 1.3-4.88 2.4H13V8z"/></svg>
               </span>
               <div class="link-main">
                 <span class="link-label">linkedin</span>
@@ -103,8 +120,8 @@
             </a>
 
             <a href="https://t.me/voidmechanics" class="link-item" target="_blank">
-              <span class="link-icon">
-                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4" fill="#229ED9"/><path fill="#FFF" d="M17.7 7.1 6.6 11.3c-.5.2-.5.7-.1.8l2.8.9 1.1 3.4c.1.4.5.5.8.2l1.6-1.6 2.8 2c.3.2.7 0 .8-.4l1.5-8.2c.1-.4-.3-.7-.7-.6Zm-2.4 2.1-4.2 4.1-.2 1.7-.9-2.7 5.3-3.1Z"/></svg>
+              <span class="link-icon" style="background:#229ED9; color:#fff">
+                <svg viewBox="0 0 24 24"><path d="M.7 11.2c-.4-.1-.5-.2-.5-.4 0-.1.1-.3.4-.4l22-8.5c.3-.1.6 0 .7.3.1.2 0 .5-.3.6L12 17.1l-2.6 5.2c-.1.2-.4.3-.6.2-.2-.1-.3-.3-.2-.5L10.5 14l6.5-6.1c.3-.3.1-.7-.3-.4L4 12.8 1.5 12.2c-.5-.1-.8-.4-.8-.7z"/></svg>
               </span>
               <div class="link-main">
                 <span class="link-label">void mechanics</span>
@@ -113,31 +130,20 @@
               <span class="link-arrow">↗</span>
             </a>
 
-            <a href="https://instagram.com/artjom.jj" class="link-item" target="_blank">
-              <span class="link-icon">
-                <svg viewBox="0 0 24 24">
-                  <defs>
-                    <linearGradient id="iggrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#F58529"/>
-                      <stop offset="50%" stop-color="#DD2A7B"/>
-                      <stop offset="100%" stop-color="#8134AF"/>
-                    </linearGradient>
-                  </defs>
-                  <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#iggrad)"/>
-                  <circle cx="12" cy="12" r="4" fill="none" stroke="#FFF" stroke-width="1.6"/>
-                  <circle cx="16.5" cy="7.5" r="1.1" fill="#FFF"/>
-                </svg>
+            <a href="mailto:artyom.yagovdik@gmail.com" class="link-item">
+              <span class="link-icon" style="background:#DB4437; color:#fff">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               </span>
               <div class="link-main">
-                <span class="link-label">instagram</span>
-                <span class="link-meta">visuals</span>
+                <span class="link-label">email</span>
+                <span class="link-meta">contact · artyom.yagovdik@gmail.com</span>
               </div>
               <span class="link-arrow">↗</span>
             </a>
 
             <a href="https://hevy.com/user/artttj" class="link-item" target="_blank">
-              <span class="link-icon">
-                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4" fill="#111"/><path fill="#FFF" d="M8 7h2v4h4V7h2v10h-2v-4h-4v4H8V7Z"/></svg>
+              <span class="link-icon" style="background:#111; color:#fff">
+                <svg viewBox="0 0 24 24"><path d="M11 2v4H7v2h4v4h-4v2h4v4h2v-4h4v-2h-4v-4h4V6h-4V2h-2z"/></svg>
               </span>
               <div class="link-main">
                 <span class="link-label">hevy</span>
@@ -146,9 +152,8 @@
               <span class="link-arrow">↗</span>
             </a>
 
-            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank">
-              <span class="link-icon">
-                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4" fill="#333"/><path fill="none" stroke="#FFF" stroke-width="1.4" d="M10 7h4M11 7V5.5h2V7M9 10.5h6l-.6 6H9.6L9 10.5Z"/></svg>
+            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" style="display: none;">
+              <span class="link-icon" style="background:#666; color:#fff">
               </span>
               <div class="link-main">
                 <span class="link-label">fragrantica</span>
@@ -167,10 +172,65 @@
 
   </main>
 
+  <div id="cookie-consent" style="display:none;">
+    <p>
+        This site uses Google Analytics for anonymous usage statistics. This requires a cookie.
+        You can accept or decline this non-essential tracking. Essential cookies are not used.
+    </p>
+    <div class="buttons">
+        <button id="consent-accept">Accept Tracking</button>
+        <button id="consent-decline">Decline Tracking</button>
+    </div>
+  </div>
+
   <script>
     document.getElementById("footer-year").textContent =
       new Date().getFullYear() + " · Frankfurt, Germany";
+
+    const consentBanner = document.getElementById('cookie-consent');
+    const acceptButton = document.getElementById('consent-accept');
+    const declineButton = document.getElementById('consent-decline');
+    const gtagScript = document.getElementById('gtag-script');
+    const consentKey = 'ay_ga_consent';
+
+    function loadGoogleAnalytics(accepted) {
+        if (accepted) {
+            gtagScript.innerHTML = `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-2R92LFMXD5');
+            `;
+            gtagScript.setAttribute('async', '');
+            gtagScript.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=G-2R92LFMXD5');
+        } else {
+            window['ga-disable-G-2R92LFMXD5'] = true;
+        }
+    }
+
+    const userConsent = localStorage.getItem(consentKey);
+
+    if (userConsent === 'accepted') {
+        loadGoogleAnalytics(true);
+    } else if (userConsent === 'declined') {
+        loadGoogleAnalytics(false);
+    } else {
+        consentBanner.style.display = 'flex';
+    }
+
+    acceptButton.addEventListener('click', () => {
+        localStorage.setItem(consentKey, 'accepted');
+        loadGoogleAnalytics(true);
+        consentBanner.style.display = 'none';
+    });
+
+    declineButton.addEventListener('click', () => {
+        localStorage.setItem(consentKey, 'declined');
+        loadGoogleAnalytics(false);
+        consentBanner.style.display = 'none';
+    });
   </script>
 
 </body>
 </html>
+```
