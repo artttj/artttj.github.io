@@ -1,127 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>artttj — personal page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f5f7fa;
-      --glass-bg: rgba(255, 255, 255, 0.4);
-      --border: rgba(255, 255, 255, 0.6);
-      --text: #0a0a0a;
-      --accent: #007aff;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artyom Yagovdik — Personal Site</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        border-radius: 1.5rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+      .magnifier {
+        position: absolute;
+        border-radius: 9999px;
+        overflow: hidden;
+        pointer-events: none;
+        width: 120px;
+        height: 120px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        transform: scale(1.5);
+        z-index: 50;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 font-sans">
+    <main class="min-h-screen flex items-center justify-center">
+      <div class="glass p-10 max-w-xl text-center">
+        <h1 class="text-3xl font-semibold tracking-tight">Hi, I'm Artyom Yagovdik</h1>
+        <p class="mt-4 text-lg text-gray-700">
+          This is one of my personal spaces online. Expect experiments, fragments,
+          aesthetics, maybe a project or two.
+        </p>
+      </div>
+    </main>
 
-    * {
-      box-sizing: border-box;
-    }
+    <div id="magnifier" class="magnifier hidden"></div>
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #ffffff, #f0f2f5);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .container {
-      max-width: 720px;
-      padding: 2rem;
-      border-radius: 24px;
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      background-color: var(--glass-bg);
-      border: 1px solid var(--border);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-    }
-
-    h1 {
-      margin: 0 0 0.5rem;
-      font-weight: 700;
-      font-size: 2rem;
-    }
-
-    p.subtitle {
-      margin: 0 0 1.5rem;
-      color: #444;
-    }
-
-    ul.links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    ul.links li a {
-      display: block;
-      padding: 1rem;
-      border-radius: 12px;
-      background-color: rgba(255, 255, 255, 0.65);
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      backdrop-filter: blur(10px);
-      transition: all 0.2s ease;
-      border: 1px solid rgba(200,200,200,0.4);
-    }
-
-    ul.links li a:hover {
-      background-color: rgba(255, 255, 255, 0.85);
-      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
-    }
-
-    .loupe {
-      position: fixed;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent);
-      pointer-events: none;
-      transform: translate(-50%, -50%) scale(1.1);
-      transition: opacity 0.3s;
-      z-index: 100;
-      opacity: 0;
-    }
-  </style>
-</head>
-<body>
-  <div class="loupe" id="loupe"></div>
-
-  <div class="container">
-    <h1>Jack Moon</h1>
-    <p class="subtitle">Links, logs, notes, and void mechanics among other things</p>
-    <ul class="links">
-      <li><a href="https://hevyapp.com/">🏋🏻‍♂️ Hevy</a></li>
-      <li><a href="https://linkedin.com/in/your-handle">💼 LinkedIn</a></li>
-      <li><a href="https://instagram.com/your-handle">📸 Instagram</a></li>
-      <li><a href="https://fragrantica.com/member/your-user">🧴 Fragrantica</a></li>
-      <li><a href="https://github.com/your-user">💻 GitHub</a></li>
-      <li><a href="https://t.me/your-channel">📡 void mechanics (Telegram)</a></li>
-    </ul>
-  </div>
-
-  <script>
-    const loupe = document.getElementById('loupe');
-    document.addEventListener('mousemove', e => {
-      loupe.style.opacity = '1';
-      loupe.style.left = e.clientX + 'px';
-      loupe.style.top = e.clientY + 'px';
-    });
-    document.addEventListener('mouseleave', () => {
-      loupe.style.opacity = '0';
-    });
-  </script>
-</body>
+    <script>
+      const magnifier = document.getElementById("magnifier");
+      document.addEventListener("mousemove", (e) => {
+        magnifier.style.left = `${e.pageX - 60}px`;
+        magnifier.style.top = `${e.pageY - 60}px`;
+        magnifier.classList.remove("hidden");
+      });
+    </script>
+  </body>
 </html>
