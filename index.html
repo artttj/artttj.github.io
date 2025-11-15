@@ -18,6 +18,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
+    /*
+      DESIGN:   MINIMAL / EDITORIAL / 2025
+      PALETTE:  WHITE / NEUTRAL GREYS
+      VERSION:  2.4 · BERLIN
+    */
+
     :root {
       --bg: #f4f4f4;
       --frame: #ffffff;
@@ -34,7 +40,7 @@
       --font-sans: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 
-      --radius: 0;
+      --radius: 0; /* keep rectangles */
     }
 
     *, *::before, *::after {
@@ -74,6 +80,7 @@
       overflow: hidden;
     }
 
+    /* subtle grid texture */
     .frame::before {
       content: "";
       position: absolute;
@@ -106,6 +113,31 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 2.4rem;
+    }
+
+    /* background svg symbols */
+
+    .bg-symbol {
+      position: absolute;
+      opacity: 0.06;
+      stroke: #000000;
+      fill: none;
+      stroke-width: 1;
+      pointer-events: none;
+    }
+
+    .bg-symbol--top {
+      top: -26px;
+      right: 42px;
+      width: 120px;
+      height: 50px;
+    }
+
+    .bg-symbol--bottom {
+      bottom: -30px;
+      left: 34px;
+      width: 140px;
+      height: 60px;
     }
 
     /* top strip */
@@ -202,40 +234,6 @@
       font-weight: 500;
     }
 
-    /* meta grid */
-
-    .meta-grid {
-      margin-top: 2.4rem;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.6rem 2.4rem;
-    }
-
-    .meta-block {
-      padding-top: 0.9rem;
-      border-top: 1px dotted var(--line-soft);
-    }
-
-    .meta-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 0.4rem;
-    }
-
-    .meta-text {
-      font-size: 0.86rem;
-      line-height: 1.7;
-      color: var(--ink-muted);
-    }
-
-    .meta-text strong {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
     /* footnote left */
 
     .footnote {
@@ -247,6 +245,7 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--ink-soft);
+      ---
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -272,9 +271,9 @@
 
     .link-item {
       display: grid;
-      grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
-      gap: 1rem;
+      gap: 1.1rem;
       padding: 0.95rem 0;
       border-bottom: 1px solid var(--line-soft);
       text-decoration: none;
@@ -297,12 +296,42 @@
       transition: opacity 0.18s ease;
     }
 
-    .link-index {
+    .link-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       font-family: var(--font-mono);
-      font-size: 0.76rem;
-      letter-spacing: 0.16em;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--ink-soft);
+      color: #ffffff;
+    }
+
+    .link-icon--github {
+      background: #000000;
+    }
+
+    .link-icon--linkedin {
+      background: #0a66c2;
+    }
+
+    .link-icon--telegram {
+      background: #229ed9;
+    }
+
+    .link-icon--instagram {
+      background: linear-gradient(135deg, #f58529 0%, #dd2a7b 50%, #8134af 100%);
+    }
+
+    .link-icon--fragrantica {
+      background: #222222;
+    }
+
+    .link-icon--hevy {
+      background: #111111;
     }
 
     .link-main {
@@ -310,6 +339,14 @@
       flex-direction: column;
       gap: 0.1rem;
       min-width: 0;
+    }
+
+    .link-index {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
     }
 
     .link-label {
@@ -340,10 +377,6 @@
 
     .link-item:hover::before {
       opacity: 1;
-    }
-
-    .link-item:hover .link-index {
-      color: var(--ink);
     }
 
     .link-item:hover .link-arrow {
@@ -411,18 +444,10 @@
         padding: 2.1rem 1.6rem 1.7rem;
       }
 
-      .meta-grid {
-        grid-template-columns: 1fr;
-      }
-
       .topline {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.4rem;
-      }
-
-      .link-item {
-        grid-template-columns: 2.4rem minmax(0, 1fr) auto;
       }
 
       .footnote,
@@ -441,6 +466,20 @@
 <body>
   <main class="page">
     <section class="frame">
+      <!-- subtle decorative symbols -->
+      <svg class="bg-symbol bg-symbol--top" viewBox="0 0 120 50" aria-hidden="true">
+        <rect x="0" y="23" width="120" height="4"></rect>
+        <circle cx="20" cy="25" r="7"></circle>
+        <circle cx="100" cy="25" r="7"></circle>
+      </svg>
+      <svg class="bg-symbol bg-symbol--bottom" viewBox="0 0 140 60" aria-hidden="true">
+        <rect x="10" y="8" width="4" height="44"></rect>
+        <rect x="28" y="8" width="4" height="44"></rect>
+        <rect x="46" y="8" width="4" height="44"></rect>
+        <rect x="64" y="8" width="4" height="44"></rect>
+        <polyline points="90,12 118,30 90,48"></polyline>
+      </svg>
+
       <div class="left">
         <header class="topline">
           <div class="topline-left">
@@ -465,53 +504,23 @@
           <section class="bio">
             <p>
               Team Lead and Senior Software Engineer with <strong>10+ years of coding experience</strong> across commerce platforms,
-              product teams, and integrations. I work mostly on the boring but important parts: performance, stability, and how
-              teams ship software together.
+              product teams, and integrations. I like building <strong>inspiring, long-lived web systems</strong> that stay useful
+              longer than the current hype cycle.
             </p>
             <p>
-              I build and maintain <strong>long-lived web systems</strong> in PHP, Ruby on Rails, JavaScript and SQL — with a focus on clear
-              architecture, observability, and making complex setups understandable for other engineers.
+              I work mainly with PHP, Ruby on Rails, JavaScript and SQL — I genuinely love JavaScript when it’s used with intent
+              and connects clean backends to clear interfaces.
             </p>
             <p>
-              I use what I've learned (and keep learning) to improve developer experience, reduce friction in day-to-day work,
+              I use what I’ve learned (and keep learning) to improve developer experience, reduce friction in day-to-day work,
               and help teams move faster without breaking the things that matter.
             </p>
-          </section>
-
-          <section class="meta-grid">
-            <article class="meta-block">
-              <div class="meta-label">currently</div>
-              <p class="meta-text">
-                <strong>Team Lead / Senior Engineer</strong> working on complex commerce stacks, migrations, and performance tuning.
-              </p>
-            </article>
-
-            <article class="meta-block">
-              <div class="meta-label">domains</div>
-              <p class="meta-text">
-                product platforms, e-commerce, integrations, data-heavy backends, and glue services between tools and teams.
-              </p>
-            </article>
-
-            <article class="meta-block">
-              <div class="meta-label">tech</div>
-              <p class="meta-text">
-                PHP, Ruby, JavaScript, light TypeScript, SQL / NoSQL, queues, CI/CD, observability, cloud hosting.
-              </p>
-            </article>
-
-            <article class="meta-block">
-              <div class="meta-label">also</div>
-              <p class="meta-text">
-                lifting with Hevy, perfume rabbit holes, interface aesthetics, and refining my own dev setups.
-              </p>
-            </article>
           </section>
         </div>
 
         <footer class="footnote">
-          <span>based in germany · open to remote / hybrid</span>
-          <span>html &amp; css · no javascript</span>
+          <span>based in germany · remote-friendly</span>
+          <span>10+ years coding · still curious</span>
         </footer>
       </div>
 
@@ -520,8 +529,9 @@
           <div class="section-label">02 · elsewhere</div>
           <nav class="links">
             <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener">
-              <span class="link-index">01</span>
+              <span class="link-icon link-icon--github">gh</span>
               <div class="link-main">
+                <span class="link-index">01</span>
                 <span class="link-label">github</span>
                 <span class="link-meta">repos, experiments, utilities</span>
               </div>
@@ -529,8 +539,9 @@
             </a>
 
             <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener">
-              <span class="link-index">02</span>
+              <span class="link-icon link-icon--linkedin">in</span>
               <div class="link-main">
+                <span class="link-index">02</span>
                 <span class="link-label">linkedin</span>
                 <span class="link-meta">roles, timeline, public cv</span>
               </div>
@@ -538,8 +549,9 @@
             </a>
 
             <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener">
-              <span class="link-index">03</span>
+              <span class="link-icon link-icon--telegram">tg</span>
               <div class="link-main">
+                <span class="link-index">03</span>
                 <span class="link-label">void mechanics</span>
                 <span class="link-meta">telegram · notes, tests, fragments</span>
               </div>
@@ -547,8 +559,9 @@
             </a>
 
             <a href="https://instagram.com/artjom.jj" class="link-item" target="_blank" rel="noopener">
-              <span class="link-index">04</span>
+              <span class="link-icon link-icon--instagram">ig</span>
               <div class="link-main">
+                <span class="link-index">04</span>
                 <span class="link-label">instagram</span>
                 <span class="link-meta">low-fi context &amp; visuals</span>
               </div>
@@ -556,17 +569,19 @@
             </a>
 
             <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" rel="noopener">
-              <span class="link-index">05</span>
+              <span class="link-icon link-icon--fragrantica">fg</span>
               <div class="link-main">
+                <span class="link-index">05</span>
                 <span class="link-label">fragrantica</span>
-                <span class="link-meta">hobby</span>
+                <span class="link-meta">wardrobe · data, not flex</span>
               </div>
               <span class="link-arrow">↗</span>
             </a>
 
             <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener">
-              <span class="link-index">06</span>
+              <span class="link-icon link-icon--hevy">hv</span>
               <div class="link-main">
+                <span class="link-index">06</span>
                 <span class="link-label">hevy</span>
                 <span class="link-meta">training log · volume &amp; trends</span>
               </div>
@@ -577,7 +592,7 @@
 
         <footer class="right-bottom">
           <div class="right-bottom-col">
-            <span>v2.2 · personal index</span>
+            <span>v2.4 · personal index</span>
             <span>updated 2025</span>
           </div>
           <div class="right-bottom-col">
