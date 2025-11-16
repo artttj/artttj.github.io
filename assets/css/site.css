@@ -144,7 +144,7 @@ h1 {
 }
 
 .section-label--toggle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   border: 0;
@@ -155,9 +155,8 @@ h1 {
   font: inherit;
   letter-spacing: inherit;
   color: var(--ink-soft);
-  border-bottom: 1px dashed currentColor;
   border-radius: 0;
-  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .section-label--toggle:focus-visible {
