@@ -36,13 +36,14 @@
     .identity{display:grid;row-gap:1.4rem}
     .identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft);cursor:pointer}
     .bio,.role{color:var(--ink-muted)}
-    h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.6rem,7vw,4.6rem);letter-spacing:.18em;line-height:1}
+    h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.6rem,7vw,4.6rem);letter-spacing:.18em;line-height:1;user-select:none}
     .role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem;display:flex;gap:.4rem;align-items:center;flex-wrap:nowrap}
     .role-line{white-space:nowrap}
     .role-separator{display:inline-flex;align-items:center}
     .bio{margin-top:1.8rem;max-width:34rem;font-size:.96rem;line-height:1.75}
     .section-label{font-size:.7rem;letter-spacing:.2em;color:var(--ink-soft);margin-bottom:.9rem}
-    .link-label,.link-meta{font-family:var(--font-ui);text-transform:uppercase}
+    .link-label{font-family:var(--font-ui);text-transform:uppercase}
+    .link-meta{font-family:var(--font-ui);text-transform:lowercase}
     .links{display:flex;flex-direction:column;gap:.3rem}
     .link-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:1rem;padding:.9rem 0;text-decoration:none;color:var(--ink);position:relative;transition:color .16s}
     .link-item::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;background:rgba(0,0,0,.03);transition:transform .16s ease-out;z-index:-1}
