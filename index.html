@@ -23,7 +23,9 @@
     .identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft);cursor:pointer}
     .bio,.role{color:var(--ink-muted)}
     h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.6rem,7vw,4.6rem);letter-spacing:.18em;line-height:1}
-    .role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem}
+    .role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem;display:flex;gap:.4rem;align-items:center;flex-wrap:nowrap}
+    .role-line{white-space:nowrap}
+    .role-separator{display:inline-flex;align-items:center}
     .bio{margin-top:1.8rem;max-width:34rem;font-size:.96rem;line-height:1.75}
     .section-label{font-size:.7rem;letter-spacing:.2em;color:var(--ink-soft);margin-bottom:.9rem}
     .link-label,.link-meta{font-family:var(--font-ui);text-transform:uppercase}
@@ -53,6 +55,7 @@
     [data-theme="dark"] .theme-toggle-indicator{background:#f5f5f5}
     @media(max-width:960px){.frame{grid-template-columns:1fr}.right{padding-top:1rem}}
     @media(max-width:720px){.page{padding:1.1rem .9rem}.left,.right{padding:2.1rem 1.6rem}#cookie-consent{flex-direction:column;align-items:stretch;text-align:center}#cookie-consent p{margin-bottom:.5rem}#cookie-consent .buttons{display:flex;gap:.5rem;justify-content:center}.theme-toggle{position:static;justify-content:flex-end;margin-bottom:.5rem}}
+    @media(max-width:560px){.role{flex-direction:column;align-items:flex-start;gap:.2rem}.role-separator{display:none}}
   </style>
 </head>
 <body>
@@ -63,7 +66,11 @@
           <div>
             <div class="identity-label">profile</div>
             <h1>ARTYOM YAGOVDIK</h1>
-            <p class="role">team lead · senior software engineer</p>
+            <p class="role">
+              <span class="role-line">team lead</span>
+              <span class="role-separator" aria-hidden="true">·</span>
+              <span class="role-line">senior software engineer</span>
+            </p>
           </div>
         </section>
         <section class="bio">
