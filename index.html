@@ -8,90 +8,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/css/site.css"/>
   <script>
     (function(){
       try{
         const root=document.documentElement;
-        const storedTheme=localStorage.getItem('ay_theme');
-        if(storedTheme){
-          root.setAttribute('data-theme',storedTheme);
+        const stored=localStorage.getItem('ay_theme');
+        if(stored){
+          root.setAttribute('data-theme',stored);
           return;
         }
         const prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
         root.setAttribute('data-theme',prefersDark?'dark':'light');
-      }catch(_){/* ignore theme hydration errors */}
+      }catch(_){
+      }
     })();
   </script>
-  <style>
-    .link-item,.page{align-items:center}.identity-label,.role,h1{text-transform:uppercase}.bio strong,body{color:var(--ink)}.identity-label,.role,.section-label{font-family:var(--font-mono)}
-    :root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;--font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;--font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}
-    [data-theme="dark"]{--bg:#050509;--frame:#050509;--ink:#f5f5f5;--ink-muted:#a4a4a4;--ink-soft:#6f6f6f}
-    *,::after,::before{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%;color:var(--ink);transition:background .2s,color .2s}
-    .page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:2.4rem 1.4rem;gap:2rem}
-    .frame{max-width:1200px;width:100%;background:var(--frame);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
-    .left,.right{display:flex;flex-direction:column;padding:2.8rem 2.4rem 2.4rem}
-    .left{gap:2.6rem;justify-content:center}
-    .right{justify-content:center;gap:2.4rem;position:relative}
-    .identity{display:grid;row-gap:1.4rem}
-    .identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft);cursor:pointer}
-    .bio,.role{color:var(--ink-muted)}
-    h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.6rem,7vw,4.6rem);letter-spacing:.18em;line-height:1;user-select:none}
-    .role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem;display:flex;gap:.4rem;align-items:center;flex-wrap:nowrap}
-    .role-line{white-space:nowrap}
-    .role-separator{display:inline-flex;align-items:center}
-    .bio{margin-top:1.8rem;max-width:34rem;font-size:.96rem;line-height:1.75}
-    .section-label{font-size:.7rem;letter-spacing:.2em;color:var(--ink-soft);margin-bottom:.9rem}
-    .link-label{font-family:var(--font-ui);text-transform:uppercase}
-    .link-meta{font-family:var(--font-ui);text-transform:lowercase}
-    .links{display:flex;flex-direction:column;gap:.3rem}
-    .link-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:1rem;padding:.9rem 0;text-decoration:none;color:var(--ink);position:relative;transition:color .16s}
-    .link-item::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;background:rgba(0,0,0,.03);transition:transform .16s ease-out;z-index:-1}
-    [data-theme="dark"] .link-item::before{background:rgba(255,255,255,.06)}
-    .link-item:hover::before{transform:scaleY(1)}
-    .link-icon{display:inline-flex;align-items:center;justify-content:center;overflow:hidden}
-    .link-icon img,.link-icon svg{width:20px;height:20px;display:block}
-    .link-icon.hevy{border-radius:6px;padding:2px;background:transparent}
-    [data-theme="dark"] .link-icon.hevy{background:#ffffff}
-    .link-icon--fragrantica img{border-radius:6px;width:20px;height:20px;display:block}
-    .link-main{display:flex;flex-direction:column;gap:.05rem}
-    .link-label{font-weight:500;font-size:12px;letter-spacing:.08em}
-    .link-meta{font-size:.68rem;letter-spacing:.12em;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .link-arrow{font-size:1rem;font-family:var(--font-mono);color:var(--ink-soft);transition:transform .16s,color .16s}
-    .link-item:hover .link-arrow{transform:translateX(4px);color:var(--ink)}
-    .loader{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:2000;transition:opacity .4s ease,visibility .4s ease}
-    .loader--hidden{opacity:0;visibility:hidden;pointer-events:none}
-    .loader-inner{display:flex;flex-direction:column;align-items:center;gap:1.6rem}
-    .loader-logo{width:80px;height:80px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
-    .loader .box{width:10px;height:10px;border-radius:2px;background:var(--ink);opacity:.35;animation:pulse 1.2s infinite ease-in-out}
-    .loader .box:nth-child(2){animation-delay:.1s}
-    .loader .box:nth-child(3){animation-delay:.2s}
-    .loader .box:nth-child(4){animation-delay:.3s}
-    .loader .box:nth-child(5){animation-delay:.4s}
-    .loader .box:nth-child(6){animation-delay:.5s}
-    @keyframes pulse{0%,100%{transform:scale(1);opacity:.35}50%{transform:scale(1.6);opacity:1}}
-    #cookie-consent{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--bg);padding:1rem 1.4rem;display:flex;justify-content:center;align-items:center;gap:1.5rem;z-index:1000;font-family:var(--font-ui);font-size:.85rem}
-    #cookie-consent p{margin:0;max-width:800px;line-height:1.4}
-    #cookie-consent button{background:var(--bg);color:var(--ink);border:none;padding:.5rem 1rem;cursor:pointer;font-weight:500;font-family:var(--font-ui);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;transition:background .15s}
-    #cookie-consent button:hover{background:var(--ink-soft);color:var(--bg)}
-    .theme-toggle{position:absolute;top:0;right:0;display:inline-flex;align-items:center;gap:.35rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;user-select:none}
-    .theme-toggle button{border:1px solid rgba(0,0,0,0.12);background:transparent;color:var(--ink);border-radius:999px;font-size:.7rem;padding:.18rem .7rem;font-family:var(--font-mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem}
-    [data-theme="dark"] .theme-toggle button{border-color:rgba(255,255,255,0.22)}
-    .theme-toggle-indicator{width:10px;height:10px;border-radius:999px;background:var(--ink-soft)}
-    [data-theme="dark"] .theme-toggle-indicator{background:#f5f5f5}
-    @media(max-width:960px){.frame{grid-template-columns:1fr}.right{padding-top:1rem}}
-    @media(max-width:720px){.page{padding:1.1rem .9rem}.left,.right{padding:2.1rem 1.6rem}#cookie-consent{flex-direction:column;align-items:stretch;text-align:center}#cookie-consent p{margin-bottom:.5rem}#cookie-consent .buttons{display:flex;gap:.5rem;justify-content:center}.theme-toggle{position:static;justify-content:flex-end;margin-bottom:.5rem}}
-    @media(max-width:560px){.role{flex-direction:column;align-items:flex-start;gap:.2rem}.role-separator{display:none}}
-  </style>
 </head>
-<body>
+<body class="home-page" data-page="home">
   <div id="pre-load" class="loader" aria-hidden="true">
     <div class="loader-inner">
       <div class="loader-logo">
-        <svg viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Loading">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 12L13 14.333V19L20 14.333V9.667L13 5V9.667L16.5 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M6.41598 9.04293C6.07132 8.81319 5.60568 8.90635 5.37593 9.25102C5.14619 9.59568 5.23935 10.0613 5.58402 10.2911L6.41598 9.04293ZM12.584 14.9571C12.9287 15.1868 13.3943 15.0936 13.6241 14.749C13.8538 14.4043 13.7606 13.9387 13.416 13.7089L12.584 14.9571ZM6.75 9.667C6.75 9.25279 6.41421 8.917 6 8.917C5.58579 8.917 5.25 9.25279 5.25 9.667H6.75ZM5.25 14.333C5.25 14.7472 5.58579 15.083 6 15.083C6.41421 15.083 6.75 14.7472 6.75 14.333H5.25ZM5.58395 9.04298C5.23932 9.27275 5.1462 9.73841 5.37598 10.083C5.60575 10.4277 6.07141 10.5208 6.41605 10.291L5.58395 9.04298ZM13.416 5.62402C13.7607 5.39425 13.8538 4.92859 13.624 4.58395C13.3942 4.23932 12.9286 4.1462 12.584 4.37598L13.416 5.62402ZM13.416 10.2911C13.7606 10.0613 13.8538 9.59568 13.6241 9.25102C13.3943 8.90635 12.9287 8.81319 12.584 9.04293L13.416 10.2911ZM5.58402 13.7089C5.23935 13.9387 5.14619 14.4043 5.37593 14.749C5.60568 15.0936 6.07132 15.1868 6.41598 14.9571L5.58402 13.7089ZM6.41605 13.709C6.07141 13.4792 5.60575 13.5723 5.37598 13.917C5.1462 14.2616 5.23932 14.7272 5.58395 14.957L6.41605 13.709ZM12.584 19.624C12.9286 19.8538 13.3942 19.7607 13.624 19.416C13.8538 19.0714 13.7607 18.6058 13.416 18.376L12.584 19.624ZM20.416 10.2911C20.7606 10.0613 20.8538 9.59568 20.6241 9.25102C20.3943 8.90635 19.9287 8.81319 19.584 9.04293L20.416 10.2911ZM16.5 12L16.084 11.3759C15.8753 11.515 15.75 11.7492 15.75 12C15.75 12.2508 15.8753 12.485 16.084 12.6241L16.5 12ZM19.584 14.9571C19.9287 15.1868 20.3943 15.0936 20.6241 14.749C20.8538 14.4043 20.7606 13.9387 20.416 13.7089L19.584 14.9571ZM5.58402 10.2911L12.584 14.9571L13.416 13.7089L6.41598 9.04293L5.58402 10.2911ZM5.25 9.667V14.333H6.75V9.667H5.25ZM6.41605 10.291L13.416 5.62402L12.584 4.37598L5.58395 9.04298L6.41605 10.291ZM12.584 9.04293L5.58402 13.7089L6.41598 14.9571L13.416 10.2911L12.584 9.04293ZM5.58395 14.957L12.584 19.624L13.416 18.376L6.41605 13.709L5.58395 14.957ZM19.584 9.04293L16.084 11.3759L16.916 12.6241L20.416 10.2911L19.584 9.04293ZM16.084 12.6241L19.584 14.9571L20.416 13.7089L16.916 11.3759L16.084 12.6241Z" fill="currentColor"/>
-        </svg>
+        <img src="/assets/svg/loader-logo.svg" alt="AY monogram" width="72" height="72" loading="eager"/>
       </div>
       <div class="box"></div>
       <div class="box"></div>
@@ -105,7 +43,7 @@
       <div class="left">
         <section class="identity">
           <div>
-            <div class="identity-label">profile</div>
+            <div class="identity-label" data-secret-trigger>profile</div>
             <h1>ARTYOM YAGOVDIK</h1>
             <p class="role">
               <span class="role-line">team lead</span>
@@ -134,49 +72,45 @@
           <nav class="links">
             <a href="/cv/" class="link-item">
               <span class="link-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
-                  <path d="M7 3.75h6.25L17.5 8v12.25a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V4.25a.5.5 0 0 1 .5-.5Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-                  <path d="M13.25 3.75v3.5a.75.75 0 0 0 .75.75h3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-                  <path d="M8.75 12h6.5M8.75 15h3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-                </svg>
+                <img src="/assets/svg/icon-file.svg" alt="CV" width="20" height="20" loading="lazy"/>
               </span>
               <div class="link-main"><span class="link-label">cv</span><span class="link-meta">skills · experience</span></div>
               <span class="link-arrow">↗</span>
             </a>
             <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-github.svg" alt="GitHub" loading="lazy" width="20" height="20" decoding="async"></span>
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-github.svg" alt="GitHub" loading="lazy" width="20" height="20" decoding="async"/></span>
               <div class="link-main"><span class="link-label">github</span><span class="link-meta">repos · utilities</span></div>
               <span class="link-arrow">↗</span>
             </a>
             <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-linkedin.svg" alt="LinkedIn" loading="lazy" width="20" height="20" decoding="async"></span>
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-linkedin.svg" alt="LinkedIn" loading="lazy" width="20" height="20" decoding="async"/></span>
               <div class="link-main"><span class="link-label">linkedin</span><span class="link-meta">roles · timeline</span></div>
               <span class="link-arrow">↗</span>
             </a>
-            <a href="https://www.instagram.com/artjom.jj/" class="link-item" target="_blank" rel="noopener noreferrer" id="instagram-link" style="display:none">
-              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-instagram.svg" alt="Instagram" loading="lazy" width="20" height="20" decoding="async"></span>
+            <a href="https://www.instagram.com/artjom.jj/" class="link-item is-hidden" target="_blank" rel="noopener noreferrer" id="instagram-link">
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-instagram.svg" alt="Instagram" loading="lazy" width="20" height="20" decoding="async"/></span>
               <div class="link-main"><span class="link-label">instagram</span><span class="link-meta">@artjom.jj</span></div>
               <span class="link-arrow">↗</span>
             </a>
             <a href="#" id="email-link" class="link-item">
-              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-mail.svg" alt="Email" loading="lazy" width="20" height="20" decoding="async"></span>
+              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-mail.svg" alt="Email" loading="lazy" width="20" height="20" decoding="async"/></span>
               <div class="link-main"><span class="link-label">email</span><span class="link-meta" id="email-meta">contact · </span></div>
               <span class="link-arrow">↗</span>
             </a>
             <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon hevy"><img id="hevy-icon" src="https://cdn.simpleicons.org/hevy/000000" alt="Hevy" loading="lazy" width="20" height="20" decoding="async" data-light-src="https://cdn.simpleicons.org/hevy/000000" data-dark-src="https://cdn.simpleicons.org/hevy/2B8CFF"></span>
+              <span class="link-icon hevy"><img id="hevy-icon" src="https://cdn.simpleicons.org/hevy/000000" alt="Hevy" loading="lazy" width="20" height="20" decoding="async" data-light-src="https://cdn.simpleicons.org/hevy/000000" data-dark-src="https://cdn.simpleicons.org/hevy/2B8CFF"/></span>
               <div class="link-main"><span class="link-label">hevy</span><span class="link-meta">training</span></div>
               <span class="link-arrow">↗</span>
             </a>
-            <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" rel="noopener noreferrer" id="fragrantica-link" style="display:none">
+            <a href="https://www.fragrantica.com/member/1635722" class="link-item is-hidden" target="_blank" rel="noopener noreferrer" id="fragrantica-link">
               <span class="link-icon link-icon--fragrantica" aria-hidden="true">
                 <img src="https://cdn.brandfetch.io/id3T9A7hvx/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1760099017640" alt="Fragrantica" loading="lazy" width="20" height="20"/>
               </span>
               <div class="link-main"><span class="link-label">fragrantica</span><span class="link-meta">hidden hobby</span></div>
               <span class="link-arrow">↗</span>
             </a>
-            <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener noreferrer" id="telegram-link" style="display:none">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/telegram/229ED9" alt="Telegram" loading="lazy" width="20" height="20" decoding="async"></span>
+            <a href="https://t.me/voidmechanics" class="link-item is-hidden" target="_blank" rel="noopener noreferrer" id="telegram-link">
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/telegram/229ED9" alt="Telegram" loading="lazy" width="20" height="20" decoding="async"/></span>
               <div class="link-main"><span class="link-label">void mechanics</span><span class="link-meta">notes · fragments</span></div>
               <span class="link-arrow">↗</span>
             </a>
@@ -188,7 +122,7 @@
     <div class="footer" id="footer-year"></div>
   </main>
 
-  <div id="cookie-consent" style="display:none;">
+  <div id="cookie-consent">
     <p>This site uses Google Analytics for anonymous usage statistics. This requires a cookie. You can accept or decline this non-essential tracking. Essential cookies are not used.</p>
     <div class="buttons">
       <button id="consent-accept">Accept Tracking</button>
@@ -196,128 +130,6 @@
     </div>
   </div>
 
-  <script>
-    document.getElementById("footer-year").textContent = new Date().getFullYear() + " · Frankfurt, Germany";
-
-    (function(){
-      const loader=document.getElementById('pre-load');
-      if(!loader){return;}
-      let isHidden=false;
-      const hideLoader=function(){
-        if(isHidden){return;}
-        isHidden=true;
-        loader.classList.add('loader--hidden');
-        setTimeout(()=>loader.remove(),600);
-      };
-      const fontReady=document.fonts?.ready;
-      if(fontReady&&typeof fontReady.then==='function'){
-        fontReady.then(hideLoader).catch(hideLoader);
-      }else{
-        window.addEventListener('load',hideLoader);
-      }
-      setTimeout(hideLoader,4000);
-    })();
-
-    const consentBanner=document.getElementById('cookie-consent'),
-          acceptButton=document.getElementById('consent-accept'),
-          declineButton=document.getElementById('consent-decline'),
-          gtagScript=document.getElementById('gtag-script'),
-          consentKey='ay_ga_consent';
-
-    function loadGoogleAnalytics(accepted){
-      if(accepted){
-        gtagScript.innerHTML="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2R92LFMXD5');";
-        gtagScript.setAttribute('async','');
-        gtagScript.setAttribute('src','https://www.googletagmanager.com/gtag/js?id=G-2R92LFMXD5');
-      }else{
-        window['ga-disable-G-2R92LFMXD5']=true;
-      }
-    }
-
-    const userConsent=localStorage.getItem(consentKey);
-    if(userConsent==='accepted'){loadGoogleAnalytics(true);}else if(userConsent==='declined'){loadGoogleAnalytics(false);}else{consentBanner.style.display='flex';}
-    acceptButton.addEventListener('click',()=>{localStorage.setItem(consentKey,'accepted');loadGoogleAnalytics(true);consentBanner.style.display='none';});
-    declineButton.addEventListener('click',()=>{localStorage.setItem(consentKey,'declined');loadGoogleAnalytics(false);consentBanner.style.display='none';});
-
-    (function(){
-      const user='artyom.yagovdik',domain='gmail.com';
-      const linkEl=document.getElementById('email-link');
-      const metaEl=document.getElementById('email-meta');
-      linkEl.addEventListener('click',function(e){e.preventDefault();window.location.href='mailto:'+user+'@'+domain;});
-      metaEl.textContent+=user+'@'+domain;
-    })();
-
-    (function(){
-      const root=document.documentElement;
-      const btn=document.getElementById('theme-toggle-btn');
-      const label=document.getElementById('theme-toggle-label');
-      const hevyIcon=document.getElementById('hevy-icon');
-      const setHevyIcon=function(theme){
-        if(!hevyIcon){return;}
-        const source=theme==='dark'?hevyIcon.dataset.darkSrc:hevyIcon.dataset.lightSrc;
-        if(source&&hevyIcon.getAttribute('src')!==source){
-          hevyIcon.setAttribute('src',source);
-        }
-      };
-      const THEME_KEY='ay_theme';
-      const applyTheme=function(theme){
-        root.setAttribute('data-theme',theme);
-        label.textContent=theme;
-        setHevyIcon(theme);
-      };
-      const getSystemTheme=function(){
-        const prefersDark=window?.matchMedia?.('(prefers-color-scheme: dark)')?.matches;
-        return prefersDark?'dark':'light';
-      };
-      const storedTheme=localStorage.getItem(THEME_KEY);
-      let userSelectedTheme=storedTheme||null;
-      if(storedTheme){
-        applyTheme(storedTheme);
-      }else{
-        applyTheme(getSystemTheme());
-      }
-      const mediaQuery=window?.matchMedia?.('(prefers-color-scheme: dark)');
-      const handleSystemChange=function(event){
-        if(userSelectedTheme){return;}
-        applyTheme(event.matches?'dark':'light');
-      };
-      if(mediaQuery){
-        if(typeof mediaQuery.addEventListener==='function'){
-          mediaQuery.addEventListener('change',handleSystemChange);
-        }else if(typeof mediaQuery.addListener==='function'){
-          mediaQuery.addListener(handleSystemChange);
-        }
-      }
-      btn.addEventListener('click',function(){
-        const current=root.getAttribute('data-theme')||'light';
-        const next=current==='light'?'dark':'light';
-        userSelectedTheme=next;
-        applyTheme(next);
-        localStorage.setItem(THEME_KEY,next);
-      });
-    })();
-
-    (function(){
-      let clicks=0;
-      let revealed=false;
-      const target=document.querySelector('.identity-label');
-      const hiddenLinks=['fragrantica-link','telegram-link','instagram-link']
-        .map(id=>document.getElementById(id))
-        .filter(Boolean);
-      const linksContainer=document.querySelector('.links');
-      if(target&&hiddenLinks.length&&linksContainer){
-        target.addEventListener('click',function(){
-          clicks++;
-          if(!revealed&&clicks===3){
-            hiddenLinks.forEach(function(link){
-              link.style.display='grid';
-              linksContainer.appendChild(link);
-            });
-            revealed=true;
-          }
-        });
-      }
-    })();
-  </script>
+  <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
