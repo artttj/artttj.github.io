@@ -601,8 +601,9 @@ h1 {
   top: 0;
   right: 0;
   display: flex;
-  gap: 0.8rem;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-end;
 }
 
 .print-btn {
