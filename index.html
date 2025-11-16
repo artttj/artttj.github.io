@@ -199,19 +199,41 @@
           hevyIcon.setAttribute('src',source);
         }
       };
-      const storedTheme=localStorage.getItem('ay_theme');
-      if(storedTheme==='dark'){
-        root.setAttribute('data-theme','dark');
-        label.textContent='dark';
+      const THEME_KEY='ay_theme';
+      const applyTheme=function(theme){
+        root.setAttribute('data-theme',theme);
+        label.textContent=theme;
+        setHevyIcon(theme);
+      };
+      const getSystemTheme=function(){
+        const prefersDark=window?.matchMedia?.('(prefers-color-scheme: dark)')?.matches;
+        return prefersDark?'dark':'light';
+      };
+      const storedTheme=localStorage.getItem(THEME_KEY);
+      let userSelectedTheme=storedTheme||null;
+      if(storedTheme){
+        applyTheme(storedTheme);
+      }else{
+        applyTheme(getSystemTheme());
       }
-      setHevyIcon(root.getAttribute('data-theme')||'light');
+      const mediaQuery=window?.matchMedia?.('(prefers-color-scheme: dark)');
+      const handleSystemChange=function(event){
+        if(userSelectedTheme){return;}
+        applyTheme(event.matches?'dark':'light');
+      };
+      if(mediaQuery){
+        if(typeof mediaQuery.addEventListener==='function'){
+          mediaQuery.addEventListener('change',handleSystemChange);
+        }else if(typeof mediaQuery.addListener==='function'){
+          mediaQuery.addListener(handleSystemChange);
+        }
+      }
       btn.addEventListener('click',function(){
         const current=root.getAttribute('data-theme')||'light';
         const next=current==='light'?'dark':'light';
-        root.setAttribute('data-theme',next);
-        label.textContent=next;
-        localStorage.setItem('ay_theme',next);
-        setHevyIcon(next);
+        userSelectedTheme=next;
+        applyTheme(next);
+        localStorage.setItem(THEME_KEY,next);
       });
     })();
 
