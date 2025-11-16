@@ -19,13 +19,18 @@
       loader.classList.add("loader--hidden");
       setTimeout(() => loader.remove(), 800);
     };
-    const ready = doc.fonts?.ready;
-    if (ready?.then) {
-      ready.then(hide).catch(hide);
-    } else {
-      window.addEventListener("load", hide);
-    }
-    setTimeout(hide, 4000);
+    const scheduleHide = () => {
+      if (hidden) return;
+      const raf = window.requestAnimationFrame;
+      if (typeof raf === "function") {
+        raf(() => hide());
+        return;
+      }
+      hide();
+    };
+    setTimeout(scheduleHide, 0);
+    window.addEventListener("load", scheduleHide, { once: true });
+    setTimeout(scheduleHide, 2000);
   };
 
   const initConsent = () => {
@@ -44,23 +49,27 @@
       }
       window["ga-disable-G-2R92LFMXD5"] = true;
     };
+    const toggleBanner = visible => {
+      banner.classList.toggle("is-visible", visible);
+      banner.setAttribute("aria-hidden", visible ? "false" : "true");
+    };
     const stored = localStorage.getItem(key);
     if (stored === "accepted") {
       loadAnalytics(true);
     } else if (stored === "declined") {
       loadAnalytics(false);
     } else {
-      banner.style.display = "flex";
+      toggleBanner(true);
     }
     accept.addEventListener("click", () => {
       localStorage.setItem(key, "accepted");
       loadAnalytics(true);
-      banner.style.display = "none";
+      toggleBanner(false);
     });
     decline.addEventListener("click", () => {
       localStorage.setItem(key, "declined");
       loadAnalytics(false);
-      banner.style.display = "none";
+      toggleBanner(false);
     });
   };
 

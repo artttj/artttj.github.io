@@ -342,13 +342,25 @@ h1 {
   background: var(--ink);
   color: var(--bg);
   padding: 1rem 1.4rem;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
   z-index: 1000;
   font-family: var(--font-ui);
   font-size: 0.85rem;
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+#cookie-consent.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 #cookie-consent p {
@@ -468,6 +480,16 @@ h1 {
   z-index: 4;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .loader .box {
+    animation: none;
+  }
+
+  #cookie-consent {
+    transition: none;
+  }
+}
+
 @keyframes ripple {
   0% {
     transform: scale(0.9);
@@ -482,12 +504,6 @@ h1 {
   100% {
     transform: scale(0.9);
     opacity: 0.85;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .loader .box {
-    animation: none;
   }
 }
 
