@@ -36,7 +36,7 @@
     .link-icon img,.link-icon svg{width:20px;height:20px;display:block}
     .link-icon.hevy{border-radius:6px;padding:2px;background:transparent}
     [data-theme="dark"] .link-icon.hevy{background:#ffffff}
-    .link-icon--fragrantica svg{border-radius:6px}
+    .link-icon--fragrantica img{border-radius:6px;width:20px;height:20px;display:block}
     .link-main{display:flex;flex-direction:column;gap:.05rem}
     .link-label{font-weight:500;font-size:12px;letter-spacing:.08em}
     .link-meta{font-size:.68rem;letter-spacing:.12em;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -111,10 +111,7 @@
             </a>
             <a href="https://www.fragrantica.com/member/1635722" class="link-item" target="_blank" rel="noopener noreferrer" id="fragrantica-link" style="display:none">
               <span class="link-icon link-icon--fragrantica" aria-hidden="true">
-                <svg viewBox="0 0 64 64" role="img" aria-hidden="true" focusable="false">
-                  <rect width="64" height="64" rx="12" fill="#39a69c"></rect>
-                  <path fill="#fefefe" d="M26 20c0-3.313 2.687-6 6-6s6 2.687 6 6v4.5c3.524 1.92 6 5.66 6 10.006C44 41.044 38.627 46.97 32 52c-6.627-5.03-12-10.956-12-17.494C20 30.16 22.476 26.42 26 24.5V20zm6-2c-1.657 0-3 1.343-3 3v4.722l-.842.425C25.455 27.937 23 31.107 23 34.506c0 4.83 4.17 9.915 9 14.137 4.83-4.222 9-9.307 9-14.137 0-3.399-2.455-6.569-5.158-8.36l-.842-.425V21c0-1.657-1.343-3-3-3z"></path>
-                </svg>
+                <img src="https://cdn.brandfetch.io/id3T9A7hvx/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1760099017640" alt="Fragrantica" loading="lazy" width="20" height="20"/>
               </span>
               <div class="link-main"><span class="link-label">fragrantica</span><span class="link-meta">hidden hobby</span></div>
               <span class="link-arrow">↗</span>
@@ -202,12 +199,18 @@
 
     (function(){
       let clicks=0;
+      let revealed=false;
       const target=document.querySelector('.identity-label');
       const hiddenLink=document.getElementById('fragrantica-link');
-      if(target&&hiddenLink){
+      const linksContainer=document.querySelector('.links');
+      if(target&&hiddenLink&&linksContainer){
         target.addEventListener('click',function(){
           clicks++;
-          if(clicks===3){hiddenLink.style.display='grid';}
+          if(!revealed&&clicks===3){
+            hiddenLink.style.display='grid';
+            linksContainer.appendChild(hiddenLink);
+            revealed=true;
+          }
         });
       }
     })();
