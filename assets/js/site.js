@@ -129,7 +129,7 @@
     if (!trigger) return;
     const container = doc.querySelector(".links");
     if (!container) return;
-    const links = ["fragrantica-link", "telegram-link", "instagram-link"].map(id => $(id)).filter(Boolean);
+    const links = ["instagram-link", "telegram-link", "fragrantica-link"].map(id => $(id)).filter(Boolean);
     if (!links.length) return;
     let revealed = false;
     const reveal = () => {
