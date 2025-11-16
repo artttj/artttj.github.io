@@ -50,6 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 2.4rem 1.4rem;
   gap: 2rem;
 }
@@ -60,6 +61,7 @@ body {
   background: var(--frame);
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  margin: 0 auto;
 }
 
 .left,
@@ -326,6 +328,9 @@ h1 {
 }
 
 .footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
   font-family: var(--font-mono);
   font-size: 0.68rem;
