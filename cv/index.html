@@ -21,7 +21,8 @@
     .right{gap:2.4rem;position:relative}
     .identity{display:grid;row-gap:1.2rem}
     .identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft)}
-    h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.1rem,6vw,4.3rem);letter-spacing:.2em;line-height:1}
+    h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.1rem,6vw,4.3rem);letter-spacing:.2em;line-height:1;user-select:none}
+    .identity-title-link{color:inherit;text-decoration:none}
     .role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem;display:flex;gap:.4rem;align-items:center;flex-wrap:nowrap;color:var(--ink-muted)}
     .role-line{white-space:nowrap}
     .role-separator{display:inline-flex;align-items:center}
@@ -72,7 +73,7 @@
         <section class="identity">
           <div>
             <div class="identity-label">cv</div>
-            <h1>ARTYOM YAGOVDIK</h1>
+            <h1><a class="identity-title-link" href="/">ARTYOM YAGOVDIK</a></h1>
             <p class="role">
               <span class="role-line">team lead</span>
               <span class="role-separator" aria-hidden="true">·</span>
