@@ -26,24 +26,12 @@
   </script>
 </head>
 <body class="home-page" data-page="home">
-  <div id="pre-load" class="loader" aria-hidden="true">
-    <div class="loader-inner">
-      <div class="loader-logo">
-        <img src="/assets/svg/loader-logo.svg" alt="AY monogram" width="72" height="72" loading="eager"/>
-      </div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-    </div>
-  </div>
+  <div id="pre-load" class="loader" aria-hidden="true"></div>
   <main class="page">
     <section class="frame">
       <div class="left">
         <section class="identity">
           <div>
-            <div class="identity-label" data-secret-trigger>profile</div>
             <h1>ARTYOM YAGOVDIK</h1>
             <p class="role">
               <span class="role-line">team lead</span>
@@ -68,7 +56,10 @@
           </button>
         </div>
         <div>
-          <div class="section-label">elsewhere</div>
+          <button type="button" class="section-label section-label--toggle" id="elsewhere-trigger" aria-expanded="false">
+            elsewhere
+            <span class="section-label-hint" aria-hidden="true"></span>
+          </button>
           <nav class="links">
             <a href="/cv/" class="link-item">
               <span class="link-icon" aria-hidden="true">
