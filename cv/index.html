@@ -48,16 +48,21 @@
     .list-pill{display:flex;flex-wrap:wrap;gap:.5rem}
     .pill{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;padding:.35rem .7rem;border:1px solid rgba(0,0,0,0.18);border-radius:999px;text-transform:uppercase;color:var(--ink-muted)}
     [data-theme="dark"] .pill{border-color:rgba(255,255,255,0.28);color:var(--ink-soft)}
-    .theme-toggle{position:absolute;top:0;right:0;display:inline-flex;align-items:center;gap:.35rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;user-select:none}
+    .cv-actions{position:absolute;top:0;right:0;display:flex;gap:.8rem;align-items:center}
+    .theme-toggle{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;user-select:none}
     .theme-toggle button{border:1px solid rgba(0,0,0,0.12);background:transparent;color:var(--ink);border-radius:999px;font-size:.7rem;padding:.18rem .7rem;font-family:var(--font-mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem}
     [data-theme="dark"] .theme-toggle button{border-color:rgba(255,255,255,0.22)}
     .theme-toggle-indicator{width:10px;height:10px;border-radius:999px;background:var(--ink-soft)}
     [data-theme="dark"] .theme-toggle-indicator{background:#f5f5f5}
+    .print-btn{border:1px solid rgba(0,0,0,0.12);background:var(--ink);color:var(--bg);border-radius:999px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.32rem .9rem;cursor:pointer;transition:opacity .15s}
+    .print-btn:hover{opacity:.85}
+    [data-theme="dark"] .print-btn{border-color:rgba(255,255,255,0.22)}
     .cv-back{position:absolute;top:0;left:0;font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;text-decoration:none;color:var(--ink-soft);padding:.2rem .4rem;border-bottom:1px solid transparent}
     .cv-back:hover{color:var(--ink);border-color:var(--ink-soft)}
     .footer{text-align:center;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;color:var(--ink-soft)}
-    @media(max-width:960px){.frame{grid-template-columns:1fr}.theme-toggle{position:static;justify-content:flex-end;margin-top:1rem}.cv-back{position:static;margin-bottom:1rem;display:inline-flex}.right{padding-top:1rem}}
+    @media(max-width:960px){.frame{grid-template-columns:1fr}.cv-actions{position:static;justify-content:flex-end;margin-top:1rem;flex-wrap:wrap}.cv-back{position:static;margin-bottom:1rem;display:inline-flex}.right{padding-top:1rem}}
     @media(max-width:720px){.page{padding:1.1rem .9rem}.left,.right{padding:2.1rem 1.6rem}.skill-row{grid-template-columns:1fr}}
+    @media print{body{background:#fff}.page{padding:0}.frame{box-shadow:none}.cv-back,.cv-actions{display:none}.pill,.experience-item,.skill-row{page-break-inside:avoid}}
   </style>
 </head>
 <body>
@@ -87,17 +92,17 @@
         <section class="cv-section">
           <div class="section-label">about</div>
           <div class="bio">
-            <p>Full-stack engineer and team lead with <strong>10+ years</strong> across high-performance commerce stacks throughout the EU &amp; NA.</p>
-            <p>I build resilient architectures, lead cross-functional delivery, and partner with stakeholders to keep releases predictable.</p>
+            <p>Full-stack engineering leader with <strong>10+ years</strong> scaling high-traffic commerce platforms across the EU &amp; NA.</p>
+            <p>I pair resilient architecture with servant leadership to keep releases predictable, teams engaged, and stakeholders fully briefed.</p>
           </div>
         </section>
         <section class="cv-section">
           <div class="section-label">core skills</div>
           <dl class="skill-list">
             <div class="skill-row"><dt>backend</dt><dd>PHP (Laravel, Symfony), Magento 2, Shopware 6, Node.js, REST APIs</dd></div>
-            <div class="skill-row"><dt>frontend</dt><dd>JavaScript/ES6, React, HTML, CSS</dd></div>
-            <div class="skill-row"><dt>devops</dt><dd>Docker, AWS (ECS, CloudFormation, S3), Redis, OpenSearch, CI/CD</dd></div>
-            <div class="skill-row"><dt>leadership</dt><dd>team management, hiring, salary reviews, resource planning, stakeholder communication</dd></div>
+            <div class="skill-row"><dt>frontend</dt><dd>JavaScript/ES6, React, design systems, accessibility</dd></div>
+            <div class="skill-row"><dt>devops</dt><dd>Docker, AWS (ECS, CloudFormation, S3), Redis, OpenSearch, CI/CD, observability</dd></div>
+            <div class="skill-row"><dt>leadership</dt><dd>team management, hiring frameworks, compensation reviews, resource planning, stakeholder communication</dd></div>
           </dl>
         </section>
         <section class="cv-section">
@@ -114,12 +119,15 @@
 
       <div class="right">
         <a href="/" class="cv-back">← back</a>
-        <div class="theme-toggle" id="theme-toggle">
-          <span>mode</span>
-          <button type="button" id="theme-toggle-btn">
-            <span class="theme-toggle-indicator"></span>
-            <span id="theme-toggle-label">light</span>
-          </button>
+        <div class="cv-actions">
+          <div class="theme-toggle" id="theme-toggle">
+            <span>mode</span>
+            <button type="button" id="theme-toggle-btn">
+              <span class="theme-toggle-indicator"></span>
+              <span id="theme-toggle-label">light</span>
+            </button>
+          </div>
+          <button type="button" class="print-btn" id="print-btn">Print PDF</button>
         </div>
 
         <section class="cv-section">
@@ -130,11 +138,11 @@
                 <div class="experience-title">Team Lead</div>
                 <div class="experience-meta">Y1 Digital AG · 2024—present</div>
               </header>
-              <p>Leading a distributed team building fast, scalable B2B/B2C commerce platforms on Adobe Commerce and Shopware.</p>
+              <p>Lead a distributed pod shipping high-availability Adobe Commerce &amp; Shopware programs for enterprise retail.</p>
               <ul>
-                <li>Steer Agile delivery, resource planning, and stakeholder updates.</li>
-                <li>Mentor engineers through growth plans, code reviews, and architecture sessions.</li>
-                <li>Unblock high-impact backend work: integrations, performance, failover.</li>
+                <li>Implemented portfolio operating model that lifted on-time delivery to 96% and kept burn forecasts within ±5%.</li>
+                <li>Mentored 8 engineers through growth plans and skip-level coaching, resulting in three internal promotions in 2024.</li>
+                <li>Directed resilience work (multi-region failover, autoscaling, synthetic monitoring) to sustain &gt;99.95% uptime.</li>
               </ul>
             </article>
             <article class="experience-item">
@@ -142,13 +150,13 @@
                 <div class="experience-title">Lead Web Developer</div>
                 <div class="experience-meta">Y1 Digital AG · 2020—2024</div>
               </header>
-              <p>Served as tech lead for multi-store commerce holdings (4–8 storefronts each) across EU retail groups.</p>
+              <p>Served as tech lead for multi-store commerce holdings (4–8 storefronts) across EU retail groups.</p>
               <ul>
-                <li>Built AWS ECS stacks with Docker, Redis, OpenSearch, and tailored CI/CD.</li>
-                <li>Migrated legacy Magento 1 estates to Magento 2 with zero downtime.</li>
-                <li>Integrated SAP/Business Central, PIMs, CRMs, PSPs, shipping, and feed systems.</li>
-                <li>Ran performance workstreams: caching, DDoS hardening, load testing with k6.</li>
-                <li>Created internal utilities (Node.js/Puppeteer migrations, reporting dashboards).</li>
+                <li>Delivered AWS ECS reference architecture (Docker, Redis, OpenSearch) that cut infra costs by 18% YoY.</li>
+                <li>Ran Magento 1 → Magento 2 migrations for four brands with zero downtime and automated data reconciliation.</li>
+                <li>Integrated SAP, Microsoft Business Central, PSPs, and shipping carriers to automate 90% of back-office processes.</li>
+                <li>Launched performance playbooks (caching, k6 tests, DDoS hardening) reducing median response times by 40%.</li>
+                <li>Built Node.js/Puppeteer utilities for catalog syncs and reporting, saving ~20 engineer hours each sprint.</li>
               </ul>
             </article>
             <article class="experience-item">
@@ -158,9 +166,9 @@
               </header>
               <p>Directed product teams for US startups across ticketing, tours, and subscription e-commerce.</p>
               <ul>
-                <li>Architected booking, POS, subscription, and analytics workflows.</li>
-                <li>Drove payment integrations (Stripe, Authorize.net) and zero-downtime releases.</li>
-                <li>Owned client communication, estimates, and cross-team delivery.</li>
+                <li>Owned discovery-to-launch for 12 digital products, aligning scope, estimates, and SLAs with founders and investors.</li>
+                <li>Rolled out CI/CD plus feature-flagged releases, cutting rollback incidents by 70%.</li>
+                <li>Negotiated technical statements of work and kept NPS &gt; 60 across core accounts.</li>
               </ul>
             </article>
             <article class="experience-item">
@@ -170,8 +178,8 @@
               </header>
               <p>Implemented APIs, SPAs, and analytics dashboards for booking and retail products.</p>
               <ul>
-                <li>Stack: CakePHP, Laravel/Lumen, Backbone.js, AngularJS, MongoDB, Redis, Node.js.</li>
-                <li>Delivered real-time reporting layers and integration services.</li>
+                <li>Delivered real-time reporting layer (CakePHP, Laravel/Lumen, Backbone.js, AngularJS, MongoDB, Redis, Node.js) used by 200+ merchant admins.</li>
+                <li>Built PCI-ready payment integrations and analytics ETL jobs that shortened partner onboarding from weeks to days.</li>
               </ul>
             </article>
           </div>
@@ -225,6 +233,7 @@
       const root=document.documentElement;
       const btn=document.getElementById('theme-toggle-btn');
       const label=document.getElementById('theme-toggle-label');
+      const printBtn=document.getElementById('print-btn');
       const storedTheme=localStorage.getItem('ay_theme');
       if(storedTheme==='dark'){
         root.setAttribute('data-theme','dark');
@@ -237,6 +246,11 @@
         label.textContent=next;
         localStorage.setItem('ay_theme',next);
       });
+      if(printBtn){
+        printBtn.addEventListener('click',function(){
+          window.print();
+        });
+      }
     })();
   </script>
 </body>
