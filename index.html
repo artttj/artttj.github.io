@@ -26,7 +26,18 @@
   </script>
 </head>
 <body class="home-page" data-page="home">
-  <div id="pre-load" class="loader" aria-hidden="true"></div>
+  <div id="pre-load" class="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <img src="/assets/svg/loader-logo.svg" alt="AY monogram" width="72" height="72" loading="eager"/>
+      </div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
   <main class="page">
     <section class="frame">
       <div class="left">
@@ -58,7 +69,6 @@
         <div>
           <button type="button" class="section-label section-label--toggle" id="elsewhere-trigger" aria-expanded="false">
             elsewhere
-            <span class="section-label-hint" aria-hidden="true"></span>
           </button>
           <nav class="links">
             <a href="/cv/" class="link-item">
@@ -93,16 +103,16 @@
               <div class="link-main"><span class="link-label">hevy</span><span class="link-meta">training</span></div>
               <span class="link-arrow">↗</span>
             </a>
+            <a href="https://t.me/voidmechanics" class="link-item is-hidden" target="_blank" rel="noopener noreferrer" id="telegram-link">
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/telegram/229ED9" alt="Telegram" loading="lazy" width="20" height="20" decoding="async"/></span>
+              <div class="link-main"><span class="link-label">void mechanics</span><span class="link-meta">notes · fragments</span></div>
+              <span class="link-arrow">↗</span>
+            </a>
             <a href="https://www.fragrantica.com/member/1635722" class="link-item is-hidden" target="_blank" rel="noopener noreferrer" id="fragrantica-link">
               <span class="link-icon link-icon--fragrantica" aria-hidden="true">
                 <img src="https://cdn.brandfetch.io/id3T9A7hvx/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1760099017640" alt="Fragrantica" loading="lazy" width="20" height="20"/>
               </span>
-              <div class="link-main"><span class="link-label">fragrantica</span><span class="link-meta">hidden hobby</span></div>
-              <span class="link-arrow">↗</span>
-            </a>
-            <a href="https://t.me/voidmechanics" class="link-item is-hidden" target="_blank" rel="noopener noreferrer" id="telegram-link">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/telegram/229ED9" alt="Telegram" loading="lazy" width="20" height="20" decoding="async"/></span>
-              <div class="link-main"><span class="link-label">void mechanics</span><span class="link-meta">notes · fragments</span></div>
+              <div class="link-main"><span class="link-label">fragrantica</span><span class="link-meta">hobby</span></div>
               <span class="link-arrow">↗</span>
             </a>
           </nav>
