@@ -116,13 +116,24 @@
     <div class="footer" id="footer-year"></div>
   </main>
 
-  <div id="cookie-consent">
+  <div id="cookie-consent" role="dialog" aria-live="polite" aria-hidden="true">
     <p>This site uses Google Analytics for anonymous usage statistics. This requires a cookie. You can accept or decline this non-essential tracking. Essential cookies are not used.</p>
     <div class="buttons">
       <button id="consent-accept">Accept Tracking</button>
       <button id="consent-decline">Decline Tracking</button>
     </div>
   </div>
+
+  <noscript>
+    <style>
+      #cookie-consent {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    </style>
+  </noscript>
 
   <script src="/assets/js/site.js" defer></script>
 </body>
