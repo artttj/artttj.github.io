@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
   <style>
     .link-item,.page{align-items:center}.identity-label,.role,h1{text-transform:uppercase}.bio strong,body{color:var(--ink)}.identity-label,.role,.section-label{font-family:var(--font-mono)}
-    :root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;--icon-bg:#f5f5f5;--icon-border:rgba(0,0,0,0.06);--font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;--font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}
-    [data-theme="dark"]{--bg:#050509;--frame:#050509;--ink:#f5f5f5;--ink-muted:#a4a4a4;--ink-soft:#6f6f6f;--icon-bg:#111119;--icon-border:rgba(255,255,255,0.14)}
+    :root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;--font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;--font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}
+    [data-theme="dark"]{--bg:#050509;--frame:#050509;--ink:#f5f5f5;--ink-muted:#a4a4a4;--ink-soft:#6f6f6f}
     *,::after,::before{box-sizing:border-box;margin:0;padding:0}
     body{background:var(--bg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%;color:var(--ink);transition:background .2s,color .2s}
     .page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:2.4rem 1.4rem;gap:2rem}
@@ -32,7 +32,7 @@
     .link-item::before{content:"";position:absolute;inset:0;transform:scaleY(0);transform-origin:bottom;background:rgba(0,0,0,.03);transition:transform .16s ease-out;z-index:-1}
     [data-theme="dark"] .link-item::before{background:rgba(255,255,255,.06)}
     .link-item:hover::before{transform:scaleY(1)}
-    .link-icon{width:32px;height:32px;border-radius:999px;background:var(--icon-bg);border:1px solid var(--icon-border);display:inline-flex;align-items:center;justify-content:center;overflow:hidden}
+    .link-icon{display:inline-flex;align-items:center;justify-content:center;overflow:hidden}
     .link-icon img{width:20px;height:20px;display:block}
     .link-main{display:flex;flex-direction:column;gap:.05rem}
     .link-label{font-weight:500;font-size:12px;letter-spacing:.08em}
@@ -44,7 +44,8 @@
     #cookie-consent button{background:var(--bg);color:var(--ink);border:none;padding:.5rem 1rem;cursor:pointer;font-weight:500;font-family:var(--font-ui);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;transition:background .15s}
     #cookie-consent button:hover{background:var(--ink-soft);color:var(--bg)}
     .theme-toggle{position:absolute;top:0;right:0;display:inline-flex;align-items:center;gap:.35rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;user-select:none}
-    .theme-toggle button{border:1px solid var(--icon-border);background:var(--icon-bg);color:var(--ink);border-radius:999px;font-size:.7rem;padding:.18rem .7rem;font-family:var(--font-mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem}
+    .theme-toggle button{border:1px solid rgba(0,0,0,0.12);background:transparent;color:var(--ink);border-radius:999px;font-size:.7rem;padding:.18rem .7rem;font-family:var(--font-mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem}
+    [data-theme="dark"] .theme-toggle button{border-color:rgba(255,255,255,0.22)}
     .theme-toggle-indicator{width:10px;height:10px;border-radius:999px;background:var(--ink-soft)}
     [data-theme="dark"] .theme-toggle-indicator{background:#f5f5f5}
     @media(max-width:960px){.frame{grid-template-columns:1fr}.right{padding-top:1rem}}
@@ -91,7 +92,7 @@
               <span class="link-arrow">↗</span>
             </a>
             <a href="https://t.me/voidmechanics" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/telegram" alt="Telegram" loading="lazy"></span>
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/telegram/229ED9" alt="Telegram" loading="lazy"></span>
               <div class="link-main"><span class="link-label">void mechanics</span><span class="link-meta">notes · fragments</span></div>
               <span class="link-arrow">↗</span>
             </a>
@@ -106,7 +107,7 @@
               <span class="link-arrow">↗</span>
             </a>
             <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/hevy" alt="Hevy" loading="lazy"></span>
+              <span class="link-icon"><img src="https://cdn.simpleicons.org/hevy/2B8CFF" alt="Hevy" loading="lazy"></span>
               <div class="link-main"><span class="link-label">hevy</span><span class="link-meta">training</span></div>
               <span class="link-arrow">↗</span>
             </a>
