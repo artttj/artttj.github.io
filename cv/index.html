@@ -7,66 +7,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
-  <style>
-    .link-item,.page{align-items:center}.identity-label,.role,h1{text-transform:uppercase}.bio strong,body{color:var(--ink)}.identity-label,.role,.section-label{font-family:var(--font-mono)}
-    :root{--bg:#ffffff;--frame:#ffffff;--ink:#151515;--ink-muted:#686868;--ink-soft:#9a9a9a;--font-display:"Bebas Neue",sans-serif;--font-sans:"Space Grotesk",sans-serif;--font-ui:"Inter Tight",sans-serif;--font-mono:"IBM Plex Mono",monospace}
-    [data-theme="dark"]{--bg:#050509;--frame:#050509;--ink:#f5f5f5;--ink-muted:#a4a4a4;--ink-soft:#6f6f6f}
-    *,::after,::before{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;height:100%;color:var(--ink);transition:background .2s,color .2s}
-    .page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:2.4rem 1.4rem;gap:2rem}
-    .frame{max-width:1200px;width:100%;background:var(--frame);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr)}
-    .left,.right{display:flex;flex-direction:column;padding:2.8rem 2.4rem 2.4rem}
-    .cv-left{gap:2.4rem;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent)}
-    [data-theme="dark"] .cv-left{background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent)}
-    .right{gap:2.4rem;position:relative}
-    .identity{display:grid;row-gap:1.2rem}
-    .identity-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft)}
-    h1{font-family:var(--font-display);font-weight:700;font-size:clamp(3.1rem,6vw,4.3rem);letter-spacing:.2em;line-height:1;user-select:none}
-    .identity-title-link{color:inherit;text-decoration:none}
-    .role{font-size:.78rem;letter-spacing:.22em;margin-top:.6rem;display:flex;gap:.4rem;align-items:center;flex-wrap:nowrap;color:var(--ink-muted)}
-    .role-line{white-space:nowrap}
-    .role-separator{display:inline-flex;align-items:center}
-    .bio{font-size:.96rem;line-height:1.75;color:var(--ink-muted)}
-    .section-label{font-size:.68rem;letter-spacing:.2em;color:var(--ink-soft);margin-bottom:.6rem}
-    .contact-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;font-family:var(--font-ui);font-size:.9rem;color:var(--ink-muted)}
-    .contact-list a{text-decoration:none;color:inherit;border-bottom:1px solid transparent}
-    .contact-list a:hover{border-color:var(--ink-muted)}
-    .skill-list{display:flex;flex-direction:column;gap:.7rem}
-    .skill-row{display:grid;grid-template-columns:100px minmax(0,1fr);gap:1rem;align-items:flex-start}
-    .skill-row dt{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.18em;color:var(--ink-soft)}
-    .skill-row dd{margin:0;font-size:.9rem;color:var(--ink)}
-    .cv-section{display:flex;flex-direction:column;gap:1rem}
-    .cv-section+.cv-section{padding-top:1rem;border-top:1px solid rgba(0,0,0,0.05)}
-    [data-theme="dark"] .cv-section+.cv-section{border-color:rgba(255,255,255,0.08)}
-    .cv-heading{font-size:1rem;font-family:var(--font-mono);letter-spacing:.15em;color:var(--ink-soft);text-transform:uppercase}
-    .experience-list{display:flex;flex-direction:column;gap:1.5rem}
-    .experience-item header{display:flex;flex-direction:column;gap:.3rem}
-    .experience-title{font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em}
-    .experience-meta{font-family:var(--font-ui);font-size:.85rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.14em}
-    .experience-item p{font-size:.95rem;color:var(--ink);line-height:1.6}
-    .experience-item ul{list-style:square;padding-left:1.2rem;margin-top:.5rem;color:var(--ink)}
-    .experience-item li{margin-bottom:.25rem;line-height:1.5}
-    .list-pill{display:flex;flex-wrap:wrap;gap:.5rem}
-    .pill{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;padding:.35rem .7rem;border:1px solid rgba(0,0,0,0.18);border-radius:999px;text-transform:uppercase;color:var(--ink-muted)}
-    [data-theme="dark"] .pill{border-color:rgba(255,255,255,0.28);color:var(--ink-soft)}
-    .cv-actions{position:absolute;top:0;right:0;display:flex;gap:.8rem;align-items:center}
-    .theme-toggle{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;user-select:none}
-    .theme-toggle button{border:1px solid rgba(0,0,0,0.12);background:transparent;color:var(--ink);border-radius:999px;font-size:.7rem;padding:.18rem .7rem;font-family:var(--font-mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem}
-    [data-theme="dark"] .theme-toggle button{border-color:rgba(255,255,255,0.22)}
-    .theme-toggle-indicator{width:10px;height:10px;border-radius:999px;background:var(--ink-soft)}
-    [data-theme="dark"] .theme-toggle-indicator{background:#f5f5f5}
-    .print-btn{border:1px solid rgba(0,0,0,0.12);background:var(--ink);color:var(--bg);border-radius:999px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.32rem .9rem;cursor:pointer;transition:opacity .15s}
-    .print-btn:hover{opacity:.85}
-    [data-theme="dark"] .print-btn{border-color:rgba(255,255,255,0.22)}
-    .cv-back{position:absolute;top:0;left:0;font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;text-decoration:none;color:var(--ink-soft);padding:.2rem .4rem;border-bottom:1px solid transparent}
-    .cv-back:hover{color:var(--ink);border-color:var(--ink-soft)}
-    .footer{text-align:center;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;color:var(--ink-soft)}
-    @media(max-width:960px){.frame{grid-template-columns:1fr}.cv-actions{position:static;justify-content:flex-end;margin-top:1rem;flex-wrap:wrap}.cv-back{position:static;margin-bottom:1rem;display:inline-flex}.right{padding-top:1rem}}
-    @media(max-width:720px){.page{padding:1.1rem .9rem}.left,.right{padding:2.1rem 1.6rem}.skill-row{grid-template-columns:1fr}}
-    @media print{body{background:#fff}.page{padding:0}.frame{box-shadow:none}.cv-back,.cv-actions{display:none}.pill,.experience-item,.skill-row{page-break-inside:avoid}}
-  </style>
+  <link rel="stylesheet" href="/assets/css/site.css"/>
+  <script>
+    (function(){
+      try{
+        const root=document.documentElement;
+        const stored=localStorage.getItem('ay_theme');
+        if(stored){
+          root.setAttribute('data-theme',stored);
+          return;
+        }
+        const prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.setAttribute('data-theme',prefersDark?'dark':'light');
+      }catch(_){
+      }
+    })();
+  </script>
 </head>
-<body>
+<body class="cv-page" data-page="cv">
   <main class="page">
     <section class="frame">
       <div class="left cv-left">
@@ -262,32 +220,6 @@
     <div class="footer" id="footer-year"></div>
   </main>
 
-  <script>
-    document.getElementById("footer-year").textContent = new Date().getFullYear() + " · Frankfurt, Germany";
-
-    (function(){
-      const root=document.documentElement;
-      const btn=document.getElementById('theme-toggle-btn');
-      const label=document.getElementById('theme-toggle-label');
-      const printBtn=document.getElementById('print-btn');
-      const storedTheme=localStorage.getItem('ay_theme');
-      if(storedTheme==='dark'){
-        root.setAttribute('data-theme','dark');
-        label.textContent='dark';
-      }
-      btn.addEventListener('click',function(){
-        const current=root.getAttribute('data-theme')||'light';
-        const next=current==='light'?'dark':'light';
-        root.setAttribute('data-theme',next);
-        label.textContent=next;
-        localStorage.setItem('ay_theme',next);
-      });
-      if(printBtn){
-        printBtn.addEventListener('click',function(){
-          window.print();
-        });
-      }
-    })();
-  </script>
+  <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
