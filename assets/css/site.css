@@ -528,7 +528,7 @@ h1 {
 }
 
 .cv-left {
-  gap: 2.4rem;
+  gap: 2.2rem;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent);
   justify-content: flex-start;
 }
@@ -683,13 +683,14 @@ h1 {
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .experience-item header {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  margin-bottom: 0.8rem;
 }
 
 .experience-title {
@@ -711,6 +712,7 @@ h1 {
   font-size: 0.95rem;
   color: var(--ink);
   line-height: 1.6;
+  margin-bottom: 0.6rem;
 }
 
 .experience-item ul {
@@ -721,8 +723,19 @@ h1 {
 }
 
 .experience-item li {
-  margin-bottom: 0.25rem;
-  line-height: 1.5;
+  margin-bottom: 0.4rem;
+  line-height: 1.55;
+}
+
+/* Compact Education and Languages sections */
+.cv-section:last-of-type .experience-list,
+.cv-section:nth-last-of-type(2) .experience-list {
+  gap: 0.8rem;
+}
+
+.cv-section:last-of-type .experience-item header,
+.cv-section:nth-last-of-type(2) .experience-item header {
+  margin-bottom: 0;
 }
 
 .identity-title-link {
@@ -823,5 +836,11 @@ h1 {
   .experience-item,
   .skill-row {
     page-break-inside: avoid;
+  }
+  
+  /* Ensure compact spacing in print */
+  .cv-section:last-of-type .experience-list,
+  .cv-section:nth-last-of-type(2) .experience-list {
+    gap: 0.5rem;
   }
 }
