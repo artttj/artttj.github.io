@@ -14,7 +14,6 @@
             --text-muted: #808080;
             --border: #ededed;
             --accent: #000000;
-            --danger: #ff3b30;
             --success: #34c759;
             --transition: cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -37,7 +36,6 @@
             padding: 2rem 4rem;
         }
 
-        /* Top Bar */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -68,7 +66,6 @@
 
         .system-meta span { color: var(--text-primary); }
 
-        /* Dashboard Grid */
         h2 {
             font-size: 0.6rem;
             text-transform: uppercase;
@@ -104,7 +101,6 @@
             flex-direction: column;
             gap: 0.75rem;
             transition: all 0.3s var(--transition);
-            position: relative;
             background: #fff;
         }
 
@@ -146,57 +142,6 @@
             background: var(--success);
         }
 
-        /* Admin Shield */
-        .admin-section {
-            position: relative;
-            padding: 2rem;
-            border: 1px dashed var(--border);
-            background: #fdfdfd;
-        }
-
-        .shield-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px);
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            transition: opacity 0.4s var(--transition), visibility 0.4s;
-        }
-
-        .shield-overlay.unlocked {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .shield-msg {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .access-trigger {
-            padding: 0.75rem 2rem;
-            background: var(--text-primary);
-            color: #fff;
-            border: none;
-            font-family: inherit;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-weight: 700;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .access-trigger:hover { opacity: 0.9; }
-
         footer {
             margin-top: 6rem;
             padding-top: 2rem;
@@ -221,69 +166,57 @@
             <a href="/" class="brand">Workstation</a>
             <div class="system-meta">
                 <div>Loc // <span>Frankfurt, DE</span></div>
-                <div>Server // <span>212.227.206.248</span></div>
-                <div>Status // <span style="color: var(--success)">Active</span></div>
+                <div>Status // <span style="color: var(--success)">Authorized</span></div>
                 <div id="clock">00:00:00</div>
             </div>
         </header>
 
-        <!-- Public Project Monitoring Section Removed -->
-
-        <!-- Secure Infrastructure Area -->
         <section class="section">
-            <h2>Environment Management // Secure Systems</h2>
-            <div class="admin-section" id="admin-area">
-                <div class="shield-overlay" id="shield">
-                    <div class="shield-msg">Identity Verification Required</div>
-                    <button class="access-trigger" onclick="authenticate()">Establish Secure Session</button>
-                </div>
-                
-                <div class="grid">
-                    <a href="http://212.227.206.248:81" target="_blank" rel="noopener" class="card">
-                        <span class="type">Ingress</span>
-                        <span class="title">Nginx Proxy</span>
-                        <div class="status">
-                            <span class="status-dot"></span>
-                            <span>Management Gateway</span>
-                        </div>
-                    </a>
-                    <a href="http://212.227.206.248:8888" target="_blank" rel="noopener" class="card">
-                        <span class="type">Observability</span>
-                        <span class="title">Dozzle</span>
-                        <div class="status">
-                            <span class="status-dot"></span>
-                            <span>Container Logs</span>
-                        </div>
-                    </a>
-                    <a href="http://212.227.206.248:3001" target="_blank" rel="noopener" class="card">
-                        <span class="type">Surveillance</span>
-                        <span class="title">Uptime Kuma</span>
-                        <div class="status">
-                            <span class="status-dot"></span>
-                            <span>Global Status Check</span>
-                        </div>
-                    </a>
-                    <div class="card">
-                        <span class="type">Automation</span>
-                        <span class="title">Watchtower</span>
-                        <div class="status">
-                            <span class="status-dot"></span>
-                            <span>Autonomous Updates</span>
-                        </div>
+            <h2>Environment Management // Active Systems</h2>
+            <div class="grid">
+                <a href="http://212.227.206.248:81" target="_blank" rel="noopener" class="card">
+                    <span class="type">Ingress</span>
+                    <span class="title">Nginx Proxy</span>
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        <span>Management Gateway</span>
+                    </div>
+                </a>
+                <a href="http://212.227.206.248:8888" target="_blank" rel="noopener" class="card">
+                    <span class="type">Observability</span>
+                    <span class="title">Dozzle</span>
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        <span>Container Logs</span>
+                    </div>
+                </a>
+                <a href="http://212.227.206.248:3001" target="_blank" rel="noopener" class="card">
+                    <span class="type">Surveillance</span>
+                    <span class="title">Uptime Kuma</span>
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        <span>Global Status Check</span>
+                    </div>
+                </a>
+                <div class="card">
+                    <span class="type">Automation</span>
+                    <span class="title">Watchtower</span>
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        <span>Autonomous Updates</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <footer>
-            <div>artttj workstation_v2.1</div>
-            <div>[ Internal Access ]</div>
+            <div>artttj workstation_v2.2</div>
+            <div>[ Basic Auth Active ]</div>
             <div>&copy; 2026</div>
         </footer>
     </div>
 
     <script>
-        // Real-time Clock
         function updateClock() {
             const now = new Date();
             const time = now.getHours().toString().padStart(2, '0') + ':' + 
@@ -293,23 +226,6 @@
         }
         setInterval(updateClock, 1000);
         updateClock();
-
-        // Security barrier
-        function authenticate() {
-            const key = prompt("Enter Entry Key:");
-            // Placeholder: Replace '1234' if needed or leave as visual barrier
-            if (key === '1234') { 
-                document.getElementById('shield').classList.add('unlocked');
-                sessionStorage.setItem('ws_auth', 'true');
-            } else {
-                alert("Unauthorized Access Attempt Blocked.");
-            }
-        }
-
-        // Persistence
-        if (sessionStorage.getItem('ws_auth') === 'true') {
-            document.getElementById('shield').classList.add('unlocked');
-        }
     </script>
 </body>
 </html>
