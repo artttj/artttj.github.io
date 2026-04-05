@@ -1,237 +1,273 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CV — Artyom Yagovdik</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="/assets/css/site.css"/>
-  <script>
-    (function(){
-      try{
-        const root=document.documentElement;
-        const stored=localStorage.getItem('ay_theme');
-        if(stored){
-          root.setAttribute('data-theme',stored);
-          return;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV // Artyom Yagovdik // Engineering Lead & Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --text-extra-light: #999999;
+            --border: #f0f0f0;
+            --accent: #000000;
         }
-        const prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
-        root.setAttribute('data-theme',prefersDark?'dark':'light');
-      }catch(_){
-      }
-    })();
-  </script>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem;
+        }
+
+        header {
+            margin-bottom: 8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .identity h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .identity p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-extra-light);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .back-link:hover { color: var(--accent); border-color: var(--accent); }
+
+        .cv-section {
+            margin-bottom: 8rem;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            color: var(--text-extra-light);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 600;
+        }
+
+        .cv-content h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .cv-block {
+            margin-bottom: 4rem;
+        }
+
+        .cv-block h3 {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        p { margin-bottom: 1rem; }
+
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem 2rem;
+        }
+
+        .skill-item h4 {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        footer {
+            margin-top: 12rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-extra-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 800px) {
+            .cv-section { grid-template-columns: 1fr; gap: 2rem; }
+            header { flex-direction: column; align-items: flex-start; gap: 2rem; }
+            .skill-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .container { padding: 2rem; max-width: 100%; }
+            header, footer, .back-link { display: none; }
+            .cv-section { margin-bottom: 3rem; gap: 2rem; }
+        }
+    </style>
 </head>
-<body class="cv-page" data-page="cv">
-  <main class="page">
-    <section class="frame">
-      <div class="left cv-left">
-        <section class="identity">
-          <div>
-            <h1><a class="identity-title-link" href="/">ARTYOM YAGOVDIK</a></h1>
-            <p class="role">
-              <span class="role-line">engineering team lead</span>
-              <span class="role-separator" aria-hidden="true">·</span>
-              <span class="role-line">software architect</span>
-            </p>
-          </div>
-        </section>
-        <section class="cv-section">
-          <div class="section-label">contact</div>
-          <ul class="contact-list">
-            <li>Frankfurt, Germany</li>
-            <li><a href="mailto:artyom.yagovdik@gmail.com">artyom.yagovdik@gmail.com</a></li>
-            <li><a href="https://github.com/artttj" target="_blank" rel="noopener noreferrer">github.com/artttj</a></li>
-            <li><a href="https://linkedin.com/in/artyom-yagovdik/" target="_blank" rel="noopener noreferrer">linkedin.com/in/artyom-yagovdik</a></li>
-          </ul>
-        </section>
-        <section class="cv-section">
-          <div class="section-label">about</div>
-          <div class="bio">
-            <p><strong>Strategic Engineering Leader</strong> and MSc Computer Science graduate with 10+ years of experience architecting and scaling enterprise-grade commerce solutions across Europe and North America.</p>
-            <p>Proven track record in leadership—driving technical roadmaps, mentoring cross-functional teams, and delivering high-availability systems that handle millions in revenue. Focus: <strong>High-traffic architectures, system reliability, and developer empowerment.</strong></p>
-          </div>
-        </section>
-        <section class="cv-section">
-          <div class="section-label">architecture &amp; leadership</div>
-          <dl class="skill-list">
-            <div class="skill-row">
-              <dt>core</dt>
-              <dd>System Design, Distributed Systems, High-Availability Architecture, Scalability Planning, Technical Roadmaps</dd>
+<body>
+    <div class="container">
+        <header>
+            <div class="identity">
+                <h1>Artyom Yagovdik</h1>
+                <p>Engineering Team Lead & Architect</p>
             </div>
-            <div class="skill-row">
-              <dt>team</dt>
-              <dd>Engineering Management, Mentoring, Agile/Scrum, Stakeholder Communication, Conflict Resolution, Delivery Ownership</dd>
-            </div>
-          </dl>
-        </section>
-        <section class="cv-section">
-          <div class="section-label">backend ecosystem</div>
-          <dl class="skill-list">
-            <div class="skill-row">
-              <dt>node.js</dt>
-              <dd>TypeScript, NestJS, Express, REST APIs, Microservices, Event-Driven Architecture</dd>
-            </div>
-            <div class="skill-row">
-              <dt>php</dt>
-              <dd>Magento 2, Laravel, Symfony, Modern PHP (8.x), Composer, PSR Standards</dd>
-            </div>
-            <div class="skill-row">
-              <dt>ruby</dt>
-              <dd>Ruby on Rails, ActiveRecord, Background Jobs, Testing Frameworks</dd>
-            </div>
-            <div class="skill-row">
-              <dt>data</dt>
-              <dd>MySQL, PostgreSQL, Redis, MongoDB, OpenSearch, Database Optimization</dd>
-            </div>
-          </dl>
-        </section>
-        <section class="cv-section">
-          <div class="section-label">cloud &amp; infrastructure</div>
-          <dl class="skill-list">
-            <div class="skill-row">
-              <dt>aws</dt>
-              <dd>ECS, EC2, S3, RDS, Lambda, CloudFront, Route53, IAM, CloudWatch</dd>
-            </div>
-            <div class="skill-row">
-              <dt>devops</dt>
-              <dd>Docker, Docker Compose, CI/CD (GitHub Actions, GitLab), Infrastructure as Code, Monitoring &amp; Alerting</dd>
-            </div>
-          </dl>
-        </section>
-        <section class="cv-section">
-          <div class="section-label">enterprise commerce</div>
-          <dl class="skill-list">
-            <div class="skill-row">
-              <dt>platforms</dt>
-              <dd>Adobe Commerce / Magento 2, Shopware, Shopify, Headless Commerce</dd>
-            </div>
-            <div class="skill-row">
-              <dt>integrations</dt>
-              <dd>ERP (SAP, Microsoft Business Central), PSP (Stripe, PayPal), WMS, Shipping APIs, PIM Systems</dd>
-            </div>
-          </dl>
-        </section>
-        <section class="cv-section">
-          <div class="section-label">frontend</div>
-          <dl class="skill-list">
-            <div class="skill-row">
-              <dt>modern js</dt>
-              <dd>JavaScript/ES6+, TypeScript, React, SPA Patterns, Webpack, Vite</dd>
-            </div>
-            <div class="skill-row">              <dt>fundamentals</dt>
-              <dd>HTML5, CSS3, Responsive Design, Performance Optimization</dd>
-            </div>
-          </dl>
-        </section>
-      </div>
-
-      <div class="right">
-        <div class="cv-header">
-          <a href="/" class="cv-back">← back</a>
-          <div class="cv-actions">
-            <div class="theme-toggle" id="theme-toggle">
-              <span>mode</span>
-              <button type="button" id="theme-toggle-btn">
-                <span class="theme-toggle-indicator"></span>
-                <span id="theme-toggle-label">light</span>
-              </button>
-            </div>
-            <button type="button" class="print-btn" id="print-btn" onclick="window.print()">Print PDF</button>
-          </div>
-        </div>
+            <a href="/" class="back-link">Back to Hub</a>
+        </header>
 
         <section class="cv-section">
-          <h2 class="cv-heading">recent experience</h2>
-          <div class="experience-list">
-            <article class="experience-item">
-              <header>
-                <div class="experience-title">Engineering Team Lead</div>
-                <div class="experience-meta">Y1 Digital AG · 2024—present · Frankfurt, Germany</div>
-              </header>
-              <p>Leading engineering strategy and personnel development for cross-functional teams, bridging technical architecture with business growth.</p>
-              <ul>
-                <li><strong>People Management:</strong> Drive developer growth through weekly 1-on-1s and mentorship; manage sensitive leadership topics including salary negotiations, personal issue resolution, and promotions.</li>
-                <li><strong>Operations &amp; Delivery:</strong> Oversee capacity management and resource planning; translate complex requirements into actionable tickets to maintain high team velocity.</li>
-                <li><strong>Architecture:</strong> Architect high-load Node.js middleware and secure ERP/SAP integrations for enterprise-scale commerce storefronts.</li>
-                <li><strong>Agile Leadership:</strong> Run all ceremonies and developer weeklys, increasing sprint predictability by 40% and reducing technical debt through proactive planning.</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <header>
-                <div class="experience-title">Lead Web Developer</div>
-                <div class="experience-meta">Y1 Digital AG · 2020—2024 · Frankfurt, Germany</div>
-              </header>
-              <p>Technical lead for multi-store commerce projects, architecting solutions that balanced performance, security, and global business requirements.</p>
-              <ul>
-                <li>Spearheaded complex Magento 2 builds and seamless migrations from Magento 1, achieving zero downtime for storefronts serving thousands of concurrent users.</li>
-                <li>Designed and implemented Docker-based environments and AWS deployment pipelines (ECS, RDS, S3), reducing deployment times by 60%.</li>
-                <li>Optimized application performance through strategic caching (Redis, Varnish) and profiling, improving load times by up to 70% for high-traffic stores.</li>
-                <li>Engineered robust integrations with SAP and Microsoft Business Central, ensuring data consistency across payment, logistics, and PIM systems.</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <header>
-                <div class="experience-title">Lead Web Developer / Tech Lead</div>
-                <div class="experience-meta">A2 Design Inc. · 2016—2019 · Omsk, Russia</div>
-              </header>
-              <p>Led engineering teams building SaaS, booking platforms, and e-commerce solutions for US and Canadian clients.</p>
-              <ul>
-                <li>Architected a distributed booking system architecture integrating 8+ external APIs with custom fault tolerance and retry mechanisms.</li>
-                <li>Maintained and scaled a subscription service with 10k+ active Stripe customers, introducing automated reporting and promo logic that increased revenue.</li>
-                <li>Pioneered CI/CD adoption and zero-downtime deployment practices, enabling frequent, confident releases for high-traffic platforms.</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <header>
-                <div class="experience-title">Full-Stack Web Developer</div>
-                <div class="experience-meta">A2 Design Inc. · 2015—2016 · Omsk, Russia</div>
-              </header>
-              <p>Full-stack developer on analytics, advertising, and real-time logistics platforms.</p>
-              <ul>
-                <li>Developed a real-time reporting and tracking stack leveraging Node.js event streams, Redis pub/sub, and WebSockets for live cargo monitoring.</li>
-                <li>Built and maintained single-page applications and interactive dashboards using Backbone.js and AngularJS backed by RESTful APIs.</li>
-                <li>Integrated Google CloudVision and social media APIs to build advanced data aggregation and visualization features.</li>
-              </ul>
-            </article>
-          </div>
+            <span class="section-label">Summary</span>
+            <div class="cv-content">
+                <p>Engineering Lead with an MSc in Computer Science and 10 years of building commerce platforms. I focus on systems that handle real traffic, team structures that actually work, and code that doesn't need a rewrite every six months.</p>
+            </div>
         </section>
 
         <section class="cv-section">
-          <h2 class="cv-heading">education</h2>
-          <div class="experience-list">
-            <article class="experience-item">
-              <header>
-                <div class="experience-title">MSc, Computer Science</div>
-                <div class="experience-meta">Omsk State Technical University</div>
-              </header>
-            </article>
-            <article class="experience-item">
-              <header>
-                <div class="experience-title">BSc, Computer Engineering</div>
-                <div class="experience-meta">Toraighyrov University</div>
-              </header>
-            </article>
-          </div>
+            <span class="section-label">Experience</span>
+            <div class="cv-content">
+                <div class="cv-block">
+                    <h3>Engineering Team Lead</h3>
+                    <div class="meta">Y1 Digital AG // 2024—Present // Frankfurt, DE</div>
+                    <ul>
+                        <li>Managing people and owning the technical roadmap for cross-functional teams.</li>
+                        <li>Building Node.js middleware and SAP/ERP integrations that don't fall over under load.</li>
+                        <li>Turning vague business goals into architecture decisions that stick.</li>
+                    </ul>
+                </div>
+                <div class="cv-block">
+                    <h3>Lead Web Developer</h3>
+                    <div class="meta">Y1 Digital AG // 2020—2024 // Frankfurt, DE</div>
+                    <ul>
+                        <li>Leading Magento 2 builds and migrations. Zero-downtime deployments became the norm.</li>
+                        <li>Setting up AWS infrastructure (ECS, RDS). Deployment cycles dropped from days to hours.</li>
+                        <li>Performance optimizations that cut load times by two-thirds.</li>
+                    </ul>
+                </div>
+                <div class="cv-block">
+                    <h3>Tech Lead</h3>
+                    <div class="meta">A2 Design Inc. // 2016—2019 // Omsk, RU</div>
+                    <ul>
+                        <li>Built distributed systems for clients in North America who needed things to work at scale.</li>
+                        <li>Implemented subscription systems handling 10k+ customers on Stripe.</li>
+                        <li>Got CI/CD running across multi-store architectures where manual deploys used to be the rule.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section class="cv-section">
-          <h2 class="cv-heading">languages</h2>
-          <div class="experience-list">
-            <article class="experience-item">
-              <header>
-                <div class="experience-title">English (Fluent), Russian (Native)</div>
-              </header>
-            </article>
-          </div>
+            <span class="section-label">Technical</span>
+            <div class="cv-content">
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <h4>Architecture</h4>
+                        <p>High-availability systems, distributed architecture, reliability engineering at actual scale.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Backend</h4>
+                        <p>Node.js, TypeScript, PHP (Magento 2), Ruby on Rails, MySQL, Redis.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Infrastructure</h4>
+                        <p>AWS (ECS, Lambda, S3, RDS), Docker, CI/CD pipelines, infrastructure as code.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Commerce</h4>
+                        <p>Adobe Commerce, Shopify, payment integrations, SAP/ERP middleware.</p>
+                    </div>
+                </div>
+            </div>
         </section>
-      </div>
-    </section>
-  </main>
+
+        <section class="cv-section">
+            <span class="section-label">Education</span>
+            <div class="cv-content">
+                <div class="cv-block">
+                    <h3>MSc, Computer Science</h3>
+                    <div class="meta">Omsk State Technical University</div>
+                </div>
+                <div class="cv-block">
+                    <h3>BSc, Computer Engineering</h3>
+                    <div class="meta">Toraighyrov University</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div>Replica 2026 // CV // No Tracking</div>
+        </footer>
+    </div>
 </body>
 </html>

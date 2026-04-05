@@ -1,140 +1,289 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>artyom yagovdik</title>
-  <script id="gtag-script"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="/assets/css/site.css"/>
-  <script>
-    (function(){
-      try{
-        const root=document.documentElement;
-        const stored=localStorage.getItem('ay_theme');
-        if(stored){
-          root.setAttribute('data-theme',stored);
-          return;
-        }
-        const prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
-        root.setAttribute('data-theme',prefersDark?'dark':'light');
-      }catch(_){
-      }
-    })();
-  </script>
-</head>
-<body class="home-page" data-page="home">
-  <div id="pre-load" class="loader" aria-hidden="true"></div>
-  <main class="page">
-    <section class="frame">
-      <div class="left">
-        <section class="identity">
-          <div>
-            <h1>ARTYOM YAGOVDIK</h1>
-            <p class="role">
-              <span class="role-line">engineering team lead</span>
-              <span class="role-separator" aria-hidden="true">·</span>
-              <span class="role-line">software architect</span>
-            </p>
-          </div>
-        </section>
-        <section class="bio">
-          <p>
-            <strong>Strategic Engineering Leader & Software Architect</strong> with <strong>10+ years</strong> building high-scale commerce platforms and distributed systems across Europe and North America. Currently leading engineering teams at Y1 Digital, I specialize in <strong>Node.js, TypeScript, PHP, and Ruby ecosystems</strong>, <strong>AWS cloud architecture</strong>, and fostering high-performance engineering cultures. I bridge the gap between complex business ROI and robust, scalable code.
-          </p>
-        </section>
-      </div>
-
-      <div class="right">
-        <div class="theme-toggle" id="theme-toggle">
-          <span>mode</span>
-          <button type="button" id="theme-toggle-btn">
-            <span class="theme-toggle-indicator"></span>
-            <span id="theme-toggle-label">light</span>
-          </button>
-        </div>
-        <div>
-          <button type="button" class="section-label section-label--toggle" id="elsewhere-trigger" aria-expanded="false">
-            elsewhere
-          </button>
-          <nav class="links">
-            <a href="/cv/" class="link-item">
-              <span class="link-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="presentation">
-                  <path d="M7 3.75h6.25L17.5 8v12.25a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V4.25a.5.5 0 0 1 .5-.5Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-                  <path d="M13.25 3.75v3.5a.75.75 0 0 0 .75.75h3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-                  <path d="M8.75 12h6.5M8.75 15h3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-                </svg>
-              </span>
-              <div class="link-main"><span class="link-label">cv</span><span class="link-meta">skills · experience</span></div>
-              <span class="link-arrow">↗</span>
-            </a>
-            <a href="https://github.com/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" loading="lazy" width="20" height="20" decoding="async"/></span>
-              <div class="link-main"><span class="link-label">github</span><span class="link-meta">repos · utilities</span></div>
-              <span class="link-arrow">↗</span>
-            </a>
-            <a href="https://linkedin.com/in/artyom-yagovdik/" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" loading="lazy" width="20" height="20" decoding="async"/></span>
-              <div class="link-main"><span class="link-label">linkedin</span><span class="link-meta">roles · timeline</span></div>
-              <span class="link-arrow">↗</span>
-            </a>
-            <a href="#" id="email-link" class="link-item">
-              <span class="link-icon"><img src="/assets/svg/icon-mail.svg" alt="Email" loading="lazy" width="20" height="20" decoding="async"/></span>
-              <div class="link-main"><span class="link-label">email</span><span class="link-meta" id="email-meta">contact · </span></div>
-              <span class="link-arrow">↗</span>
-            </a>
-            <a href="https://hevy.com/user/artttj" class="link-item" target="_blank" rel="noopener noreferrer">
-              <span class="link-icon hevy"><img id="hevy-icon" src="https://cdn.simpleicons.org/hevy/000000" alt="Hevy" loading="lazy" width="20" height="20" decoding="async" data-light-src="https://cdn.simpleicons.org/hevy/000000" data-dark-src="https://cdn.simpleicons.org/hevy/000000"/></span>
-              <div class="link-main"><span class="link-label">hevy</span><span class="link-meta">training</span></div>
-              <span class="link-arrow">↗</span>
-            </a>
-            <a href="https://www.instagram.com/artjom.jj/" class="link-item is-hidden" target="_blank" rel="noopener noreferrer" id="instagram-link">
-              <span class="link-icon"><img src="https://s.magecdn.com/social/tc-instagram.svg" alt="Instagram" loading="lazy" width="20" height="20" decoding="async"/></span>
-              <div class="link-main"><span class="link-label">instagram</span><span class="link-meta">@artjom.jj</span></div>
-              <span class="link-arrow">↗</span>
-            </a>
-            <a href="https://t.me/voidmechanics" class="link-item is-hidden" target="_blank" rel="noopener noreferrer" id="telegram-link">
-              <span class="link-icon"><img src="https://cdn.simpleicons.org/telegram/229ED9" alt="Telegram" loading="lazy" width="20" height="20" decoding="async"/></span>
-              <div class="link-main"><span class="link-label">void mechanics</span><span class="link-meta">notes · fragments</span></div>
-              <span class="link-arrow">↗</span>
-            </a>
-            <a href="https://www.fragrantica.com/member/1635722" class="link-item is-hidden" target="_blank" rel="noopener noreferrer" id="fragrantica-link">
-              <span class="link-icon link-icon--fragrantica" aria-hidden="true">
-                <img src="https://cdn.brandfetch.io/id3T9A7hvx/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1760099017640" alt="Fragrantica" loading="lazy" width="20" height="20"/>
-              </span>
-              <div class="link-main"><span class="link-label">fragrantica</span><span class="link-meta">olfactory</span></div>
-              <span class="link-arrow">↗</span>
-            </a>
-          </nav>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer" id="footer-year"></div>
-  </main>
-
-  <div id="cookie-consent" role="dialog" aria-live="polite" aria-hidden="true">
-    <p>This site uses Google Analytics for anonymous usage statistics. This requires a cookie. You can accept or decline this non-essential tracking. Essential cookies are not used.</p>
-    <div class="buttons">
-      <button id="consent-accept">Accept Tracking</button>
-      <button id="consent-decline">Decline Tracking</button>
-    </div>
-  </div>
-
-  <noscript>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artyom Yagovdik // Engineering Lead // Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,700;1,300&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      #cookie-consent {
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-      }
-    </style>
-  </noscript>
+        :root {
+            --bg: #ffffff;
+            --text-main: #111111;
+            --text-light: #555555;
+            --text-extra-light: #999999;
+            --border: #eeeeee;
+            --accent: #000000;
+        }
 
-  <script src="/assets/js/site.js" defer></script>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Instrument Sans', sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10rem 2rem;
+        }
+
+        header {
+            margin-bottom: 10rem;
+        }
+
+        .identity h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 300;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+        }
+
+        .identity p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 400;
+        }
+
+        section {
+            margin-bottom: 10rem;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            color: var(--text-extra-light);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 3rem;
+            display: block;
+            font-weight: 700;
+        }
+
+        /* Bio Section */
+        #bio p {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 300;
+            line-height: 1.3;
+            max-width: 750px;
+            font-style: italic;
+        }
+
+        /* Approach Grid */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5rem 4rem;
+        }
+
+        .approach-item h3 {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .approach-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-list {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .project-card {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            align-items: baseline;
+        }
+
+        .project-card:first-child { border-top: 1px solid var(--border); }
+
+        .project-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .project-card div p {
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 500px;
+        }
+
+        /* Links Section */
+        .links-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .link-item {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 400;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+            transition: all 0.2s ease;
+            font-size: 1.1rem;
+        }
+
+        .link-item:hover {
+            color: var(--text-extra-light);
+            border-color: var(--accent);
+        }
+
+        /* Dashboard Section */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--border);
+        }
+
+        .dashboard-cell {
+            padding: 2rem 1rem;
+            background: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.2s;
+            border-right: 1px solid var(--border);
+        }
+
+        .dashboard-cell:last-child { border-right: none; }
+
+        .dashboard-cell:hover {
+            background: #fafafa;
+            color: var(--accent);
+        }
+
+        footer {
+            margin-top: 15rem;
+            padding-top: 5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--text-extra-light);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        @media (max-width: 800px) {
+            .container { padding: 4rem 1.5rem; }
+            .approach-grid, .dashboard-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .project-card { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="identity">
+                <h1>Artyom Yagovdik</h1>
+                <p>Engineering Team Lead &mdash; Software Architect</p>
+            </div>
+        </header>
+
+        <section id="bio">
+            <span class="section-label">About</span>
+            <p>Engineering Lead based in Frankfurt. 10 years building commerce platforms that handle serious traffic. I work with Node.js, TypeScript, and AWS. Currently leading a team at Y1 Digital.</p>
+        </section>
+
+        <section id="approach">
+            <span class="section-label">Approach</span>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <h3>ROI First</h3>
+                    <p>Good code means nothing if it doesn't move the business forward. I focus on shipping features that actually matter.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Trust & Ownership</h3>
+                    <p>Teams work best when people own their decisions. I hire smart engineers and get out of their way.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Reliability</h3>
+                    <p>Systems that process millions in revenue can't afford downtime. I architect for failure because it will happen.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Keep Moving</h3>
+                    <p>Technical debt compounds. I don't chase the latest framework, but I make sure we're not stuck on abandoned tech.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="software">
+            <span class="section-label">Software</span>
+            <div class="projects-list">
+                <div class="project-card">
+                    <h3>Sento</h3>
+                    <div><p>Chrome extension for rewriting text in-place. Uses Shadow DOM so it doesn't break page layouts. Your API key stays on your machine.</p></div>
+                </div>
+                <div class="project-card">
+                    <h3>Synto</h3>
+                    <div><p>Web-to-markdown converter for AI processing. Privacy-first: runs entirely in your browser, no backend involved.</p></div>
+                </div>
+                <div class="project-card">
+                    <h3>Sonto</h3>
+                    <div><p>Clipboard manager for Chrome sidebar. Minimal by design. Stores everything locally, no cloud sync.</p></div>
+                </div>
+                <div class="project-card">
+                    <h3>Nemo</h3>
+                    <div><p>Internal workflow orchestration for engineering teams. Handles the glue between tools so you don't have to.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="social">
+            <span class="section-label">Elsewhere</span>
+            <div class="links-flex">
+                <a href="/cv/" class="link-item">Curriculum Vitae</a>
+                <a href="https://github.com/artttj" target="_blank" class="link-item">GitHub</a>
+                <a href="https://linkedin.com/in/artyom-yagovdik/" target="_blank" class="link-item">LinkedIn</a>
+                <a href="https://hevy.com/user/artttj" target="_blank" class="link-item">Hevy</a>
+                <a href="mailto:artyom.yagovdik@gmail.com" class="link-item">Email</a>
+            </div>
+        </section>
+
+        <section id="dashboard">
+            <span class="section-label">Dashboard</span>
+            <div class="dashboard-grid">
+                <a href="http://212.227.206.248:81" target="_blank" class="dashboard-cell">Nginx Proxy Admin</a>
+                <a href="http://212.227.206.248:8888" target="_blank" class="dashboard-cell">Dozzle</a>
+                <a href="http://212.227.206.248:3001" target="_blank" class="dashboard-cell">Uptime Kuma</a>
+                <a href="#" class="dashboard-cell">Hermes Control</a>
+            </div>
+        </section>
+
+        <footer>
+            <div>Artttj.github.io &copy; 2026</div>
+            <div>[ No Spotify. No VPN. ]</div>
+        </footer>
+    </div>
 </body>
 </html>
