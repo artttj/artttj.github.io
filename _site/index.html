@@ -18,74 +18,34 @@
             --border-light: #f0f0f0;
             --accent: #000000;
             --transition-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg);
             color: var(--text-main);
             font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.55;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
         }
 
-        ::selection {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        /* Editorial Container */
         .container {
             max-width: 1040px;
             margin: 0 auto;
-            padding: 14vh 3rem 20vh;
+            padding: 8vh 3rem 10vh;
         }
 
-        /* Header — Asymmetric Hero */
         header {
-            margin-bottom: 18vh;
+            margin-bottom: 10vh;
             position: relative;
-        }
-
-        .identity {
-            position: relative;
-        }
-
-        .identity::before {
-            content: '';
-            position: absolute;
-            left: -3rem;
-            top: 0.4em;
-            width: 1px;
-            height: calc(100% - 0.8em);
-            background: var(--border);
-            transform-origin: top;
-            animation: verticalLine 1.2s var(--transition-smooth) forwards;
-        }
-
-        @keyframes verticalLine {
-            from { transform: scaleY(0); }
-            to { transform: scaleY(1); }
         }
 
         .identity h1 {
-            font-family: 'Crimson Pro', Georgia, serif;
+            font-family: 'Crimson Pro', serif;
             font-size: clamp(3.2rem, 9vw, 6.5rem);
             font-weight: 300;
             color: var(--accent);
@@ -113,9 +73,8 @@
             background: var(--text-light);
         }
 
-        /* Sections */
         section {
-            margin-bottom: 16vh;
+            margin-bottom: 10vh;
             position: relative;
         }
 
@@ -124,54 +83,25 @@
             color: var(--text-faint);
             text-transform: uppercase;
             letter-spacing: 0.35em;
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
             display: block;
             font-weight: 600;
         }
 
-        /* Bio — Editorial Pull Quote style */
         #bio p {
-            font-family: 'Crimson Pro', Georgia, serif;
+            font-family: 'Crimson Pro', serif;
             font-size: clamp(1.6rem, 3vw, 2.4rem);
             color: var(--text-main);
             font-weight: 300;
-            line-height: 1.4;
-            max-width: 680px;
+            line-height: 1.35;
+            max-width: 720px;
             font-style: italic;
-            font-variation-settings: 'opsz' 24;
         }
 
-        #bio p::first-letter {
-            font-size: 1.15em;
-            font-weight: 400;
-        }
-
-        /* Approach Grid — Asymmetric */
         .approach-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem 6rem;
-        }
-
-        .approach-item {
-            position: relative;
-            padding-top: 0.5rem;
-        }
-
-        .approach-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 24px;
-            height: 1px;
-            background: var(--border);
-            transition: width 0.4s var(--transition-smooth);
-        }
-
-        .approach-item:hover::before {
-            width: 40px;
-            background: var(--accent);
+            gap: 3rem 5rem;
         }
 
         .approach-item h3 {
@@ -179,25 +109,20 @@
             color: var(--text-main);
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             font-weight: 600;
         }
 
         .approach-item p {
             font-size: 0.95rem;
             color: var(--text-light);
-            line-height: 1.65;
-            font-weight: 400;
+            line-height: 1.6;
         }
 
-        /* Projects List — Typography focused */
-        .projects-list {
-            display: grid;
-            grid-template-columns: 1fr;
-        }
+        .projects-list { display: grid; grid-template-columns: 1fr; }
 
         .project-card {
-            padding: 2.5rem 0;
+            padding: 2.2rem 0;
             border-bottom: 1px solid var(--border-light);
             display: grid;
             grid-template-columns: minmax(140px, 200px) 1fr;
@@ -208,51 +133,23 @@
         }
 
         .project-card:first-child { border-top: 1px solid var(--border-light); }
-
-        .project-card:hover {
-            padding-left: 1rem;
-        }
+        .project-card:hover { padding-left: 1rem; }
 
         .project-card h3 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(1.5rem, 2.5vw, 1.9rem);
             color: var(--accent);
             font-weight: 400;
             font-style: italic;
-            transition: transform 0.3s var(--transition-smooth);
-            display: inline-block;
         }
-
-        .project-card:hover h3 {
-            transform: translateX(4px);
-        }
-
-        .project-card:hover h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0.15em;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--accent);
-            animation: underlineReveal 0.3s var(--transition-smooth) forwards;
-        }
-
-        @keyframes underlineReveal {
-            from { transform: scaleX(0); transform-origin: left; }
-            to { transform: scaleX(1); transform-origin: left; }
-        }
-
-        .project-card h3 { position: relative; }
 
         .project-card div p {
             font-size: 0.95rem;
             color: var(--text-light);
-            max-width: 480px;
-            line-height: 1.6;
+            max-width: 500px;
+            line-height: 1.55;
         }
 
-        /* Links Section — Minimal underline animation */
         .links-flex {
             display: flex;
             flex-wrap: wrap;
@@ -265,156 +162,44 @@
             font-weight: 500;
             font-size: 1rem;
             position: relative;
-            padding-bottom: 0.15em;
-            transition: color 0.2s var(--transition-smooth);
-        }
-
-        .link-item::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--border);
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid var(--border);
             transition: all 0.3s var(--transition-smooth);
         }
 
         .link-item:hover {
             color: var(--text-light);
+            border-color: var(--accent);
         }
 
-        .link-item:hover::after {
-            background: var(--accent);
-            transform: scaleY(2);
-        }
-
-        /* Dashboard Grid — Clean functional */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border: 1px solid var(--border);
-        }
-
-        .dashboard-cell {
-            padding: 2rem 1.25rem;
-            background: var(--bg);
-            text-align: center;
-            text-decoration: none;
-            color: var(--text-light);
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            font-weight: 500;
-            transition: all 0.25s var(--transition-smooth);
-            border-right: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dashboard-cell:last-child { border-right: none; }
-
-        .dashboard-cell::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transition: transform 0.3s var(--transition-smooth);
-        }
-
-        .dashboard-cell:hover {
-            background: #fafafa;
-            color: var(--accent);
-            padding-top: 2.15rem;
-        }
-
-        .dashboard-cell:hover::before {
-            transform: scaleX(1);
-        }
-
-        /* Footer — Minimal */
         footer {
-            margin-top: 18vh;
-            padding-top: 3rem;
+            margin-top: 10vh;
+            padding-top: 2.5rem;
             border-top: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
             font-size: 0.65rem;
             color: var(--text-faint);
             text-transform: uppercase;
             letter-spacing: 0.25em;
-            font-weight: 500;
         }
 
-        .footer-year {
-            font-family: 'Instrument Sans', sans-serif;
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Responsive */
         @media (max-width: 800px) {
-            .container { padding: 10vh 1.75rem 15vh; }
-            header { margin-bottom: 12vh; }
-            section { margin-bottom: 12vh; }
-            .identity::before { display: none; }
-            .approach-grid { 
-                grid-template-columns: 1fr; 
-                gap: 3rem; 
-            }
-            .project-card { 
-                grid-template-columns: 1fr; 
-                gap: 1rem;
-                padding: 2rem 0;
-            }
+            .container { padding: 6vh 2rem; }
+            .approach-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .project-card { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
             .project-card:hover { padding-left: 0; }
-            .dashboard-grid { 
-                grid-template-columns: repeat(2, 1fr); 
-            }
-            .dashboard-cell:nth-child(2) { border-right: none; }
-            .dashboard-cell:nth-child(3),
-            .dashboard-cell:nth-child(4) { border-top: 1px solid var(--border); }
         }
 
-        @media (max-width: 480px) {
-            .links-flex { gap: 1.5rem 2.5rem; }
-            .dashboard-grid { grid-template-columns: 1fr; }
-            .dashboard-cell { border-top: none; border-right: none; }
-            .dashboard-cell:not(:first-child) { 
-                border-top: 1px solid var(--border); 
-            }
-        }
-
-        /* Subtle fade-in on load */
-        .identity, section {
-            animation: fadeIn 0.6s var(--transition-smooth) backwards;
-        }
-
-        .identity { animation-delay: 0s; }
-        #bio { animation-delay: 0.1s; }
-        #approach { animation-delay: 0.15s; }
-        #software { animation-delay: 0.2s; }
-        #social { animation-delay: 0.25s; }
-        #dashboard { animation-delay: 0.3s; }
-
+        .fadeIn { animation: fadeIn 0.8s var(--transition-smooth) backwards; }
         @keyframes fadeIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(8px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container fadeIn">
         <header>
             <div class="identity">
                 <h1>Artyom<br>Yagovdik</h1>
@@ -423,8 +208,8 @@
         </header>
 
         <section id="bio">
-            <span class="section-label">About</span>
-            <p>Engineering Lead based in Frankfurt. A decade building commerce platforms that handle serious traffic. Working with Node.js, TypeScript, and AWS. Currently leading a team at Y1 Digital.</p>
+            <span class="section-label">Philosophy</span>
+            <p>Engineering Lead based in Frankfurt. A decade building high-scale commerce platforms. Specializing in Node.js, TypeScript, and AWS. Bridging the gap between complex business ROI and robust, scalable code.</p>
         </section>
 
         <section id="approach">
@@ -435,8 +220,8 @@
                     <p>Good code means nothing if it doesn't move the business forward. Focus on shipping features that actually matter.</p>
                 </div>
                 <div class="approach-item">
-                    <h3>Trust & Ownership</h3>
-                    <p>Teams work best when people own their decisions. Hire smart engineers and get out of their way.</p>
+                    <h3>Ownership</h3>
+                    <p>Teams work best when people own their decisions. I hire smart engineers and get out of their way.</p>
                 </div>
                 <div class="approach-item">
                     <h3>Reliability</h3>
@@ -444,33 +229,33 @@
                 </div>
                 <div class="approach-item">
                     <h3>Keep Moving</h3>
-                    <p>Technical debt compounds. Don't chase the latest framework, but make sure we're not stuck on abandoned tech.</p>
+                    <p>Technical debt compounds. Don't chase the latest framework, but ensure the architecture remains future-proof.</p>
                 </div>
             </div>
         </section>
 
         <section id="software">
-            <span class="section-label">Software</span>
+            <span class="section-label">Core Units</span>
             <div class="projects-list">
                 <a class="project-card" href="https://github.com/artttj/sento" target="_blank" rel="noopener">
                     <h3>Sento</h3>
-                    <div><p>High-performance Chrome MV3 rewrite assistant. Injects a Shadow DOM “liquid glass” bubble for in-place text modification via OpenAI, Gemini, or Grok with framework-aware replacement for React, Vue, and ProseMirror.</p></div>
+                    <div><p>High-performance Chrome MV3 rewrite assistant. Injects a Shadow DOM “liquid glass” bubble for in-place text modification via OpenAI, Gemini, or Grok with framework-aware replacement.</p></div>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/synto" target="_blank" rel="noopener">
                     <h3>Synto</h3>
-                    <div><p>Clean Markdown extraction for AI workflows. Bridges the gap between messy web pages and LLMs by stripping clutter and generating structured briefs. Privacy-first: no backend, API keys stay on your device.</p></div>
+                    <div><p>Clean Markdown extraction for AI workflows. Bridges the gap between messy web pages and LLMs by stripping clutter. Privacy-first design with local-only storage.</p></div>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/sonto" target="_blank" rel="noopener">
                     <h3>Sonto</h3>
-                    <div><p>A quiet side-panel clipboard manager for Chrome. Features include clipboard history, tagged snippets, and a time-aware Zen feed for slow consumption. No accounts, no tracking, local-only storage.</p></div>
-                </a>
-                <a class="project-card" href="https://github.com/artttj/awesome-hyva" target="_blank" rel="noopener">
-                    <h3>Awesome Hyva</h3>
-                    <div><p>A curated technical intelligence hub for Hyv&auml; theme development. Resources, compatibility trackers, and ecosystem tooling for modern Magento storefronts.</p></div>
+                    <div><p>A quiet side-panel clipboard manager for Chrome. Features include clipboard history, tagged snippets, and a time-aware Zen feed for slow consumption.</p></div>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/nemo" target="_blank" rel="noopener">
                     <h3>Nemo</h3>
-                    <div><p>Privacy-focused browser extension password manager. Implements biometric unlock (WebAuthn PRF), PIN fallback, and optional zero-knowledge sync. Plaintext never leaves your browser.</p></div>
+                    <div><p>Privacy-focused browser extension password manager. Implements biometric unlock, PIN fallback, and optional zero-knowledge sync. Plaintext never leaves your browser.</p></div>
+                </a>
+                <a class="project-card" href="https://github.com/artttj/awesome-hyva" target="_blank" rel="noopener">
+                    <h3>Awesome Hyva</h3>
+                    <div><p>A curated technical intelligence hub for Hyvä theme development. Resources, compatibility trackers, and ecosystem tooling for modern Magento storefronts.</p></div>
                 </a>
             </div>
         </section>
@@ -479,7 +264,6 @@
             <span class="section-label">Elsewhere</span>
             <div class="links-flex">
                 <a href="/cv/" class="link-item">Curriculum Vitae</a>
-                <a href="/dashboard" class="link-item">Dashboard</a>
                 <a href="https://github.com/artttj" target="_blank" rel="noopener" class="link-item">GitHub</a>
                 <a href="https://linkedin.com/in/artyom-yagovdik/" target="_blank" rel="noopener" class="link-item">LinkedIn</a>
                 <a href="mailto:artyom.yagovdik@gmail.com" class="link-item">Email</a>
@@ -488,7 +272,7 @@
 
         <footer>
             <div>Artttj.github.io</div>
-            <div class="footer-year">© 2026</div>
+            <div style="font-variant-numeric: tabular-nums;">© 2026</div>
         </footer>
     </div>
 </body>
