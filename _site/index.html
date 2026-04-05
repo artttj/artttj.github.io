@@ -6,18 +6,18 @@
     <title>Artyom Yagovdik — Engineering Lead — Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #fcfcfc;
-            --text-main: #0a0a0a;
-            --text-light: #4a4a4a;
-            --text-extra-light: #8a8a8a;
-            --text-faint: #b0b0b0;
-            --border: #e5e5e5;
-            --border-light: #f0f0f0;
-            --accent: #000000;
-            --transition-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+            --bg: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-tertiary: #666666;
+            --text-muted: #999999;
+            --border-strong: #000000;
+            --border-medium: #d0d0d0;
+            --border-light: #e8e8e8;
+            --transition: cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,183 +26,243 @@
 
         body {
             background-color: var(--bg);
-            color: var(--text-main);
+            color: var(--text-primary);
             font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
         }
 
+        /* Grid System */
         .container {
-            max-width: 1040px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 8vh 3rem 10vh;
+            padding: 3rem 4rem 4rem;
         }
 
+        /* Header Section */
         header {
-            margin-bottom: 10vh;
-            position: relative;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-strong);
+            margin-bottom: 3rem;
         }
 
         .identity h1 {
             font-family: 'Crimson Pro', serif;
-            font-size: clamp(3.2rem, 9vw, 6.5rem);
-            font-weight: 300;
-            color: var(--accent);
-            line-height: 0.95;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.035em;
-            font-variation-settings: 'opsz' 40;
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
         }
 
         .identity .subtitle {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.72rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.22em;
+            font-size: 0.75rem;
             font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
         }
 
-        .identity .subtitle::before {
-            content: '';
-            width: 2rem;
-            height: 1px;
-            background: var(--text-light);
-        }
-
+        /* Section Styling */
         section {
-            margin-bottom: 10vh;
-            position: relative;
+            margin-bottom: 3.5rem;
         }
 
         .section-label {
             font-size: 0.65rem;
-            color: var(--text-faint);
-            text-transform: uppercase;
-            letter-spacing: 0.35em;
-            margin-bottom: 2.5rem;
-            display: block;
             font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
         }
 
+        /* Bio Section */
         #bio p {
             font-family: 'Crimson Pro', serif;
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            color: var(--text-main);
-            font-weight: 300;
-            line-height: 1.35;
-            max-width: 720px;
+            font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+            font-weight: 400;
             font-style: italic;
+            line-height: 1.45;
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        /* Approach Section */
+        #approach {
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-light);
         }
 
         .approach-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem 5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .approach-item {
+            padding-top: 1rem;
         }
 
         .approach-item h3 {
             font-size: 0.72rem;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 1rem;
             font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.6rem;
         }
 
         .approach-item p {
-            font-size: 0.95rem;
-            color: var(--text-light);
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
             line-height: 1.6;
         }
 
-        .projects-list { display: grid; grid-template-columns: 1fr; }
-
-        .project-card {
-            padding: 2.2rem 0;
+        /* Projects Section */
+        #software {
+            padding-bottom: 2.5rem;
             border-bottom: 1px solid var(--border-light);
-            display: grid;
-            grid-template-columns: minmax(140px, 200px) 1fr;
-            gap: 3rem;
-            align-items: baseline;
-            text-decoration: none;
-            transition: padding-left 0.3s var(--transition-smooth);
         }
 
-        .project-card:first-child { border-top: 1px solid var(--border-light); }
-        .project-card:hover { padding-left: 1rem; }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
+        .project-card {
+            display: block;
+            padding: 1.5rem 1.5rem 1.5rem 0;
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-medium);
+            border-right: 1px solid var(--border-medium);
+            transition: background-color 0.25s var(--transition);
+        }
+
+        .projects-grid .project-card:nth-child(2n) {
+            border-right: none;
+            padding-right: 0;
+            padding-left: 1.5rem;
+        }
+
+        .project-card:hover {
+            background-color: #fafafa;
+        }
 
         .project-card h3 {
             font-family: 'Crimson Pro', serif;
-            font-size: clamp(1.5rem, 2.5vw, 1.9rem);
-            color: var(--accent);
-            font-weight: 400;
+            font-size: 1.35rem;
+            font-weight: 500;
             font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            transition: color 0.2s var(--transition);
         }
 
-        .project-card div p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            max-width: 500px;
+        .project-card:hover h3 {
+            color: var(--text-secondary);
+        }
+
+        .project-card p {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
             line-height: 1.55;
         }
 
-        .links-flex {
+        /* Links Section */
+        #social .links-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 2.5rem 3.5rem;
+            gap: 0;
+            border-top: 1px solid var(--border-medium);
         }
 
         .link-item {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem 1rem 0;
             text-decoration: none;
-            color: var(--text-main);
+            font-size: 0.85rem;
             font-weight: 500;
-            font-size: 1rem;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+            border-bottom: 1px solid var(--border-medium);
+            margin-right: 2rem;
             position: relative;
-            padding-bottom: 0.2rem;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s var(--transition-smooth);
+            transition: all 0.25s var(--transition);
+        }
+
+        .link-item::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--border-strong);
+            transition: width 0.3s var(--transition);
+        }
+
+        .link-item:hover::after {
+            width: 100%;
         }
 
         .link-item:hover {
-            color: var(--text-light);
-            border-color: var(--accent);
+            color: var(--text-secondary);
         }
 
+        /* Footer */
         footer {
-            margin-top: 10vh;
-            padding-top: 2.5rem;
-            border-top: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
             font-size: 0.65rem;
-            color: var(--text-faint);
+            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.15em;
         }
 
-        @media (max-width: 800px) {
-            .container { padding: 6vh 2rem; }
-            .approach-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .project-card { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
-            .project-card:hover { padding-left: 0; }
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.6s var(--transition) backwards;
         }
 
-        .fadeIn { animation: fadeIn 0.8s var(--transition-smooth) backwards; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container { padding: 2rem 2.5rem; }
+            .approach-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-card { padding: 1.25rem 0; border-right: none !important; }
+            .projects-grid .project-card:nth-child(2n) { padding-left: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem 1.5rem 2.5rem; }
+            header { padding-bottom: 2rem; margin-bottom: 2.5rem; }
+            section { margin-bottom: 2.5rem; }
+            .identity h1 { font-size: 2.4rem; }
+            #bio p { font-size: 1.2rem; }
+            .link-item { padding: 0.875rem 1.5rem 0.875rem 0; margin-right: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container fadeIn">
+    <div class="container fade-in">
         <header>
             <div class="identity">
-                <h1>Artyom<br>Yagovdik</h1>
+                <h1>Artyom Yagovdik</h1>
                 <div class="subtitle">Engineering Lead — Software Architect</div>
             </div>
         </header>
@@ -236,33 +296,33 @@
 
         <section id="software">
             <span class="section-label">Core Units</span>
-            <div class="projects-list">
+            <div class="projects-grid">
                 <a class="project-card" href="https://github.com/artttj/sento" target="_blank" rel="noopener">
                     <h3>Sento</h3>
-                    <div><p>High-performance Chrome MV3 rewrite assistant. Injects a Shadow DOM “liquid glass” bubble for in-place text modification via OpenAI, Gemini, or Grok with framework-aware replacement.</p></div>
+                    <p>High-performance Chrome MV3 rewrite assistant. Injects a Shadow DOM "liquid glass" bubble for in-place text modification via OpenAI, Gemini, or Grok.</p>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/synto" target="_blank" rel="noopener">
                     <h3>Synto</h3>
-                    <div><p>Clean Markdown extraction for AI workflows. Bridges the gap between messy web pages and LLMs by stripping clutter. Privacy-first design with local-only storage.</p></div>
+                    <p>Clean Markdown extraction for AI workflows. Bridges the gap between messy web pages and LLMs by stripping clutter. Privacy-first design.</p>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/sonto" target="_blank" rel="noopener">
                     <h3>Sonto</h3>
-                    <div><p>A quiet side-panel clipboard manager for Chrome. Features include clipboard history, tagged snippets, and a time-aware Zen feed for slow consumption.</p></div>
+                    <p>A quiet side-panel clipboard manager for Chrome. Features include clipboard history, tagged snippets, and a time-aware Zen feed.</p>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/nemo" target="_blank" rel="noopener">
                     <h3>Nemo</h3>
-                    <div><p>Privacy-focused browser extension password manager. Implements biometric unlock, PIN fallback, and optional zero-knowledge sync. Plaintext never leaves your browser.</p></div>
+                    <p>Privacy-focused browser extension password manager. Implements biometric unlock, PIN fallback, and optional zero-knowledge sync.</p>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/awesome-hyva" target="_blank" rel="noopener">
                     <h3>Awesome Hyva</h3>
-                    <div><p>A curated technical intelligence hub for Hyvä theme development. Resources, compatibility trackers, and ecosystem tooling for modern Magento storefronts.</p></div>
+                    <p>A curated technical intelligence hub for Hyva theme development. Resources, compatibility trackers, and ecosystem tooling.</p>
                 </a>
             </div>
         </section>
 
         <section id="social">
             <span class="section-label">Elsewhere</span>
-            <div class="links-flex">
+            <div class="links-grid">
                 <a href="/cv/" class="link-item">Curriculum Vitae</a>
                 <a href="https://github.com/artttj" target="_blank" rel="noopener" class="link-item">GitHub</a>
                 <a href="https://linkedin.com/in/artyom-yagovdik/" target="_blank" rel="noopener" class="link-item">LinkedIn</a>
@@ -271,8 +331,8 @@
         </section>
 
         <footer>
-            <div>Artttj.github.io</div>
-            <div style="font-variant-numeric: tabular-nums;">© 2026</div>
+            <div>artttj.github.io</div>
+            <div>&copy; 2026</div>
         </footer>
     </div>
 </body>
