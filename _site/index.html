@@ -161,11 +161,26 @@
             transition: color 0.2s var(--transition);
         }
 
-        .project-card p {
-            font-size: 0.82rem;
-            color: var(--text-tertiary);
-            line-height: 1.4;
-        }
+       .project-card p {
+           font-size: 0.82rem;
+           color: var(--text-tertiary);
+           line-height: 1.4;
+       }
+       .project-tag {
+           display: inline-block;
+           font-family: 'Instrument Sans', sans-serif;
+           font-size: 0.58rem;
+           font-weight: 600;
+           text-transform: uppercase;
+           letter-spacing: 0.15em;
+           color: var(--text-muted);
+           margin-left: 0.5rem;
+           vertical-align: baseline;
+       }
+       .project-card strong {
+           font-weight: 600;
+           color: var(--text-secondary);
+       }
 
         .links-grid {
             display: flex;
@@ -242,7 +257,7 @@
 
         <section id="bio">
             <span class="section-label">Philosophy</span>
-            <p>Engineering Lead based in Frankfurt. A decade building commerce platforms that handle serious traffic. Specializing in Node.js, TypeScript, and AWS. Bridging the gap between complex business ROI and robust, scalable code.</p>
+            <p>Engineering Lead based in Frankfurt. A decade building commerce platforms for <strong>Enterprise Retail & Luxury brands</strong> that handle serious traffic. Specializing in <strong>Node.js</strong>, <strong>TypeScript</strong>, and <strong>AWS</strong>. Bridging the gap between complex business ROI and robust, scalable code.</p>
         </section>
 
         <section id="approach">
@@ -271,24 +286,24 @@
             <span class="section-label">Core Units</span>
             <div class="projects-grid">
                 <a class="project-card" href="https://github.com/artttj/sento" target="_blank" rel="noopener">
-                    <h3>Sento</h3>
-                    <p>High-performance Chrome MV3 rewrite assistant. Injects a Shadow DOM “liquid glass” bubble for in-place text modification via AI with framework-aware replacement.</p>
+                    <h3>Sento<span class="project-tag">[Rewrite]</span></h3>
+                    <p>High-performance Chrome MV3 rewrite assistant. Injects a <strong>Shadow DOM</strong> "liquid glass" bubble for in-place text modification via <strong>AI</strong> with framework-aware replacement.</p>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/synto" target="_blank" rel="noopener">
-                    <h3>Synto</h3>
-                    <p>Clean Markdown extraction for AI workflows. Bridges the gap between messy web pages and LLMs by stripping clutter. Privacy-first design with local-only storage.</p>
+                    <h3>Synto<span class="project-tag">[Extract]</span></h3>
+                    <p>Clean Markdown extraction for AI workflows. Bridges the gap between messy web pages and <strong>LLMs</strong> by stripping clutter. <strong>Privacy-first</strong> design with local-only storage.</p>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/sonto" target="_blank" rel="noopener">
-                    <h3>Sonto</h3>
-                    <p>A quiet side-panel clipboard manager for Chrome. Features include clipboard history, tagged snippets, and a time-aware Zen feed for slow consumption.</p>
+                    <h3>Sonto<span class="project-tag">[Clipboard]</span></h3>
+                    <p>A quiet side-panel clipboard manager for Chrome. Features include <strong>clipboard history</strong>, tagged snippets, and a time-aware <strong>Zen feed</strong> for slow consumption.</p>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/nemo" target="_blank" rel="noopener">
                     <h3>Nemo</h3>
-                    <p>Privacy-focused browser extension password manager. Implements biometric unlock, PIN fallback, and optional zero-knowledge sync. Plaintext never leaves your browser.</p>
+                    <p>Privacy-focused browser extension password manager. Implements <strong>biometric unlock</strong>, PIN fallback, and optional <strong>zero-knowledge sync</strong>. Plaintext never leaves your browser.</p>
                 </a>
                 <a class="project-card" href="https://github.com/artttj/awesome-hyva" target="_blank" rel="noopener">
                     <h3>Awesome Hyvä</h3>
-                    <p>A curated technical intelligence hub for Hyvä theme development. Resources, compatibility trackers, and ecosystem tooling for modern Magento storefronts.</p>
+                    <p>A curated technical intelligence hub for <strong>Hyvä</strong> theme development. Resources, compatibility trackers, and ecosystem tooling for modern <strong>Magento</strong> storefronts.</p>
                 </a>
             </div>
         </section>
