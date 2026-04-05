@@ -6,14 +6,14 @@
     <title>CV // Artyom Yagovdik // Engineering Lead & Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #ffffff;
-            --text-main: #333333;
-            --text-light: #666666;
-            --text-extra-light: #999999;
-            --border: #f0f0f0;
+            --text-main: #1a1a1a;
+            --text-light: #555555;
+            --text-extra-light: #888888;
+            --border: #eeeeee;
             --accent: #000000;
         }
 
@@ -22,108 +22,110 @@
         body {
             background-color: var(--bg);
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 8rem 2rem;
+            padding: 4rem 2rem;
         }
 
         header {
-            margin-bottom: 8rem;
+            margin-bottom: 5rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
         }
 
         .identity h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
             color: var(--accent);
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
+            line-height: 1;
+            margin-bottom: 0.25rem;
             letter-spacing: -1px;
         }
 
         .identity p {
-            font-size: 0.9rem;
+            font-size: 0.82rem;
+            font-weight: 600;
             color: var(--text-light);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.2em;
         }
 
         .back-link {
             text-decoration: none;
             color: var(--text-extra-light);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.15em;
+            font-weight: 600;
             border-bottom: 1px solid transparent;
-            transition: color 0.2s, border-color 0.2s;
+            transition: all 0.2s;
+            opacity: 0.6;
         }
 
-        .back-link:hover { color: var(--accent); border-color: var(--accent); }
+        .back-link:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
 
         .cv-section {
-            margin-bottom: 8rem;
+            margin-bottom: 5rem;
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 4rem;
+            grid-template-columns: 140px 1fr;
+            gap: 3rem;
         }
 
         .section-label {
-            font-size: 0.75rem;
+            font-size: 0.62rem;
             color: var(--text-extra-light);
             text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 600;
-        }
-
-        .cv-content h2 {
-            font-size: 2rem;
-            color: var(--accent);
-            font-weight: 300;
-            margin-bottom: 2rem;
+            letter-spacing: 0.3em;
+            font-weight: 700;
+            padding-top: 0.25rem;
         }
 
         .cv-block {
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
         }
 
+        .cv-block:last-child { margin-bottom: 0; }
+
         .cv-block h3 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--accent);
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
 
         .meta {
-            font-size: 0.85rem;
-            color: var(--text-light);
+            font-size: 0.78rem;
+            color: var(--text-main);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
-        p { margin-bottom: 1rem; }
+        p { margin-bottom: 0.75rem; }
 
         ul {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         ul li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
+            padding-left: 1.25rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
             color: var(--text-light);
+            line-height: 1.4;
         }
 
         ul li::before {
@@ -135,45 +137,49 @@
 
         .skill-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4rem 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem 3rem;
         }
 
         .skill-item h4 {
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .skill-item p {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 0;
         }
 
         footer {
-            margin-top: 12rem;
-            padding-top: 4rem;
+            margin-top: 8rem;
+            padding-top: 3rem;
             border-top: 1px solid var(--border);
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.68rem;
             color: var(--text-extra-light);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.25em;
         }
 
         @media (max-width: 800px) {
-            .cv-section { grid-template-columns: 1fr; gap: 2rem; }
-            header { flex-direction: column; align-items: flex-start; gap: 2rem; }
-            .skill-grid { grid-template-columns: 1fr; }
+            .cv-section { grid-template-columns: 1fr; gap: 1.5rem; }
+            header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+            .skill-grid { grid-template-columns: 1fr; gap: 1.5rem; }
         }
 
         @media print {
-            body { background: white; color: black; }
-            .container { padding: 2rem; max-width: 100%; }
+            body { background: white; color: black; font-size: 12px; }
+            .container { padding: 1rem; max-width: 100%; }
             header, footer, .back-link { display: none; }
-            .cv-section { margin-bottom: 3rem; gap: 2rem; }
+            .cv-section { margin-bottom: 2rem; gap: 1.5rem; }
+            .meta { margin-bottom: 0.5rem; }
         }
     </style>
 </head>
@@ -233,7 +239,7 @@
                 <div class="skill-grid">
                     <div class="skill-item">
                         <h4>Architecture</h4>
-                        <p>High-availability systems, distributed architecture, reliability engineering at actual scale.</p>
+                        <p>High-availability systems, distributed architecture, reliability engineering at scale.</p>
                     </div>
                     <div class="skill-item">
                         <h4>Backend</h4>
@@ -241,11 +247,11 @@
                     </div>
                     <div class="skill-item">
                         <h4>Infrastructure</h4>
-                        <p>AWS (ECS, Lambda, S3, RDS), Docker, CI/CD pipelines, infrastructure as code.</p>
+                        <p>AWS (ECS, Lambda, S3, RDS), Docker, CI/CD pipelines, IaC.</p>
                     </div>
                     <div class="skill-item">
                         <h4>Commerce</h4>
-                        <p>Adobe Commerce, Shopify, payment integrations, SAP/ERP middleware.</p>
+                        <p>Adobe Commerce, Shopify, payment integrations, ERP middleware.</p>
                     </div>
                 </div>
             </div>
