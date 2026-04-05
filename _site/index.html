@@ -18,6 +18,30 @@
             --transition: cubic-bezier(0.22, 1, 0.36, 1);
         }
 
+        *[data-theme="dark"] {
+            --bg: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-tertiary: #a0a0a0;
+            --text-muted: #666666;
+            --border-strong: #ffffff;
+            --border-medium: #2a2a2a;
+            --border-light: #1a1a1a;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme]) {
+                --bg: #0a0a0a;
+                --text-primary: #ffffff;
+                --text-secondary: #e0e0e0;
+                --text-tertiary: #a0a0a0;
+                --text-muted: #666666;
+                --border-strong: #ffffff;
+                --border-medium: #2a2a2a;
+                --border-light: #1a1a1a;
+            }
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html { scroll-behavior: smooth; }
@@ -240,6 +264,28 @@
             letter-spacing: 0.2em;
         }
 
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            border-radius: 2px;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            transition: border-color 0.2s var(--transition), color 0.2s var(--transition);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
         .fade-in { animation: fadeIn 0.6s var(--transition) backwards; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(5px); }
@@ -260,9 +306,12 @@
 <body>
     <div class="container fade-in">
         <header>
-            <div class="identity">
-                <h1>Artyom Yagovdik</h1>
-                <div class="subtitle">Engineering Lead — Software Architect</div>
+            <div class="header-row">
+                <div class="identity">
+                    <h1>Artyom Yagovdik</h1>
+                    <div class="subtitle">Engineering Lead — Software Architect</div>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◑</button>
             </div>
         </header>
 
@@ -330,5 +379,27 @@
             <div style="font-variant-numeric: tabular-nums;">© 2026</div>
         </footer>
     </div>
+    <script>
+        (function() {
+            const toggle = document.getElementById('themeToggle');
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+            
+            toggle.addEventListener('click', function() {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                if (isDark) {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
