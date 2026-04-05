@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artyom Yagovdik — Engineering Lead — Architect</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
     <style>
         :root {
             --bg: #ffffff;
             --text-primary: #000000;
             --text-secondary: #222222;
             --text-tertiary: #555555;
-            --text-muted: #888888;
-            --border-strong: #000000;
-            --border-medium: #e0e0e0;
-            --border-light: #f0f0f0;
+            --text-muted: #808080;
+            --border-strong: #111111;
+            --border-medium: #ededed;
+            --border-light: #f5f5f5;
             --transition: cubic-bezier(0.22, 1, 0.36, 1);
         }
 
@@ -29,7 +27,7 @@
             color: var(--text-primary);
             font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             font-size: 15px;
-            line-height: 1.45;
+            line-height: 1.38;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
@@ -38,35 +36,35 @@
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 1.5rem 4rem 3rem;
+            padding: 1rem 4rem 2.5rem;
         }
 
         header {
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid var(--border-strong);
-            margin-bottom: 2.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-strong);
+            margin-bottom: 2rem;
         }
 
         .identity h1 {
             font-family: 'Crimson Pro', serif;
-            font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
             font-weight: 400;
             letter-spacing: -0.025em;
             line-height: 0.95;
             color: var(--text-primary);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.25rem;
         }
 
         .identity .subtitle {
             font-size: 0.78rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-primary);
             text-transform: uppercase;
-            letter-spacing: 0.22em;
+            letter-spacing: 0.2em;
         }
 
         section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.2rem;
         }
 
         .section-label {
@@ -75,7 +73,7 @@
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.25em;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             display: block;
         }
 
@@ -84,24 +82,24 @@
             font-size: clamp(1.3rem, 2.2vw, 1.65rem);
             font-weight: 400;
             font-style: italic;
-            line-height: 1.35;
+            line-height: 1.3;
             color: var(--text-secondary);
             max-width: 780px;
         }
 
         #approach {
-            padding-bottom: 2rem;
+            padding-bottom: 1.8rem;
             border-bottom: 1px solid var(--border-light);
         }
 
         .approach-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 2.8rem;
         }
 
         .approach-item {
-            padding-top: 0.8rem;
+            padding-top: 0.6rem;
         }
 
         .approach-item h3 {
@@ -110,17 +108,17 @@
             color: var(--text-primary);
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.35rem;
         }
 
         .approach-item p {
             font-size: 0.88rem;
             color: var(--text-tertiary);
-            line-height: 1.5;
+            line-height: 1.45;
         }
 
         #software {
-            padding-bottom: 2rem;
+            padding-bottom: 1.8rem;
             border-bottom: 1px solid var(--border-light);
         }
 
@@ -132,7 +130,7 @@
 
         .project-card {
             display: block;
-            padding: 1rem 1.5rem 1rem 0;
+            padding: 0.85rem 1.5rem 0.85rem 0;
             text-decoration: none;
             border-bottom: 1px solid var(--border-medium);
             border-right: 1px solid var(--border-medium);
@@ -155,18 +153,18 @@
 
         .project-card h3 {
             font-family: 'Crimson Pro', serif;
-            font-size: 1.3rem;
-            font-weight: 500;
+            font-size: 1.35rem;
+            font-weight: 600;
             font-style: italic;
             color: var(--text-primary);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
             transition: color 0.2s var(--transition);
         }
 
         .project-card p {
             font-size: 0.82rem;
             color: var(--text-tertiary);
-            line-height: 1.45;
+            line-height: 1.4;
         }
 
         .links-grid {
@@ -182,7 +180,7 @@
             align-items: center;
             padding: 0.8rem 0;
             text-decoration: none;
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: var(--text-primary);
             letter-spacing: 0.03em;
@@ -194,7 +192,7 @@
         .link-item::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: 0px;
             left: 0;
             width: 0;
             height: 2px;
@@ -209,7 +207,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 1.5rem;
+            padding-top: 1.2rem;
             font-size: 0.6rem;
             color: var(--text-muted);
             text-transform: uppercase;
@@ -223,7 +221,7 @@
         }
 
         @media (max-width: 900px) {
-            .container { padding: 1.5rem 2.5rem; }
+            .container { padding: 1.2rem 2.5rem; }
             .approach-grid { grid-template-columns: 1fr; gap: 1.25rem; }
             .projects-grid { grid-template-columns: 1fr; }
             .project-card { padding: 1rem 0; border-right: none !important; }
