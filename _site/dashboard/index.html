@@ -92,7 +92,7 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .card {
@@ -157,8 +157,8 @@
         .shield-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(255,255,255,0.9);
-            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
             z-index: 10;
             display: flex;
             flex-direction: column;
@@ -221,34 +221,40 @@
             <a href="/" class="brand">Workstation</a>
             <div class="system-meta">
                 <div>Loc // <span>Frankfurt, DE</span></div>
-                <div>Status // <span style="color: var(--success)">Operational</span></div>
+                <div>Server // <span>212.227.206.248</span></div>
+                <div>Status // <span style="color: var(--success)">Active</span></div>
                 <div id="clock">00:00:00</div>
             </div>
         </header>
 
         <!-- Public Project Monitoring -->
         <section class="section">
-            <h2>Active Nodes // Productivity</h2>
+            <h2>Core Nodes // Verified Projects</h2>
             <div class="grid">
                 <a href="https://github.com/artttj/sento" target="_blank" class="card">
                     <span class="type">Extension</span>
                     <span class="title">Sentō</span>
-                    <span class="status"><span class="status-dot"></span> Stable</span>
+                    <span class="status"><span class="status-dot"></span> Active</span>
                 </a>
                 <a href="https://github.com/artttj/synto" target="_blank" class="card">
                     <span class="type">Intelligence</span>
                     <span class="title">Synto</span>
-                    <span class="status"><span class="status-dot"></span> Active</span>
+                    <span class="status"><span class="status-dot"></span> Operational</span>
                 </a>
                 <a href="https://github.com/artttj/sonto" target="_blank" class="card">
                     <span class="type">Context</span>
                     <span class="title">Sonto</span>
-                    <span class="status"><span class="status-dot"></span> Operational</span>
+                    <span class="status"><span class="status-dot"></span> Stable</span>
                 </a>
                 <a href="https://github.com/artttj/nemo" target="_blank" class="card">
                     <span class="type">Security</span>
                     <span class="title">Nemo</span>
                     <span class="status"><span class="status-dot"></span> Encrypted</span>
+                </a>
+                <a href="https://github.com/artttj/awesome-hyva" target="_blank" class="card">
+                    <span class="type">Technical Hub</span>
+                    <span class="title">Awesome Hyvä</span>
+                    <span class="status"><span class="status-dot"></span> Verified</span>
                 </a>
             </div>
         </section>
@@ -258,33 +264,48 @@
             <h2>Environment Management // Secure</h2>
             <div class="admin-section" id="admin-area">
                 <div class="shield-overlay" id="shield">
-                    <div class="shield-msg">Secure Session Required</div>
-                    <button class="access-trigger" onclick="authenticate()">Establish Connection</button>
+                    <div class="shield-msg">Identity Verification Required</div>
+                    <button class="access-trigger" onclick="authenticate()">Establish Secure Session</button>
                 </div>
                 
                 <div class="grid">
                     <a href="http://212.227.206.248:81" target="_blank" class="card">
-                        <span class="type">Ingress</span>
+                        <span class="type">Gateway</span>
                         <span class="title">Nginx Proxy</span>
-                        <span class="status">Admin Interface</span>
+                        <span class="status"><span class="status-dot"></span> Up</span>
                     </a>
                     <a href="http://212.227.206.248:8888" target="_blank" class="card">
-                        <span class="type">Observability</span>
+                        <span class="type">Logging</span>
                         <span class="title">Dozzle</span>
-                        <span class="status">Live Logs</span>
+                        <span class="status"><span class="status-dot"></span> Live</span>
                     </a>
                     <a href="http://212.227.206.248:3001" target="_blank" class="card">
                         <span class="type">Health</span>
                         <span class="title">Uptime Kuma</span>
-                        <span class="status">Monitoring</span>
+                        <span class="status"><span class="status-dot"></span> Monitoring</span>
                     </a>
+                    <div class="card">
+                        <span class="type">Network</span>
+                        <span class="title">Shadowbox</span>
+                        <span class="status"><span class="status-dot"></span> Protected</span>
+                    </div>
+                    <div class="card">
+                        <span class="type">Engine</span>
+                        <span class="title">Watchtower</span>
+                        <span class="status"><span class="status-dot"></span> Auto-Sync</span>
+                    </div>
+                    <div class="card">
+                        <span class="type">Automation</span>
+                        <span class="title">Secret Music Project</span>
+                        <span class="status"><span class="status-dot"></span> Daily Sync</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <footer>
-            <div>artttj workstation_v2.0</div>
-            <div>[ Access Restricted ]</div>
+            <div>artttj workstation_v2.1</div>
+            <div>[ Internal Access ]</div>
             <div>&copy; 2026</div>
         </footer>
     </div>
@@ -301,19 +322,19 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // Simple Security barrier
+        // Security barrier
         function authenticate() {
-            const key = prompt("Enter Access Key:");
-            // Simple check - replace '1234' with your preferred key or remove 'if' for visual-only barrier
+            const key = prompt("Enter Entry Key:");
+            // Placeholder: Replace '1234' if needed or leave as visual barrier
             if (key === '1234') { 
                 document.getElementById('shield').classList.add('unlocked');
                 sessionStorage.setItem('ws_auth', 'true');
             } else {
-                alert("Unauthorized.");
+                alert("Unauthorized Access Attempt Blocked.");
             }
         }
 
-        // Persistence in session
+        // Persistence
         if (sessionStorage.getItem('ws_auth') === 'true') {
             document.getElementById('shield').classList.add('unlocked');
         }
