@@ -1,128 +1,487 @@
+<!--
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠋⠉⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠃⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⡏⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣠⣤⣤⣤⣤⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⢸⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠴⠒⠊⠉⠉⠀⠀⣿⣿⣿⠿⠋⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⡠⠼⠴⠒⠒⠒⠒⠦⠤⠤⣄⣀⠀⢀⣠⠴⠚⠉⠀⠀⠀⠀⠀⠀⠀⠀⣼⠿⠋⠁⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣇⠔⠂⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠖⠋⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⠤⠒⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⡟⠀⣠⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⢻⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⡤⠤⢴
+⠀⠀⠀⠀⠀⠀⣸⠁⣾⣿⣀⣽⡆⠀⠀⠀⠀⠀⠀⠀⢠⣾⠉⢿⣦⠀⠀⠀⢸⡀⠀⠀⢀⣠⠤⠔⠒⠋⠉⠉⠀⠀⠀⠀⢀⡞
+⠀⠀⠀⠀⠀⢀⡏⠀⠹⠿⠿⠟⠁⠀⠰⠦⠀⠀⠀⠀⠸⣿⣿⣿⡿⠀⠀⠀⢘⡧⠖⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠀
+⠀⠀⠀⠀⠀⣼⠦⣄⠀⠀⢠⣀⣀⣴⠟⠶⣄⡀⠀⠀⡀⠀⠉⠁⠀⠀⠀⠀⢸⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠁⠀
+⠀⠀⠀⠀⢰⡇⠀⠈⡇⠀⠀⠸⡾⠁⠀⠀⠀⠉⠉⡏⠀⠀⠀⣠⠖⠉⠓⢤⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⠀⠀
+⠀⠀⠀⠀⠀⢧⣀⡼⠃⠀⠀⠀⢧⠀⠀⠀⠀⠀⢸⠃⠀⠀⠀⣧⠀⠀⠀⣸⢹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠃⠀⠀⠀
+⠀⠀⠀⠀⠀⠈⢧⡀⠀⠀⠀⠀⠘⣆⠀⠀⠀⢠⠏⠀⠀⠀⠀⠈⠳⠤⠖⠃⡟⠀⠀⠀⢾⠛⠛⠛⠛⠛⠛⠛⠛⠁⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠙⣆⠀⠀⠀⠀⠈⠦⣀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⠙⢦⠀⠀⠘⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⡇⠙⠦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠴⠋⠸⡇⠈⢳⡀⠀⢹⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡼⣀⠀⠀⠈⠙⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⣷⠴⠚⠁⠀⣀⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⡴⠁⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣆⡴⠚⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣼⢷⡆⠀⣠⡴⠧⣄⣇⠀⠀⠀⠀⠀⠀⠀⢲⠀⡟⠀⠀⠀⠀⠀⠀⠀⢀⡇⣠⣽⢦⣄⢀⣴⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⡿⣼⣽⡞⠁⠀⠀⠀⢹⡀⠀⠀⠀⠀⠀⠀⠈⣷⠃⠀⠀⠀⠀⠀⠀⠀⣼⠉⠁⠀⠀⢠⢟⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣷⠉⠁⢳⠀⠀⠀⠀⠈⣧⠀⠀⠀⠀⠀⠀⠀⣻⠀⠀⠀⠀⠀⠀⠀⣰⠃⠀⠀⠀⠀⠏⠀⠀⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠹⡆⠀⠈⡇⠀⠀⠀⠀⠘⣆⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⣸⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢳⡀⠀⠙⠀⠀⠀⠀⠀⠘⣆⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⣰⠃⠀⠀⠀⠀⢀⡄⠀⢠⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢳⡀⣰⣀⣀⣀⠀⠀⠀⠘⣦⣀⠀⠀⠀⡇⠀⠀⠀⢀⡴⠃⠀⠀⠀⠀⠀⢸⡇⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠉⠉⠀⠀⠈⠉⠉⠉⠙⠻⠿⠾⠾⠻⠓⢦⠦⡶⡶⠿⠛⠛⠓⠒⠒⠚⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artyom Yagovdik — Engineering Lead</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="/assets/img/logo.png">
+    <!-- SEO -->
+    <meta name="description" content="Engineering Lead based in Frankfurt. A decade building commerce platforms for Enterprise Retail & Luxury brands. Node.js, TypeScript, AWS.">
+    <meta name="keywords" content="Engineering Lead, Software Architect, Node.js, TypeScript, AWS, Enterprise, E-commerce, Frankfurt">
+    <meta name="author" content="Artyom Yagovdik">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://artttj.de/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Artyom Yagovdik — Engineering Lead">
+    <meta property="og:description" content="Engineering Lead based in Frankfurt. A decade building commerce platforms for Enterprise Retail & Luxury brands.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://artttj.de/">
+    <meta property="og:image" content="https://artttj.de/assets/og-image.png">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Artyom Yagovdik — Engineering Lead">
+    <meta name="twitter:description" content="Engineering Lead based in Frankfurt. A decade building commerce platforms for Enterprise Retail & Luxury brands.">
+
+    <title>Artyom Yagovdik — Engineering Lead — Architect</title>
+    <link rel="stylesheet" href="/assets/css/fonts.css">
     <style>
+        :root {
+            --bg: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #222222;
+            --text-tertiary: #555555;
+            --text-muted: #808080;
+            --border-strong: #111111;
+            --border-medium: #ededed;
+            --border-light: #f5f5f5;
+            --transition: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        html[data-theme="dark"] {
+            --bg: #141416;
+            --text-primary: #f5f5f5;
+            --text-secondary: #d0d0d5;
+            --text-tertiary: #909095;
+            --text-muted: #5a5a60;
+            --border-strong: #333337;
+            --border-medium: #252529;
+            --border-light: #1c1c20;
+        }
+
+        html[data-theme="light"] {
+            --bg: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #222222;
+            --text-tertiary: #555555;
+            --text-muted: #808080;
+            --border-strong: #111111;
+            --border-medium: #ededed;
+            --border-light: #f5f5f5;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            html:not([data-theme="dark"]):not([data-theme="light"]) {
+                --bg: #141416;
+                --text-primary: #f5f5f5;
+                --text-secondary: #d0d0d5;
+                --text-tertiary: #909095;
+                --text-muted: #5a5a60;
+                --border-strong: #333337;
+                --border-medium: #252529;
+                --border-light: #1c1c20;
+            }
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            color: #111;
-            background: #fff;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 15px;
+            line-height: 1.38;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
-        header { margin-bottom: 3rem; }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 4rem 2.5rem;
+        }
 
-        h1 {
-            font-size: 1.5rem;
+        header {
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-strong);
+            margin-bottom: 2rem;
+        }
+
+        .identity h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
+            font-weight: 400;
+            letter-spacing: -0.025em;
+            line-height: 0.95;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .identity .subtitle {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        section {
+            margin-bottom: 2.2rem;
+        }
+
+        .section-label {
+            font-size: 0.58rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        #bio p {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.35;
+            color: var(--text-secondary);
+            max-width: 65ch;
+        }
+
+        #approach {
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 2.8rem;
+        }
+
+        .approach-item {
+            padding-top: 0.6rem;
+        }
+
+        .approach-item h3 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.35rem;
+        }
+
+        .approach-item p {
+            font-size: 0.88rem;
+            color: var(--text-tertiary);
+            line-height: 1.45;
+        }
+
+        #software {
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.7rem;
+        }
+
+        .project-card {
+            display: block;
+            padding: 1.1rem 1.5rem;
+            text-decoration: none;
+            border: 1px solid var(--border-medium);
+            border-radius: 2px;
+            margin: 0.35rem;
+            background-color: transparent;
+            transition: background-color 0.25s var(--transition),
+                        border-color 0.25s var(--transition),
+                        transform 0.25s var(--transition);
+        }
+
+        .project-card:hover {
+            background-color: var(--border-light);
+            border-color: var(--border-strong);
+            transform: translateY(-2px);
+        }
+
+        html[data-theme="dark"] .project-card:hover {
+            background-color: var(--border-light);
+        }
+
+        .project-card:active {
+            transform: translateY(0);
+        }
+
+        .project-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.45rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            transition: color 0.2s var(--transition);
         }
 
-        .role {
-            color: #666;
-            font-size: 0.95rem;
+        .project-card:hover h3 {
+            color: var(--text-primary);
         }
 
-        .location {
-            color: #999;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
+        .project-card p {
+            font-size: 0.82rem;
+            color: var(--text-tertiary);
+            line-height: 1.4;
         }
 
-        section { margin-bottom: 2.5rem; }
-
-        p { margin-bottom: 1rem; color: #444; }
-
-        a {
-            color: #111;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            text-decoration-color: #ccc;
-            transition: text-decoration-color 0.15s;
+        .project-tag {
+            display: inline-block;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 0.58rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-left: 0.5rem;
+            vertical-align: baseline;
         }
 
-        a:hover { text-decoration-color: #111; }
+        .project-card strong {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
 
-        .links {
+        .links-grid {
             display: flex;
-            gap: 1.5rem;
             flex-wrap: wrap;
-            font-size: 0.9rem;
+            gap: 0;
         }
 
-        .links a { text-decoration: none; }
-        .links a:hover { text-decoration: underline; }
-
-        ul {
-            list-style: none;
-            margin-left: 0;
+        .link-item {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.03em;
+            margin-right: 3rem;
+            position: relative;
+            transition: color 0.2s var(--transition);
         }
 
-        li {
-            margin-bottom: 0.75rem;
-            color: #444;
+        .link-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: width 0.3s var(--transition);
         }
 
-        li::before {
-            content: '—';
-            color: #ccc;
-            margin-right: 0.75rem;
-        }
+        .link-item:hover::after { width: 100%; }
+        .link-item:hover { color: var(--text-secondary); }
 
         footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-            font-size: 0.875rem;
-            color: #999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.2rem;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
         }
 
-        @media (max-width: 480px) {
-            body { padding: 3rem 1.5rem; }
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            border-radius: 2px;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            transition: border-color 0.2s var(--transition), color 0.2s var(--transition);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .fade-in { animation: fadeIn 0.6s var(--transition) backwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 900px) {
+            .container { padding: 1.2rem 2.5rem; }
+            .approach-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+            .projects-grid { grid-template-columns: 1fr; gap: 0.5rem; }
+            .project-card { 
+                padding: 1rem; 
+                margin: 0;
+            }
+            .projects-grid .project-card:nth-child(2n) { padding: 1rem; }
+            .projects-grid .project-card:nth-last-child(2) { border-bottom: 1px solid var(--border-medium); }
+            .link-item { margin-right: 2rem; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 1rem 1.25rem; }
+            .header-row { flex-wrap: wrap; gap: 1rem; }
+            .theme-toggle { order: -1; margin-left: auto; }
+            .approach-item { padding-left: 0; }
+            .project-card h3 { font-size: 1.25rem; }
+            .project-card p { font-size: 0.8rem; }
+            .links-grid { flex-direction: column; }
+            .link-item { margin-right: 0; width: 100%; padding: 0.6rem 0; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Artyom Yagovdik</h1>
-        <p class="role">Engineering Lead, Software Architect</p>
-        <p class="location">Frankfurt, Germany</p>
-    </header>
+    <div class="container fade-in">
+        <header>
+            <div class="header-row">
+                <div class="identity">
+                    <h1>Artyom Yagovdik</h1>
+                    <div class="subtitle">Engineering Lead — Software Architect</div>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◑</button>
+            </div>
+        </header>
 
-    <section>
-        <p>Building commerce platforms for Enterprise Retail & Luxury brands. Ten years of shipping systems that handle serious traffic.</p>
-        <p>Currently focused on Node.js, TypeScript, and AWS infrastructure. I bridge the gap between business ROI and robust, scalable code.</p>
-    </section>
+        <section id="bio">
+            <p>Engineering Lead based in Frankfurt. A decade building commerce platforms for <strong>Enterprise Retail & Luxury brands</strong> that handle serious traffic. Specializing in <strong>Node.js</strong>, <strong>TypeScript</strong>, and <strong>AWS</strong>. Bridging the gap between complex business ROI and robust, scalable code.</p>
+        </section>
 
-    <section>
-        <p style="font-weight: 500; color: #111; margin-bottom: 1rem;">Selected Projects</p>
-        <ul>
-            <li><a href="https://github.com/artttj/sento">Sento</a> — Chrome extension for AI-powered text rewriting</li>
-            <li><a href="https://github.com/artttj/synto">Synto</a> — Clean Markdown extraction for LLM workflows</li>
-            <li><a href="https://github.com/artttj/nemo">Nemo</a> — Privacy-first password manager with biometric unlock</li>
-            <li><a href="https://github.com/artttj/awesome-hyva">Awesome Hyvä</a> — Curated resources for modern Magento storefronts</li>
-        </ul>
-    </section>
+        <section id="approach">
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <h3>ROI First</h3>
+                    <p>Good code means nothing if it doesn't move the business forward. Focus on shipping features that actually matter.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Ownership</h3>
+                    <p>Teams work best when people own their decisions. I hire smart engineers and get out of their way.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Reliability</h3>
+                    <p>Systems that process millions in revenue can't afford downtime. Architect for failure because it will happen.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Keep Moving</h3>
+                    <p>Technical debt compounds. Don't chase the latest framework, but ensure the architecture remains future-proof.</p>
+                </div>
+            </div>
+        </section>
 
-    <section>
-        <div class="links">
-            <a href="/cv/">CV</a>
-            <a href="https://github.com/artttj">GitHub</a>
-            <a href="https://linkedin.com/in/artyom-yagovdik/">LinkedIn</a>
-            <a href="mailto:artyom.yagovdik@gmail.com">Email</a>
-        </div>
-    </section>
+        <section id="software">
+            <span class="section-label">My Projects</span>
+            <div class="projects-grid">
+                <a class="project-card" href="https://github.com/artttj/sento" target="_blank" rel="noopener">
+                    <h3>Sento<span class="project-tag">[Rewrite]</span></h3>
+                    <p>High-performance Chrome MV3 rewrite assistant. Injects a <strong>Shadow DOM</strong> "liquid glass" bubble for in-place text modification via <strong>AI</strong> with framework-aware replacement.</p>
+                </a>
+                <a class="project-card" href="https://github.com/artttj/synto" target="_blank" rel="noopener">
+                    <h3>Synto<span class="project-tag">[Extract]</span></h3>
+                    <p>Clean Markdown extraction for AI workflows. Bridges the gap between messy web pages and <strong>LLMs</strong> by stripping clutter. <strong>Privacy-first</strong> design with local-only storage.</p>
+                </a>
+                <a class="project-card" href="https://github.com/artttj/sonto" target="_blank" rel="noopener">
+                    <h3>Sonto<span class="project-tag">[Clipboard]</span></h3>
+                    <p>A quiet side-panel clipboard manager for Chrome. Features include <strong>clipboard history</strong>, tagged snippets, and a time-aware <strong>Zen feed</strong> for slow consumption.</p>
+                </a>
+                <a class="project-card" href="https://github.com/artttj/nemo" target="_blank" rel="noopener">
+                    <h3>Nemo</h3>
+                    <p>Privacy-focused browser extension password manager. Implements <strong>biometric unlock</strong>, PIN fallback, and optional <strong>zero-knowledge sync</strong>. Plaintext never leaves your browser.</p>
+                </a>
+                <a class="project-card" href="https://github.com/artttj/awesome-hyva" target="_blank" rel="noopener">
+                    <h3>Awesome Hyvä</h3>
+                    <p>A curated technical intelligence hub for <strong>Hyvä</strong> theme development. Resources, compatibility trackers, and ecosystem tooling for modern <strong>Magento</strong> storefronts.</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="social">
+            <div class="links-grid">
+                <a href="/cv/" class="link-item">Curriculum Vitae</a>
+                <a href="https://github.com/artttj" target="_blank" rel="noopener" class="link-item">GitHub</a>
+                <a href="https://linkedin.com/in/artyom-yagovdik/" target="_blank" rel="noopener" class="link-item">LinkedIn</a>
+                <a href="mailto:artyom.yagovdik@gmail.com" class="link-item">Email</a>
+                <a href="/status/" class="link-item">Status</a>
+                <a href="/old/" title="For the nostalgic" class="link-item">Old Website</a>
+            </div>
+        </section>
+
+        <footer style="display: flex; justify-content: flex-end;">
+            <div style="font-variant-numeric: tabular-nums;">© 2026</div>
+        </footer>
+    </div>
+    <script>
+        (function() {
+            const toggle = document.getElementById('themeToggle');
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (saved === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else if (saved === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else if (prefersDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+            
+            toggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const isDark = currentTheme === 'dark';
+                if (isDark) {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

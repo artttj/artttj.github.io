@@ -1,487 +1,632 @@
-<!--
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠋⠉⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠃⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⢀⡏⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣠⣤⣤⣤⣤⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⢸⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠴⠒⠊⠉⠉⠀⠀⣿⣿⣿⠿⠋⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⡠⠼⠴⠒⠒⠒⠒⠦⠤⠤⣄⣀⠀⢀⣠⠴⠚⠉⠀⠀⠀⠀⠀⠀⠀⠀⣼⠿⠋⠁⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⣇⠔⠂⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠖⠋⠁⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⠤⠒⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢀⡟⠀⣠⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⢻⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⡤⠤⢴
-⠀⠀⠀⠀⠀⠀⣸⠁⣾⣿⣀⣽⡆⠀⠀⠀⠀⠀⠀⠀⢠⣾⠉⢿⣦⠀⠀⠀⢸⡀⠀⠀⢀⣠⠤⠔⠒⠋⠉⠉⠀⠀⠀⠀⢀⡞
-⠀⠀⠀⠀⠀⢀⡏⠀⠹⠿⠿⠟⠁⠀⠰⠦⠀⠀⠀⠀⠸⣿⣿⣿⡿⠀⠀⠀⢘⡧⠖⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠀
-⠀⠀⠀⠀⠀⣼⠦⣄⠀⠀⢠⣀⣀⣴⠟⠶⣄⡀⠀⠀⡀⠀⠉⠁⠀⠀⠀⠀⢸⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠁⠀
-⠀⠀⠀⠀⢰⡇⠀⠈⡇⠀⠀⠸⡾⠁⠀⠀⠀⠉⠉⡏⠀⠀⠀⣠⠖⠉⠓⢤⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⠀⠀
-⠀⠀⠀⠀⠀⢧⣀⡼⠃⠀⠀⠀⢧⠀⠀⠀⠀⠀⢸⠃⠀⠀⠀⣧⠀⠀⠀⣸⢹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠃⠀⠀⠀
-⠀⠀⠀⠀⠀⠈⢧⡀⠀⠀⠀⠀⠘⣆⠀⠀⠀⢠⠏⠀⠀⠀⠀⠈⠳⠤⠖⠃⡟⠀⠀⠀⢾⠛⠛⠛⠛⠛⠛⠛⠛⠁⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠙⣆⠀⠀⠀⠀⠈⠦⣀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⠙⢦⠀⠀⠘⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢠⡇⠙⠦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠴⠋⠸⡇⠈⢳⡀⠀⢹⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⡼⣀⠀⠀⠈⠙⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⣷⠴⠚⠁⠀⣀⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⡴⠁⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣆⡴⠚⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣼⢷⡆⠀⣠⡴⠧⣄⣇⠀⠀⠀⠀⠀⠀⠀⢲⠀⡟⠀⠀⠀⠀⠀⠀⠀⢀⡇⣠⣽⢦⣄⢀⣴⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⡿⣼⣽⡞⠁⠀⠀⠀⢹⡀⠀⠀⠀⠀⠀⠀⠈⣷⠃⠀⠀⠀⠀⠀⠀⠀⣼⠉⠁⠀⠀⢠⢟⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣷⠉⠁⢳⠀⠀⠀⠀⠈⣧⠀⠀⠀⠀⠀⠀⠀⣻⠀⠀⠀⠀⠀⠀⠀⣰⠃⠀⠀⠀⠀⠏⠀⠀⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠹⡆⠀⠈⡇⠀⠀⠀⠀⠘⣆⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⣸⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⢳⡀⠀⠙⠀⠀⠀⠀⠀⠘⣆⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⣰⠃⠀⠀⠀⠀⢀⡄⠀⢠⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⢳⡀⣰⣀⣀⣀⠀⠀⠀⠘⣦⣀⠀⠀⠀⡇⠀⠀⠀⢀⡴⠃⠀⠀⠀⠀⠀⢸⡇⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠉⠉⠀⠀⠈⠉⠉⠉⠙⠻⠿⠾⠾⠻⠓⢦⠦⡶⡶⠿⠛⠛⠓⠒⠒⠚⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO -->
-    <meta name="description" content="Engineering Lead based in Frankfurt. A decade building commerce platforms for Enterprise Retail & Luxury brands. Node.js, TypeScript, AWS.">
-    <meta name="keywords" content="Engineering Lead, Software Architect, Node.js, TypeScript, AWS, Enterprise, E-commerce, Frankfurt">
-    <meta name="author" content="Artyom Yagovdik">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://artttj.de/">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Artyom Yagovdik — Engineering Lead">
-    <meta property="og:description" content="Engineering Lead based in Frankfurt. A decade building commerce platforms for Enterprise Retail & Luxury brands.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://artttj.de/">
-    <meta property="og:image" content="https://artttj.de/assets/og-image.png">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Artyom Yagovdik — Engineering Lead">
-    <meta name="twitter:description" content="Engineering Lead based in Frankfurt. A decade building commerce platforms for Enterprise Retail & Luxury brands.">
-
-    <title>Artyom Yagovdik — Engineering Lead — Architect</title>
-    <link rel="stylesheet" href="/assets/css/fonts.css">
+    <title>Artyom Yagovdik // Systems Architect</title>
+    <link rel="icon" href="/assets/img/logo.png">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link href="https://api.fontshare.com/v2/css?f[]=instrument-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #ffffff;
-            --text-primary: #000000;
-            --text-secondary: #222222;
-            --text-tertiary: #555555;
-            --text-muted: #808080;
-            --border-strong: #111111;
-            --border-medium: #ededed;
-            --border-light: #f5f5f5;
-            --transition: cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        html[data-theme="dark"] {
-            --bg: #141416;
-            --text-primary: #f5f5f5;
-            --text-secondary: #d0d0d5;
-            --text-tertiary: #909095;
-            --text-muted: #5a5a60;
-            --border-strong: #333337;
-            --border-medium: #252529;
-            --border-light: #1c1c20;
-        }
-
-        html[data-theme="light"] {
-            --bg: #ffffff;
-            --text-primary: #000000;
-            --text-secondary: #222222;
-            --text-tertiary: #555555;
-            --text-muted: #808080;
-            --border-strong: #111111;
-            --border-medium: #ededed;
-            --border-light: #f5f5f5;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            html:not([data-theme="dark"]):not([data-theme="light"]) {
-                --bg: #141416;
-                --text-primary: #f5f5f5;
-                --text-secondary: #d0d0d5;
-                --text-tertiary: #909095;
-                --text-muted: #5a5a60;
-                --border-strong: #333337;
-                --border-medium: #252529;
-                --border-light: #1c1c20;
-            }
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-primary);
-            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 15px;
-            line-height: 1.38;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
+        :root {
+            --radius-bento: 28px;
+            --glass-blur: 32px;
+            --bg-base: #F7F5F2;
+            --secondary-glass: rgba(235, 232, 226, 0.4);
+            --text-dark: #1D1D1F;
+            --accent-tech: #3A5A6D;
+            --accent-sage: #B4CDC3;
+            --accent-persimmon: #FF8C69;
         }
-
+        body {
+            font-family: 'Switzer', -apple-system, sans-serif;
+            background: #f7f4ef;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            overflow-x: hidden;
+            position: relative;
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Mesh Gradient - 4 overlapping blobs with warm/cool balance */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(50% 50% at 5% 5%, rgba(233, 213, 255, 0.45), transparent 70%),
+                radial-gradient(55% 55% at 90% 8%, rgba(209, 250, 229, 0.4), transparent 70%),
+                radial-gradient(50% 50% at 75% 85%, rgba(252, 231, 243, 0.4), transparent 70%),
+                radial-gradient(45% 45% at 15% 80%, rgba(224, 242, 254, 0.35), transparent 70%);
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Grain texture overlay - higher frequency, more visible */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1;
+            filter: contrast(125%);
+            mix-blend-mode: overlay;
+        }
+        
+        /* Subtle drift animation on blobs */
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(2%, -2%) scale(1.02); }
+            66% { transform: translate(-1%, 1%) scale(0.98); }
+        }
+        
+        body::before {
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        /* Glass cards */
+        .glass {
+            position: relative;
+            border-radius: var(--radius-bento);
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(20px) saturate(120%);
+            -webkit-backdrop-filter: blur(20px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            box-shadow: 
+                0 4px 24px rgba(0, 0, 0, 0.02),
+                inset 1px 1px 0 rgba(255, 255, 255, 0.4),
+                inset -1px -1px 0 rgba(255, 255, 255, 0.15);
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1), 
+                        opacity 0.6s ease, 
+                        transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 32px;
+            min-height: 280px;
+            opacity: 0;
+            transform: translateY(20px);
+            isolation: isolate;
+        }
+        
+        /* tint layer for color randomization */
+        .glass::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Container sits above noise layer */
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 1rem 4rem 2.5rem;
-        }
-
-        header {
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid var(--border-strong);
-            margin-bottom: 2rem;
-        }
-
-        .identity h1 {
-            font-family: 'Crimson Pro', serif;
-            font-size: clamp(2.6rem, 6vw, 4.2rem);
-            font-weight: 400;
-            letter-spacing: -0.025em;
-            line-height: 0.95;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .identity .subtitle {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-        }
-
-        section {
-            margin-bottom: 2.2rem;
-        }
-
-        .section-label {
-            font-size: 0.58rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            margin-bottom: 0.8rem;
-            display: block;
-        }
-
-        #bio p {
-            font-family: 'Crimson Pro', serif;
-            font-size: clamp(1.3rem, 2.2vw, 1.65rem);
-            font-weight: 400;
-            font-style: italic;
-            line-height: 1.35;
-            color: var(--text-secondary);
-            max-width: 65ch;
-        }
-
-        #approach {
-            padding-bottom: 1.8rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .approach-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2rem 2.8rem;
-        }
-
-        .approach-item {
-            padding-top: 0.6rem;
-        }
-
-        .approach-item h3 {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 0.35rem;
-        }
-
-        .approach-item p {
-            font-size: 0.88rem;
-            color: var(--text-tertiary);
-            line-height: 1.45;
-        }
-
-        #software {
-            padding-bottom: 1.8rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.7rem;
-        }
-
-        .project-card {
-            display: block;
-            padding: 1.1rem 1.5rem;
-            text-decoration: none;
-            border: 1px solid var(--border-medium);
-            border-radius: 2px;
-            margin: 0.35rem;
-            background-color: transparent;
-            transition: background-color 0.25s var(--transition),
-                        border-color 0.25s var(--transition),
-                        transform 0.25s var(--transition);
-        }
-
-        .project-card:hover {
-            background-color: var(--border-light);
-            border-color: var(--border-strong);
-            transform: translateY(-2px);
-        }
-
-        html[data-theme="dark"] .project-card:hover {
-            background-color: var(--border-light);
-        }
-
-        .project-card:active {
-            transform: translateY(0);
-        }
-
-        .project-card h3 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.45rem;
-            font-weight: 600;
-            font-style: italic;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-            transition: color 0.2s var(--transition);
-        }
-
-        .project-card:hover h3 {
-            color: var(--text-primary);
-        }
-
-        .project-card p {
-            font-size: 0.82rem;
-            color: var(--text-tertiary);
-            line-height: 1.4;
-        }
-
-        .project-tag {
-            display: inline-block;
-            font-family: 'Instrument Sans', sans-serif;
-            font-size: 0.58rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--text-muted);
-            margin-left: 0.5rem;
-            vertical-align: baseline;
-        }
-
-        .project-card strong {
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .links-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0;
-        }
-
-        .link-item {
-            flex: 0 0 auto;
-            display: inline-flex;
-            align-items: center;
-            padding: 0.8rem 0;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            letter-spacing: 0.03em;
-            margin-right: 3rem;
             position: relative;
-            transition: color 0.2s var(--transition);
+            z-index: 10;
         }
-
-        .link-item::after {
-            content: '';
+        
+        .glass-inner {
             position: absolute;
-            bottom: 0px;
+            inset: 0;
+            z-index: 0;
+            backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+            background: var(--secondary-glass);
+            filter: url(#lg-dist);
+        }
+        
+        .glass-specular {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            border-radius: inherit;
+            overflow: hidden;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.6);
+            background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+        }
+
+        .glass.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .glass::before {
+            content: "";
+            position: absolute;
+            top: 0;
             left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--text-primary);
-            transition: width 0.3s var(--transition);
+            right: 0;
+            height: 50%;
+            border-radius: var(--radius-bento) var(--radius-bento) 0 0;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.15) 0%, 
+                rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+            z-index: 1;
+            filter: none;
         }
-
-        .link-item:hover::after { width: 100%; }
-        .link-item:hover { color: var(--text-secondary); }
-
-        footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1.2rem;
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
+        
+        .glass::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            transition: opacity 0.4s;
+            background: radial-gradient(120% 100% at 50% -20%, rgba(255,255,255,0.08), transparent);
+            filter: none;
         }
-
-        .theme-toggle {
-            background: transparent;
-            border: 1px solid var(--border-medium);
-            border-radius: 2px;
-            padding: 0.4rem 0.6rem;
+        .glass:hover {
+            transform: translateY(-4px);
+            background: rgba(235, 232, 226, 0.5);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.04);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        #network { 
+            min-height: auto; 
+            align-self: start;
+        }
+        .span-2 { grid-column: span 2; }
+        header { 
+            display: flex; 
+            flex-direction: row; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 2.5rem; 
+            padding: 16px 32px; 
+            min-height: 80px;
+            background: #ffffff;
+            border-radius: var(--radius-bento);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 
+                0 4px 24px rgba(0, 0, 0, 0.03),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
             cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        
+        header.collapsed {
+            width: fit-content;
+            min-width: 200px;
+            padding: 12px 24px;
+        }
+        
+        header.collapsed .expand-hint {
+            display: block;
+            opacity: 0.5;
             font-size: 0.75rem;
             color: var(--text-muted);
-            transition: border-color 0.2s var(--transition), color 0.2s var(--transition);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
         }
-
-        .theme-toggle:hover {
-            border-color: var(--text-primary);
-            color: var(--text-primary);
+        
+        header:not(.collapsed) .expand-hint {
+            display: none;
         }
-
-        .header-row {
+        
+        header.collapsed .links {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+        }
+        
+        header:not(.collapsed) .links {
+            opacity: 1;
+            pointer-events: auto;
+            position: relative;
+        }
+        
+        header.collapsed h1::after {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            margin-left: 10px;
+            vertical-align: middle;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+        
+        header .header-main {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            gap: 16px;
         }
-
-        .fade-in { animation: fadeIn 0.6s var(--transition) backwards; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        header .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
+        
+        .interests-bar-header {
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            opacity: 0;
+            transform: translateY(-5px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            white-space: nowrap;
+        }
+        
+        header:not(.collapsed) .interests-bar-header {
+            opacity: 0.6;
+            transform: translateY(0);
+        }
+        
+        .interests-bar-header .highlight { font-weight: 400; margin-right: 4px; }
+        .interests-bar-header .dot { margin: 0 8px; opacity: 0.4; font-weight: 400; }
+        
+        header.collapsed .interests-bar-header {
+            display: none;
+        }
+        .interests-bar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 0.4rem;
+            margin-bottom: 2.5rem;
+            padding-left: 4px;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1) 0.3s;
+            cursor: default;
+            white-space: nowrap;
+        }
+        .interests-bar.visible { opacity: 0.7; transform: translateY(0); }
+        .interests-bar .highlight { font-weight: 400; margin-right: 4px; }
+        .interests-bar .dot { margin: 0 12px; opacity: 0.4; font-weight: 400; }
+        .interest-secondary span.active { opacity: 0.6; }
 
-        @media (max-width: 900px) {
-            .container { padding: 1.2rem 2.5rem; }
-            .approach-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-            .projects-grid { grid-template-columns: 1fr; gap: 0.5rem; }
-            .project-card { 
-                padding: 1rem; 
-                margin: 0;
+        .header-main { display: flex; align-items: center; gap: 20px; }
+        .logo { height: 42px; width: auto; border-radius: 50%; display: block; filter: grayscale(100%) contrast(1.1); }
+        h1 { 
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 1.25rem; 
+            font-weight: 700; 
+            letter-spacing: -0.03em; 
+            margin: 0; 
+            color: var(--text-dark); 
+        }
+        .subtitle { font-size: 0.85rem; font-weight: 500; color: var(--text-dark); opacity: 0.8; }
+        .title-group { display: flex; align-items: center; gap: 12px; margin-bottom: 0.5rem; position: relative; z-index: 2; }
+        .project-icon { width: 24px; height: 24px; border-radius: 6px; object-fit: contain; }
+        .meta {
+            position: relative;
+            z-index: 10;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-tech);
+            margin-bottom: 1.25rem;
+        }
+        h3 { 
+            position: relative;
+            z-index: 10;
+            font-family: 'Instrument Sans', sans-serif; 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            letter-spacing: -0.02em; 
+            margin: 0; 
+        }
+        .glass p { 
+            position: relative;
+            z-index: 10;
+            font-family: 'Satoshi', sans-serif; 
+            font-size: 0.82rem; 
+            line-height: 1.5; 
+            font-weight: 400; 
+            letter-spacing: -0.01em; 
+            color: var(--text-dark); 
+            max-width: 55ch; 
+        }
+        .glass card-random::after { display: none; }
+        .img-preview {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 75%;
+            height: auto;
+            transform: translate(8%, 8%);
+            border-radius: 12px;
+            opacity: 0.5;
+            transition: all 0.5s ease;
+            z-index: 1;
+            filter: saturate(1.8) contrast(1.05);
+            mask-image: radial-gradient(circle at bottom right, black 20%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at bottom right, black 20%, transparent 80%);
+        }
+        .glass:hover .img-preview { transform: translate(4%, 4%); opacity: 0.8; }
+        .links { display: flex; gap: 0.75rem; flex-wrap: nowrap; margin-top: auto; z-index: 5; }
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+        .btn-cta { 
+            background: var(--text-dark); 
+            color: #fff; 
+            border: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .btn-cta:hover { background: var(--accent-tech); transform: translateY(-2px); }
+        
+        /* Social buttons - always dark */
+        header .links .glass-btn:not(.btn-cta) {
+            background: var(--text-dark);
+            color: #fff;
+            border: none;
+        }
+        header .links .glass-btn:not(.btn-cta):hover {
+            background: var(--accent-tech);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        
+        /* Card links stay white/transparent */
+        #network .links .glass-btn:not(.btn-cta):hover { background: #fff; transform: translateY(-2px); border-color: var(--accent-tech); }
+        .glass-ghost { 
+            opacity: 0.2 !important; 
+            background: rgba(0,0,0,0.04) !important; 
+            transform: scale(0.98);
+            border-color: rgba(0,0,0,0.15) !important;
+        }
+        .glass-drag { 
+            opacity: 1 !important; 
+            box-shadow: 0 50px 120px rgba(0,0,0,0.15) !important; 
+            cursor: grabbing !important; 
+            transition: transform 0.3s cubic-bezier(0.2, 1, 0.3, 1) !important;
+        }
+        .icon { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+        .icon-stroke { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        
+        @media (max-width: 800px) {
+            body {
+                background: 
+                    radial-gradient(120vw 120vw at 0% 30%, rgba(212, 163, 115, 0.2), transparent 70%),
+                    radial-gradient(100vw 100vw at 100% 70%, rgba(180, 205, 195, 0.25), transparent 60%),
+                    #F7F5F2;
+                background-attachment: fixed;
+                padding: 1rem;
             }
-            .projects-grid .project-card:nth-child(2n) { padding: 1rem; }
-            .projects-grid .project-card:nth-last-child(2) { border-bottom: 1px solid var(--border-medium); }
-            .link-item { margin-right: 2rem; }
+            .grid { grid-template-columns: 1fr; gap: 1.25rem; }
+            #network { grid-column: span 1; align-self: stretch; }
+            header { flex-direction: column; text-align: center; gap: 1rem; padding: 16px 20px; }
+            header.collapsed {
+                flex-direction: row;
+                text-align: left;
+                gap: 8px;
+                padding: 12px 16px;
+            }
+            header.collapsed .expand-hint {
+                font-size: 0.7rem;
+            }
+            .interests-bar { 
+                font-size: 0.85rem; 
+                flex-wrap: wrap; 
+                justify-content: center;
+                margin-bottom: 1.5rem;
+            }
+            .glass { min-height: 220px; padding: 24px; }
+            .img-preview { display: none; }
+                .links { flex-wrap: wrap; justify-content: center; }
         }
-
-        @media (max-width: 600px) {
-            .container { padding: 1rem 1.25rem; }
-            .header-row { flex-wrap: wrap; gap: 1rem; }
-            .theme-toggle { order: -1; margin-left: auto; }
-            .approach-item { padding-left: 0; }
-            .project-card h3 { font-size: 1.25rem; }
-            .project-card p { font-size: 0.8rem; }
-            .links-grid { flex-direction: column; }
-            .link-item { margin-right: 0; width: 100%; padding: 0.6rem 0; }
+        
+        a.glass {
+            color: inherit;
+            text-decoration: none;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        a.glass:visited,
+        a.glass:active {
+            color: inherit;
+        }
+        
+        a.glass:focus-visible {
+            box-shadow: 0 0 0 2px rgba(29, 29, 31, 0.2);
         }
     </style>
 </head>
 <body>
-    <div class="container fade-in">
-        <header>
-            <div class="header-row">
-                <div class="identity">
+    <div class="container">
+        <header class="collapsed" onclick="this.classList.toggle('collapsed')">
+            <div class="header-main">
+                <img src="/assets/img/logo.png" class="logo" alt="Artyom Yagovdik Logo">
+                <div class="header-text">
                     <h1>Artyom Yagovdik</h1>
-                    <div class="subtitle">Engineering Lead — Software Architect</div>
+                    <div class="interests-bar-header">
+                        <span class="highlight">Systems Architect</span> <span class="dot">·</span> Node.js/TypeScript <span class="dot">·</span> AWS Cloud <span class="dot">·</span> E-commerce Tech Lead
+                    </div>
                 </div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◑</button>
+            </div>
+            <div class="links">
+                <a href="https://github.com/artttj" class="glass-btn" onclick="event.stopPropagation()">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/artttj" class="glass-btn" onclick="event.stopPropagation()">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+                    LinkedIn
+                </a>
+                <a href="mailto:artyom.yagovdik@gmail.com" class="glass-btn btn-cta" onclick="event.stopPropagation()">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22 6 12 13 2 6"></polyline></svg>
+                    Email
+                </a>
             </div>
         </header>
-
-        <section id="bio">
-            <p>Engineering Lead based in Frankfurt. A decade building commerce platforms for <strong>Enterprise Retail & Luxury brands</strong> that handle serious traffic. Specializing in <strong>Node.js</strong>, <strong>TypeScript</strong>, and <strong>AWS</strong>. Bridging the gap between complex business ROI and robust, scalable code.</p>
-        </section>
-
-        <section id="approach">
-            <div class="approach-grid">
-                <div class="approach-item">
-                    <h3>ROI First</h3>
-                    <p>Good code means nothing if it doesn't move the business forward. Focus on shipping features that actually matter.</p>
+        
+        <svg style="display: none; position: absolute; width: 0; height: 0;">
+            <filter id="lg-dist" x="0%" y="0%" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.006 0.006" numOctaves="2" seed="92" result="noise"/>
+                <feGaussianBlur in="noise" stdDeviation="1.5" result="blurred"/>
+                <feDisplacementMap in="SourceGraphic" in2="blurred" scale="40" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+        </svg>
+        
+        <div id="grid" class="grid">
+            <a href="https://github.com/artttj/sento" class="glass">
+                <span class="meta">Interface</span>
+                <div class="title-group">
+                    <img src="https://raw.githubusercontent.com/artttj/sento/main/icons/icon48.png" class="project-icon" alt="">
+                    <h3>Sento</h3>
                 </div>
-                <div class="approach-item">
-                    <h3>Ownership</h3>
-                    <p>Teams work best when people own their decisions. I hire smart engineers and get out of their way.</p>
+                <p>An AI writing layer designed to live seamlessly in any web interface.</p>
+                <img src="https://raw.githubusercontent.com/artttj/sento/main/screenshots/sento_1400x560.png" class="img-preview" alt="Sento">
+            </a>
+            <a href="https://github.com/artttj/synto" class="glass card-random">
+                <span class="meta">Extraction</span>
+                <div class="title-group">
+                    <img src="https://raw.githubusercontent.com/artttj/synto/main/docs/icon128.png" class="project-icon" alt="">
+                    <h3>Synto</h3>
                 </div>
-                <div class="approach-item">
-                    <h3>Reliability</h3>
-                    <p>Systems that process millions in revenue can't afford downtime. Architect for failure because it will happen.</p>
+                <p>Turning the web into clean, structured data for LLM pipelines.</p>
+                <img src="https://raw.githubusercontent.com/artttj/synto/main/docs/synto_1.png" class="img-preview" alt="Synto">
+            </a>
+            <a href="https://github.com/artttj/sonto" class="glass card-random">
+                <span class="meta">Workflow</span>
+                <div class="title-group">
+                    <img src="https://raw.githubusercontent.com/artttj/sonto/main/icons/icon48.png" class="project-icon" alt="">
+                    <h3>Sonto <span style="font-size: 0.65rem; opacity: 0.5; font-weight: 600; margin-left: 8px;">[BETA]</span></h3>
                 </div>
-                <div class="approach-item">
-                    <h3>Keep Moving</h3>
-                    <p>Technical debt compounds. Don't chase the latest framework, but ensure the architecture remains future-proof.</p>
+                <p>A quiet side-panel clipboard manager with history and snippets.</p>
+                <img src="https://raw.githubusercontent.com/artttj/sonto/main/docs/screenshots/e2e_clipboard_light.png" class="img-preview" alt="Sonto">
+            </a>
+            <a href="https://github.com/artttj/nemo" class="glass card-random">
+                <span class="meta">Security</span>
+                <div class="title-group">
+                    <img src="https://raw.githubusercontent.com/artttj/nemo/main/public/icon-48.png" class="project-icon" alt="">
+                    <h3>Nemo <span style="font-size: 0.65rem; opacity: 0.5; font-weight: 600; margin-left: 8px;">[BETA]</span></h3>
+                </div>
+                <p>Zero-knowledge password security, unlocked with a touch.</p>
+                <img src="https://raw.githubusercontent.com/artttj/nemo/main/tests/screenshots/readme-unlocked.png" class="img-preview" alt="Nemo">
+            </a>
+            <div id="network" class="glass card-random">
+                <span class="meta">Network</span>
+                <div class="links">
+                    <a href="https://github.com/artttj" class="glass-btn" target="_blank" rel="noopener">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/artyom-yagovdik/" class="glass-btn" target="_blank" rel="noopener">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <section id="software">
-            <span class="section-label">My Projects</span>
-            <div class="projects-grid">
-                <a class="project-card" href="https://github.com/artttj/sento" target="_blank" rel="noopener">
-                    <h3>Sento<span class="project-tag">[Rewrite]</span></h3>
-                    <p>High-performance Chrome MV3 rewrite assistant. Injects a <strong>Shadow DOM</strong> "liquid glass" bubble for in-place text modification via <strong>AI</strong> with framework-aware replacement.</p>
-                </a>
-                <a class="project-card" href="https://github.com/artttj/synto" target="_blank" rel="noopener">
-                    <h3>Synto<span class="project-tag">[Extract]</span></h3>
-                    <p>Clean Markdown extraction for AI workflows. Bridges the gap between messy web pages and <strong>LLMs</strong> by stripping clutter. <strong>Privacy-first</strong> design with local-only storage.</p>
-                </a>
-                <a class="project-card" href="https://github.com/artttj/sonto" target="_blank" rel="noopener">
-                    <h3>Sonto<span class="project-tag">[Clipboard]</span></h3>
-                    <p>A quiet side-panel clipboard manager for Chrome. Features include <strong>clipboard history</strong>, tagged snippets, and a time-aware <strong>Zen feed</strong> for slow consumption.</p>
-                </a>
-                <a class="project-card" href="https://github.com/artttj/nemo" target="_blank" rel="noopener">
-                    <h3>Nemo</h3>
-                    <p>Privacy-focused browser extension password manager. Implements <strong>biometric unlock</strong>, PIN fallback, and optional <strong>zero-knowledge sync</strong>. Plaintext never leaves your browser.</p>
-                </a>
-                <a class="project-card" href="https://github.com/artttj/awesome-hyva" target="_blank" rel="noopener">
-                    <h3>Awesome Hyvä</h3>
-                    <p>A curated technical intelligence hub for <strong>Hyvä</strong> theme development. Resources, compatibility trackers, and ecosystem tooling for modern <strong>Magento</strong> storefronts.</p>
-                </a>
-            </div>
-        </section>
-
-        <section id="social">
-            <div class="links-grid">
-                <a href="/cv/" class="link-item">Curriculum Vitae</a>
-                <a href="https://github.com/artttj" target="_blank" rel="noopener" class="link-item">GitHub</a>
-                <a href="https://linkedin.com/in/artyom-yagovdik/" target="_blank" rel="noopener" class="link-item">LinkedIn</a>
-                <a href="mailto:artyom.yagovdik@gmail.com" class="link-item">Email</a>
-                <a href="/status/" class="link-item">Status</a>
-                <a href="/old/" title="For the nostalgic" class="link-item">Old Website</a>
-            </div>
-        </section>
-
-        <footer style="display: flex; justify-content: flex-end;">
-            <div style="font-variant-numeric: tabular-nums;">© 2026</div>
+        </div>
+        <footer style="margin-top: 3rem; text-align: center; padding-bottom: 2rem;">
+            <a href="/cv/" style="font-family:'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-dark); opacity: 0.4; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">CV</a>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
     <script>
-        (function() {
-            const toggle = document.getElementById('themeToggle');
-            const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (saved === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            } else if (saved === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            } else if (prefersDark) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
-            
-            toggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const isDark = currentTheme === 'dark';
-                if (isDark) {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('theme', 'dark');
-                }
+        const colors = [
+            'rgba(255, 248, 240, 0.22)',   // Peach milk - warm
+            'rgba(240, 245, 255, 0.25)',   // Soft lavender - cool
+            'rgba(250, 252, 245, 0.22)',   // Sage cream - neutral
+            'rgba(255, 245, 238, 0.22)',   // Blush stone - warm
+            'rgba(245, 250, 255, 0.25)',   // Ice blue - cool
+            'rgba(255, 250, 235, 0.20)',   // Cream gold - warm
+            'rgba(250, 245, 255, 0.25)',   // Lilac mist - cool
+            'rgba(255, 252, 245, 0.22)'    // Vanilla - neutral
+        ];
+        window.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass');
+            cards.forEach(card => {
+                const inner = document.createElement('div');
+                inner.className = 'glass-inner';
+                card.insertBefore(inner, card.firstChild);
             });
-        })();
+            
+            // Randomize tint
+            const deck = [...colors].sort(() => Math.random() - 0.5);
+            cards.forEach((card, index) => {
+                const color = deck[index % deck.length];
+                const style = document.createElement('style');
+                const className = 'tint-dynamic-' + index + '-' + Math.floor(Math.random()*1000);
+                card.classList.add(className);
+                style.innerHTML = '.' + className + ' .glass-inner::after { content: ""; position: absolute; inset: 0; background: ' + color + '; pointer-events: none; z-index: -1; }';
+                document.head.appendChild(style);
+            });
+            
+            // Stagger entrance
+            cards.forEach((card, index) => {
+                setTimeout(() => card.classList.add('visible'), 60 + (index * 60));
+            });
+            
+            // Sortable
+            const grid = document.getElementById('grid');
+            new Sortable(grid, {
+                animation: 450,
+                ghostClass: 'glass-ghost',
+                dragClass: 'glass-drag',
+                easing: "cubic-bezier(0.2, 1, 0.3, 1)",
+                onStart: function() { document.body.style.cursor = 'grabbing'; },
+                onEnd: function() { document.body.style.cursor = 'default'; }
+            });
+            
+            // Re-inject inner layer after drag
+            new MutationObserver(() => {
+                grid.querySelectorAll('.glass:not(:has(.glass-inner))').forEach(card => {
+                    const inner = document.createElement('div');
+                    inner.className = 'glass-inner';
+                    card.insertBefore(inner, card.firstChild);
+                });
+            }).observe(grid, { childList: true });
+        });
+        function hexToRgba(hex, alpha) {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
+        }
     </script>
 </body>
 </html>
