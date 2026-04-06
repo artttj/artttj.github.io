@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artyom Yagovdik - Engineering Lead</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #008080;
+            font-family: "MS Sans Serif", "Segoe UI", Tahoma, sans-serif;
+            font-size: 11px;
+            color: #000;
+            min-height: 100vh;
+            padding: 20px;
+            cursor: default;
+        }
+        
+        /* Window styles */
+        .window {
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #dfdfdf #000 #000 #dfdfdf;
+            box-shadow: 2px 2px 0 #000;
+            margin-bottom: 10px;
+        }
+        
+        .window-title {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            color: #fff;
+            padding: 2px 4px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .window-title.inactive {
+            background: linear-gradient(90deg, #808080, #a0a0a0);
+        }
+        
+        .title-text {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .title-icon {
+            width: 16px;
+            height: 16px;
+            background: #c0c0c0;
+            border: 1px solid #fff;
+            display: inline-block;
+        }
+        
+        .window-buttons {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .win-btn {
+            width: 16px;
+            height: 14px;
+            background: #c0c0c0;
+            border: 1px solid;
+            border-color: #fff #000 #000 #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            cursor: pointer;
+        }
+        
+        .win-btn:active {
+            border-color: #000 #fff #fff #000;
+        }
+        
+        .window-content {
+            padding: 10px;
+            background: #c0c0c0;
+        }
+        
+        /* Raised/sunken panels */
+        .raised {
+            border: 2px solid;
+            border-color: #fff #808080 #808080 #fff;
+            background: #c0c0c0;
+            padding: 8px;
+        }
+        
+        .sunken {
+            border: 2px solid;
+            border-color: #808080 #fff #fff #808080;
+            background: #fff;
+            padding: 4px;
+        }
+        
+        /* Buttons */
+        button, .btn {
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #fff #000 #000 #fff;
+            padding: 4px 12px;
+            font-family: inherit;
+            font-size: 11px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            color: #000;
+        }
+        
+        button:active, .btn:active {
+            border-color: #000 #fff #fff #000;
+            padding: 5px 11px 3px 13px;
+        }
+        
+        /* Desktop icons */
+        .desktop {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .desktop-icon {
+            width: 75px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .desktop-icon:hover {
+            outline: 1px dotted #fff;
+        }
+        
+        .icon-img {
+            width: 32px;
+            height: 32px;
+            background: #c0c0c0;
+            border: 1px solid #000;
+            margin: 0 auto 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .icon-text {
+            background: transparent;
+            padding: 0 2px;
+            text-shadow: 1px 1px 0 #000;
+        }
+        
+        /* Scrollbar */
+        .scrollable {
+            overflow-y: auto;
+            max-height: 300px;
+        }
+        
+        /* Taskbar */
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 28px;
+            background: #c0c0c0;
+            border-top: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 2px;
+        }
+        
+        .start-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 6px;
+            font-weight: bold;
+        }
+        
+        .start-logo {
+            width: 16px;
+            height: 16px;
+            background: #008080;
+            border: 1px solid #fff;
+        }
+        
+        .taskbar-divider {
+            width: 2px;
+            height: 22px;
+            border-left: 1px solid #808080;
+            border-right: 1px solid #fff;
+            margin: 0 4px;
+        }
+        
+        .clock {
+            border: 2px solid;
+            border-color: #808080 #fff #fff #808080;
+            padding: 2px 8px;
+            margin-left: auto;
+            font-family: "VT323", monospace;
+            font-size: 14px;
+        }
+        
+        /* Main content area */
+        .main-area {
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        h2 {
+            font-size: 12px;
+            font-weight: bold;
+            margin: 10px 0 6px;
+        }
+        
+        p {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .marquee {
+            background: #000080;
+            color: #fff;
+            padding: 4px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .marquee span {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .project-item {
+            border: 1px solid #808080;
+            padding: 8px;
+            background: #fff;
+            cursor: pointer;
+        }
+        
+        .project-item:hover {
+            background: #000080;
+            color: #fff;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: #c0c0c0;
+            border: 1px solid #808080;
+            padding: 0 4px;
+            font-size: 9px;
+            margin-left: 4px;
+        }
+        
+        .project-item:hover .project-tag {
+            background: #fff;
+            color: #000;
+        }
+        
+        .links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        
+        /* Tree view */
+        .tree ul {
+            list-style: none;
+            padding-left: 16px;
+        }
+        
+        .tree li {
+            position: relative;
+            padding-left: 16px;
+            margin: 2px 0;
+        }
+        
+        .tree li::before {
+            content: "├─";
+            position: absolute;
+            left: 0;
+        }
+        
+        .tree li:last-child::before {
+            content: "└─";
+        }
+        
+        /* Retro computer text */
+        .retro-text {
+            font-family: "VT323", monospace;
+            font-size: 16px;
+        }
+        
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        
+        a {
+            color: #0000ee;
+            text-decoration: underline;
+        }
+        
+        a:visited {
+            color: #551a8b;
+        }
+        
+        .warning {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            border: 2px solid;
+            border-color: #fff #000 #000 #fff;
+            background: #c0c0c0;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .warning-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop Icons -->
+    <div class="desktop">
+        <a href="/" class="desktop-icon">
+            <div class="icon-img">🏠</div>
+            <div class="icon-text">Home</div>
+        </a>
+        <a href="/cv/" class="desktop-icon">
+            <div class="icon-img">📄</div>
+            <div class="icon-text">My CV</div>
+        </a>
+        <a href="https://github.com/artttj" class="desktop-icon">
+            <div class="icon-img">💾</div>
+            <div class="icon-text">GitHub</div>
+        </a>
+        <a href="mailto:artyom.yagovdik@gmail.com" class="desktop-icon">
+            <div class="icon-img">✉️</div>
+            <div class="icon-text">Email</div>
+        </a>
+    </div>
+
+    <div class="main-area">
+        <!-- Bio Window -->
+        <div class="window">
+            <div class="window-title">
+                <div class="title-text">
+                    <span class="title-icon"></span>
+                    README.TXT
+                </div>
+                <div class="window-buttons">
+                    <div class="win-btn">─</div>
+                    <div class="win-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="sunken" style="font-family: 'Courier New', monospace; font-size: 12px; white-space: pre-wrap;">
+Engineering Lead based in Frankfurt. A decade building commerce platforms 
+for Enterprise Retail & Luxury brands that handle serious traffic. 
+
+Specializing in Node.js, TypeScript, and AWS. Bridging the gap between 
+complex business ROI and robust, scalable code.
+
+&gt; Status: <span class="blink">_</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Approach Window -->
+        <div class="window">
+            <div class="window-title">
+                <div class="title-text">
+                    <span class="title-icon"></span>
+                    philosophy.dll
+                </div>
+                <div class="window-buttons">
+                    <div class="win-btn">─</div>
+                    <div class="win-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="grid">
+                    <div class="raised">
+                        <h2>📊 ROI First</h2>
+                        <p>Good code means nothing if it doesn't move the business forward. Focus on shipping features that actually matter.</p>
+                    </div>
+                    <div class="raised">
+                        <h2>🎯 Ownership</h2>
+                        <p>Teams work best when people own their decisions. I hire smart engineers and get out of their way.</p>
+                    </div>
+                    <div class="raised">
+                        <h2>⚙️ Reliability</h2>
+                        <p>Systems that process millions in revenue can't afford downtime. Architect for failure because it will happen.</p>
+                    </div>
+                    <div class="raised">
+                        <h2>🚀 Keep Moving</h2>
+                        <p>Technical debt compounds. Don't chase the latest framework — ensure architecture remains future-proof.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Window -->
+        <div class="window">
+            <div class="window-title">
+                <div class="title-text">
+                    <span class="title-icon"></span>
+                    C:\Projects
+                </div>
+                <div class="window-buttons">
+                    <div class="win-btn">─</div>
+                    <div class="win-btn">□</div>
+                    <div class="win-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="scrollable">
+                    <div class="tree">
+                        <ul style="padding-left: 0;">
+                            <li style="padding-left: 0;">
+                                <div style="display: flex; align-items: center; gap: 4px;">
+                                    📁 <a href="https://github.com/artttj/sento" target="_blank">sento.exe</a>
+                                    <span class="project-tag">[Rewrite]</span>
+                                </div>
+                                <div style="margin-left: 20px; color: #555; margin-top: 4px;">
+                                    High-performance Chrome MV3 rewrite assistant with Shadow DOM "liquid glass" bubble
+                                </div>
+                            </li>
+                            <li>
+                                <div style="display: flex; align-items: center; gap: 4px;">
+                                    📁 <a href="https://github.com/artttj/synto" target="_blank">synto.exe</a>
+                                    <span class="project-tag">[Extract]</span>
+                                </div>
+                                <div style="margin-left: 20px; color: #555; margin-top: 4px;">
+                                    Clean Markdown extraction for AI workflows. Privacy-first design.
+                                </div>
+                            </li>
+                            <li>
+                                <div style="display: flex; align-items: center; gap: 4px;">
+                                    📁 <a href="https://github.com/artttj/sonto" target="_blank">sonto.exe</a>
+                                    <span class="project-tag">[Clipboard]</span>
+                                </div>
+                                <div style="margin-left: 20px; color: #555; margin-top: 4px;">
+                                    Quiet side-panel clipboard manager with tagged snippets
+                                </div>
+                            </li>
+                            <li>
+                                <div style="display: flex; align-items: center; gap: 4px;">
+                                    📁 <a href="https://github.com/artttj/nemo" target="_blank">nemo.exe</a>
+                                </div>
+                                <div style="margin-left: 20px; color: #555; margin-top: 4px;">
+                                    Privacy-focused browser extension password manager with biometric unlock
+                                </div>
+                            </li>
+                            <li>
+                                <div style="display: flex; align-items: center; gap: 4px;">
+                                    📁 <a href="https://github.com/artttj/awesome-hyva" target="_blank">awesome_hyva.exe</a>
+                                </div>
+                                <div style="margin-left: 20px; color: #555; margin-top: 4px;">
+                                    Curated technical intelligence hub for Hyvä theme development
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warning/Fun Message -->
+        <div class="warning">
+            <div class="warning-icon">⚠️</div>
+            <div>
+                <b>CONGRATULATIONS!</b><br>
+                You have found the <i>hidden</i> Windows 95 version of this site.<br>
+                This page is best viewed in Internet Explorer 3.0 at 800x600 resolution.<br>
+                <a href="/">Click here to return to the modern version</a> (boring)
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button class="start-btn">
+            <span class="start-logo">☯</span>
+            Start
+        </button>
+        <div class="taskbar-divider"></div>
+        <button>📝 Notepad</button>
+        <div class="taskbar-divider"></div>
+        <a href="/cv/" class="btn">📄 CV.txt</a>
+        <button style="margin-left: auto;">💾 Save Work</button>
+        <div class="clock" id="clock">12:00 PM</div>
+    </div>
+
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const displayHours = hours % 12 || 12;
+            document.getElementById('clock').textContent = `${displayHours}:${minutes} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Make windows draggable
+        document.querySelectorAll('.window-title').forEach(title => {
+            const window = title.closest('.window');
+            let isDragging = false;
+            let currentX, currentY, initialX, initialY;
+            let xOffset = 0, yOffset = 0;
+
+            title.addEventListener('mousedown', dragStart);
+
+            function dragStart(e) {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+                if (e.target === title || e.target.parentElement === title) {
+                    isDragging = true;
+                }
+            }
+
+            document.addEventListener('mousemove', dragMove);
+            document.addEventListener('mouseup', dragEnd);
+
+            function dragMove(e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                    xOffset = currentX;
+                    yOffset = currentY;
+                    window.style.transform = `translate(${currentX}px, ${currentY}px)`;
+                }
+            }
+
+            function dragEnd() {
+                initialX = currentX;
+                initialY = currentY;
+                isDragging = false;
+            }
+        });
+
+        // Console easter egg
+        console.log('%c Windows 95 Mode Activated ', 'background: #000080; color: #fff; font-size: 20px;');
+        console.log('%c It is now safe to turn off your computer. ', 'background: #000; color: #fff;');
+    </script>
+</body>
+</html>

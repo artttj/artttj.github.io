@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artyom Yagovdik — Engineering Lead</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #111;
+            background: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header { margin-bottom: 3rem; }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .role {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .location {
+            color: #999;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        section { margin-bottom: 2.5rem; }
+
+        p { margin-bottom: 1rem; color: #444; }
+
+        a {
+            color: #111;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #ccc;
+            transition: text-decoration-color 0.15s;
+        }
+
+        a:hover { text-decoration-color: #111; }
+
+        .links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .links a { text-decoration: none; }
+        .links a:hover { text-decoration: underline; }
+
+        ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: #444;
+        }
+
+        li::before {
+            content: '—';
+            color: #ccc;
+            margin-right: 0.75rem;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            font-size: 0.875rem;
+            color: #999;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Artyom Yagovdik</h1>
+        <p class="role">Engineering Lead, Software Architect</p>
+        <p class="location">Frankfurt, Germany</p>
+    </header>
+
+    <section>
+        <p>Building commerce platforms for Enterprise Retail & Luxury brands. Ten years of shipping systems that handle serious traffic.</p>
+        <p>Currently focused on Node.js, TypeScript, and AWS infrastructure. I bridge the gap between business ROI and robust, scalable code.</p>
+    </section>
+
+    <section>
+        <p style="font-weight: 500; color: #111; margin-bottom: 1rem;">Selected Projects</p>
+        <ul>
+            <li><a href="https://github.com/artttj/sento">Sento</a> — Chrome extension for AI-powered text rewriting</li>
+            <li><a href="https://github.com/artttj/synto">Synto</a> — Clean Markdown extraction for LLM workflows</li>
+            <li><a href="https://github.com/artttj/nemo">Nemo</a> — Privacy-first password manager with biometric unlock</li>
+            <li><a href="https://github.com/artttj/awesome-hyva">Awesome Hyvä</a> — Curated resources for modern Magento storefronts</li>
+        </ul>
+    </section>
+
+    <section>
+        <div class="links">
+            <a href="/cv/">CV</a>
+            <a href="https://github.com/artttj">GitHub</a>
+            <a href="https://linkedin.com/in/artyom-yagovdik/">LinkedIn</a>
+            <a href="mailto:artyom.yagovdik@gmail.com">Email</a>
+        </div>
+    </section>
+</body>
+</html>
