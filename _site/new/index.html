@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artyom Yagovdik // Systems Architect</title>
+    <title>Artyom Yagovdik
+    <link rel="icon" href="/assets/img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --radius-bento: 28px;
-            --glass-blur: 24px;
-            --bg-base: #f9f9f8; /* Cleaner, less yellow base */
-            --text-dark: #1a1a1a;
-            --text-muted: #3a3a3a;
-            --text-light: #666666;
-            --text-alabaster: #ffffff;
+            --glass-blur: 32px;
+            --bg-base: #F7F5F2;
+            --secondary-glass: rgba(235, 232, 226, 0.4);
+            --text-dark: #1D1D1F;
+            --accent-tech: #3A5A6D;
+            --accent-sage: #B4CDC3;
+            --accent-persimmon: #FF8C69;
         }
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            background:
-                radial-gradient(circle at 20% 20%, #ffffff, transparent 40%),
-                radial-gradient(circle at 80% 60%, #e9e4da, transparent 50%),
-                linear-gradient(#f7f4ee, #f3efe8);
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(58, 90, 109, 0.05), transparent 30%),
+                radial-gradient(circle at 90% 90%, rgba(58, 90, 109, 0.05), transparent 30%),
+                var(--bg-base);
             min-height: 100vh;
             padding: 2rem 1.5rem;
             overflow-x: hidden;
@@ -39,12 +41,14 @@
         .glass {
             position: relative;
             border-radius: var(--radius-bento);
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+            background: var(--secondary-glass);
+            backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 
+                0 4px 24px rgba(0, 0, 0, 0.02),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
             text-decoration: none;
             color: inherit;
             display: flex;
@@ -59,13 +63,13 @@
             inset: 0;
             pointer-events: none;
             z-index: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.4s;
         }
         .glass:hover {
             transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 30px 70px rgba(0,0,0,0.08);
+            background: rgba(235, 232, 226, 0.5);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.04);
         }
         .grid {
             display: grid;
@@ -79,42 +83,60 @@
             grid-column: 2 / 3;
         }
         .span-2 { grid-column: span 2; }
-        .span-3 { grid-column: span 3; }
-        header.glass {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding: 24px 32px;
-            background: rgba(255, 255, 255, 0.5);
-            min-height: auto;
+        header { 
+            display: flex;
+            flex-direction: row; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 0.75rem; 
+            padding: 16px 32px; 
+            background: #ffffff; 
+            border-radius: var(--radius-bento);
+            border: 1px solid rgba(0,0,0,0.05); 
         }
-        .header-main {
+        .interests-bar { 
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 3rem; 
+            cursor: default;
+        }
+        .interest-primary {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
+        }
+        .interest-secondary {
+            font-size: 0.58rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-tech);
+            opacity: 0.6;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
         }
-        .logo {
-            height: 38px;
-            width: auto;
-            border-radius: 50%;
-            display: block;
-        }
-        h1 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em; margin: 0; }
-        .subtitle { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); }
+        .header-main { display: flex; align-items: center; gap: 20px; }
+        .logo { height: 42px; width: auto; border-radius: 50%; display: block; filter: grayscale(100%) contrast(1.1); }
+        h1 { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.03em; margin: 0; color: var(--text-dark); }
+        .subtitle { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); opacity: 0.8; }
+        .title-group { display: flex; align-items: center; gap: 12px; margin-bottom: 0.5rem; position: relative; z-index: 2; }
+        .project-icon { width: 24px; height: 24px; border-radius: 6px; object-fit: contain; }
         .meta {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            margin-bottom: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--accent-tech);
+            margin-bottom: 1.25rem;
             z-index: 2;
-            opacity: 1;
         }
-        h3 { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.015em; margin-bottom: 0.4rem; position: relative; z-index: 2; color: var(--text-dark); }
-        .glass p { font-size: 0.9rem; line-height: 1.45; z-index: 2; position: relative; font-weight: 600; color: var(--text-dark); max-width: 55ch; }
-        .glass.card-random::after { opacity: 1; }
+        h3 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.015em; margin: 0; }
+        .glass p { font-size: 0.95rem; line-height: 1.5; z-index: 2; position: relative; font-weight: 600; color: var(--text-dark); max-width: 55ch; }
+        .glass.card-random::after { opacity: 0.4; }
         .img-preview {
             position: absolute;
             bottom: 0;
@@ -123,24 +145,19 @@
             height: auto;
             transform: translate(8%, 8%);
             border-radius: 12px;
-            opacity: 0.6;
-            transition: all 0.4s ease;
+            opacity: 0.5;
+            transition: all 0.5s ease;
             z-index: 1;
-            filter: saturate(1.8) contrast(1.1);
-            mask-image: linear-gradient(to top left, black, transparent 75%);
-            -webkit-mask-image: linear-gradient(to top left, black, transparent 75%);
+            filter: saturate(1.8) contrast(1.05);
+            mask-image: radial-gradient(circle at bottom right, black 20%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at bottom right, black 20%, transparent 80%);
         }
-
-        .glass:hover .img-preview {
-            transform: translate(4%, 4%);
-            opacity: 0.85;
-            filter: saturate(2.2) contrast(1.2);
-        }
+        .glass:hover .img-preview { transform: translate(4%, 4%); opacity: 0.8; }
         .links { display: flex; gap: 0.75rem; flex-wrap: nowrap; margin-top: auto; z-index: 5; }
         .glass-btn {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(0,0,0,0.1);
-            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 10px 20px;
             border-radius: 999px;
             font-size: 0.75rem;
             font-weight: 800;
@@ -151,22 +168,24 @@
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             white-space: nowrap;
         }
         .btn-cta { 
-            background: #000; 
+            background: var(--text-dark); 
             color: #fff; 
             border: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
-        .btn-cta:hover { background: #222; color: #fff; transform: translateY(-3px); }
-        .glass-btn:not(.btn-cta):hover { background: #fff; transform: translateY(-3px); border-color: #000; }
+        .btn-cta:hover { background: var(--accent-tech); transform: translateY(-2px); }
+        .glass-btn:not(.btn-cta):hover { background: #fff; transform: translateY(-2px); border-color: var(--accent-tech); }
+        .glass-ghost { opacity: 0.1 !important; transform: scale(0.95); }
+        .glass-drag { opacity: 0.8 !important; box-shadow: 0 40px 100px rgba(0,0,0,0.1) !important; cursor: grabbing !important; }
         .icon { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
         .icon-stroke { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
         @media (max-width: 800px) {
             .grid { grid-template-columns: 1fr; }
-            .span-2, .span-3 { grid-column: span 1; }
+            #network { grid-column: span 1; align-self: stretch; }
             header.glass { flex-direction: column; text-align: center; gap: 1.5rem; }
             .img-preview { display: none; }
             .links { flex-wrap: wrap; justify-content: center; }
@@ -175,47 +194,63 @@
 </head>
 <body>
     <div class="container">
-        <header class="glass">
+        <header>
             <div class="header-main">
                 <img src="/assets/img/logo.png" class="logo" alt="Artyom Yagovdik Logo">
                 <div>
                     <h1>Artyom Yagovdik</h1>
-                    <p class="subtitle">Systems Architect // Engineering Lead</p>
                 </div>
             </div>
             <div class="links">
-                <a href="/cv/" class="glass-btn">
-                    <svg class="icon icon-stroke" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    Resume
-                </a>
                 <a href="mailto:artyom.yagovdik@gmail.com" class="glass-btn btn-cta">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22 6 12 13 2 6"></polyline></svg>
                     Email
                 </a>
             </div>
         </header>
+        <div class="interests-bar">
+            <div class="interest-primary">High-scale systems & AI interfaces</div>
+            <div class="interest-secondary">
+                <span>Cloud-native</span>
+                <span>Privacy</span>
+                <span>Reliability</span>
+                <span>Architecture</span>
+            </div>
+        </div>
         <div id="grid" class="grid">
-            <a href="https://github.com/artttj/sento" class="glass card-random">
+            <a href="https://github.com/artttj/sento" class="glass">
                 <span class="meta">Interface</span>
-                <h3>Sento</h3>
+                <div class="title-group">
+                    <img src="https://raw.githubusercontent.com/artttj/sento/main/icons/icon48.png" class="project-icon" alt="">
+                    <h3>Sento</h3>
+                </div>
                 <p>An AI writing layer designed to live seamlessly in any web interface.</p>
                 <img src="https://raw.githubusercontent.com/artttj/sento/main/screenshots/sento_1400x560.png" class="img-preview" alt="Sento">
             </a>
             <a href="https://github.com/artttj/synto" class="glass card-random">
                 <span class="meta">Extraction</span>
-                <h3>Synto</h3>
+                <div class="title-group">
+                    <img src="https://raw.githubusercontent.com/artttj/synto/main/docs/icon128.png" class="project-icon" alt="">
+                    <h3>Synto</h3>
+                </div>
                 <p>Turning the web into clean, structured data for LLM pipelines.</p>
                 <img src="https://raw.githubusercontent.com/artttj/synto/main/docs/synto_1.png" class="img-preview" alt="Synto">
             </a>
             <a href="https://github.com/artttj/sonto" class="glass card-random">
-                <span class="meta">Utility</span>
-                <h3>Sonto</h3>
+                <span class="meta">Workflow</span>
+                <div class="title-group">
+                    <img src="https://raw.githubusercontent.com/artttj/sonto/main/icons/icon48.png" class="project-icon" alt="">
+                    <h3>Sonto <span style="font-size: 0.65rem; opacity: 0.5; font-weight: 600; margin-left: 8px;">[BETA]</span></h3>
+                </div>
                 <p>A quiet side-panel clipboard manager with history and snippets.</p>
                 <img src="https://raw.githubusercontent.com/artttj/sonto/main/docs/screenshots/e2e_clipboard_light.png" class="img-preview" alt="Sonto">
             </a>
             <a href="https://github.com/artttj/nemo" class="glass card-random">
                 <span class="meta">Security</span>
-                <h3>Nemo</h3>
+                <div class="title-group">
+                    <img src="https://raw.githubusercontent.com/artttj/nemo/main/public/icon-48.png" class="project-icon" alt="">
+                    <h3>Nemo <span style="font-size: 0.65rem; opacity: 0.5; font-weight: 600; margin-left: 8px;">[BETA]</span></h3>
+                </div>
                 <p>Zero-knowledge password security, unlocked with a touch.</p>
                 <img src="https://raw.githubusercontent.com/artttj/nemo/main/tests/screenshots/readme-unlocked.png" class="img-preview" alt="Nemo">
             </a>
@@ -233,31 +268,36 @@
                 </div>
             </div>
         </div>
+        <footer style="margin-top: 3rem; text-align: center; padding-bottom: 2rem;">
+            <a href="/cv/" style="font-family:'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-dark); opacity: 0.4; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">View Resume</a>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
     <script>
         const colors = [
-            '#F0F9FF', '#E0F2FE', '#BAE6FD', '#7DD3FC', // Sky
-            '#EEF2FF', '#E0E7FF', '#C7D2FE', '#A5B4FC', // Indigo
-            '#F0FDFA', '#CCFBF1', '#99F6E4', '#5EEAD4', // Teal/Mint
-            '#F8FAFC', '#F1F5F9', '#E2E8F0', '#CBD5E1', // Slate/Cool Grey
-            '#ECFEFF', '#CFFAFE', '#A5F3FC', '#67E8F9', // Cyan
-            '#F5F3FF', '#EDE9FE', '#DDD6FE', '#C4B5FD', // Violet
-            '#F0FDF4', '#DCFCE7', '#BBF7D0', '#86EFAC', // Emerald/Green
-            '#FAFAF9', '#F5F5F4', '#E7E5E4', '#D6D3D1'  // Stone
+            '#F0FDF4', '#DCFCE7', '#BBF7D0', '#86EFAC', 
+            '#F0F9FF', '#E0F2FE', '#BAE6FD', '#7DD3FC', 
+            '#EEF2FF', '#E0E7FF', '#C7D2FE', '#A5B4FC', 
+            '#F0FDFA', '#CCFBF1', '#99F6E4', '#5EEAD4', 
+            '#ECFEFF', '#CFFAFE', '#A5F3FC', '#67E8F9', 
+            '#F5F3FF', '#EDE9FE', 
+            '#F8FAFC', '#F1F5F9', '#E2E8F0', '#CBD5E1', '#D1D5DB', 
+            '#FAFAF9', '#F5F5F4', '#E7E5E4', '#D6D3D1', 
+            '#3D3630', '#8E7B6D', '#D4A373', '#EFE6DD', '#5F634F', 
+            '#F7F5F2', '#EBE8E2', '#B4CDC3', '#FF8C69' 
         ];
         function randomize() {
+            const grid = document.getElementById('grid');
+            const cards = Array.from(grid.children);
+            cards.sort(() => Math.random() - 0.5);
+            cards.forEach(card => grid.appendChild(card));
             const items = document.querySelectorAll('.card-random');
             const deck = [...colors].sort(() => Math.random() - 0.5);
-            
-            const h1 = document.querySelector('h1');
-            if (h1) {
-                h1.style.color = deck[deck.length - 1];
-            }
-
             items.forEach((item, index) => {
                 const color = deck[index % deck.length];
-                const rgba = hexToRgba(color, 0.6);
+                const rgba = hexToRgba(color, 0.4);
                 const style = document.createElement('style');
-                const className = 'tint-dynamic-' + index;
+                const className = 'tint-dynamic-' + index + '-' + Math.floor(Math.random()*1000);
                 item.classList.add(className);
                 style.innerHTML = `.` + className + `::after { background: ${rgba} !important; opacity: 1 !important; }`;
                 document.head.appendChild(style);
@@ -270,6 +310,14 @@
             return `rgba(${r}, ${g}, ${b}, ${alpha})`;
         }
         randomize();
+        new Sortable(document.getElementById('grid'), {
+            animation: 400,
+            ghostClass: 'glass-ghost',
+            dragClass: 'glass-drag',
+            easing: "cubic-bezier(0.2, 1, 0.3, 1)",
+            onStart: function() { document.body.style.cursor = 'grabbing'; },
+            onEnd: function() { document.body.style.cursor = 'default'; }
+        });
     </script>
 </body>
 </html>
