@@ -48,7 +48,9 @@
             box-shadow: 
                 0 4px 24px rgba(0, 0, 0, 0.02),
                 inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
-            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1), 
+                        opacity 0.6s ease, 
+                        transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
             text-decoration: none;
             color: inherit;
             display: flex;
@@ -56,6 +58,13 @@
             overflow: hidden;
             padding: 32px;
             min-height: 280px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .glass.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
         .glass::after {
             content: "";
@@ -79,8 +88,7 @@
         }
         #network { 
             min-height: auto; 
-            align-self: end;
-            grid-column: 2 / 3;
+            align-self: start;
         }
         .span-2 { grid-column: span 2; }
         header { 
@@ -99,25 +107,32 @@
             flex-direction: column;
             align-items: center;
             gap: 4px;
-            margin-bottom: 3rem; 
+            margin-bottom: 3.5rem; 
+            margin-top: 1rem;
             cursor: default;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.8s ease 0.4s;
+        }
+        .interests-bar.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .interest-primary {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 800;
             color: var(--text-dark);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
         .interest-secondary {
-            font-size: 0.58rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
             color: var(--accent-tech);
-            opacity: 0.6;
+            opacity: 0.5;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 28px;
         }
         .header-main { display: flex; align-items: center; gap: 20px; }
         .logo { height: 42px; width: auto; border-radius: 50%; display: block; filter: grayscale(100%) contrast(1.1); }
@@ -208,11 +223,11 @@
                 </a>
             </div>
         </header>
-        <div class="interests-bar">
-            <div class="interest-primary">High-scale systems & AI interfaces</div>
+        <div id="interests" class="interests-bar">
+            <div class="interest-primary">High-scale systems & AI Human-Interfaces</div>
             <div class="interest-secondary">
                 <span>Cloud-native</span>
-                <span>Privacy</span>
+                <span>Zero-knowledge Privacy</span>
                 <span>Reliability</span>
                 <span>Architecture</span>
             </div>
@@ -310,7 +325,21 @@
             return `rgba(${r}, ${g}, ${b}, ${alpha})`;
         }
         randomize();
-        new Sortable(document.getElementById('grid'), {
+        
+        // Sequence Entrance
+        const grid = document.getElementById('grid');
+        const sortedCards = Array.from(grid.children);
+        
+        const interests = document.getElementById('interests');
+        if (interests) interests.classList.add('visible');
+
+        sortedCards.forEach((card, i) => {
+            setTimeout(() => {
+                card.classList.add('visible');
+            }, i * 60 + 50); // Fast, staggered appearance
+        });
+
+        new Sortable(grid, {
             animation: 400,
             ghostClass: 'glass-ghost',
             dragClass: 'glass-drag',
