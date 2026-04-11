@@ -33,6 +33,29 @@
             --project-bg: rgba(255, 255, 255, 0.03);
         }
 
+        @media (prefers-color-scheme: light) {
+            :root:not([data-theme="dark"]) {
+                --glass-bg: rgba(255, 255, 255, 0.45);
+                --glass-border: rgba(0, 0, 0, 0.08);
+                --glass-highlight: rgba(255, 255, 255, 0.7);
+                --text-primary: rgba(0, 0, 0, 0.85);
+                --text-secondary: rgba(0, 0, 0, 0.45);
+                --accent: #3b7dd8;
+                --bg: #e8e4df;
+                --logo-invert: 0;
+                --blob-1-a: #a8c4e6;
+                --blob-1-b: #c5d8ee;
+                --blob-2-a: #c4b0e0;
+                --blob-2-b: #d9cdef;
+                --blob-3-a: #a0cfc8;
+                --blob-3-b: #bde0db;
+                --blob-opacity: 0.5;
+                --shadow-color: rgba(0, 0, 0, 0.1);
+                --project-hover-bg: rgba(0, 0, 0, 0.05);
+                --project-bg: rgba(0, 0, 0, 0.02);
+            }
+        }
+
         [data-theme="light"] {
             --glass-bg: rgba(255, 255, 255, 0.45);
             --glass-border: rgba(0, 0, 0, 0.08);
@@ -228,7 +251,7 @@
         }
 
         #toggle:checked ~ .panel {
-            max-height: 620px;
+            max-height: 700px;
             opacity: 1;
             transform: translateY(0) scale(1);
         }
@@ -460,6 +483,11 @@
         [data-theme="light"] .theme-toggle .icon-sun  { opacity: 1; transform: rotate(0) scale(1); }
         [data-theme="light"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
 
+        @media (prefers-color-scheme: light) {
+            :root:not([data-theme="dark"]) .theme-toggle .icon-sun  { opacity: 1; transform: rotate(0) scale(1); }
+            :root:not([data-theme="dark"]) .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+        }
+
         @media (max-width: 400px) {
             .panel { width: calc(100vw - 40px); }
         }
@@ -505,6 +533,13 @@
                             <span>Tech news feed curated by AI agents</span>
                         </div>
                     </a>
+                    <a class="project-link" href="https://github.com/artttj/sonto" target="_blank" rel="noopener">
+                        <img src="assets/img/projects/sonto-icon.png" alt="Sonto">
+                        <div class="project-info">
+                            <div class="project-name">Sonto <span class="badge badge-beta">Beta</span></div>
+                            <div class="project-desc">Clipboard manager browser extension</div>
+                        </div>
+                    </a>
                     <a class="project-link" href="https://github.com/artttj/sento" target="_blank" rel="noopener">
                         <img src="assets/img/projects/sento-icon.png" alt="Sento">
                         <div class="project-info">
@@ -534,8 +569,13 @@
         (function() {
             var saved = localStorage.getItem('theme');
             if (saved) document.documentElement.setAttribute('data-theme', saved);
+            function currentTheme() {
+                var attr = document.documentElement.getAttribute('data-theme');
+                if (attr) return attr;
+                return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
             document.querySelector('.theme-toggle').addEventListener('click', function() {
-                var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                var next = currentTheme() === 'light' ? 'dark' : 'light';
                 document.documentElement.setAttribute('data-theme', next);
                 localStorage.setItem('theme', next);
             });
