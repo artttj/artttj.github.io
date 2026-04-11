@@ -1,26 +1,392 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://artttj.de/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artyom Yagovdik</title>
     <link rel="canonical" href="https://artttj.de/">
-    <title>Redirecting to artttj.de...</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-highlight: rgba(255, 255, 255, 0.18);
+            --glass-blur: 24px;
+            --orb-size: 88px;
+            --text-primary: rgba(255, 255, 255, 0.92);
+            --text-secondary: rgba(255, 255, 255, 0.55);
+            --accent: #6eb5ff;
+        }
+
         body {
-            font-family: sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: #1a1a1a;
-            color: #fff;
+            background: #0a0a0f;
+            color: var(--text-primary);
+            overflow: hidden;
         }
-        a { color: #88ccff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+
+        .ambient {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.35;
+            animation: drift 20s ease-in-out infinite alternate;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #1a3a6e, #0d1f3c);
+            top: -15%;
+            left: -10%;
+            animation-duration: 22s;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #2a1a4e, #150d30);
+            bottom: -10%;
+            right: -8%;
+            animation-duration: 18s;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #0e3a3a, #091e1e);
+            top: 40%;
+            left: 55%;
+            animation-duration: 25s;
+            animation-delay: -10s;
+        }
+
+        @keyframes drift {
+            0%   { transform: translate(0, 0) scale(1); }
+            33%  { transform: translate(60px, -40px) scale(1.1); }
+            66%  { transform: translate(-30px, 50px) scale(0.95); }
+            100% { transform: translate(40px, 20px) scale(1.05); }
+        }
+
+        .card-wrap {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #toggle { display: none; }
+
+        .orb {
+            width: var(--orb-size);
+            height: var(--orb-size);
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 var(--glass-highlight),
+                0 0 0 1px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        box-shadow 0.5s ease;
+            animation: float 6s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .orb::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0%,
+                rgba(110, 181, 255, 0.15) 25%,
+                transparent 50%,
+                rgba(160, 120, 255, 0.12) 75%,
+                transparent 100%
+            );
+            animation: shimmer 8s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes shimmer {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .orb:hover {
+            box-shadow:
+                0 12px 48px rgba(110, 181, 255, 0.15),
+                inset 0 1px 0 var(--glass-highlight),
+                0 0 0 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .orb img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            pointer-events: none;
+            filter: invert(1);
+            opacity: 0.85;
+        }
+
+        .panel {
+            margin-top: 20px;
+            width: 320px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.96);
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.4s ease,
+                        transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 24px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 var(--glass-highlight);
+        }
+
+        #toggle:checked ~ .orb {
+            animation: none;
+            transform: scale(0.92);
+            box-shadow:
+                0 4px 16px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 var(--glass-highlight),
+                0 0 24px rgba(110, 181, 255, 0.1);
+        }
+
+        #toggle:checked ~ .panel {
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .panel-inner {
+            padding: 28px 24px 24px;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .profile h1 {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+
+        .profile p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .profile .links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .profile .links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .profile .links a:hover {
+            color: var(--accent);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--glass-border);
+            margin-bottom: 20px;
+        }
+
+        .projects-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
+            transition: background 0.2s, border-color 0.25s, transform 0.2s;
+        }
+
+        .project-link:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--glass-border);
+            transform: translateX(4px);
+        }
+
+        .project-link img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .project-info {
+            min-width: 0;
+        }
+
+        .project-name {
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            font-size: 10px;
+            font-weight: 500;
+            padding: 2px 6px;
+            border-radius: 6px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .badge-live {
+            background: rgba(80, 200, 120, 0.15);
+            color: #50c878;
+        }
+
+        .badge-beta {
+            background: rgba(110, 181, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .project-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        @media (max-width: 400px) {
+            .panel { width: calc(100vw - 40px); }
+        }
     </style>
 </head>
 <body>
-    <p>Redirecting to <a href="https://artttj.de/">artttj.de</a>...</p>
+    <div class="ambient">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="card-wrap">
+        <input type="checkbox" id="toggle">
+
+        <label class="orb" for="toggle">
+            <img src="assets/img/logo.png" alt="AY">
+        </label>
+
+        <div class="panel">
+            <div class="panel-inner">
+                <div class="profile">
+                    <h1>Artyom Yagovdik</h1>
+                    <p>Software Engineer</p>
+                    <div class="links">
+                        <a href="https://artttj.de">site</a>
+                        <a href="https://github.com/artttj">github</a>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="projects-label">Projects</div>
+                <div class="project-list">
+                    <a class="project-link" href="https://github.com/artttj/sento" target="_blank" rel="noopener">
+                        <img src="assets/img/projects/sento-icon.png" alt="Sento">
+                        <div class="project-info">
+                            <div class="project-name">Sento <span class="badge badge-live">Live</span></div>
+                            <div class="project-desc">AI writing layer for any web interface</div>
+                        </div>
+                    </a>
+                    <a class="project-link" href="https://github.com/artttj/synto" target="_blank" rel="noopener">
+                        <img src="assets/img/projects/synto-icon.png" alt="Synto">
+                        <div class="project-info">
+                            <div class="project-name">Synto <span class="badge badge-live">Live</span></div>
+                            <div class="project-desc">Web to structured data for LLM pipelines</div>
+                        </div>
+                    </a>
+                    <a class="project-link" href="https://github.com/artttj/sonto" target="_blank" rel="noopener">
+                        <img src="assets/img/projects/sonto-icon.png" alt="Sonto">
+                        <div class="project-info">
+                            <div class="project-name">Sonto <span class="badge badge-beta">Beta</span></div>
+                            <div class="project-desc">Side-panel clipboard manager</div>
+                        </div>
+                    </a>
+                    <a class="project-link" href="https://github.com/artttj/nemo" target="_blank" rel="noopener">
+                        <img src="assets/img/projects/nemo-icon.png" alt="Nemo">
+                        <div class="project-info">
+                            <div class="project-name">Nemo <span class="badge badge-beta">Beta</span></div>
+                            <div class="project-desc">Zero-knowledge password security</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
