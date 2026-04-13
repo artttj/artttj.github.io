@@ -220,7 +220,7 @@
         }
 
         .panel {
-            margin-top: 20px;
+            margin-top: 14px;
             width: 320px;
             max-height: 0;
             overflow: hidden;
@@ -257,86 +257,66 @@
         }
 
         .panel-inner {
-            padding: 28px 24px 24px;
+            padding: 24px 24px 24px;
         }
 
         .profile {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .profile h1 {
             font-size: 18px;
             font-weight: 600;
             letter-spacing: -0.02em;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .profile p {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-secondary);
             font-weight: 300;
-        }
-
-        .profile .subtitle {
-            font-size: 11px;
-            opacity: 0.7;
-            margin-top: 2px;
         }
 
         .profile .links {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-top: 14px;
+            gap: 6px;
+            margin-top: 6px;
         }
 
         .profile .links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            transition: color 0.2s, background 0.2s;
+            transition: color 0.2s, opacity 0.2s;
             display: flex;
             align-items: center;
-            gap: 5px;
-            padding: 5px 10px;
-            border-radius: 8px;
-            background: var(--project-bg);
+            padding: 4px;
+            border-radius: 6px;
+            opacity: 0.35;
         }
 
         .profile .links a:hover {
             color: var(--accent);
-            background: var(--project-hover-bg);
+            opacity: 1;
         }
 
         .profile .links a svg {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             fill: currentColor;
-            flex-shrink: 0;
-        }
-
-        .profile .links a .link-icon {
-            width: 14px;
-            height: 14px;
-            border-radius: 3px;
-            object-fit: contain;
-            flex-shrink: 0;
         }
 
         .sonto-feature {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 10px 12px;
+            padding: 12px 14px;
             border-radius: 14px;
             text-decoration: none;
             color: var(--text-primary);
             background: var(--project-bg);
-            border: 1px solid transparent;
+            border: 1px solid var(--glass-border);
             transition: background 0.2s, border-color 0.25s, transform 0.2s;
         }
 
@@ -359,6 +339,11 @@
             min-width: 0;
         }
 
+        .sonto-feature .project-name {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
         .sonto-feature .sonto-info span {
             font-size: 12px;
             color: var(--text-secondary);
@@ -368,7 +353,7 @@
         .divider {
             height: 1px;
             background: var(--glass-border);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .projects-label {
@@ -527,12 +512,11 @@
             <div class="panel-inner">
                 <div class="profile">
                     <h1>Artyom Yagovdik</h1>
-                    <p>Engineering Lead, Architect</p>
-                    <p class="subtitle">Building reliable systems at scale</p>
+                    <p>Engineering Lead</p>
                     <div class="links">
-                        <a href="https://github.com/artttj" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>github</a>
-                        <a href="mailto:artyom.yagovdik@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>email</a>
-                        <a href="https://artttj.de/cv" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>cv</a>
+                        <a href="https://github.com/artttj" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
+                        <a href="mailto:artyom.yagovdik@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                        <a href="https://artttj.de/cv" target="_blank" rel="noopener" aria-label="CV"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></a>
                     </div>
                 </div>
 
@@ -543,7 +527,7 @@
                     <a class="sonto-feature" href="https://sonto.tech" target="_blank" rel="noopener">
                         <img class="sonto-wordmark" src="https://artttj.de/assets/img/site-logo.png" alt="Sonto">
                         <div class="sonto-info">
-                            <div class="project-name">Sonto <span class="badge badge-hot">New</span></div>
+                            <div class="project-name">Sonto News <span class="badge badge-hot">New</span></div>
                             <span>Tech news feed curated by AI agents</span>
                         </div>
                     </a>
