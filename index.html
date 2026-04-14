@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artyom Yagovdik</title>
+    <title>Artyom Yagovdik — Engineering Lead</title>
+    <meta name="description" content="Artyom Yagovdik — Engineering Lead. Builder of Sonto, Sento, Synto, and Nemo.">
+    <meta name="author" content="Artyom Yagovdik">
+    <meta property="og:title" content="Artyom Yagovdik — Engineering Lead">
+    <meta property="og:description" content="Engineering Lead. Builder of Sonto, Sento, Synto, and Nemo.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://artttj.de/">
+    <meta property="og:image" content="https://artttj.de/assets/img/logo.png">
+    <meta name="twitter:card" content="summary">
     <link rel="canonical" href="https://artttj.de/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
@@ -220,7 +230,7 @@
         }
 
         .panel {
-            margin-top: 14px;
+            margin-top: 24px;
             width: 320px;
             max-height: 0;
             overflow: hidden;
@@ -228,11 +238,12 @@
             transform: translateY(-10px) scale(0.96);
             border-radius: 24px;
             background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
             border: 1px solid var(--glass-border);
             box-shadow:
-                0 8px 32px var(--shadow-color),
+                0 4px 24px var(--shadow-color),
+                0 16px 48px rgba(0, 0, 0, 0.12),
                 inset 0 1px 0 var(--glass-highlight);
             transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
                         opacity 0.4s ease,
@@ -257,32 +268,34 @@
         }
 
         .panel-inner {
-            padding: 20px 24px 24px;
+            padding: 28px 28px 32px;
         }
 
         .profile {
             text-align: center;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
+            padding-top: 2px;
         }
 
         .profile h1 {
             font-size: 18px;
             font-weight: 600;
             letter-spacing: -0.02em;
-            margin-bottom: 2px;
+            margin-bottom: 0;
         }
 
         .profile p {
             font-size: 12px;
             color: var(--text-secondary);
             font-weight: 300;
+            opacity: 0.75;
         }
 
         .profile .links {
             display: flex;
             justify-content: center;
             gap: 6px;
-            margin-top: 10px;
+            margin-top: 16px;
         }
 
         .profile .links a {
@@ -317,21 +330,22 @@
             color: var(--text-primary);
             background: var(--project-bg);
             border: 1px solid var(--glass-border);
-            transition: background 0.2s, border-color 0.25s, transform 0.2s;
+            transition: background 0.2s, border-color 0.25s, transform 0.15s ease;
         }
 
         .sonto-feature:hover {
             background: var(--project-hover-bg);
             border-color: var(--glass-border);
-            transform: translateX(4px);
+            transform: scale(1.015);
         }
 
         .sonto-wordmark {
-            height: 32px;
-            width: auto;
+            height: 40px;
+            width: 40px;
             object-fit: contain;
-            border-radius: 8px;
+            border-radius: 10px;
             filter: invert(var(--logo-invert));
+            flex-shrink: 0;
             transition: filter 0.4s ease;
         }
 
@@ -354,14 +368,15 @@
         .divider {
             height: 1px;
             background: var(--glass-border);
-            margin-bottom: 20px;
+            opacity: 0.4;
+            margin-bottom: 24px;
         }
 
         .projects-label {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
             color: var(--text-secondary);
-            letter-spacing: 0.08em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             margin-bottom: 12px;
         }
@@ -382,19 +397,19 @@
             color: var(--text-primary);
             background: var(--project-bg);
             border: 1px solid transparent;
-            transition: background 0.2s, border-color 0.25s, transform 0.2s, color 0.4s;
+            transition: background 0.2s, border-color 0.25s, transform 0.15s ease, color 0.4s;
         }
 
         .project-link:hover {
             background: var(--project-hover-bg);
             border-color: var(--glass-border);
-            transform: translateX(4px);
+            transform: scale(1.015);
         }
 
         .project-link img {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             object-fit: cover;
             flex-shrink: 0;
         }
@@ -414,10 +429,12 @@
         .badge {
             font-size: 10px;
             font-weight: 500;
-            padding: 2px 6px;
+            padding: 1px 6px;
             border-radius: 6px;
             letter-spacing: 0.04em;
             text-transform: uppercase;
+            opacity: 0.8;
+            margin-left: 4px;
         }
 
         .badge-live {
@@ -506,7 +523,7 @@
         <input type="checkbox" id="toggle">
 
         <label class="orb" for="toggle">
-            <img src="assets/img/logo.png" alt="AY">
+            <img src="assets/img/logo.png" alt="AY" width="48" height="48" fetchpriority="high">
         </label>
 
         <div class="panel">
@@ -533,28 +550,28 @@
                         </div>
                     </a>
                     <a class="project-link" href="https://chromewebstore.google.com/detail/oddalendfcaonkemohpokibgndnnogag" target="_blank" rel="noopener">
-                        <img src="assets/img/projects/sonto-icon.png" alt="Sonto">
+                        <img src="assets/img/projects/sonto-icon.png" alt="Sonto" width="40" height="40" loading="lazy">
                         <div class="project-info">
                             <div class="project-name">Sonto <span class="badge badge-beta">Beta</span></div>
                             <div class="project-desc">Clipboard manager browser extension</div>
                         </div>
                     </a>
                     <a class="project-link" href="https://chromewebstore.google.com/detail/njdfdfhcnlfkigkppnhbihlidjmiepfb" target="_blank" rel="noopener">
-                        <img src="assets/img/projects/sento-icon.png" alt="Sento">
+                        <img src="assets/img/projects/sento-icon.png" alt="Sento" width="40" height="40" loading="lazy">
                         <div class="project-info">
                             <div class="project-name">Sento <span class="badge badge-live">Live</span></div>
                             <div class="project-desc">AI writing layer for any web interface</div>
                         </div>
                     </a>
                     <a class="project-link" href="https://chromewebstore.google.com/detail/synto/fimopaolcnmojcdilinhmhnnbnnnkhjh" target="_blank" rel="noopener">
-                        <img src="assets/img/projects/synto-icon.png" alt="Synto">
+                        <img src="assets/img/projects/synto-icon.png" alt="Synto" width="40" height="40" loading="lazy">
                         <div class="project-info">
                             <div class="project-name">Synto <span class="badge badge-live">Live</span></div>
                             <div class="project-desc">Web to structured data for LLM pipelines</div>
                         </div>
                     </a>
                     <a class="project-link" href="https://github.com/artttj/nemo" target="_blank" rel="noopener">
-                        <img src="assets/img/projects/nemo-icon.png" alt="Nemo">
+                        <img src="assets/img/projects/nemo-icon.png" alt="Nemo" width="40" height="40" loading="lazy">
                         <div class="project-info">
                             <div class="project-name">Nemo <span class="badge badge-beta">Beta</span></div>
                             <div class="project-desc">Zero-knowledge password security</div>
