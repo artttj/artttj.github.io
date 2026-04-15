@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News — Artyom Yagovdik</title>
+    <meta name="description" content="Tech news curated by AI agents">
+    <meta name="author" content="Artyom Yagovdik">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+    <link rel="canonical" href="https://artttj.de/news">
+    <meta property="og:title" content="News — Artyom Yagovdik">
+    <meta property="og:description" content="Tech news curated by AI agents">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://artttj.de/news">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #ffffff;
+            --text-main: #111111;
+            --text-secondary: #4a4a4a;
+            --text-tertiary: #7a7a7a;
+            --border: #e5e5e5;
+            --accent: #3b7dd8;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0a0f;
+            --text-main: #ffffff;
+            --text-secondary: #aaaaaa;
+            --text-tertiary: #888888;
+            --border: #2a2a2a;
+            --accent: #6eb5ff;
+            --card-bg: #141418;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0a0a0f;
+                --text-main: #ffffff;
+                --text-secondary: #aaaaaa;
+                --text-tertiary: #888888;
+                --border: #2a2a2a;
+                --accent: #6eb5ff;
+                --card-bg: #141418;
+                --shadow: rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .header a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .header a:hover {
+            color: var(--accent);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: background 0.2s, border-color 0.2s;
+            color: var(--text-main);
+        }
+
+        .theme-toggle:hover {
+            background: var(--border);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        /* ============================================
+           NEWS CARD STYLES WITH BEST PRACTICES
+           ============================================ */
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px var(--shadow);
+            border: 1px solid var(--border);
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px var(--shadow);
+        }
+
+        /* Card Actions (top right) */
+        .card-actions {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .news-card:hover .card-actions {
+            opacity: 1;
+        }
+
+        .card-actions button {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.15s;
+            color: #ffffff;
+        }
+
+        .card-actions button:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        /* Meta info (top left) */
+        .meta {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+            flex-wrap: wrap;
+        }
+
+        .featured-badge {
+            background: rgba(255, 100, 50, 0.95);
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .meta-category {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 11px;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .meta-sep {
+            color: rgba(255, 255, 255, 0.6);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+        .meta-time, .meta-source {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 11px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Card Link (entire card is clickable) */
+        .card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+        }
+
+        /* ============================================
+           PULL QUOTE VISIBILITY - BEST PRACTICES
+           Combined approach: gradient + stroke + shadow
+           ============================================ */
+
+        /* Gradient overlay for image area */
+        .card-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                transparent 30%,
+                rgba(0, 0, 0, 0.4) 55%,
+                rgba(0, 0, 0, 0.7) 75%,
+                rgba(0, 0, 0, 0.9) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .news-card-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Text content positioning */
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            z-index: 2;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            /* Text visibility: stroke + shadow */
+            -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.6);
+            text-shadow:
+                0 0 2px rgba(0, 0, 0, 0.95),
+                0 1px 3px rgba(0, 0, 0, 0.85),
+                0 2px 6px rgba(0, 0, 0, 0.6),
+                0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ★ PULL QUOTE - Primary text over image ★ */
+        .pull-quote {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            /* Combined visibility techniques */
+            -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.7);
+            text-shadow:
+                0 0 2px rgba(0, 0, 0, 1),
+                0 1px 3px rgba(0, 0, 0, 0.9),
+                0 2px 6px rgba(0, 0, 0, 0.7),
+                0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-summary {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .external-arrow {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 2;
+            transition: transform 0.2s;
+        }
+
+        .card-link:hover .external-arrow {
+            transform: translate(2px, -2px);
+        }
+
+        /* Accessibility: Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .news-card,
+            .card-actions,
+            .card-link:hover .external-arrow {
+                transition: none;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+            .card-title {
+                font-size: 1rem;
+            }
+            .pull-quote {
+                font-size: 0.875rem;
+            }
+            .card-summary {
+                font-size: 0.8125rem;
+            }
+            .card-actions {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Tech News</h1>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="/">← Back to Hub</a>
+            <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+                <span id="theme-icon">☾</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="news-grid">
+            <!-- Featured Card -->
+            <article class="news-card">
+                <div class="card-actions">
+                    <button title="Save for later" aria-label="Save for later">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </button>
+                    <button title="Copy" aria-label="Copy">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                    </button>
+                    <button title="Dismiss" aria-label="Dismiss">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <span class="meta">
+                    <span class="featured-badge">Featured</span>
+                    <span class="meta-category">Security</span>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-time">3h</span>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-source">SecurityWeek</span>
+                </span>
+
+                <a href="https://www.securityweek.com/10-domain-could-have-handed-hackers-25k-endpoints-in-ot-and-gov-networks/"
+                   target="_blank" rel="noopener noreferrer" class="card-link">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=672&h=384&fit=crop"
+                         class="news-card-img" alt="Cybersecurity" width="672" height="384" loading="eager">
+                    <div class="card-content">
+                        <h3 class="card-title">Researchers Hijack 25,000 Endpoints via $10 Expired Domain</h3>
+                        <p class="pull-quote">$10 domain controlled 25,000 critical endpoints</p>
+                        <p class="card-summary">Researchers registered a $10 expired domain to intercept traffic from 25,000 endpoints, including government and industrial systems.</p>
+                    </div>
+                    <svg class="external-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4.5 1.5H10.5V7.5"/>
+                        <path d="M10.5 1.5L1.5 10.5"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- Second Card -->
+            <article class="news-card">
+                <div class="card-actions">
+                    <button title="Save for later" aria-label="Save for later">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </button>
+                    <button title="Copy" aria-label="Copy">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <span class="meta">
+                    <span class="meta-category">AI</span>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-time">5h</span>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-source">TechCrunch</span>
+                </span>
+
+                <a href="#" class="card-link">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=672&h=384&fit=crop"
+                         class="news-card-img" alt="AI Technology" width="672" height="384" loading="lazy">
+                    <div class="card-content">
+                        <h3 class="card-title">New AI Model Achieves 95% Accuracy on Medical Diagnostics</h3>
+                        <p class="pull-quote">Breakthrough in AI-powered healthcare detection</p>
+                        <p class="card-summary">Researchers developed a new neural network architecture that outperforms human doctors in early-stage disease detection.</p>
+                    </div>
+                    <svg class="external-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4.5 1.5H10.5V7.5"/>
+                        <path d="M10.5 1.5L1.5 10.5"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- Third Card -->
+            <article class="news-card">
+                <div class="card-actions">
+                    <button title="Save for later" aria-label="Save for later">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <span class="meta">
+                    <span class="meta-category">DevOps</span>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-time">8h</span>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-source">The Register</span>
+                </span>
+
+                <a href="#" class="card-link">
+                    <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=672&h=384&fit=crop"
+                         class="news-card-img" alt="Cloud Infrastructure" width="672" height="384" loading="lazy">
+                    <div class="card-content">
+                        <h3 class="card-title">Cloud Providers Slash Prices by 40% in Price War</h3>
+                        <p class="pull-quote">Major cloud price cuts reshape the market</p>
+                        <p class="card-summary">AWS, GCP, and Azure announce significant price reductions as competition intensifies in the cloud computing market.</p>
+                    </div>
+                    <svg class="external-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4.5 1.5H10.5V7.5"/>
+                        <path d="M10.5 1.5L1.5 10.5"/>
+                    </svg>
+                </a>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Curated by AI agents · Updated continuously</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', next);
+            icon.textContent = next === 'dark' ? '☾' : '☀';
+
+            localStorage.setItem('theme', next);
+        }
+
+        // Restore saved theme
+        const saved = localStorage.getItem('theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+            document.getElementById('theme-icon').textContent = saved === 'dark' ? '☾' : '☀';
+        }
+    </script>
+</body>
+</html>

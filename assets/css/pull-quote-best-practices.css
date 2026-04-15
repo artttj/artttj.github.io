@@ -1,0 +1,365 @@
+/* ============================================
+   PULL QUOTE VISIBILITY - BEST PRACTICES
+   Solutions for text over dark images in light theme
+   ============================================ */
+
+/* ============================================
+   METHOD 1: TEXT-STROKE (Webkit + Standard)
+   Clean outline around text for maximum contrast
+   ============================================ */
+.pull-quote-stroke {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #ffffff;
+    /* Webkit stroke */
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.8);
+    /* Standard fallback */
+    text-stroke: 0.5px rgba(0, 0, 0, 0.8);
+    /* Shadow as backup for browsers without stroke support */
+    text-shadow:
+        0 0 1px rgba(0, 0, 0, 0.9),
+        0 1px 3px rgba(0, 0, 0, 0.8),
+        0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Thicker stroke for better visibility */
+.pull-quote-stroke-thick {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #ffffff;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* ============================================
+   METHOD 2: LAYERED SHADOWS (Most Compatible)
+   Multiple shadow layers create depth and glow effect
+   ============================================ */
+.pull-quote-shadow {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #ffffff;
+    /* 4-layer shadow for depth */
+    text-shadow:
+        /* Inner tight shadow for crisp edge */
+        0 0 2px rgba(0, 0, 0, 0.95),
+        /* Medium shadow for body */
+        0 1px 3px rgba(0, 0, 0, 0.85),
+        /* Outer soft shadow for glow */
+        0 2px 8px rgba(0, 0, 0, 0.6),
+        /* Ambient glow */
+        0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   METHOD 3: BACKDROP BLUR BOX (Modern Glassmorphism)
+   Semi-transparent dark box with blur effect
+   ============================================ */
+.pull-quote-backdrop {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   METHOD 4: GRADIENT TEXT MASK
+   Uses mix-blend-mode for automatic contrast
+   ============================================ */
+.pull-quote-blend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #ffffff;
+    /* Exclusion blend inverts based on background */
+    mix-blend-mode: exclusion;
+    /* Ensure text has some glow */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   METHOD 5: CONTOUR/DUPLICATE TEXT (CSS-Only Outline)
+   Uses pseudo-elements for a glow outline effect
+   ============================================ */
+.pull-quote-contour {
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #ffffff;
+    z-index: 2;
+}
+
+/* Create outline using text-shadow in all directions */
+.pull-quote-contour {
+    text-shadow:
+        /* All 8 directions for solid outline */
+        -1px -1px 0 rgba(0, 0, 0, 0.8),
+         1px -1px 0 rgba(0, 0, 0, 0.8),
+        -1px  1px 0 rgba(0, 0, 0, 0.8),
+         1px  1px 0 rgba(0, 0, 0, 0.8),
+        /* Additional glow */
+        -2px  0   4px rgba(0, 0, 0, 0.5),
+         2px  0   4px rgba(0, 0, 0, 0.5),
+         0   -2px 4px rgba(0, 0, 0, 0.5),
+         0    2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   METHOD 6: SCABBARD TECHNIQUE (Text Background)
+   Inline background segments behind text
+   ============================================ */
+.pull-quote-scabbard {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #ffffff;
+    /* Box decoration breaks for multi-line */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   ★ RECOMMENDED: COMBINED APPROACH ★
+   Gradient overlay + text shadow + subtle stroke
+   Best results across all browsers and themes
+   ============================================ */
+
+/* Card container setup */
+.news-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg, #ffffff);
+}
+
+/* Image container with gradient overlay */
+.news-card-image-wrap {
+    position: relative;
+}
+
+/* The gradient overlay - sits between image and text */
+.news-card-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        transparent 30%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.6) 70%,
+        rgba(0, 0, 0, 0.85) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Recommended pull-quote style */
+.pull-quote-best {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+    /* Slight stroke for crispness */
+    -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.5);
+    /* Layered shadows for depth */
+    text-shadow:
+        0 0 2px rgba(0, 0, 0, 0.9),
+        0 1px 3px rgba(0, 0, 0, 0.8),
+        0 2px 6px rgba(0, 0, 0, 0.5),
+        0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   THEME-AWARE ADAPTATIONS
+   ============================================ */
+
+/* Light theme needs stronger shadows */
+@media (prefers-color-scheme: light) {
+    .pull-quote-best,
+    .pull-quote-shadow {
+        text-shadow:
+            0 0 2px rgba(0, 0, 0, 1),
+            0 1px 4px rgba(0, 0, 0, 0.95),
+            0 2px 8px rgba(0, 0, 0, 0.8),
+            0 4px 16px rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* Manual theme attribute support */
+[data-theme="light"] .pull-quote-best,
+[data-theme="light"] .pull-quote-shadow {
+    text-shadow:
+        0 0 2px rgba(0, 0, 0, 1),
+        0 1px 4px rgba(0, 0, 0, 0.95),
+        0 2px 8px rgba(0, 0, 0, 0.8),
+        0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================
+   META INFO STYLES (Category, Time, Source)
+   ============================================ */
+.meta-category,
+.meta-time,
+.meta-source {
+    position: relative;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Featured badge visibility */
+.featured-badge {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 100, 50, 0.95);
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+    .pull-quote-best,
+    .pull-quote-stroke,
+    .pull-quote-shadow,
+    .pull-quote-backdrop,
+    .pull-quote-contour,
+    .pull-quote-scabbard {
+        font-size: 0.95rem;
+    }
+
+    .pull-quote-backdrop {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pull-quote-best,
+    .pull-quote-stroke,
+    .pull-quote-shadow,
+    .pull-quote-contour {
+        font-size: 0.9rem;
+        /* Slightly reduced shadows on small screens */
+        text-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.9),
+            0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY: REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .pull-quote-backdrop {
+        /* Disable blur for performance */
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.75);
+    }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE SUPPORT
+   ============================================ */
+@media (prefers-contrast: high) {
+    .pull-quote-best,
+    .pull-quote-stroke,
+    .pull-quote-shadow {
+        color: #ffffff;
+        text-shadow: none;
+        -webkit-text-stroke: 1px #000000;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 4px 8px;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    .pull-quote-best,
+    .pull-quote-stroke,
+    .pull-quote-shadow,
+    .pull-quote-contour {
+        color: #000000;
+        text-shadow: none;
+        -webkit-text-stroke: none;
+        background: transparent;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Quick fixes for existing elements */
+.text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-md {
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.7),
+        0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-lg {
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.9),
+        0 2px 8px rgba(0, 0, 0, 0.7),
+        0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Gradient overlay utility */
+.has-gradient-overlay {
+    position: relative;
+}
+
+.has-gradient-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    pointer-events: none;
+}
+
+.has-gradient-overlay > * {
+    position: relative;
+    z-index: 1;
+}
