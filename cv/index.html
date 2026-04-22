@@ -117,12 +117,12 @@
         }
 
         .contact-row a {
-            border-bottom: 1px solid var(--rule);
-            padding-bottom: 1px;
-            transition: color 0.2s, border-color 0.2s;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
-        .contact-row a:hover { color: var(--accent); border-color: var(--accent); }
+        .contact-row a:hover { color: var(--accent); }
 
         .contact-row .sep {
             color: var(--text-faint);
@@ -231,17 +231,21 @@
 
         .project-item a.project-link {
             display: inline-block;
-            margin-top: 0.3rem;
+            margin-top: 0.35rem;
             font-size: 0.72rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.12em;
             font-weight: 700;
-            border-bottom: 1px solid var(--rule);
-            padding-bottom: 1px;
+            transition: color 0.2s;
         }
 
-        .project-item a.project-link:hover { color: var(--accent); border-color: var(--accent); }
+        .project-item a.project-link::before {
+            content: "↗ ";
+            margin-right: 0.15em;
+        }
+
+        .project-item a.project-link:hover { color: var(--accent); }
 
         .skill-grid {
             display: grid;
@@ -432,45 +436,14 @@
         </section>
 
         <section class="cv-section">
-            <span class="section-label">Selected Projects</span>
-            <div class="cv-content">
-                <div class="projects-grid">
-                    <div class="project-item">
-                        <h4>Sonto</h4>
-                        <div class="stack">Preact + Signals · Hermes agent · SQLite · multi-provider LLM</div>
-                        <p>An autonomous tech news feed that runs itself. A Hermes agent on a remote VPS crawls 70+ RSS sources, runs two-pass dedup (title normalization, then a brand-and-event rule), scores and rewrites via a set of cloud LLMs with provider fallback, and generates a hero image per article. Frontend is Preact + Signals, around 20 KB gzipped.</p>
-                        <a class="project-link" href="https://sonto.tech" target="_blank" rel="noopener noreferrer">sonto.tech</a>
-                    </div>
-                    <div class="project-item">
-                        <h4>Noto</h4>
-                        <div class="stack">TypeScript · Chrome MV3 · local-only storage</div>
-                        <p>A clipboard and prompt manager for people who keep losing good prompts and copied text. No accounts, no tracking, no network calls. Everything stays in the browser. Auto-saves every copy, pins, tags, exports, and inserts prompts into the active form field in one click.</p>
-                        <a class="project-link" href="https://chromewebstore.google.com/detail/oddalendfcaonkemohpokibgndnnogag" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
-                    </div>
-                    <div class="project-item">
-                        <h4>Sentō</h4>
-                        <div class="stack">TypeScript · Chrome MV3 · zero runtime deps</div>
-                        <p>An AI writing layer that works inside any web text field. Users bring their own OpenAI, Gemini, or Grok key and get one-click rewrite, grammar fixes, and custom prompts. No signup, no middleman backend. Data goes straight from the browser to the user's chosen provider.</p>
-                        <a class="project-link" href="https://chromewebstore.google.com/detail/njdfdfhcnlfkigkppnhbihlidjmiepfb" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
-                    </div>
-                    <div class="project-item">
-                        <h4>Wolton</h4>
-                        <div class="stack">Docker Compose · Hermes agent · Nginx Proxy Manager</div>
-                        <p>The infrastructure that runs a fleet of personal services on a single VPS. Nginx Proxy Manager handles SSL and routing, Dozzle and Uptime Kuma for observability, Watchtower for container updates, Hermes agent for scheduled cronjobs including the Sonto ingestion pipeline. Everything as code, zero-click deploys.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cv-section">
             <span class="section-label">Experience</span>
             <div class="cv-content">
                 <div class="cv-block">
                     <h3>Engineering Team Lead</h3>
                     <div class="meta">Y1 Digital AG <span class="sep">//</span> Frankfurt, DE <span class="sep">//</span> Nov 2024 – Present</div>
                     <ul>
-                        <li>Lead a cross-functional engineering team across commerce platforms, Node.js services, and DevOps.</li>
-                        <li>Keep major retailers online through peak-traffic events, with 100% uptime through Black Friday and live DDoS mitigation.</li>
+                        <li>Lead a cross-functional engineering team across commerce platforms, Node.js / Express services, and DevOps.</li>
+                        <li>Keep major fashion retailers online through Black Friday peaks, with 100% uptime and live DDoS mitigation.</li>
                         <li>Drive architectural decisions that trade off business ROI against long-term system stability.</li>
                         <li>Maintain production observability and ops tooling (Sentry, Uptime Kuma, AWS ECS) alongside the engineers who own each system.</li>
                         <li>Shipped internal tooling that cut manual dev-ops work by around 40%.</li>
@@ -511,7 +484,7 @@
                     </div>
                     <div class="skill-item">
                         <h4>Backend</h4>
-                        <p>Node.js, TypeScript, PHP, Ruby on Rails, Python, REST and event-driven services.</p>
+                        <p>Node.js (Express), TypeScript, PHP, Ruby on Rails, Python, REST and event-driven services.</p>
                     </div>
                     <div class="skill-item">
                         <h4>Data &amp; Caching</h4>
@@ -534,14 +507,51 @@
         </section>
 
         <section class="cv-section">
+            <span class="section-label">Side Projects</span>
+            <div class="cv-content">
+                <div class="projects-grid">
+                    <div class="project-item">
+                        <h4>Sonto</h4>
+                        <div class="stack">Preact + Signals · Hermes agent · SQLite · multi-provider LLM</div>
+                        <p>An autonomous tech news feed that runs itself. A Hermes agent on a remote VPS crawls 70+ RSS sources, runs two-pass dedup (title normalization, then a brand-and-event rule), scores and rewrites via a set of cloud LLMs with provider fallback, and generates a hero image per article. Frontend is Preact + Signals, around 20 KB gzipped.</p>
+                        <a class="project-link" href="https://sonto.tech" target="_blank" rel="noopener noreferrer">sonto.tech</a>
+                    </div>
+                    <div class="project-item">
+                        <h4>Noto</h4>
+                        <div class="stack">TypeScript · Chrome MV3 · local-only storage</div>
+                        <p>A clipboard and prompt manager for people who keep losing good prompts and copied text. No accounts, no tracking, no network calls. Everything stays in the browser. Auto-saves every copy, pins, tags, exports, and inserts prompts into the active form field in one click.</p>
+                        <a class="project-link" href="https://chromewebstore.google.com/detail/oddalendfcaonkemohpokibgndnnogag" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+                    </div>
+                    <div class="project-item">
+                        <h4>Sentō</h4>
+                        <div class="stack">TypeScript · Chrome MV3 · zero runtime deps</div>
+                        <p>An AI writing layer that works inside any web text field. Users bring their own OpenAI, Gemini, or Grok key and get one-click rewrite, grammar fixes, and custom prompts. No signup, no middleman backend. Data goes straight from the browser to the user's chosen provider.</p>
+                        <a class="project-link" href="https://chromewebstore.google.com/detail/njdfdfhcnlfkigkppnhbihlidjmiepfb" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+                    </div>
+                    <div class="project-item">
+                        <h4>Wolton</h4>
+                        <div class="stack">Docker Compose · Hermes agent · Nginx Proxy Manager</div>
+                        <p>The infrastructure that runs a fleet of personal services on a single VPS. Nginx Proxy Manager handles SSL and routing, Dozzle and Uptime Kuma for observability, Watchtower for container updates, Hermes agent for scheduled cronjobs including the Sonto ingestion pipeline. Everything as code, zero-click deploys.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cv-section">
             <span class="section-label">Certifications</span>
             <div class="cv-content">
                 <div class="cert-list">
+                    <div class="cert-item">
+                        <span class="cert-title">Anthropic · AI Fluency: Frameworks and Foundations</span> · 2025
+                    </div>
                     <div class="cert-item">
                         <span class="cert-title">AWS · Exploring Artificial Intelligence Use Cases and Applications</span> · 2025
                     </div>
                     <div class="cert-item">
                         <span class="cert-title">AWS · Fundamentals of Machine Learning and Artificial Intelligence</span> · 2025
+                    </div>
+                    <div class="cert-item">
+                        <span class="cert-title">Udemy · TypeScript for Professionals</span> · 2023
                     </div>
                 </div>
             </div>
