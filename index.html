@@ -24,6 +24,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://artttj.de/assets/img/og-image.jpg">
     <meta name="robots" content="index, follow">
+    <script>
+        // Prevent theme flash - must run before CSS parses
+        (function() {
+            try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'light' || saved === 'dark') {
+                    document.documentElement.setAttribute('data-theme', saved);
+                }
+            } catch (e) {}
+        })();
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
@@ -579,8 +590,8 @@
                     <a class="project-link" href="https://chromewebstore.google.com/detail/oddalendfcaonkemohpokibgndnnogag" target="_blank" rel="noopener">
                         <img src="assets/img/projects/noto-icon.png" alt="Noto" width="40" height="40" loading="lazy">
                         <div class="project-info">
-                            <div class="project-name">Noto <span class="badge badge-beta">Beta</span></div>
-                            <div class="project-desc">Clipboard manager browser extension</div>
+                            <div class="project-name">Noto <span class="badge badge-live">Live</span></div>
+                            <div class="project-desc">Clipboard and prompt manager for the browser</div>
                         </div>
                     </a>
                     <a class="project-link" href="https://chromewebstore.google.com/detail/synto/fimopaolcnmojcdilinhmhnnbnnnkhjh" target="_blank" rel="noopener">
@@ -596,8 +607,6 @@
     </div>
     <script>
         (function() {
-            var saved = localStorage.getItem('theme');
-            if (saved) document.documentElement.setAttribute('data-theme', saved);
             function currentTheme() {
                 var attr = document.documentElement.getAttribute('data-theme');
                 if (attr) return attr;
